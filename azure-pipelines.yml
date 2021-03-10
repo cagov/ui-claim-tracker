@@ -13,15 +13,12 @@ pool:
 pr: none
 
 
-
 steps:
-
 
   - script: yarn install
     displayName: "yarn install"    
   
  
-
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: "$(build.sourcesDirectory)"
