@@ -6,26 +6,29 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
 
 # no PR triggers
 pr: none
 
+pool:
+  vmImage: "ubuntu-latest"
 
 steps:
-    
-      
-  - script: yarn install --frozen-lockfile
-    displayName: "yarn install"    
+  - task: NodeAndNpmTool@1
+    inputs:
+      versionSpec: '14.x'
+      checkLatest: true
+
+  - script: npm install -g yarn
+
+  - script: yarn install
+    displayName: 'Install dependencies'
+
+  - script: yarn build
+    displayName: 'build'
+
   
 
-  - script:  yarn run build
-    displayName: "yarn build"
-    
-  
-  
-  
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: "$(build.sourcesDirectory)"
@@ -33,3 +36,4 @@ steps:
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
+
