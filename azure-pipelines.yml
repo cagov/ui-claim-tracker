@@ -34,7 +34,6 @@ steps:
 
   - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
     displayName: 'ZIP com SymLinks'
-    workingDirectory: 'modules/web'
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
