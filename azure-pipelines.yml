@@ -27,15 +27,16 @@ steps:
   - script: yarn build
     displayName: 'build'
 
-  - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
-    displayName: 'ZIP com SymLinks'
-    workingDirectory: 'modules/web'
-
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: "$(build.sourcesDirectory)"
       includeRootFolder: false
 
+  - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
+    displayName: 'ZIP com SymLinks'
+    workingDirectory: 'modules/web'
+
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
+
 
