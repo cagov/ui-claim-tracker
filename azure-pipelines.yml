@@ -19,7 +19,7 @@ steps:
       versionSpec: '14.x'
       checkLatest: true
 
-  - script: npm install -g yarn
+  - script: sudo npm install -g yarn
 
   - script: yarn install
     displayName: 'Install dependencies'
