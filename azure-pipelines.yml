@@ -27,7 +27,9 @@ steps:
   - script: yarn build
     displayName: 'build'
 
-  
+  - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
+    displayName: 'ZIP com SymLinks'
+    workingDirectory: 'modules/web'
 
   - task: ArchiveFiles@2
     inputs:
