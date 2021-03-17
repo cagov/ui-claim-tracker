@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "node_modules/next/dist/.bin/next start",
-    "test": "jest --ci --coverage --watch",
+    "test": "jest --ci --coverage",
     "test:update-snapshots": "jest -u",
     "test:watch": "jest --watch"
   },
@@ -21,8 +21,10 @@
     "babel-jest": "^26.6.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-junit": "^12.0.0",
+    "jest-transform-stub": "^2.0.0",
     "typescript": "^4.2.3"
   }
 }
