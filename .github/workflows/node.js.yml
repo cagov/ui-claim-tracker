@@ -25,6 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install yarn
+    - run: yarn add path stream
     - run: yarn install
     - run: yarn build
     - run: yarn test
