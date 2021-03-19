@@ -27,6 +27,6 @@ describe("Exemplar-react-test renderer Snapshot test", () => {
 describe("Example react testing-library Test", () => {
   it('has NextJS welcome text', () => {
     render(<Index />)
-    expect(screen.queryByText("Welcome to").toBeInTheDocument())
+    expect(screen.queryByText("Welcome to")).toBeInTheDocument()
   })
 })
