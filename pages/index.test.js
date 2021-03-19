@@ -1,15 +1,3 @@
-//import MyApp from "./_app";
-//import React from "react";
-//import { shallow } from "enzyme";
-//
-//describe("<MyApp />", () => {
-//  it("renders application", () => {
-//    const wrapper = shallow(<MyApp />);
-//
-//    expect(wrapper).toMatchSnapshot();
-//  });
-//});
-
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {render, screen} from '@testing-library/react'
