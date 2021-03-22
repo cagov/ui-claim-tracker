@@ -1,7 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {render, screen} from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
 import Index from '../pages/index'
 
 describe("Exemplar-react-test renderer Snapshot test", () => {
