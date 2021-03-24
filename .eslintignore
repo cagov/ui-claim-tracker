@@ -1,0 +1,4 @@
+*.config.js
+__mocks__
+tests/__snapshots__
+coverage
