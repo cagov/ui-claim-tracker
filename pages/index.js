@@ -5,13 +5,13 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Placeholder Claimtracker App</title>
+        <title>Placeholder Claim Tracker App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to the Placeholder Claimtracker App
+          Welcome to the Placeholder Claim Tracker App
         </h1>
 
         <div>
@@ -22,11 +22,11 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <a
-          href="https://navapbc.com"
+          href="https://www.navapbc.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by NavaPBC
+          Powered by Nava PBC
         </a>
       </footer>
     </div>
