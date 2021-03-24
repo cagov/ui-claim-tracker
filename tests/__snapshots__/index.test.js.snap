@@ -4,75 +4,27 @@ exports[`Exemplar-react-test renderer Snapshot test renders homepage unchanged 1
 <div>
   <main>
     <h1>
-      Welcome to 
-      <a
-        href="https://nextjs.org"
-      >
-        Next.js!
-      </a>
+      Welcome to the Placeholder Claim Tracker App
     </h1>
-    <p>
-      Get started by editing
-       
-      <code>
-        pages/index.js
-      </code>
-    </p>
     <div>
-      <a
-        href="https://nextjs.org/docs"
-      >
-        <h3>
-          Documentation →
-        </h3>
-        <p>
-          Find in-depth information about Next.js features and API.
-        </p>
-      </a>
-      <a
-        href="https://nextjs.org/learn"
-      >
-        <h3>
-          Learn →
-        </h3>
-        <p>
-          Learn about Next.js in an interactive course with quizzes!
-        </p>
-      </a>
-      <a
-        href="https://github.com/vercel/next.js/tree/master/examples"
-      >
-        <h3>
-          Examples →
-        </h3>
-        <p>
-          Discover and deploy boilerplate example Next.js projects.
-        </p>
-      </a>
-      <a
-        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-      >
-        <h3>
-          Deploy →
-        </h3>
-        <p>
-          Instantly deploy your Next.js site to a public URL with Vercel.
-        </p>
-      </a>
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen={true}
+        frameBorder="0"
+        height="315"
+        src="https://www.youtube.com/embed/EIyixC9NsLI"
+        title="YouTube video player"
+        width="560"
+      />
     </div>
   </main>
   <footer>
     <a
-      href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+      href="https://www.navapbc.com/"
       rel="noopener noreferrer"
       target="_blank"
     >
-      Powered by
-       
-      <img
-        alt="Vercel Logo"
-        src="/vercel.svg"
-      />
+      Powered by Nava PBC
     </a>
   </footer>
 </div>
