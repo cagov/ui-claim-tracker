@@ -20,5 +20,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    "jest/consistent-test-it": ["error", { "fn": "it" }],
+    "jest/no-try-expect": "off"
   }
 }
