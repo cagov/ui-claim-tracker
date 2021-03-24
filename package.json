@@ -9,7 +9,7 @@
     "test": "jest --ci --coverage",
     "test:update-snapshots": "jest -u",
     "test:watch": "jest --watch",
-    "lint:js": "eslint --ext .js ./"
+    "lint:js": "eslint --ext .ts --ext .js ./"
   },
   "dependencies": {
     "next": "10.0.8",
