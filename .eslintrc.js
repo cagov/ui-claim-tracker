@@ -1,11 +1,17 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
+    jest: true,
     es6: true
   },
   extends: [
+    'nava',
     'plugin:react/recommended',
-    'nava'
+    'plugin:jest/recommended',
+    'plugin:testing-library/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -13,14 +19,18 @@ module.exports = {
       jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module'
+    project: ['./tsconfig.json'],
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
   },
   plugins: [
+    'jest',
     'react',
+    'testing-library',
     '@typescript-eslint'
   ],
   rules: {
-    "jest/consistent-test-it": ["error", { "fn": "it" }],
-    "jest/no-try-expect": "off"
+    "jest/no-try-expect": "off",
+
   }
 }
