@@ -1,4 +1,4 @@
-import renderer from "react-test-renderer";
+import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import Index from '../pages/index';
 
@@ -12,6 +12,6 @@ describe('Exemplar-react-test renderer Snapshot test', () => {
 describe('Example react testing-library Test', () => {
   it('has our placeholder app', () => {
     render(<Index />);
-    expect(screen.queryByText('Welcome to the Placeholder Claim Tracker App')).toBeInTheDocument();
+    expect(screen.queryByText('Welcome to the Placeholder Claim Tracker App!')).toBeInTheDocument();
   });
 });
