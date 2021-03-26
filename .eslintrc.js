@@ -39,6 +39,6 @@ module.exports = {
   ],
   rules: {
     "jest/no-try-expect": "off",
-
+    "react/react-in-jsx-scope": "off",
   }
 }
