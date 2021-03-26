@@ -38,7 +38,6 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    "jest/no-try-expect": "off",
     "react/react-in-jsx-scope": "off",
   }
 }
