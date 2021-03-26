@@ -9,7 +9,8 @@
     "test": "jest --ci --coverage",
     "test:update-snapshots": "jest -u",
     "test:watch": "jest --watch",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "10.0.8",
