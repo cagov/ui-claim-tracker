@@ -11,7 +11,7 @@ export default function Home(): ReactElement {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to the Placeholder Claim Tracker App!</h1>
+        <h1 className={styles.title}>Welcome to the Placeholder Claim Tracker App</h1>
 
         <div>
           <iframe

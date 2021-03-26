@@ -4,7 +4,7 @@ exports[`Exemplar-react-test renderer Snapshot test renders homepage unchanged 1
 <div>
   <main>
     <h1>
-      Welcome to the Placeholder Claim Tracker App!
+      Welcome to the Placeholder Claim Tracker App
     </h1>
     <div>
       <iframe
