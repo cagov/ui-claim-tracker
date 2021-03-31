@@ -43,3 +43,16 @@ or
 ```bash
 yarn test -u
 ```
+
+## Linting the code
+
+
+You can manually run the linters:
+
+```bash
+yarn lint
+```
+
+Changed files are auto-linted on commit.
+
+[Set up your editor to automatically lint on save](https://prettier.io/docs/en/editors.html)
