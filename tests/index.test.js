@@ -10,7 +10,6 @@ describe("Example react-test-renderer Snapshot test", () => {
   })
 })
 
-
 // Example test for using react testing library
 describe("Example react testing-library Test", () => {
   xit('has our placeholder app', () => {
