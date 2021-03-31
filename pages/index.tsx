@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import { ReactElement } from 'react';
-import styles from '../styles/Home.module.css';
+import Head from 'next/head'
+import { ReactElement } from 'react'
+import styles from '../styles/Home.module.css'
 
 export default function Home(): ReactElement {
   return (
@@ -32,5 +32,5 @@ export default function Home(): ReactElement {
         </a>
       </footer>
     </div>
-  );
+  )
 }
