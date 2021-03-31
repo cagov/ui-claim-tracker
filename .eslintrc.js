@@ -37,5 +37,7 @@ module.exports = {
     'testing-library',
     '@typescript-eslint'
   ],
-  rules: {}
+  rules: {
+    "react/react-in-jsx-scope": "off",
+  }
 }
