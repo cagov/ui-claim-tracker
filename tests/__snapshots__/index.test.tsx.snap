@@ -4,7 +4,7 @@ exports[`Exemplar-react-test renderer Snapshot test renders homepage unchanged 1
 <div>
   <main>
     <h1>
-      welcome
+      Welcome to the Placeholder Claim Tracker App!
     </h1>
     <div>
       <iframe
@@ -30,7 +30,7 @@ exports[`Exemplar-react-test renderer Snapshot test renders homepage unchanged 1
       rel="noopener noreferrer"
       target="_blank"
     >
-      footer
+      Powered by Nava PBC
     </a>
   </footer>
 </div>
