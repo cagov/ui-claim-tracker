@@ -19,6 +19,12 @@ exports[`Exemplar-react-test renderer Snapshot test renders homepage unchanged 1
         width="560"
       />
     </div>
+    <button
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      change-locale
+    </button>
   </main>
   <footer>
     <a
