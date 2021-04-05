@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Container from 'react-bootstrap/Container'
 import { ReactElement } from 'react'
 import styles from '../styles/Home.module.css'
 import { useTranslation } from 'next-i18next'
@@ -12,7 +13,7 @@ export default function Home(): ReactElement {
   const router = useRouter()
 
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -43,7 +44,7 @@ export default function Home(): ReactElement {
           {t('footer')}
         </a>
       </footer>
-    </div>
+    </Container>
   )
 }
 

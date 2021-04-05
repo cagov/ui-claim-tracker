@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Exemplar-react-test renderer Snapshot test renders homepage unchanged 1`] = `
-<div>
+exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1`] = `
+<div
+  className="container"
+>
   <main>
     <h1>
       Welcome to the Placeholder Claim Tracker App!

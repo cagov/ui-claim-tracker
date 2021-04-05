@@ -9,7 +9,7 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }))
 
-describe('Exemplar-react-test renderer Snapshot test', () => {
+describe('Exemplar react-test-renderer Snapshot test', () => {
   it('renders homepage unchanged', () => {
     const mockRouter = {
       locale: 'en',
