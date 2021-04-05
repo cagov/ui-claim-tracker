@@ -1,10 +1,11 @@
 import Head from 'next/head'
+import Container from 'react-bootstrap/Container'
 import { ReactElement } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home(): ReactElement {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>Placeholder Claim Tracker App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -31,6 +32,6 @@ export default function Home(): ReactElement {
           Powered by Nava PBC
         </a>
       </footer>
-    </div>
+    </Container>
   )
 }
