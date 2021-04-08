@@ -1,0 +1,21 @@
+.header {
+  background-color: darkgray;
+
+  border-bottom-width: 4px !important;
+
+  .navbar-custom .navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  .icon,
+  .text {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .navbar-light .nav-link {
+    color: #555555;
+    font-size: 16px;
+  }
+}
