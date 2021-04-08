@@ -1,5 +1,5 @@
-import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/globals.scss'
 import { AppProps } from 'next/app'
 import { ReactElement } from 'react'
 import { appWithTranslation } from 'next-i18next'
