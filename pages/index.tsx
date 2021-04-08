@@ -22,18 +22,6 @@ export default function Home(): ReactElement {
       <main className={styles.main}>
         <h1 className={styles.title}>{t('welcome')}</h1>
 
-        <div>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/EIyixC9NsLI"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-
         <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
           <button>{t('change-locale')}</button>
         </Link>

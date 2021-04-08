@@ -6,19 +6,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
 >
   <main>
     <h1>
-      Welcome to the Placeholder Claim Tracker App!
+      Placeholder Claim Tracker Application
     </h1>
-    <div>
-      <iframe
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen={true}
-        frameBorder="0"
-        height="315"
-        src="https://www.youtube.com/embed/EIyixC9NsLI"
-        title="YouTube video player"
-        width="560"
-      />
-    </div>
     <button
       onClick={[Function]}
       onMouseEnter={[Function]}
@@ -32,7 +21,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
       rel="noopener noreferrer"
       target="_blank"
     >
-      Powered by Nava PBC
+      Placeholder footer
     </a>
   </footer>
 </div>
