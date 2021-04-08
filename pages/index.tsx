@@ -21,17 +21,13 @@ export default function Home(): ReactElement {
 
       <main className={styles.main}>
         <h1 className={styles.title}>{t('welcome')}</h1>
-
+        <p />
         <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
           <button>{t('change-locale')}</button>
         </Link>
       </main>
 
-      <footer className={styles.footer}>
-        <a href="https://www.navapbc.com/" target="_blank" rel="noopener noreferrer">
-          {t('footer')}
-        </a>
-      </footer>
+      <footer className={styles.footer}>{t('footer')}</footer>
     </Container>
   )
 }

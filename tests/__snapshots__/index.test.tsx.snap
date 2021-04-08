@@ -8,21 +8,16 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
     <h1>
       Placeholder Claim Tracker Application
     </h1>
+    <p />
     <button
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
-      change-locale
+      En español
     </button>
   </main>
   <footer>
-    <a
-      href="https://www.navapbc.com/"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Placeholder footer
-    </a>
+    Placeholder footer
   </footer>
 </div>
 `;
