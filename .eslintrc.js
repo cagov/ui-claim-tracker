@@ -38,7 +38,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off", //React is provided by NextJS instead
+    "react/prop-types": "off", //strict TypeScript provides the same benefits
   }
 }
