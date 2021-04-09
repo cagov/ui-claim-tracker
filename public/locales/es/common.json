@@ -1,5 +1,6 @@
 {
-  "title": "Aplicación temporal de Claim Tracker",
-  "welcome": "Bienvenido a la aplicación temporal Claim Tracker!",
-  "footer": "Desarrollado por Nava PBC"
+	"title": "Aplicación temporal de Claim Tracker",
+	"welcome": "Aplicación temporal de Claim Tracker",
+	"change-locale": "In English",
+	"footer": "pie de página de marcador de posición"
 }
