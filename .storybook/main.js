@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   "stories": [
     "../stories/**/*.stories.mdx",
@@ -7,5 +9,22 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     '@storybook/addon-a11y',
-  ]
+  // Handle SCSS modules
+    {
+      name: '@storybook/preset-scss',
+      options: {
+        cssLoaderOptions: {
+          modules: true,
+        },
+        sassLoaderOptions: {
+          sassOptions: {
+            includePaths: [
+              path.resolve(__dirname, '../styles'),
+              path.resolve(__dirname, '../node_modules'),
+            ],
+          },
+        },
+      },
+    },
+  ],
 }
