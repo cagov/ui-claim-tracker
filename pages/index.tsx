@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import { ReactElement } from 'react'
-import styles from '../styles/Home.module.css'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
@@ -21,16 +20,16 @@ export default function Home(): ReactElement {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className="main">
         <Header />
-        <h1 className={styles.title}>{t('welcome')}</h1>
+        <h1 className="title">{t('welcome')}</h1>
         <p />
         <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
           <button>{t('change-locale')}</button>
         </Link>
       </main>
 
-      <footer className={styles.footer}>{t('footer')}</footer>
+      <footer className="footer">{t('footer')}</footer>
     </Container>
   )
 }

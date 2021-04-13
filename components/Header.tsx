@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = () => (
   <header className="header border-bottom border-secondary">
-    <Navbar className="justify-content-between" variant="custom" bg="primary">
+    <Navbar className="justify-content-between" variant="dark">
       <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://ca.gov">
         <img src="/images/Ca-Gov-Logo-Gold.svg" width="30" height="30" />
       </Navbar.Brand>
