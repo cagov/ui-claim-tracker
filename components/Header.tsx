@@ -1,6 +1,5 @@
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import '../styles/Header.module.css'
 
 export interface HeaderProps {
   user?: Record<string, unknown>
