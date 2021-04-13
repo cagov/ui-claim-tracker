@@ -56,3 +56,13 @@ yarn lint
 Changed files are auto-linted on commit.
 
 [Set up your editor to automatically lint on save](https://prettier.io/docs/en/editors.html)
+
+## Running Storybook
+
+To develop or preview our front end components start up the Storybook server:
+
+```bash
+yarn storybook
+```
+
+The storybook live on `main` can be viewed [on chromatic](https://607065233c37c900212f37e7-ulpsyhmkjm.chromatic.com).
