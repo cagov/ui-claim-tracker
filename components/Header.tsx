@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = () => (
   <header className="header border-bottom border-secondary">
-    <Navbar className="justify-content-between" variant="dark">
+    <Navbar className="justify-content-between" expand="lg" fixed-top variant="dark">
       <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://ca.gov">
         <img src="/images/Ca-Gov-Logo-Gold.svg" width="30" height="30" />
       </Navbar.Brand>
@@ -29,15 +29,18 @@ export const Header: React.FC<HeaderProps> = () => (
         </Nav.Link>
       </Nav>
     </Navbar>
-    <Navbar className="justify-content-between" collapseOnSelect variant="light">
+    <Navbar className="justify-content-between" expand="lg" variant="light">
       <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
         <img src="/images/edd-logo-2-Color.svg" height="50" width="150" className="d-inline-block align-top mr-5" />
       </Navbar.Brand>
-      <Nav>
-        <Nav.Link target="_blank" rel="noopener noreferrer" href="https://uio.edd.ca.gov">
-          <span className="text">UI Online Home</span>
-        </Nav.Link>
-      </Nav>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav>
+          <Nav.Link target="_blank" rel="noopener noreferrer" href="https://uio.edd.ca.gov">
+            <span className="text">UI Online Home</span>
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   </header>
 )
