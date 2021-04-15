@@ -14,7 +14,7 @@ export default function Home(): ReactElement {
   const router = useRouter()
 
   return (
-    <Container>
+    <Container fluid>
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />

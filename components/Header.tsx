@@ -12,17 +12,21 @@ export const Header: React.FC<HeaderProps> = () => (
         <img src="/images/Ca-Gov-Logo-Gold.svg" width="30" height="30" />
       </Navbar.Brand>
       <Nav>
-        <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
-          <span className="text">EDD Home</span>
-        </Nav.Link>
+        <Navbar.Collapse>
+          <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
+            <span className="text">EDD Home</span>
+          </Nav.Link>
+        </Navbar.Collapse>
         {/*  TODO what is the URL here? */}
         <Nav.Link target="_blank" rel="noopener noreferrer" href="https://askedd.edd.ca.gov/">
           <span className="text">Help</span>
         </Nav.Link>
-        {/*  TODO what is the URL here? */}
-        <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
-          <span className="text">Welcome, Firstname</span>
-        </Nav.Link>
+        <Navbar.Collapse>
+          {/*  TODO what is the URL here? */}
+          <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
+            <span className="text">Welcome, Firstname</span>
+          </Nav.Link>
+        </Navbar.Collapse>
         {/*  TODO what is the URL here? */}
         <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/login.htm">
           <span className="text">Log out</span>
