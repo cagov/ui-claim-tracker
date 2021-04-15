@@ -10,6 +10,10 @@ html, body {
     border-bottom-width: 4px !important;
     border-bottom-color: #fdb81e !important;
 
+    .navbar-nav {
+      flex-direction: row;
+    }
+
     .navbar-dark {
       background-color: #116c97;
       .navbar-nav .nav-link {
@@ -24,6 +28,10 @@ html, body {
     .navbar-light .navbar-nav .nav-link {
       color: #646464;
       font-size: 14px;
+    }
+
+    .navbar-collapse {
+      flex-grow: 0;
     }
 
     .icon,

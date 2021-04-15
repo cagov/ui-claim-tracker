@@ -37,14 +37,14 @@ export const Header: React.FC<HeaderProps> = () => (
       <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
         <img src="/images/edd-logo-2-Color.svg" height="50" width="150" className="d-inline-block align-top mr-5" />
       </Navbar.Brand>
-      {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav"> */}
-      <Nav>
-        <Nav.Link target="_blank" rel="noopener noreferrer" href="https://uio.edd.ca.gov">
-          <span className="text">UI Online Home</span>
-        </Nav.Link>
-      </Nav>
-      {/* </Navbar.Collapse> */}
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse>
+        <Nav>
+          <Nav.Link target="_blank" rel="noopener noreferrer" href="https://uio.edd.ca.gov">
+            <span className="text">UI Online Home</span>
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   </header>
 )
