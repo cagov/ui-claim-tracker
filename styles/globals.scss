@@ -7,6 +7,8 @@ html, body {
   .header {
     width: 100%;
     border-color: #FF0000;
+
+    //flagged important to override important flag in bootstrap
     border-bottom-width: 4px !important;
     border-bottom-color: #fdb81e !important;
 
@@ -14,13 +16,12 @@ html, body {
       padding: 0;
     }
 
+    .navbar-collapse {
+      flex-grow: 0;
+    }
+
     .navbar-nav {
       flex-direction: row;
-
-      .nav-link {
-        margin: 0 4px 0 4px;
-      }
-
     }
 
     .navbar-dark {
@@ -29,6 +30,7 @@ html, body {
       .navbar-nav .nav-link {
         color: #ffffff;
         font-size: 14px;
+        margin: 0 4px 0 4px;
       }
 
       .text {
@@ -39,14 +41,11 @@ html, body {
     .navbar-light .navbar-nav .nav-link {
       color: #646464;
       font-size: 14px;
+      margin: 0 4px 0 4px;
 
       .navbar-toggler-icon {
         color: blue;
       }
-    }
-
-    .navbar-collapse {
-      flex-grow: 0;
     }
 
     .icon,
