@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = () => (
     </Navbar>
     <Navbar className="justify-content-between" expand="lg" variant="light">
       <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
-        <img src="/images/edd-logo-2-Color.svg" height="50" width="150" className="d-inline-block align-top mr-5" />
+        <img src="/images/edd-logo-2-Color.svg" height="60" width="171" className="d-inline-block align-top mr-5" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse>
