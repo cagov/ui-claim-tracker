@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = () => (
   <header className="header border-bottom border-secondary">
-    <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top variant="dark">
+    <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
       <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://ca.gov">
         <img src="/images/Ca-Gov-Logo-Gold.svg" width="46" height="34" />
       </Navbar.Brand>
