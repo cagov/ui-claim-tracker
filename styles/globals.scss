@@ -6,7 +6,6 @@ html, body {
 
   .header {
     width: 100%;
-    border-color: #FF0000;
 
     //flagged important to override important flag in bootstrap
     border-bottom-width: 4px !important;
@@ -14,31 +13,27 @@ html, body {
 
     .navbar-brand { padding: 0; }
 
+    // Keeps the secondary nav bar links right justified
     .navbar-collapse { flex-grow: 0; }
-
-    .navbar-nav { flex-direction: row; }
 
     .navbar-dark {
       background-color: #116c97;
       padding: 0 1rem;
-      .navbar-nav .nav-link {
-        color: #ffffff;
-        font-size: 14px;
-        margin: 0 4px 0 4px;
+
+      .navbar-nav {
+        flex-direction: row;
+
+        .nav-link {
+          color: #ffffff;
+          font-size: 14px;
+          margin: 0 4px 0 4px;
+        }
       }
 
       .text { color: white; }
     }
 
     .navbar-light {
-      .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='50' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(17,108,151, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-      }
-      .navbar-toggler {
-        border-color: #FFF;
-        font-size: 2rem;
-      }
-
       .navbar-nav {
         color: #646464;
         font-size: 14px;
@@ -49,7 +44,15 @@ html, body {
           font-size: 14px;
           margin: 0 4px 0 4px;
         }
+      }
 
+      .navbar-toggler {
+        border: 0;
+        font-size: 2rem;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='50' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(17,108,151, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
     }
 
