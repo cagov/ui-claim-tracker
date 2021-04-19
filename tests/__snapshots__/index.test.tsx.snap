@@ -81,7 +81,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
               <span
                 className="text"
               >
-                Welcome, Firstname
+                Welcome, name
               </span>
             </a>
           </div>
