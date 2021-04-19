@@ -29,4 +29,13 @@ module.exports = {
       },
     },
   ],
+  webpackFinal: (config) => {
+    return {
+      ...config,
+      node: {
+        ...config.node,
+        fs: 'empty',
+      },
+    }
+  },
 }
