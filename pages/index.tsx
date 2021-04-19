@@ -36,6 +36,6 @@ export default function Home(): ReactElement {
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale || 'en', ['common'])),
+    ...(await serverSideTranslations(locale || 'en', ['common', 'header'])),
   },
 })
