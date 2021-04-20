@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { GetServerSideProps } from 'next'
 
 import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
 export default function Home(): ReactElement {
   const { t } = useTranslation('common')
@@ -29,13 +30,13 @@ export default function Home(): ReactElement {
         </Link>
       </main>
 
-      <footer className="footer">{t('footer')}</footer>
+      <Footer />
     </Container>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale || 'en', ['common', 'header'])),
+    ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
   },
 })

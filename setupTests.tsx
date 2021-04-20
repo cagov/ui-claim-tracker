@@ -5,6 +5,7 @@ import { initReactI18next } from 'react-i18next'
 
 import enCommon from './public/locales/en/common.json'
 import enHeader from './public/locales/en/header.json'
+import enFooter from './public/locales/en/footer.json'
 
 /* eslint-disable @typescript-eslint/no-floating-promises */
 // Disabling this rule due to hitting a half hour of debugging,
@@ -17,7 +18,7 @@ i18n.use(initReactI18next).init({
   ns: ['common', 'header'],
   defaultNS: 'common',
   resources: {
-    en: { common: enCommon, header: enHeader },
+    en: { common: enCommon, header: enHeader, footer: enFooter },
   },
 })
 /* eslint-enable @typescript-eslint/no-floating-promises */
