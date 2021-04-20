@@ -72,4 +72,25 @@ html, body {
     justify-content: center;
     align-items: center;
   }
+
+  .footer {
+
+    background: #222;
+
+    .copyright {
+      padding: 5px 0 23px;
+    }
+
+    .navbar {
+      padding: 0;
+      .nav-link {
+        padding: 0.25rem 0.5rem;
+        color: whitesmoke;
+      }
+    }
+
+    .secondary-footer {
+      background: #efefef;
+    }
+  }
 }
