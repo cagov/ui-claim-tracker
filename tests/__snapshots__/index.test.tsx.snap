@@ -172,7 +172,85 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
   <footer
     className="footer"
   >
-    Placeholder footer
+    <div
+      className="container"
+    >
+      <nav
+        className="justify-content-between navbar navbar-expand navbar-dark"
+      >
+        <div
+          className="flex-column flex-sm-row navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="#top"
+            href="#top"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Back to Top
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov/about_edd/contact_edd.htm"
+            href="https://edd.ca.gov/about_edd/contact_edd.htm"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Contact EDD
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov/about_edd/conditions_of_use.htm"
+            href="https://edd.ca.gov/about_edd/conditions_of_use.htm"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Conditions of Use
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov/about_edd/privacy_policy.htm"
+            href="https://edd.ca.gov/about_edd/privacy_policy.htm"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov/about_edd/accessibility.htm"
+            href="https://edd.ca.gov/about_edd/accessibility.htm"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Accessibility
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div
+      className="secondary-footer"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="copyright"
+        >
+          Copyright © 2021 State of California
+        </div>
+      </div>
+    </div>
   </footer>
 </div>
 `;
