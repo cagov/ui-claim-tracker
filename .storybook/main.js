@@ -14,7 +14,9 @@ module.exports = {
       name: '@storybook/preset-scss',
       options: {
         cssLoaderOptions: {
-          modules: true,
+          modules: {
+            auto: true,
+          },
         },
         sassLoaderOptions: {
           sassOptions: {
@@ -27,4 +29,13 @@ module.exports = {
       },
     },
   ],
+  webpackFinal: (config) => {
+    return {
+      ...config,
+      node: {
+        ...config.node,
+        fs: 'empty', //required to with with next-i18next
+      },
+    }
+  },
 }
