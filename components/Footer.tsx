@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
     <footer className="footer">
       <Container>
         <Navbar className="justify-content-between" variant="dark">
-          <Nav className="flex-column flex-md-row">
+          <Nav className="flex-column flex-sm-row">
             <Nav.Link href="#top">{t('toTop')}</Nav.Link>
             <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/about_edd/contact_edd.htm">
               {t('contact')}
