@@ -34,7 +34,7 @@ module.exports = {
       ...config,
       node: {
         ...config.node,
-        fs: 'empty',
+        fs: 'empty', //required to with with next-i18next
       },
     }
   },
