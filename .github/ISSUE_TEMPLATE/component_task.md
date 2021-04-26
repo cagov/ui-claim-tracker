@@ -1,7 +1,7 @@
 ---
 name: Component Task
 about: Template for a new task for creating a Component according to our component drafting
-title: 'Create (skeleton of / draft of / final of / adjusment to) the (NAME) component'
+title: 'Create (skeleton of / draft of / final of / adjustment to) the (NAME) component'
 labels: ''
 assignees: ''
 
