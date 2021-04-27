@@ -4,170 +4,210 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
 <div
   className="index container-fluid"
 >
-  <main
-    className="main"
+  <header
+    className="header border-bottom border-secondary"
   >
-    <header
-      className="header border-bottom border-secondary"
+    <nav
+      className="justify-content-between navbar navbar-expand-lg navbar-dark"
+      fixed-top="true"
     >
-      <nav
-        className="justify-content-between navbar navbar-expand-lg navbar-dark"
-        fixed-top="true"
+      <a
+        className="navbar-brand"
+        href="https://ca.gov"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        <a
-          className="navbar-brand"
-          href="https://ca.gov"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            height="34"
-            src="/images/Ca-Gov-Logo-Gold.svg"
-            width="46"
-          />
-        </a>
-        <div
-          className="navbar-nav"
-          onKeyDown={[Function]}
-        >
-          <div
-            aria-expanded={null}
-            className="navbar-collapse collapse"
-          >
-            <a
-              className="nav-link"
-              data-rb-event-key="https://edd.ca.gov"
-              href="https://edd.ca.gov"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span
-                className="text"
-              >
-                EDD Home
-              </span>
-            </a>
-          </div>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://askedd.edd.ca.gov/"
-            href="https://askedd.edd.ca.gov/"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              className="text"
-            >
-              Help
-            </span>
-          </a>
-          <div
-            aria-expanded={null}
-            className="navbar-collapse collapse"
-          >
-            <a
-              className="nav-link"
-              data-rb-event-key="https://edd.ca.gov"
-              href="https://edd.ca.gov"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span
-                className="text"
-              >
-                Welcome, name
-              </span>
-            </a>
-          </div>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://edd.ca.gov/login.htm"
-            href="https://edd.ca.gov/login.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              className="text"
-            >
-              Log out
-            </span>
-          </a>
-        </div>
-      </nav>
-      <nav
-        className="justify-content-between navbar navbar-expand-lg navbar-light"
+        <img
+          height="34"
+          src="/images/Ca-Gov-Logo-Gold.svg"
+          width="46"
+        />
+      </a>
+      <div
+        className="navbar-nav"
+        onKeyDown={[Function]}
       >
-        <a
-          className="navbar-brand"
-          href="https://edd.ca.gov"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            className="d-inline-block align-top mr-5"
-            height="60"
-            src="/images/edd-logo-2-Color.svg"
-            width="171"
-          />
-        </a>
-        <button
-          aria-controls="basic-navbar-nav"
-          aria-label="Toggle navigation"
-          className="navbar-toggler collapsed"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="navbar-toggler-icon"
-          />
-        </button>
         <div
           aria-expanded={null}
           className="navbar-collapse collapse"
         >
-          <div
-            className="navbar-nav"
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov"
+            href="https://edd.ca.gov"
+            onClick={[Function]}
             onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov"
-              href="https://uio.edd.ca.gov"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              rel="noopener noreferrer"
-              target="_blank"
+            <span
+              className="text"
             >
-              <span
-                className="text"
-              >
-                UI Online Home
-              </span>
-            </a>
-          </div>
+              EDD Home
+            </span>
+          </a>
         </div>
-      </nav>
-    </header>
-    <h1
-      className="title"
+        <a
+          className="nav-link"
+          data-rb-event-key="https://askedd.edd.ca.gov/"
+          href="https://askedd.edd.ca.gov/"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span
+            className="text"
+          >
+            Help
+          </span>
+        </a>
+        <div
+          aria-expanded={null}
+          className="navbar-collapse collapse"
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov"
+            href="https://edd.ca.gov"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              className="text"
+            >
+              Welcome, name
+            </span>
+          </a>
+        </div>
+        <a
+          className="nav-link"
+          data-rb-event-key="https://edd.ca.gov/login.htm"
+          href="https://edd.ca.gov/login.htm"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span
+            className="text"
+          >
+            Log out
+          </span>
+        </a>
+      </div>
+    </nav>
+    <nav
+      className="justify-content-between navbar navbar-expand-lg navbar-light"
     >
-      Placeholder Claim Tracker Application
-    </h1>
-    <p />
-    <button
-      onClick={[Function]}
-      onMouseEnter={[Function]}
+      <a
+        className="navbar-brand"
+        href="https://edd.ca.gov"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          className="d-inline-block align-top mr-5"
+          height="60"
+          src="/images/edd-logo-2-Color.svg"
+          width="171"
+        />
+      </a>
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+      >
+        <div
+          className="navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="https://uio.edd.ca.gov"
+            href="https://uio.edd.ca.gov"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              className="text"
+            >
+              UI Online Home
+            </span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main
+    className="main"
+  >
+    <div
+      className="main-content container"
     >
-      En español
-    </button>
+      <h1
+        className="title"
+      >
+        Your Claims
+      </h1>
+      <p />
+      <div
+        className="breadcrumbs container"
+      >
+        <a
+          href="https://uio.edd.ca.gov"
+        >
+          <span
+            className="text"
+          >
+            UI Online
+          </span>
+        </a>
+        <svg
+          className="bi bi-chevron-right"
+          fill="#565C65"
+          height="12"
+          viewBox="0 0 16 16"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+            fillRule="evenodd"
+          />
+        </svg>
+        <a
+          href="https://uio.edd.ca.gov"
+        >
+          <span
+            className="text"
+          >
+            Your Claims
+          </span>
+        </a>
+      </div>
+      <p />
+      <button
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        En español
+      </button>
+    </div>
   </main>
   <footer
     className="footer"
