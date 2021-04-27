@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
 import { Title } from './Title'
+import { Breadcrumbs } from './Breadcrumbs'
 
 export const Main: React.FC = () => {
   const { t } = useTranslation('common')
@@ -14,6 +15,8 @@ export const Main: React.FC = () => {
     <main className="main">
       <Container className="main-content">
         <Title />
+        <p />
+        <Breadcrumbs />
         <p />
         <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
           <button>{t('change-locale')}</button>

@@ -1,5 +1,7 @@
 {
-	"title": "Claim Tracker",
-	"welcome": "Your Claims",
-	"change-locale": "En español"
+  "title": "Claim Tracker",
+  "welcome": "Your Claims",
+  "change-locale": "En español",
+  "crumb-uio": "UI Online",
+  "crumb-your-claims": "Your Claims"
 }
