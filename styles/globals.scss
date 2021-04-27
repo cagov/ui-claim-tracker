@@ -71,10 +71,16 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 768px) {
+      .main-content {
+        max-width: 650px;
+      }
+    }
   }
 
-  .footer {
 
+  .footer {
     background: #222;
 
     .copyright {
