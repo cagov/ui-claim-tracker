@@ -18,6 +18,12 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+      order: ['Claim Tracker', 'Component', ['Atom', 'Page Section'], 'Example'],
+    }
+  }
 }
 
 export const decorators = [

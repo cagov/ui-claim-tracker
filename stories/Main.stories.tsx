@@ -4,7 +4,7 @@ import { withNextRouter } from 'storybook-addon-next-router'
 import { Main } from '../components/Main'
 
 export default {
-  title: 'component/Main',
+  title: 'Component/Page Section/Main',
   component: Main,
   decorators: [withNextRouter],
 } as Meta
