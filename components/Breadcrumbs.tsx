@@ -12,9 +12,9 @@ export const Breadcrumbs: React.FC = () => {
       </a>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
+        width="12"
+        height="12"
+        fill="#565C65"
         className="bi bi-chevron-right"
         viewBox="0 0 16 16"
       >

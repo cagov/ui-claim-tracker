@@ -65,6 +65,17 @@ html, body {
 
   .index { padding: 0px; }
 
+  .breadcrumbs {
+    svg {
+      vertical-align: middle !important; //override storybook
+      margin: 0 4px;
+    }
+
+    .text {
+      text-decoration: underline;
+    }
+  }
+
   .main {
     flex: 1;
     display: flex;
@@ -78,7 +89,6 @@ html, body {
       }
     }
   }
-
 
   .footer {
     background: #222;
