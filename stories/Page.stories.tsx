@@ -1,21 +1,15 @@
 import { Story, Meta } from '@storybook/react'
+import { withNextRouter } from 'storybook-addon-next-router'
 
-import { Page, PageProps } from './Page'
-import * as HeaderStories from './Header_example.stories'
+import Home from '../pages/index'
 
 export default {
-  title: 'Example/Page',
-  component: Page,
+  title: 'Claim Tracker/Page',
+  component: Home,
+  decorators: [withNextRouter],
 } as Meta
 
-const Template: Story<PageProps> = (args) => <Page {...args} />
+const Template: Story = (args) => <Home {...args} />
 
-export const LoggedIn = Template.bind({})
-LoggedIn.args = {
-  ...HeaderStories.LoggedIn.args,
-}
-
-export const LoggedOut = Template.bind({})
-LoggedOut.args = {
-  ...HeaderStories.LoggedOut.args,
-}
+export const Default = Template.bind({})
+Default.args = {}
