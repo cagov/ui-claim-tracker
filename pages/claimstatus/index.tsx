@@ -25,7 +25,7 @@ export default function Home(): ReactElement {
         <Header />
         <h1 className="title">{t('welcome')}</h1>
         <p />
-        <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
+        <Link href="/claimstatus/" locale={router.locale === 'en' ? 'es' : 'en'}>
           <button>{t('change-locale')}</button>
         </Link>
       </main>
