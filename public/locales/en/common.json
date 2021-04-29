@@ -1,6 +1,7 @@
 {
-	"title": "Placeholder Claim Tracker Application",
-	"welcome": "Placeholder Claim Tracker Application",
-	"change-locale": "En español",
-	"footer": "Placeholder footer"
+  "title": "Claim Tracker",
+  "welcome": "Your Claims",
+  "change-locale": "En español",
+  "crumb-uio": "UI Online",
+  "crumb-your-claims": "Your Claims"
 }

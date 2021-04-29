@@ -24,6 +24,6 @@ describe('Exemplar react-test-renderer Snapshot test', () => {
 describe('Example react testing-library Test', () => {
   it('has our placeholder app', () => {
     render(<Index />)
-    expect(screen.queryByText('Placeholder Claim Tracker Application')).toBeInTheDocument()
+    expect(screen.queryByText('UI Online')).toBeInTheDocument()
   })
 })
