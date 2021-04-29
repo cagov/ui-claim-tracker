@@ -159,14 +159,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
     <div
       className="main-content container"
     >
-      <h1
-        className="title"
-      >
-        Your Claims
-      </h1>
-      <p />
       <div
-        className="breadcrumbs container"
+        className="breadcrumbs"
       >
         <a
           href="https://uio.edd.ca.gov"
@@ -200,13 +194,21 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </span>
         </a>
       </div>
-      <p />
-      <button
-        onClick={[Function]}
-        onMouseEnter={[Function]}
+      <h1
+        className="title"
       >
-        En español
-      </button>
+        Your Claims
+      </h1>
+      <div
+        className="claim-card"
+      >
+        <button
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          En español
+        </button>
+      </div>
     </div>
   </main>
   <footer
