@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 
 import { Title } from './Title'
 import { Breadcrumbs } from './Breadcrumbs'
+import { Button } from './Button'
 
 export const Main: React.FC = () => {
   const { t } = useTranslation('common')
@@ -19,7 +20,7 @@ export const Main: React.FC = () => {
         <Breadcrumbs />
         <p />
         <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
-          <button>{t('change-locale')}</button>
+          <Button primary label={t('change-locale')} />
         </Link>
       </Container>
     </main>
