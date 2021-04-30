@@ -96,7 +96,20 @@ body {
 
   .claim-card {
     border: 3px solid lightgray;
-    padding: 2em;
+  }
+
+  .claim-card-details {
+    background: lightgray;
+    padding: 1em;
+    padding-top: 1.5em;
+
+    .info {
+      .info-label {
+        color: #757575;
+        font-size: 1em;
+        padding-top: 0.75em;
+      }
+    }
   }
 
   .main {
