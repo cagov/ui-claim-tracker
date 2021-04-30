@@ -65,16 +65,32 @@ html, body {
 
   .index { padding: 0px; }
 
+  .breadcrumbs {
+    svg {
+      vertical-align: middle !important; //override storybook
+      margin: 0 4px;
+    }
+
+    .text {
+      text-decoration: underline;
+    }
+  }
+
   .main {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 768px) {
+      .main-content {
+        max-width: 650px;
+      }
+    }
   }
 
   .footer {
-
     background: #222;
 
     .copyright {
