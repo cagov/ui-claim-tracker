@@ -203,8 +203,10 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         className="claim-card"
       >
         <button
+          className="btn btn-primary"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          type="button"
         >
           En español
         </button>
