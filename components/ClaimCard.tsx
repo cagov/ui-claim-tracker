@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
+import { Button } from './Button'
 import { ClaimCardDetails } from './ClaimCardDetails'
 
 export const ClaimCard: React.FC = () => {
@@ -16,7 +17,7 @@ export const ClaimCard: React.FC = () => {
         claimBalance="$508.00"
       />
       <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
-        <button>{t('change-locale')}</button>
+        <Button primary label={t('change-locale')} />
       </Link>
     </div>
   )
