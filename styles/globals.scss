@@ -1,9 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import './colorscheme-oceanside.min.css';
 
-html, body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+// Component class names must not be nested for Storybook to work
+// When this file gets too long we'll split it up into component files
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 
   .header {
     width: 100%;
@@ -12,10 +16,14 @@ html, body {
     border-bottom-width: 4px !important;
     border-bottom-color: #fdb81e !important;
 
-    .navbar-brand { padding: 0; }
+    .navbar-brand {
+      padding: 0;
+    }
 
     // Keeps the secondary nav bar links right justified
-    .navbar-collapse { flex-grow: 0; }
+    .navbar-collapse {
+      flex-grow: 0;
+    }
 
     .navbar-nav {
       font-size: 14px;
@@ -33,7 +41,9 @@ html, body {
 
       .navbar-nav { flex-direction: row; }
 
-      .text { color: white; }
+      .text {
+        color: white;
+      }
     }
 
     .navbar-toggler {
@@ -52,7 +62,9 @@ html, body {
     }
   }
 
-  .index { padding: 0px; }
+  .index {
+    padding: 0px;
+  }
 
   .breadcrumbs {
     svg {
@@ -63,6 +75,17 @@ html, body {
     .text {
       text-decoration: underline;
     }
+
+    margin-bottom: 2em;
+  }
+
+  .title {
+    margin-bottom: 0.5em;
+  }
+
+  .claim-card {
+    border: 3px solid lightgray;
+    padding: 2em;
   }
 
   .main {
@@ -75,6 +98,7 @@ html, body {
     @media (min-width: 768px) {
       .main-content {
         max-width: 650px;
+        padding: 2em 0;
       }
     }
   }
