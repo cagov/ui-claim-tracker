@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import './colorscheme-oceanside.min.css';
 
 // Component class names must not be nested for Storybook to work
 // When this file gets too long we'll split it up into component files
@@ -24,46 +25,34 @@ body {
       flex-grow: 0;
     }
 
+    .navbar-nav {
+      font-size: 14px;
+      margin: 0 4px 0 4px;
+
+      .nav-link {
+        font-size: 14px;
+        margin: 0 4px 0 4px;
+      }
+    }
+
     .navbar-dark {
       background-color: #116c97;
       padding: 0 1rem;
 
-      .navbar-nav {
-        flex-direction: row;
-
-        .nav-link {
-          color: #ffffff;
-          font-size: 14px;
-          margin: 0 4px 0 4px;
-        }
-      }
+      .navbar-nav { flex-direction: row; }
 
       .text {
         color: white;
       }
     }
 
-    .navbar-light {
-      .navbar-nav {
-        color: #646464;
-        font-size: 14px;
-        margin: 0 4px 0 4px;
+    .navbar-toggler {
+      border: 0;
+      font-size: 2rem;
+    }
 
-        .nav-link {
-          color: #646464;
-          font-size: 14px;
-          margin: 0 4px 0 4px;
-        }
-      }
-
-      .navbar-toggler {
-        border: 0;
-        font-size: 2rem;
-      }
-
-      .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='50' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(17,108,151, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-      }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='50' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(17,108,151, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
     .icon,
