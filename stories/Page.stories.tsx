@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { withNextRouter } from 'storybook-addon-next-router'
 
-import Home from '../pages/index'
+import Home from '../pages/claimstatus/index'
 
 export default {
   title: 'Claim Tracker/Page',
