@@ -1,12 +1,10 @@
-import Container from 'react-bootstrap/Container'
-
 import { useTranslation } from 'next-i18next'
 
 export const Breadcrumbs: React.FC = () => {
   const { t } = useTranslation('common')
 
   return (
-    <Container className="breadcrumbs">
+    <div className="breadcrumbs">
       <a href="https://uio.edd.ca.gov">
         <span className="text">{t('crumb-uio')}</span>
       </a>
@@ -27,6 +25,6 @@ export const Breadcrumbs: React.FC = () => {
         {/*  TODO what is the URL here? */}
         <span className="text">{t('crumb-your-claims')}</span>
       </a>
-    </Container>
+    </div>
   )
 }
