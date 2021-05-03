@@ -10,7 +10,11 @@ export const ClaimCard: React.FC = () => {
 
   return (
     <div className="claim-card">
-      <ClaimCardDetails />
+      <ClaimCardDetails
+        title="Unemployment Insurance (UI)"
+        benefitYear="7/21/2020 - 7/20/2021"
+        claimBalance="$508.00"
+      />
       <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
         <button>{t('change-locale')}</button>
       </Link>
