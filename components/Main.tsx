@@ -1,8 +1,5 @@
 import Container from 'react-bootstrap/Container'
 
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-
 import { Title } from './Title'
 import { Breadcrumbs } from './Breadcrumbs'
 import { ClaimCard } from './ClaimCard'
