@@ -5,9 +5,9 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
 
-import { Header } from '../components/Header'
-import { Main } from '../components/Main'
-import { Footer } from '../components/Footer'
+import { Header } from '../../components/Header'
+import { Main } from '../../components/Main'
+import { Footer } from '../../components/Footer'
 
 export default function Home(): ReactElement {
   const { t } = useTranslation('common')
