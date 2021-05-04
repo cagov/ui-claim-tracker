@@ -3,5 +3,9 @@
   "welcome": "Your Claims",
   "change-locale": "En español",
   "crumb-uio": "UI Online",
-  "crumb-your-claims": "Your Claims"
+  "crumb-your-claims": "Your Claims",
+  "claim-benefit-year": "Benefit Year",
+  "claim-benefit-balance": "Benefit Balance",
+  "claim-status": "Claim Status",
+  "claim-status-updated": "Updated {{date}}"
 }

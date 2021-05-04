@@ -12,7 +12,7 @@ export interface ClaimCardBodyProps {
 }
 
 export const ClaimCardBody: React.FC<ClaimCardBodyProps> = ({
-  statusUpdated = '4/25/2020',
+  statusUpdated = '04-25-2020',
   statusMain = 'Your claim balance has expired.',
   statusDetails = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   nextSteps = [],
@@ -23,7 +23,7 @@ export const ClaimCardBody: React.FC<ClaimCardBodyProps> = ({
   return (
     <div className="claim-card-body">
       <span className="claim-status-top">
-        Claim Status
+        {t('claim-status')}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -34,7 +34,7 @@ export const ClaimCardBody: React.FC<ClaimCardBodyProps> = ({
         >
           <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
         </svg>
-        <span className="claim-status-date">Updated {statusUpdated}</span>
+        <span className="claim-status-date"> {t('claim-status-updated', { date: statusUpdated })}</span>
       </span>
       <h3 className="claim-status-main">{statusMain}</h3>
       <div className="claim-status-details">{statusDetails}</div>

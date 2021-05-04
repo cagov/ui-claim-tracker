@@ -10,7 +10,7 @@ export const ClaimCard: React.FC = () => {
         claimBalance="$508.00"
       />
       <ClaimCardBody
-        statusUpdated="2/25/2021"
+        statusUpdated="2-25-2021"
         statusMain="Your claim balance has been exhausted."
         statusDetails="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         nextSteps={[
