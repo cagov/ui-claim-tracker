@@ -219,7 +219,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <span
               className="info-entry"
             >
-              7/21/2020 - 7/20/2021
+              3/21/2020 - 3/20/2021
             </span>
           </div>
           <div
@@ -233,7 +233,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <span
               className="info-entry"
             >
-              $508.00
+              $0.00
             </span>
           </div>
         </div>
@@ -259,8 +259,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <span
               className="claim-status-date"
             >
-              Updated 
-              2/25/2021
+               
+              Updated 2-25-2021
             </span>
           </span>
           <h3

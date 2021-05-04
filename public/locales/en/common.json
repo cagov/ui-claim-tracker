@@ -5,7 +5,7 @@
   "crumb-uio": "UI Online",
   "crumb-your-claims": "Your Claims",
   "claim-benefit-year": "Benefit Year",
-  "claim-benefit-balance": "Benefit Balance",
+  "claim-benefit-balance": "Claim Balance",
   "claim-status": "Claim Status",
   "claim-status-updated": "Updated {{date}}"
 }

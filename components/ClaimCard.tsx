@@ -4,11 +4,7 @@ import { ClaimCardBody } from './ClaimCardBody'
 export const ClaimCard: React.FC = () => {
   return (
     <div className="claim-card">
-      <ClaimCardDetails
-        title="Unemployment Insurance (UI)"
-        benefitYear="7/21/2020 - 7/20/2021"
-        claimBalance="$508.00"
-      />
+      <ClaimCardDetails title="Unemployment Insurance (UI)" benefitYear="3/21/2020 - 3/20/2021" claimBalance="$0.00" />
       <ClaimCardBody
         statusUpdated="2-25-2021"
         statusMain="Your claim balance has been exhausted."

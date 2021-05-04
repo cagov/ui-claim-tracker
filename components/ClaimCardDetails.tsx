@@ -7,8 +7,8 @@ export interface ClaimCardDetailsProps {
 
 export const ClaimCardDetails: React.FC<ClaimCardDetailsProps> = ({
   title = 'Unemployment Insurance (UI)',
-  benefitYear = '3/21/2020 - 3/20/2021',
-  claimBalance = '$0.00',
+  benefitYear = '7/21/2020 - 7/20/2021',
+  claimBalance = '$508.00',
 }) => {
   const { t } = useTranslation('common')
 
