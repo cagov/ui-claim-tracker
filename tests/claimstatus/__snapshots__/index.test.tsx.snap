@@ -202,14 +202,107 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
       <div
         className="claim-card"
       >
-        <button
-          className="btn btn-primary"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          type="button"
+        <div
+          className="claim-card-details"
         >
-          En español
-        </button>
+          <h2>
+            Unemployment Insurance (UI)
+          </h2>
+          <div
+            className="info"
+          >
+            <h3
+              className="info-label"
+            >
+              Benefit Year
+            </h3>
+            <span
+              className="info-entry"
+            >
+              3/21/2020 - 3/20/2021
+            </span>
+          </div>
+          <div
+            className="info"
+          >
+            <h3
+              className="info-label"
+            >
+              Claim Balance
+            </h3>
+            <span
+              className="info-entry"
+            >
+              $0.00
+            </span>
+          </div>
+        </div>
+        <div
+          className="claim-card-body"
+        >
+          <span
+            className="claim-status-top"
+          >
+            Claim Status
+            <svg
+              className="bi bi-dot"
+              fill="currentColor"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+              />
+            </svg>
+            <span
+              className="claim-status-date"
+            >
+               
+              Updated 2-25-2021
+            </span>
+          </span>
+          <h3
+            className="claim-status-main"
+          >
+            Your claim balance has been exhausted.
+          </h3>
+          <div
+            className="claim-status-details"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+          <h4
+            className="next-steps-label"
+          >
+            Next Steps
+          </h4>
+          <div
+            className="next-steps"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </li>
+              <li
+                className="next-step"
+              >
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </li>
+            </ul>
+          </div>
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            type="button"
+          >
+            En español
+          </button>
+        </div>
       </div>
     </div>
   </main>
