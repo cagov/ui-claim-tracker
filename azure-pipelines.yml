@@ -37,21 +37,3 @@ steps:
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
-  
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '/home/vsts/work/1/s'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/veracode.zip'
-      replaceExistingArchive: true
-
-  - task: Veracode@3
-    inputs:
-     ConnectionDetailsSelection: 'Endpoint'
-     AnalysisService: 'veracode'
-     veracodeAppProfile: '$(system.teamProject)'
-     version: '$(build.buildNumber)'
-     filepath: '$(Build.ArtifactStagingDirectory)/veracode.zip'
-     createProfile: true
-     maximumWaitTime: '360'
