@@ -43,7 +43,7 @@ steps:
       rootFolderOrFile: '/home/vsts/work/1/s'
       includeRootFolder: true
       archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/veracode.zip'
       replaceExistingArchive: true
 
   - task: Veracode@3
@@ -52,6 +52,6 @@ steps:
      AnalysisService: 'veracode'
      veracodeAppProfile: '$(system.teamProject)'
      version: '$(build.buildNumber)'
-     filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+     filepath: '$(Build.ArtifactStagingDirectory)/veracode.zip'
      createProfile: true
      maximumWaitTime: '360'
