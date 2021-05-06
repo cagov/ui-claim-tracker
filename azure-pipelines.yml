@@ -38,4 +38,12 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
 
-
+  - task: Veracode@3
+    inputs:
+     ConnectionDetailsSelection: 'Endpoint'
+     AnalysisService: 'veracode'
+     veracodeAppProfile: '$(system.teamProject)'
+     version: '$(build.buildNumber)'
+     filepath: '$(build.sourcesDirectory)'
+     createProfile: true
+     maximumWaitTime: '360'
