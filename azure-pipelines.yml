@@ -44,6 +44,6 @@ steps:
      AnalysisService: 'veracode'
      veracodeAppProfile: '$(system.teamProject)'
      version: '$(build.buildNumber)'
-     filepath: '$/home/vsts/work/1/a'
+     filepath: '/home/vsts/work/1/a'
      createProfile: true
      maximumWaitTime: '360'
