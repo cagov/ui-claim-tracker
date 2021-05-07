@@ -1,15 +1,13 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Header, HeaderProps } from '../components/Header'
+import { Header as HeaderComponent } from '../components/Header'
 
 export default {
   title: 'Component/Page Section/Header',
-  component: Header,
+  component: HeaderComponent,
 } as Meta
 
-const Template: Story<HeaderProps> = (args) => <Header {...args} />
+const Template: Story = (args) => <HeaderComponent {...args} />
 
-export const LoggedIn = Template.bind({})
-LoggedIn.args = {
-  user: {},
-}
+export const Header = Template.bind({})
+Header.args = {}

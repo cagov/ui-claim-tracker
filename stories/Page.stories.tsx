@@ -11,5 +11,5 @@ export default {
 
 const Template: Story = (args) => <Home {...args} />
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Page = Template.bind({})
+Page.args = {}
