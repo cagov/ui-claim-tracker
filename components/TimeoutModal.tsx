@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'next-i18next'
 import Modal from 'react-bootstrap/Modal'
+
+import { Button } from './Button'
 
 let timeOutTimerId: NodeJS.Timeout | null = null
 let warningTimerId: NodeJS.Timeout | null = null
@@ -12,6 +15,7 @@ export interface TimeoutModalProps {
 }
 
 export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
+  const { t } = useTranslation()
   const { action } = props
   const [showWarningModal, setShowWarningModal] = useState<boolean | null>(false)
   const [numberOfMinutes, setNumberOfMinutes] = useState(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
@@ -46,7 +50,11 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
       setNumberOfMinutes(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
     }, TIMEOUT_WARNING_MS)
     timeOutTimerId = setTimeout(() => {
-      console.log('redirect back to EDD?')
+      if (typeof window !== 'undefined') {
+        const eddLocation =
+          'https://portal.edd.ca.gov/WebApp/Login?resource_url=' + encodeURIComponent(window.location.toString())
+        window.location = eddLocation
+      }
     }, TIMEOUT_MS)
   }
 
@@ -72,9 +80,13 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     <Modal show={showWarningModal} onHide={closeWarningModal} centered>
       <Modal.Header closeButton className="border-0">
         <Modal.Title>
-          <strong>Modal show up maybe?</strong>
+          <strong>{t('timeout-modal.header')}</strong>
         </Modal.Title>
       </Modal.Header>
+      <Modal.Body>{t('timeout-modal.warning', { numberOfMinutes })}</Modal.Body>
+      <Modal.Footer className="border-0">
+        <Button onClick={closeWarningModal} label={t('timeout-modal.button')} />
+      </Modal.Footer>
     </Modal>
   )
 }

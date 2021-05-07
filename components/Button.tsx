@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react'
 export interface ButtonProps {
   primary?: boolean
   label: string
-  onClick: MouseEventHandler
+  onClick?: MouseEventHandler
 }
 
 export const Button: React.FC<ButtonProps> = ({ primary = false, label, onClick, ...props }) => {
