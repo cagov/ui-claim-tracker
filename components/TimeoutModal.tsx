@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal'
 
-let timeOutTimerId: number | null = null
-let warningTimerId: number | null = null
-const TIMEOUT_KEY = 'timeout'
+let timeOutTimerId: NodeJS.Timeout | null = null
+let warningTimerId: NodeJS.Timeout | null = null
 const TIMEOUT_MS = 30 * 60 * 1000
 const TIMEOUT_DISPLAY_TIME_IN_MINUTES = 5
 const TIMEOUT_WARNING_MS = TIMEOUT_MS - TIMEOUT_DISPLAY_TIME_IN_MINUTES * 60 * 1000
-const { action, setUserData } = props
-
-const [showWarningModal, setShowWarningModal] = useState<boolean | null>() // TODO: should we set this to false?
-const [numberOfMinutes, setNumberOfMinutes] = useState(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
 
 export interface TimeoutModalProps {
   action: string
 }
 
-export const TimeoutModal: React.FC<TimeoutModalProps> = () => {
+export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
+  const { action } = props
+  const [showWarningModal, setShowWarningModal] = useState<boolean | null>(false)
+  const [numberOfMinutes, setNumberOfMinutes] = useState(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
+
   useEffect(() => {
     if (showWarningModal) {
       const timer = setTimeout(() => {
@@ -40,47 +39,26 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = () => {
     startOrUpdate()
   }
 
-  function timeOutUser() {
-    // logEvent("RetroCerts", "SessionTimeout", history.location.pathname);
-    // setUserData({
-    //   status: AUTH_STRINGS.statusCode.sessionTimedOut,
-    // });
-  }
-
   function startOrUpdate() {
-    // If the user is restoring a session (reopening a tab) after
-    // more than 30min, log them out.
-    if (sessionStorage.getItem(TIMEOUT_KEY)) {
-      const timeoutTime = sessionStorage.getItem(TIMEOUT_KEY)
-      if (Date.now() > timeoutTime) {
-        timeOutUser()
-        return
-      }
-    }
-
     clear()
-    // TODO: remove everything directly session-related since we don't
-    // have sessions in this app
     warningTimerId = setTimeout(() => {
-      if (sessionStorage.getItem(AUTH_STRINGS.authToken)) {
-        setShowWarningModal(true)
-        setNumberOfMinutes(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
-      }
+      setShowWarningModal(true)
+      setNumberOfMinutes(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
     }, TIMEOUT_WARNING_MS)
     timeOutTimerId = setTimeout(() => {
-      if (sessionStorage.getItem(AUTH_STRINGS.authToken)) {
-        timeOutUser()
-      }
+      console.log('redirect back to EDD?')
     }, TIMEOUT_MS)
-    sessionStorage.setItem(TIMEOUT_KEY, Date.now() + TIMEOUT_MS)
   }
 
   function clear() {
-    clearTimeout(timeOutTimerId)
-    timeOutTimerId = null
-    clearTimeout(warningTimerId)
-    warningTimerId = null
-    sessionStorage.removeItem(TIMEOUT_KEY)
+    if (timeOutTimerId) {
+      clearTimeout(timeOutTimerId)
+      timeOutTimerId = null
+    }
+    if (warningTimerId) {
+      clearTimeout(warningTimerId)
+      warningTimerId = null
+    }
   }
 
   // If the modal is showing, we don't want to restart the timer.
@@ -90,5 +68,13 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = () => {
     clear()
   }
 
-  return <Modal show={showWarningModal} onHide={closeWarningModal} centered />
+  return (
+    <Modal show={showWarningModal} onHide={closeWarningModal} centered>
+      <Modal.Header closeButton className="border-0">
+        <Modal.Title>
+          <strong>Modal show up maybe?</strong>
+        </Modal.Title>
+      </Modal.Header>
+    </Modal>
+  )
 }
