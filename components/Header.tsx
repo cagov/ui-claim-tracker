@@ -2,11 +2,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
-export interface HeaderProps {
-  user?: Record<string, unknown>
-}
-
-export const Header: React.FC<HeaderProps> = () => {
+export const Header: React.FC = () => {
   const { t } = useTranslation('header')
 
   return (
@@ -25,12 +21,6 @@ export const Header: React.FC<HeaderProps> = () => {
           <Nav.Link target="_blank" rel="noopener noreferrer" href="https://askedd.edd.ca.gov/">
             <span className="text">{t('help')}</span>
           </Nav.Link>
-          <Navbar.Collapse>
-            {/*  TODO what is the URL here? */}
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
-              <span className="text">{t('welcome')}</span>
-            </Nav.Link>
-          </Navbar.Collapse>
           {/*  TODO what is the URL here? */}
           <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/login.htm">
             <span className="text">{t('logout')}</span>

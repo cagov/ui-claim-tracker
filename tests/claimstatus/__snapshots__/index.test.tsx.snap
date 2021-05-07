@@ -62,26 +62,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             Help
           </span>
         </a>
-        <div
-          aria-expanded={null}
-          className="navbar-collapse collapse"
-        >
-          <a
-            className="nav-link"
-            data-rb-event-key="https://edd.ca.gov"
-            href="https://edd.ca.gov"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              className="text"
-            >
-              Welcome, name
-            </span>
-          </a>
-        </div>
         <a
           className="nav-link"
           data-rb-event-key="https://edd.ca.gov/login.htm"
