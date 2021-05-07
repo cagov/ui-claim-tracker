@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react'
-import { Main as MainComponent } from '../components/Main'
 import { withNextRouter } from 'storybook-addon-next-router'
+
+import { Main as MainComponent } from '../components/Main'
 
 export default {
   title: 'Component/Page Section/Main',
