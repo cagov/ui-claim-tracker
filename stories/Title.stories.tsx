@@ -1,15 +1,13 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Title } from '../components/Title'
+import { Title as TitleComponent } from '../components/Title'
 
 export default {
   title: 'Component/Atoms/Title',
-  component: Title,
+  component: TitleComponent,
 } as Meta
 
-const Template: Story = (args) => <Title {...args} />
+const Template: Story = (args) => <TitleComponent {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-  user: {},
-}
+export const Title = Template.bind({})
+Title.args = {}

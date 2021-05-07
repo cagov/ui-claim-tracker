@@ -1,15 +1,15 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Breadcrumbs } from '../components/Breadcrumbs'
+import { Breadcrumbs as BreadcrumbsComponent } from '../components/Breadcrumbs'
 
 export default {
   title: 'Component/Atoms/Breadcrumbs',
-  component: Breadcrumbs,
+  component: BreadcrumbsComponent,
 } as Meta
 
-const Template: Story = (args) => <Breadcrumbs {...args} />
+const Template: Story = (args) => <BreadcrumbsComponent {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const Breadcrumbs = Template.bind({})
+Breadcrumbs.args = {
   user: {},
 }

@@ -1,16 +1,14 @@
 import { Story, Meta } from '@storybook/react'
-import { Main } from '../components/Main'
+import { Main as MainComponent } from '../components/Main'
 import { withNextRouter } from 'storybook-addon-next-router'
 
 export default {
   title: 'Component/Page Section/Main',
-  component: Main,
+  component: MainComponent,
   decorators: [withNextRouter],
 } as Meta
 
-const Template: Story = (args) => <Main {...args} />
+const Template: Story = (args) => <MainComponent {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-  user: {},
-}
+export const Main = Template.bind({})
+Main.args = {}
