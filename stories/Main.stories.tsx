@@ -15,4 +15,4 @@ export const Main = Template.bind({})
 Main.args = {}
 
 export const TimedOut = Template.bind({})
-TimedOut.args = { timeout: 1 }
+TimedOut.args = { timedOut: true }

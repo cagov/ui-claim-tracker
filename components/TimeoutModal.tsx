@@ -9,17 +9,17 @@ let warningTimerId: NodeJS.Timeout | null = null
 
 export interface TimeoutModalProps {
   action: string
-  timeout: number
+  timedOut: boolean
 }
 
 export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
   const { t } = useTranslation()
-  const { action, timeout } = props
-  const TIMEOUT_MS = timeout * 60 * 1000
+  const { action, timedOut } = props
+  const TIMEOUT_MS = 30 * 60 * 1000
   const TIMEOUT_DISPLAY_TIME_IN_MINUTES = 5
   const TIMEOUT_WARNING_MS = TIMEOUT_MS - TIMEOUT_DISPLAY_TIME_IN_MINUTES * 60 * 1000
   const [numberOfMinutes, setNumberOfMinutes] = useState(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
-  const [showWarningModal, setShowWarningModal] = useState<boolean | null>(false)
+  const [showWarningModal, setShowWarningModal] = useState<boolean | null>(timedOut)
 
   useEffect(() => {
     if (showWarningModal) {

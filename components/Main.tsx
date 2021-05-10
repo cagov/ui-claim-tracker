@@ -6,10 +6,10 @@ import { ClaimCard } from './ClaimCard'
 import { TimeoutModal } from './TimeoutModal'
 
 export interface MainProps {
-  timeout?: number
+  timedOut?: boolean
 }
 
-export const Main: React.FC<MainProps> = ({ timeout = 30 }) => {
+export const Main: React.FC<MainProps> = ({ timedOut = false }) => {
   return (
     <main className="main">
       <Container className="main-content">
@@ -17,7 +17,7 @@ export const Main: React.FC<MainProps> = ({ timeout = 30 }) => {
         <Title />
         <ClaimCard />
       </Container>
-      <TimeoutModal action="startOrUpdate" timeout={timeout} />
+      <TimeoutModal action="startOrUpdate" timedOut={timedOut} />
     </main>
   )
 }
