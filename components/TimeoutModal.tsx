@@ -6,19 +6,20 @@ import { Button } from './Button'
 
 let timeOutTimerId: NodeJS.Timeout | null = null
 let warningTimerId: NodeJS.Timeout | null = null
-const TIMEOUT_MS = 30 * 60 * 1000
-const TIMEOUT_DISPLAY_TIME_IN_MINUTES = 5
-const TIMEOUT_WARNING_MS = TIMEOUT_MS - TIMEOUT_DISPLAY_TIME_IN_MINUTES * 60 * 1000
 
 export interface TimeoutModalProps {
   action: string
+  timeout: number
 }
 
 export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
   const { t } = useTranslation()
-  const { action } = props
-  const [showWarningModal, setShowWarningModal] = useState<boolean | null>(false)
+  const { action, timeout } = props
+  const TIMEOUT_MS = timeout * 60 * 1000
+  const TIMEOUT_DISPLAY_TIME_IN_MINUTES = 5
+  const TIMEOUT_WARNING_MS = TIMEOUT_MS - TIMEOUT_DISPLAY_TIME_IN_MINUTES * 60 * 1000
   const [numberOfMinutes, setNumberOfMinutes] = useState(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
+  const [showWarningModal, setShowWarningModal] = useState<boolean | null>(false)
 
   useEffect(() => {
     if (showWarningModal) {
