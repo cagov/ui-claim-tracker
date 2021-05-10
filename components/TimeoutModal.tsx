@@ -54,7 +54,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
       if (typeof window !== 'undefined') {
         const eddLocation =
           'https://portal.edd.ca.gov/WebApp/Login?resource_url=' + encodeURIComponent(window.location.toString())
-        window.location = eddLocation
+        window.location.href = eddLocation
       }
     }, TIMEOUT_MS)
   }
