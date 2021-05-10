@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "dotenv": "^9.0.2",
     "next": "10.0.8",
     "react": "17.0.1",
     "react-bootstrap": "^1.5.2",
