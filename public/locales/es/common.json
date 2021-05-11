@@ -4,4 +4,8 @@
   "change-locale": "In English",
   "crumb-uio": "UI Online",
   "crumb-your-claims": "Your Claims"
+  "claim-benefit-year": "Año de beneficio",
+  "claim-benefit-balance": "Balance de reclamación",
+  "claim-status": "Estado de reclamación",
+  "claim-status-updated": "Actualizado {{date}}"
 }

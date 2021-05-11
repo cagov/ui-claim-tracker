@@ -37,5 +37,14 @@ steps:
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
-
-
+  
+  - task: Veracode@3
+    inputs:
+      ConnectionDetailsSelection: 'Endpoint'
+      AnalysisService: 'veracode'
+      veracodeAppProfile: '$(system.teamProject)'
+      version: '$(build.buildNumber)'
+      filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      createProfile: true
+      failTheBuildIfVeracodeScanDidNotInitiate: true
+      maximumWaitTime: '360'
