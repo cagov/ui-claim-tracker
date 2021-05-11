@@ -13,8 +13,8 @@ import { Footer } from '../../components/Footer'
 
 
 const API_URL = process.env.API_URL;
-const API_USER_KEY: String = process.env.API_USER_KEY;
-const UNIQUE_NUMBER_HEADER: String = process.env.UNIQUE_NUMBER_HEADER;
+const API_USER_KEY: (String | undefined) = process.env.API_USER_KEY;
+const UNIQUE_NUMBER_HEADER: (String | undefined) = process.env.UNIQUE_NUMBER_HEADER_TITLE;
 
 console.log("API URL ---> 🚀", API_URL);
 
@@ -22,7 +22,11 @@ console.log("API URL ---> 🚀", API_URL);
 // buildApiUrl function could go here or in a utils folder. 
 // will need to update .env formatted strings
 
-export default function Home({ uniqueNumber }): ReactElement {
+export interface HomeProps {
+  uniqueNumber?: string
+}
+
+export default function Home({uniqueNumber}: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
   return (
@@ -34,7 +38,9 @@ export default function Home({ uniqueNumber }): ReactElement {
 
       <Header />
       <Main />
-      <h1>{uniqueNumber}</h1>
+      {/* move these to console.logs -- do not deploy */}
+      <h1>Unique Number: {uniqueNumber}</h1>
+
       <Footer />
     </Container>
   )
@@ -52,10 +58,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   // roll the following two lines into a function, getUniqueNumber? 
   const headers: Object  = req.headers;
   const uniqueNumber: String = headers[UNIQUE_NUMBER_HEADER];
-  console.log(uniqueNumber);
+  console.log("🐈🐈🐈🐈🐈🐈🐈", uniqueNumber);
   // if no uniqueNumber, redirect
 
   //combine unique number with API_URL str template here 
+  // const API_URL = API_URL.
 
   const res = await fetch(API_URL)
   // if (res.status) not 200, redirect

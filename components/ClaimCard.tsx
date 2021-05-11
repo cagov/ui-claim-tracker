@@ -1,7 +1,12 @@
 import { ClaimCardDetails } from './ClaimCardDetails'
 import { ClaimCardBody } from './ClaimCardBody'
 
-export const ClaimCard: React.FC = () => {
+export interface ClaimCardProps {
+  uniqueNumber?: string
+  claimType?: string
+}
+
+export const ClaimCard: React.FC<ClaimCardProps> = ({ uniqueNumber }) => {
   return (
     <div className="claim-card">
       <ClaimCardDetails title="Unemployment Insurance (UI)" benefitYear="3/21/2020 - 3/20/2021" claimBalance="$0.00" />
@@ -14,6 +19,7 @@ export const ClaimCard: React.FC = () => {
           'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         ]}
       />
+      <h1>{uniqueNumber}</h1>
     </div>
   )
 }
