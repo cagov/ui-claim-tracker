@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
     <header className="header border-bottom border-secondary">
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://ca.gov">
-          <img src="/images/Ca-Gov-Logo-Gold.svg" width="46" height="34" />
+          <img src="/claimstatus/images/Ca-Gov-Logo-Gold.svg" width="46" height="34" />
         </Navbar.Brand>
         <Nav>
           <Navbar.Collapse>
@@ -29,7 +29,12 @@ export const Header: React.FC = () => {
       </Navbar>
       <Navbar className="justify-content-between" expand="lg" variant="light">
         <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
-          <img src="/images/edd-logo-2-Color.svg" height="60" width="171" className="d-inline-block align-top mr-5" />
+          <img
+            src="/claimstatus/images/edd-logo-2-Color.svg"
+            height="60"
+            width="171"
+            className="d-inline-block align-top mr-5"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
