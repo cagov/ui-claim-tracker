@@ -6,13 +6,8 @@ import { appWithTranslation } from 'next-i18next'
 import { config } from 'dotenv'
 import { resolve } from 'path'
 
-// import dotenv from 'dotenv'
-
-// dotenv.config()
-
-config(resolve(process.cwd(), '..','.env'))
-
-console.log("--------- process.env.API_URL -----", process.env.API_URL);
+// TODO: Make this path resolution more robust (no relative paths!)
+config({path: resolve(process.cwd(), '..','.env')})
 
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return <Component {...pageProps} />
