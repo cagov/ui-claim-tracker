@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook -s ./public",
+    "build-storybook": "build-storybook -s public:/claimstatus",
     "chromatic": "npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
