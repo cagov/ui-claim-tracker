@@ -48,7 +48,7 @@ export const ClaimCardBody: React.FC<ClaimCardBodyProps> = ({
           ))}
         </ul>
       </div>
-      <Link href="/claimstatus" locale={router.locale === 'en' ? 'es' : 'en'}>
+      <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
         <Button primary label={t('change-locale')} />
       </Link>
     </div>
