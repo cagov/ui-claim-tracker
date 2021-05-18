@@ -47,3 +47,4 @@ steps:
       filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
       maximumWaitTime: '360'
+      continueOnError: true
