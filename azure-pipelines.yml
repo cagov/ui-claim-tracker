@@ -44,6 +44,6 @@ steps:
       AnalysisService: 'veracode'
       veracodeAppProfile: 'uiclaim.trackernew'
       version: '$(build.buildNumber)'
-      filepath: '$(build.sourcesDirectory)'
+      filepath: '/home/vsts/work/1/a'
       createProfile: true
       maximumWaitTime: '360'
