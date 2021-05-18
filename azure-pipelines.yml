@@ -42,8 +42,8 @@ steps:
     inputs:
       ConnectionDetailsSelection: 'Endpoint'
       AnalysisService: 'veracode'
-      veracodeAppProfile: 'uiclaim.trackernew'
+      veracodeAppProfile: 'uiclaim.tracker'
       version: '$(build.buildNumber)'
-      filepath: '/home/vsts/work/1/a'
+      filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
       maximumWaitTime: '360'
