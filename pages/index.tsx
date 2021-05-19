@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
+import pino from 'pino'
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -11,6 +12,10 @@ import { Footer } from '../components/Footer'
 
 export default function Home(): ReactElement {
   const { t } = useTranslation('common')
+  const isProd = process.env.NODE_ENV === 'production'
+  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
+
+  logger.info('hi')
 
   return (
     <Container fluid className="index">
