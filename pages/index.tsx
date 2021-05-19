@@ -12,10 +12,6 @@ import { Footer } from '../components/Footer'
 
 export default function Home(): ReactElement {
   const { t } = useTranslation('common')
-  const isProd = process.env.NODE_ENV === 'production'
-  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
-
-  logger.info('hi')
 
   return (
     <Container fluid className="index">
@@ -31,8 +27,14 @@ export default function Home(): ReactElement {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
-  },
-})
+export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
+  const isProd = process.env.NODE_ENV === 'production'
+  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
+  logger.info(req)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
+    },
+  }
+}
