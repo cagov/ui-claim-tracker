@@ -19,6 +19,8 @@
     "dotenv": "^9.0.2",
     "next": "10.0.8",
     "node-fetch": "^2.6.1",
+    "node-forge": "^0.10.0",
+    "pem": "^1.14.4",
     "react": "17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-dom": "17.0.1"
