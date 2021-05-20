@@ -8,7 +8,7 @@
     "title": "Claim Status",
     "pending": "Sus pagos están pendientes de revisión adicional.",
     "you-need-to": "Necesitas:",
-    "updated": "Actualizado {{date}}",
+    "updated": "Publicado {{date}}",
     "manage-claim": "Managtionar Reclamo"
   },
   "claim-details": {

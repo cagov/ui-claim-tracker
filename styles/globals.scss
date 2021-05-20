@@ -97,12 +97,11 @@ body {
   }
 
   .claim-details {
-    padding: 1em;
-    padding-top: 1.5em;
+    padding: 1.5em 0 1em 0;
 
     .claim-details-box {
       padding: 1em;
-      border: 3px solid lightgray;
+      border: 3px solid #f0f0f0;
     }
 
     .info {
@@ -120,21 +119,26 @@ body {
   }
 
   .claim-status {
-    padding: 1em;
-    padding-top: 1.5em;
+    .pending-status {
+      padding: 1em 0;
+    }
 
     .status-box {
-      border: 3px solid lightgray;
+      border: 3px solid #f0f0f0;
     }
 
     .topbar {
-      background: lightgray;
+      background: #f0f0f0;
       padding: 0.5em;
       font-weight: bold;
     }
 
     .explanation {
       padding: 1em;
+    }
+
+    .claim-status-date {
+      font-size: 0.75em;
     }
 
     .btn {
@@ -158,11 +162,11 @@ body {
   }
 
   .feedback {
-    padding: 1em;
+    padding: 1em 0;
 
     .feedback-content {
       padding: 1em;
-      background-color: lightblue;
+      background-color: #e1f2f7;
 
       .feedback-title {
         font-weight: bold;

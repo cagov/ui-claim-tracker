@@ -7,13 +7,13 @@ export interface ClaimStatusProps {
   nextSteps?: string[]
 }
 
-export const ClaimStatus: React.FC<ClaimStatusProps> = ({ statusUpdated = '04-25-2020', nextSteps = [] }) => {
+export const ClaimStatus: React.FC<ClaimStatusProps> = ({ statusUpdated = 'April 4th, 2021', nextSteps = [] }) => {
   const { t } = useTranslation('common')
 
   return (
     <div className="claim-status">
       <h2>{t('claim-status.title')}</h2>
-      <span className="pending-status">{t('claim-status.pending')}</span>
+      <div className="pending-status">{t('claim-status.pending')}</div>
       <div className="status-box">
         <div className="topbar">{t('claim-status.you-need-to')}</div>
         <div className="explanation">
