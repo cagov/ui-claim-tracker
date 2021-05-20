@@ -20,6 +20,10 @@
     "extension-type": "Tipo de Extensión",
     "extension-end-date": "Fecha de Finalización de la Extensión"
   },
+  "feedback": {
+    "title": "Ayúdanos a mejorar esta página",
+    "message": "Esta es una parte nueva de UI Online. <1>Tus comentarios</1> nos ayudarán a mejorarlo."
+  },
   "timeout-modal": {
     "header": "Tu sesión terminará pronto",
     "warning": "Para proteger su información, se cerrará la sesión en {{numberOfMinutes}} minutos si no continúa.",

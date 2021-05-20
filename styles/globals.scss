@@ -159,12 +159,14 @@ body {
 
   .feedback {
     padding: 1em;
-    padding-top: 1.5em;
 
     .feedback-content {
       padding: 1em;
-      padding-top: 1.5em;
       background-color: lightblue;
+
+      .feedback-title {
+        font-weight: bold;
+      }
     }
   }
 
