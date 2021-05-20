@@ -1,7 +1,7 @@
 import { ClaimDetails } from './ClaimDetails'
 import { ClaimStatus } from './ClaimStatus'
 
-export const ClaimCard: React.FC = () => {
+export const ClaimSection: React.FC = () => {
   return (
     <div className="claim-card">
       <ClaimStatus
