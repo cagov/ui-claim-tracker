@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
+import pino from 'pino'
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -26,8 +27,14 @@ export default function Home(): ReactElement {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
-  },
-})
+export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
+  const isProd = process.env.NODE_ENV === 'production'
+  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
+  logger.info(req)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
+    },
+  }
+}
