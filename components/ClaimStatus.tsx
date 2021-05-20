@@ -21,36 +21,28 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
   const router = useRouter()
 
   return (
-    <div className="claim-card-body">
-      <span className="claim-status-top">
-        {t('claim-status')}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-dot"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-        </svg>
-        <span className="claim-status-date"> {t('claim-status-updated', { date: statusUpdated })}</span>
-      </span>
-      <h3 className="claim-status-main">{statusMain}</h3>
-      <div className="claim-status-details">{statusDetails}</div>
-      {nextSteps.length > 0 && <h4 className="next-steps-label">Next Steps</h4>}
-      <div className="next-steps">
-        <ul>
-          {nextSteps.map((nextStep, index) => (
-            <li key={index} className="next-step">
-              {nextStep}
-            </li>
-          ))}
-        </ul>
+    <div className="claim-status">
+      <h2>{t('claim-status.title')}</h2>
+      <span className="pending-status">{t('claim-status.pending')}</span>
+      <div className="status-box">
+        <div className="topbar">{t('claim-status.you-need-to')}</div>
+        <div className="explanation">
+          <div className="next-steps">
+            <ul>
+              {nextSteps.map((nextStep, index) => (
+                <li key={index} className="next-step">
+                  {nextStep}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <span className="claim-status-date"> {t('claim-status.updated', { date: statusUpdated })}</span>
+        </div>
       </div>
-      <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
-        <Button primary label={t('change-locale')} />
-      </Link>
+      <a href="https://uio.edd.ca.gov">
+        {/*  TODO what is the URL here? */}
+        <Button primary label={t('claim-status.manage-claim')} />
+      </a>
     </div>
   )
 }

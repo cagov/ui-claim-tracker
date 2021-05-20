@@ -94,10 +94,6 @@ body {
     margin-bottom: 0.5em;
   }
 
-  .claim-card {
-    border: 3px solid lightgray;
-  }
-
   .claim-card-details {
     padding: 1em;
     padding-top: 1.5em;
@@ -121,33 +117,22 @@ body {
     }
   }
 
-  .claim-card-body {
+  .claim-status {
     padding: 1em;
     padding-top: 1.5em;
 
-    .claim-status-top {
-      color: #3D3D3D;
-      font-size: 0.75em;
-      padding-top: 0.75em;
-      svg {
-        vertical-align: middle !important; //override storybook
-      }
-      .claim-status-date {
-        font-style: italic;
-      }
+    .status-box {
+      border: 3px solid lightgray;
     }
 
-    .claim-status-main {
-      font-size: 1.25em;
+    .topbar {
+      background: lightgray;
+      padding: 0.5em;
+      font-weight: bold;
     }
 
-    .claim-status-details {
-      font-size: 1em;
+    .explanation {
       padding: 1em;
-    }
-
-    .next-steps-label {
-      font-size: 1em;
     }
 
     .btn {
