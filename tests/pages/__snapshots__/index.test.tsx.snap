@@ -199,11 +199,11 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           <h2>
             Claim Status
           </h2>
-          <span
+          <div
             className="pending-status"
           >
             Your payments are pending further review.
-          </span>
+          </div>
           <div
             className="status-box"
           >
@@ -235,7 +235,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                 className="claim-status-date"
               >
                  
-                Updated 2-25-2021
+                Posted February 25th, 2021
               </span>
             </div>
           </div>
@@ -378,6 +378,30 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="feedback"
+      >
+        <div
+          className="feedback-content"
+        >
+          <div
+            className="feedback-title"
+          >
+            Help us improve this page
+          </div>
+          <div
+            className="feedback-message"
+          >
+            This is a new part of UI Online. 
+            <a
+              href="https://navapbc.com"
+            >
+              Your Feedback
+            </a>
+             will help us improve it.
           </div>
         </div>
       </div>
