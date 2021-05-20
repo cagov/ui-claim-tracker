@@ -39,7 +39,9 @@ body {
       background-color: #116c97;
       padding: 0 1rem;
 
-      .navbar-nav { flex-direction: row; }
+      .navbar-nav {
+        flex-direction: row;
+      }
 
       .text {
         color: white;
@@ -74,7 +76,7 @@ body {
 
     .text {
       text-decoration: underline;
-      color: #046B99;
+      color: #046b99;
     }
 
     margin-bottom: 2em;
@@ -83,7 +85,7 @@ body {
   .language-switcher {
     .text {
       text-decoration: underline;
-      color: #046B99;
+      color: #046b99;
     }
 
     //TODO - correct this margin
@@ -105,7 +107,7 @@ body {
 
     .info {
       .info-label {
-        color: #3D3D3D;
+        color: #3d3d3d;
         font-size: 1em;
         padding-top: 0.75em;
       }
@@ -156,11 +158,18 @@ body {
   }
 
   .feedback {
-    background: lightblue;
+    padding: 1em;
+    padding-top: 1.5em;
+
+    .feedback-content {
+      padding: 1em;
+      padding-top: 1.5em;
+      background-color: lightblue;
+    }
   }
 
   .footer {
-    background: #222;
+    background-color: #222;
 
     .copyright {
       padding: 5px 0 23px;

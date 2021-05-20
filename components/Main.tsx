@@ -5,6 +5,7 @@ import { Breadcrumbs } from './Breadcrumbs'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ClaimSection } from './ClaimSection'
 import { TimeoutModal } from './TimeoutModal'
+import { Feedback } from './Feedback'
 
 export interface MainProps {
   timedOut?: boolean
@@ -18,6 +19,7 @@ export const Main: React.FC<MainProps> = ({ timedOut = false }) => {
         <Title />
         <LanguageSwitcher />
         <ClaimSection />
+        <Feedback />
       </Container>
       <TimeoutModal action="startOrUpdate" timedOut={timedOut} />
     </main>
