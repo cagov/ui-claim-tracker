@@ -99,15 +99,24 @@ body {
   }
 
   .claim-card-details {
-    background: lightgray;
     padding: 1em;
     padding-top: 1.5em;
+
+    .claim-card-details-box {
+      padding: 1em;
+      border: 3px solid lightgray;
+    }
 
     .info {
       .info-label {
         color: #3D3D3D;
         font-size: 1em;
         padding-top: 0.75em;
+      }
+
+      .info-entry-primary {
+        font-size: 1.25em;
+        font-weight: bold;
       }
     }
   }

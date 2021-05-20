@@ -4,8 +4,15 @@
   "change-locale": "En español",
   "crumb-uio": "UI Online",
   "crumb-your-claims": "Your Claims",
-  "claim-benefit-year": "Benefit Year",
-  "claim-benefit-balance": "Claim Balance",
+  "claim-details": {
+    "benefit-year": "Benefit Year",
+    "program-type": "Program Type",
+    "claim-balance": "Claim Balance",
+    "weekly-benefit-amount": "Weekly Benefit Amount",
+    "last-payment-issued": "Last Payment Issued",
+    "extension-type": "Extension Type",
+    "extension-end-date": "Extension End Date"
+  },
   "claim-status": "Claim Status",
   "claim-status-updated": "Updated {{date}}",
   "timeout-modal": {

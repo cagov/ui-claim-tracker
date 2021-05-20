@@ -4,8 +4,15 @@
   "change-locale": "In English",
   "crumb-uio": "UI Online",
   "crumb-your-claims": "Your Claims",
-  "claim-benefit-year": "Año de beneficio",
-  "claim-benefit-balance": "Balance de reclamación",
+  "claim-details": {
+    "benefit-year": "Año de beneficio",
+    "program-type": "Tipo de Programa",
+    "claim-balance": "Balance de Reclamación",
+    "weekly-benefit-amount": "Monto de Beneficio Semanal",
+    "last-payment-issued": "Último Pago Emitido",
+    "extension-type": "Tipo de Extensión",
+    "extension-end-date": "Fecha de Finalización de la Extensión"
+  },
   "claim-status": "Estado de reclamación",
   "claim-status-updated": "Actualizado {{date}}",
   "timeout-modal": {
