@@ -45,17 +45,18 @@ export default function Home({claimData}: HomeProps): ReactElement {
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
   const PASSWORD = process.env.CERTIFICATE_PASSPHRASE
-  const API_URL: string = process.env.API_URL || "fail gracefully" //TODO: Fail gracefully. 
-  // const UNIQUE_NUMBER_HEADER: string = process.env.UNIQUE_NUMBER_HEADER_TITLE || "x-unique-number"
-  const CERT_DIR: (string) = (process.env.CERTIFICATE_DIR || "/var/ssl")
-  const KEY_PATH: string = path.join(CERT_DIR, '/ct.p12')
+  const API_URL: string = process.env.API_URL
+  const UNIQUE_NUMBER_HEADER: string = process.env.UNIQUE_NUMBER_HEADER_TITLE || "x-unique-number"
+  const CERT_DIR: (string) = process.env.CERTIFICATE_DIR 
+  const P12_FILE: string = process.env.P12_FILE
+  const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
 
   let apiData: (string | null) = null
 
   // return certificate object with cert and key fields. 
   async function getCertificate() {
     const pemReadPkcs12 = promisify(pem.readPkcs12)
-    const pfx = fs.readFileSync(KEY_PATH);
+    const pfx = fs.readFileSync(P12_PATH);
 
     const cert = await pemReadPkcs12(pfx, { p12Password: PASSWORD })
 
