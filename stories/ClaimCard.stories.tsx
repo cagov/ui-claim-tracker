@@ -3,7 +3,7 @@ import { withNextRouter } from 'storybook-addon-next-router'
 
 import { ClaimCard as ClaimCardComponent } from '../components/ClaimCard'
 import * as ClaimDetailsStories from './ClaimDetails.stories'
-import * as ClaimCardBodyStories from './ClaimCardBody.stories'
+import * as ClaimStatusStories from './ClaimStatus.stories'
 
 export default {
   title: 'Component/Page Section/Claim Card',
@@ -16,5 +16,5 @@ const Template: Story = (args) => <ClaimCardComponent {...args} />
 export const ClaimCard = Template.bind({})
 ClaimCard.args = {
   ...ClaimDetailsStories.ClaimDetails.args,
-  ...ClaimCardBodyStories.ClaimCardBody.args,
+  ...ClaimStatusStories.ClaimStatus.args,
 }
