@@ -1,5 +1,4 @@
 import { Story, Meta } from '@storybook/react'
-import { withNextRouter } from 'storybook-addon-next-router'
 
 import { ClaimSection as ClaimSectionComponent } from '../components/ClaimSection'
 import * as ClaimDetailsStories from './ClaimDetails.stories'
@@ -8,7 +7,6 @@ import * as ClaimStatusStories from './ClaimStatus.stories'
 export default {
   title: 'Component/Page Section/Claim Section',
   component: ClaimSectionComponent,
-  decorators: [withNextRouter],
 } as Meta
 
 const Template: Story = (args) => <ClaimSectionComponent {...args} />

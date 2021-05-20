@@ -23,10 +23,10 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
   const { t } = useTranslation('common')
 
   return (
-    <div className="claim-card-details container">
+    <div className="claim-details container">
       <h2>{title}</h2>
 
-      <div className="claim-card-details-box">
+      <div className="claim-details-box">
         <div className="row">
           <div className="col-12">
             <div className="info">

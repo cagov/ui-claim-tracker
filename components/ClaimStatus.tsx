@@ -1,24 +1,14 @@
-import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
 
 import { Button } from './Button'
 
 export interface ClaimStatusProps {
   statusUpdated: string
-  statusMain: string
-  statusDetails: string
   nextSteps?: string[]
 }
 
-export const ClaimStatus: React.FC<ClaimStatusProps> = ({
-  statusUpdated = '04-25-2020',
-  statusMain = 'Your claim balance has expired.',
-  statusDetails = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  nextSteps = [],
-}) => {
+export const ClaimStatus: React.FC<ClaimStatusProps> = ({ statusUpdated = '04-25-2020', nextSteps = [] }) => {
   const { t } = useTranslation('common')
-  const router = useRouter()
 
   return (
     <div className="claim-status">
