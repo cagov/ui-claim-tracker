@@ -19,7 +19,6 @@ export const ClaimCard: React.FC<ClaimCardProps> = ({ uniqueNumber }) => {
           'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         ]}
       />
-      <h1>{uniqueNumber}</h1>
     </div>
   )
 }

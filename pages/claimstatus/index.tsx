@@ -9,8 +9,8 @@ import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
-import pem from 'pem'
-import fetch from 'node-fetch'
+import pem, { Pkcs12ReadResult } from 'pem'
+import fetch, { ResponseType } from 'node-fetch'
 
 import { Header } from '../../components/Header'
 import { Main } from '../../components/Main'
@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   // const uniqueNumber = requestHeaders[UNIQUE_NUMBER_HEADER];
   // function buildApiUrl(uniqueNumber, USER_KEY){}
 
-  async function makeRequest(certificate) {
+  async function makeRequest(certificate: Pkcs12ReadResult) {
     const headers = {
       Accept: 'application/json'
     };
@@ -92,7 +92,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     const sslConfiguredAgent = new https.Agent(options);
   
     try {
-      const response = await fetch(API_URL, {
+      const response: Response = await fetch(API_URL, {
         headers: headers, 
         agent: sslConfiguredAgent, 
       });
