@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-export interface ClaimCardDetailsProps {
+export interface ClaimDetailsProps {
   title: string
   programType: string
   benefitYear: string
@@ -10,7 +10,7 @@ export interface ClaimCardDetailsProps {
   extensionEndDate: string
 }
 
-export const ClaimCardDetails: React.FC<ClaimCardDetailsProps> = ({
+export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
   title = 'Claim Details',
   programType = 'Unemployment Insurance (UI)',
   benefitYear = '3/21/2020 - 3/20/2021',

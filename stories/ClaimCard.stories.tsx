@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import { withNextRouter } from 'storybook-addon-next-router'
 
 import { ClaimCard as ClaimCardComponent } from '../components/ClaimCard'
-import * as ClaimCardDetailsStories from './ClaimCardDetails.stories'
+import * as ClaimDetailsStories from './ClaimDetails.stories'
 import * as ClaimCardBodyStories from './ClaimCardBody.stories'
 
 export default {
@@ -15,6 +15,6 @@ const Template: Story = (args) => <ClaimCardComponent {...args} />
 
 export const ClaimCard = Template.bind({})
 ClaimCard.args = {
-  ...ClaimCardDetailsStories.ClaimCardDetails.args,
+  ...ClaimDetailsStories.ClaimDetails.args,
   ...ClaimCardBodyStories.ClaimCardBody.args,
 }
