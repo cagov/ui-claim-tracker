@@ -22,11 +22,10 @@ export interface Claim {
 }
 
 export interface HomeProps {
-  uniqueNumber?: string
   claimData?: Claim[]
 }
 
-export default function Home({uniqueNumber, claimData}: HomeProps): ReactElement {
+export default function Home({claimData}: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
   return (
