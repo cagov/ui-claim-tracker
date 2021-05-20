@@ -6,7 +6,7 @@ import { appWithTranslation } from 'next-i18next'
 import { config } from 'dotenv'
 import { resolve } from 'path'
 
-// TODO: Make this path resolution more robust (no relative paths!)
+// Loads the .env environmental variables into global process.env object.
 config({path: resolve(process.cwd(), '..','.env')})
 
 function MyApp({ Component, pageProps }: AppProps): ReactElement {

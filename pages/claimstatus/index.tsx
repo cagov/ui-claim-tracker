@@ -38,7 +38,7 @@ export default function Home({uniqueNumber, claimData}: HomeProps): ReactElement
       <Header />
       <Main />
       <Footer />
-      {console.log("-Test Response-")} {/* testing, to be removed before launch */}
+      {console.log("-Test Response-")} {/* TODO: testing, remove these console.logs before launch */}
       {console.dir({claimData})} {/* testing */}
     </Container>
   )
