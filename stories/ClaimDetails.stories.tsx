@@ -1,15 +1,15 @@
 import { Story, Meta } from '@storybook/react'
 import { withNextRouter } from 'storybook-addon-next-router'
 
-import { ClaimCardDetails as ClaimCardDetailsComponent, ClaimCardDetailsProps } from '../components/ClaimCardDetails'
+import { ClaimDetails as ClaimDetailsComponent, ClaimDetailsProps } from '../components/ClaimDetails'
 
 export default {
-  title: 'Component/Page Section/Claim Card Details',
-  component: ClaimCardDetailsComponent,
+  title: 'Component/Page Section/Claim Details',
+  component: ClaimDetailsComponent,
   decorators: [withNextRouter],
 } as Meta
 
-const Template: Story<ClaimCardDetailsProps> = (args) => <ClaimCardDetailsComponent {...args} />
+const Template: Story<ClaimDetailsProps> = (args) => <ClaimDetailsComponent {...args} />
 
-export const ClaimCardDetails = Template.bind({})
-ClaimCardDetails.args = {}
+export const ClaimDetails = Template.bind({})
+ClaimDetails.args = {}

@@ -2,8 +2,8 @@ import Container from 'react-bootstrap/Container'
 
 import { Title } from './Title'
 import { Breadcrumbs } from './Breadcrumbs'
-import { ClaimCard } from './ClaimCard'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { ClaimSection } from './ClaimSection'
 import { TimeoutModal } from './TimeoutModal'
 import { Feedback } from './Feedback'
 
@@ -18,7 +18,7 @@ export const Main: React.FC<MainProps> = ({ timedOut = false }) => {
         <Breadcrumbs />
         <Title />
         <LanguageSwitcher />
-        <ClaimCard />
+        <ClaimSection />
         <Feedback />
       </Container>
       <TimeoutModal action="startOrUpdate" timedOut={timedOut} />

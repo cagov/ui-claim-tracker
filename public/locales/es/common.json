@@ -1,13 +1,25 @@
 {
   "title": "Claim Tracker",
-  "welcome": "Sus Reclamaciones",
+  "welcome": "Claim Tracker",
   "change-locale": "In English",
   "crumb-uio": "UI Online",
   "crumb-your-claims": "Your Claims",
-  "claim-benefit-year": "Año de beneficio",
-  "claim-benefit-balance": "Balance de reclamación",
-  "claim-status": "Estado de reclamación",
-  "claim-status-updated": "Actualizado {{date}}",
+  "claim-status": {
+    "title": "Claim Status",
+    "pending": "Sus pagos están pendientes de revisión adicional.",
+    "you-need-to": "Necesitas:",
+    "updated": "Publicado {{date}}",
+    "manage-claim": "Managtionar Reclamo"
+  },
+  "claim-details": {
+    "benefit-year": "Año de beneficio",
+    "program-type": "Tipo de Programa",
+    "claim-balance": "Balance de Reclamación",
+    "weekly-benefit-amount": "Monto de Beneficio Semanal",
+    "last-payment-issued": "Último Pago Emitido",
+    "extension-type": "Tipo de Extensión",
+    "extension-end-date": "Fecha de Finalización de la Extensión"
+  },
   "feedback": {
     "title": "Ayúdanos a mejorar esta página",
     "message": "Esta es una parte nueva de UI Online. <1>Tus comentarios</1> nos ayudarán a mejorarlo."
