@@ -57,14 +57,14 @@ function buildApiUrl(url: string, queryParams: object) {
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
   // API fields
-  const API_URL: string = process.env.API_URL
-  const API_USER_KEY: string = process.env.API_USER_KEY
-  const UNIQUE_NUMBER_HEADER: string = process.env.UNIQUE_NUMBER_HEADER_TITLE || "x-unique-number"
+  const API_URL: string = process.env.API_URL!
+  const API_USER_KEY: string = process.env.API_USER_KEY!
+  const UNIQUE_NUMBER_HEADER: string = process.env.UNIQUE_NUMBER_HEADER_TITLE!
   // TLS Certificate fields
-  const CERT_DIR: (string) = process.env.CERTIFICATE_DIR 
-  const P12_FILE: string = process.env.P12_FILE
+  const CERT_DIR: string = process.env.CERTIFICATE_DIR!
+  const P12_FILE: string = process.env.P12_FILE!
   const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
-  const PASSWORD = process.env.CERTIFICATE_PASSPHRASE
+  const PASSWORD: string = process.env.CERTIFICATE_PASSPHRASE!
 
   let apiData: (string | null) = null
 
@@ -106,7 +106,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER]
     }
 
-    const apiUrl: String = buildApiUrl(API_URL, apiUrlParams)
+    const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams)
   
     try {
       const response: Response = await fetch(apiUrl, {
