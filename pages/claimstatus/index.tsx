@@ -79,12 +79,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     return cert;
   }
   
-  // TODO: Acquire uniqueNumber from header and use it to build API string 
-  // that will eventually be passed to makeRequest. 
-  // TODO: if no uniqueNumber, redirect. 
-  // const requestHeaders: IncomingHttpHeaders  = req.headers;
-  // const uniqueNumber = requestHeaders[UNIQUE_NUMBER_HEADER];
-  // function buildApiUrl(uniqueNumber, USER_KEY){}
 
   async function makeRequest(certificate: Pkcs12ReadResult) {
     const headers = {
@@ -107,6 +101,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     };
     const sslConfiguredAgent = new https.Agent(options);
 
+    // TODO: if no uniqueNumber, redirect. 
     const apiUrlParams = {
       user_key: API_USER_KEY,
       uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER]
