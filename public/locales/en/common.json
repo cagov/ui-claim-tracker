@@ -8,6 +8,10 @@
   "claim-benefit-balance": "Claim Balance",
   "claim-status": "Claim Status",
   "claim-status-updated": "Updated {{date}}",
+  "feedback": {
+    "title": "Help us improve this page",
+    "message": "This is a new part of UI Online. <1>Your Feedback</1> will help us improve it."
+  },
   "timeout-modal": {
     "header": "Your Session Will End Soon",
     "warning": "To protect your information, you will be logged out in {{numberOfMinutes}} minutes if you do not continue.",

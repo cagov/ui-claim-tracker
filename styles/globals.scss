@@ -39,7 +39,9 @@ body {
       background-color: #116c97;
       padding: 0 1rem;
 
-      .navbar-nav { flex-direction: row; }
+      .navbar-nav {
+        flex-direction: row;
+      }
 
       .text {
         color: white;
@@ -77,6 +79,16 @@ body {
       color: #046B99;
     }
 
+    margin-bottom: 2em;
+  }
+
+  .language-switcher {
+    .text {
+      text-decoration: underline;
+      color: #046b99;
+    }
+
+    //TODO - correct this margin
     margin-bottom: 2em;
   }
 
@@ -151,8 +163,21 @@ body {
     }
   }
 
+  .feedback {
+    padding: 1em 0;
+
+    .feedback-content {
+      padding: 1em;
+      background-color: #e1f2f7;
+
+      .feedback-title {
+        font-weight: bold;
+      }
+    }
+  }
+
   .footer {
-    background: #222;
+    background-color: #222;
 
     .copyright {
       padding: 5px 0 23px;

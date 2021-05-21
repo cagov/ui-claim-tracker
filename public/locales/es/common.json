@@ -8,6 +8,10 @@
   "claim-benefit-balance": "Balance de reclamación",
   "claim-status": "Estado de reclamación",
   "claim-status-updated": "Actualizado {{date}}",
+  "feedback": {
+    "title": "Ayúdanos a mejorar esta página",
+    "message": "Esta es una parte nueva de UI Online. <1>Tus comentarios</1> nos ayudarán a mejorarlo."
+  },
   "timeout-modal": {
     "header": "Tu sesión terminará pronto",
     "warning": "Para proteger su información, se cerrará la sesión en {{numberOfMinutes}} minutos si no continúa.",
