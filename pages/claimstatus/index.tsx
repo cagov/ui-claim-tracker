@@ -37,19 +37,35 @@ export default function Home({claimData}: HomeProps): ReactElement {
       <Header />
       <Main />
       <Footer />
-      {console.log("-Test Response-")} {/* TODO: testing, remove these console.logs before launch */}
+      {console.log("-Test Response-")} {/* TODO: testing, remove these console.logs before user-facing launch */}
       {console.dir({claimData})} {/* testing */}
     </Container>
   )
 }
 
+// returns a URL in the format 
+// DELETE THIS LINE BEFORE COMMIT: https://uiclaimtracker-dev.dev-api.edd.ca.gov/api/UIClaimTracker/GetClaimStatus?uniqueNumber=1234&user_key=1234
+// accepts a URL string and object containing query Parameters.
+function buildApiUrl(url, queryParams) {
+  let apiUrl = new URL(url)
+  
+  for (let key in queryParams) {
+    apiUrl.searchParams.append(key, queryParams[key])
+  }
+
+  return apiUrl.toString()
+}
+
 export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
-  const PASSWORD = process.env.CERTIFICATE_PASSPHRASE
+  // API fields
   const API_URL: string = process.env.API_URL
+  const API_USER_KEY: string = process.env.API_USER_KEY
   const UNIQUE_NUMBER_HEADER: string = process.env.UNIQUE_NUMBER_HEADER_TITLE || "x-unique-number"
+  // TLS Certificate fields
   const CERT_DIR: (string) = process.env.CERTIFICATE_DIR 
   const P12_FILE: string = process.env.P12_FILE
   const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
+  const PASSWORD = process.env.CERTIFICATE_PASSPHRASE
 
   let apiData: (string | null) = null
 
@@ -90,9 +106,16 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       keepAlive: false
     };
     const sslConfiguredAgent = new https.Agent(options);
+
+    const apiUrlParams = {
+      user_key: API_USER_KEY,
+      uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER]
+    }
+
+    const apiUrl: String = buildApiUrl(API_URL, apiUrlParams)
   
     try {
-      const response: Response = await fetch(API_URL, {
+      const response: Response = await fetch(apiUrl, {
         headers: headers, 
         agent: sslConfiguredAgent, 
       });
