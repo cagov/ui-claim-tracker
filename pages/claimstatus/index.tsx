@@ -43,10 +43,9 @@ export default function Home({claimData}: HomeProps): ReactElement {
   )
 }
 
-// returns a URL in the format 
-// DELETE THIS LINE BEFORE COMMIT: https://uiclaimtracker-dev.dev-api.edd.ca.gov/api/UIClaimTracker/GetClaimStatus?uniqueNumber=1234&user_key=1234
 // accepts a URL string and object containing query Parameters.
-function buildApiUrl(url, queryParams) {
+// returns a URL in the format 
+function buildApiUrl(url: string, queryParams: object) {
   let apiUrl = new URL(url)
   
   for (let key in queryParams) {
