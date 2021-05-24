@@ -5,6 +5,7 @@ import { promisify } from 'util'
 
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
+import pino from 'pino'
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -12,9 +13,9 @@ import { GetServerSideProps } from 'next'
 import pem, { Pkcs12ReadResult } from 'pem'
 import fetch, { ResponseType } from 'node-fetch'
 
-import { Header } from '../../components/Header'
-import { Main } from '../../components/Main'
-import { Footer } from '../../components/Footer'
+import { Header } from '../components/Header'
+import { Main } from '../components/Main'
+import { Footer } from '../components/Footer'
 
 
 export interface Claim {
@@ -43,9 +44,14 @@ export default function Home({claimData}: HomeProps): ReactElement {
   )
 }
 
+export interface QueryParams {
+  user_key: String,
+  uniqueNumber: String
+}
+
 // accepts a URL string and object containing query Parameters.
 // returns a URL in the format 
-function buildApiUrl(url: string, queryParams: object) {
+function buildApiUrl(url: string, queryParams: QueryParams) {
   let apiUrl = new URL(url)
   
   for (let key in queryParams) {
@@ -55,7 +61,12 @@ function buildApiUrl(url: string, queryParams: object) {
   return apiUrl.toString()
 }
 
+/// START MERGING HERE
 export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
+  const isProd = process.env.NODE_ENV === 'production'
+  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
+  logger.info(req)
+
   // API fields
   const API_URL: string = process.env.API_URL!
   const API_USER_KEY: string = process.env.API_USER_KEY!
@@ -77,7 +88,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
 
     return cert;
   }
-  
+
 
   async function makeRequest(certificate: Pkcs12ReadResult) {
     const headers = {
@@ -107,13 +118,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     }
 
     const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams)
-  
+
     try {
       const response: Response = await fetch(apiUrl, {
         headers: headers, 
         agent: sslConfiguredAgent, 
       });
-  
+
       const responseBody = await response.json();
 
       apiData = responseBody
@@ -128,11 +139,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   // where it comes together
   const certificate = await getCertificate()
   const data = await makeRequest(certificate)
-
-  return ({
+  
+  return {
     props: {
       claimData: [data],
       ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
-    }
-  })
+    },
+  }
 }

@@ -13,3 +13,6 @@ const Template: Story = (args) => <MainComponent {...args} />
 
 export const Main = Template.bind({})
 Main.args = {}
+
+export const TimedOut = Template.bind({})
+TimedOut.args = { timedOut: true }

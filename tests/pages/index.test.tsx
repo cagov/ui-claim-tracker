@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer'
 import { render, screen } from '@testing-library/react'
-import Index from '../../pages/claimstatus/index'
+import Index from '../../pages/index'
 
 import { useRouter } from 'next/router'
 

@@ -19,7 +19,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
       >
         <img
           height="34"
-          src="/images/Ca-Gov-Logo-Gold.svg"
+          src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
           width="46"
         />
       </a>
@@ -91,7 +91,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         <img
           className="d-inline-block align-top mr-5"
           height="60"
-          src="/images/edd-logo-2-Color.svg"
+          src="/claimstatus/images/edd-logo-2-Color.svg"
           width="171"
         />
       </a>

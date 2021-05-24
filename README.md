@@ -18,7 +18,7 @@ yarn install
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/claimstatus](http://localhost:3000/claimstatus) with your browser to see the result.
 
 ## Running the test suite
 
@@ -35,17 +35,10 @@ yarn test:watch
 ### Updating the snapshots
 
 ```bash
-yarn test:update-snapshots
-```
-
-or
-
-```bash
-yarn test -u
+yarn test:update-snapshots # or yarn test -u
 ```
 
 ## Linting the code
-
 
 You can manually run the linters:
 
@@ -65,4 +58,4 @@ To develop or preview our front end components start up the Storybook server:
 yarn storybook
 ```
 
-The storybook live on `main` can be viewed [on chromatic](https://607065233c37c900212f37e7-ulpsyhmkjm.chromatic.com).
+The storybook live on `main` can be viewed [on chromatic](https://www.chromatic.com/library?appId=60705d04dcad7600211e34d2).

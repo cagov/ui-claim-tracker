@@ -3,9 +3,14 @@
   "welcome": "Sus Reclamaciones",
   "change-locale": "In English",
   "crumb-uio": "UI Online",
-  "crumb-your-claims": "Your Claims"
+  "crumb-your-claims": "Your Claims",
   "claim-benefit-year": "Año de beneficio",
   "claim-benefit-balance": "Balance de reclamación",
   "claim-status": "Estado de reclamación",
-  "claim-status-updated": "Actualizado {{date}}"
+  "claim-status-updated": "Actualizado {{date}}",
+  "timeout-modal": {
+    "header": "Tu sesión terminará pronto",
+    "warning": "Para proteger su información, se cerrará la sesión en {{numberOfMinutes}} minutos si no continúa.",
+    "button": "Sigue Trabajando"
+  }
 }

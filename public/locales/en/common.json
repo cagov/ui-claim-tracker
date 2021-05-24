@@ -7,5 +7,10 @@
   "claim-benefit-year": "Benefit Year",
   "claim-benefit-balance": "Claim Balance",
   "claim-status": "Claim Status",
-  "claim-status-updated": "Updated {{date}}"
+  "claim-status-updated": "Updated {{date}}",
+  "timeout-modal": {
+    "header": "Your Session Will End Soon",
+    "warning": "To protect your information, you will be logged out in {{numberOfMinutes}} minutes if you do not continue.",
+    "button": "Stay Logged In"
+  }
 }
