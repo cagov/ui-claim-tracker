@@ -27,6 +27,6 @@
   "timeout-modal": {
     "header": "Your Session Will End Soon",
     "warning": "To protect your information, you will be logged out in {{numberOfMinutes}} minutes if you do not continue.",
-    "button": "Continue Working"
+    "button": "Stay Logged In"
   }
 }
