@@ -21,7 +21,7 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-      order: ['Claim Tracker', 'Component', ['Atom', 'Page Section', ['Header', 'Main', 'Claim Card', 'Claim Card Details', 'Claim Card Body', 'Footer']], 'Example'],
+      order: ['Claim Tracker', 'Component', ['Page Section', ['Header', 'Main', 'Claim Section', 'Claim Status', 'Claim Details', 'Feedback', 'Footer']], 'Atoms'],
     }
   }
 }

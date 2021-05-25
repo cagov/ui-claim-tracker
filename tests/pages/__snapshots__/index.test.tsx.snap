@@ -179,111 +179,232 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
       <h1
         className="title"
       >
-        Your Claims
+        Claim Tracker
       </h1>
       <div
-        className="claim-card"
+        className="language-switcher"
+      >
+        <span
+          className="text"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          En español
+        </span>
+      </div>
+      <div
+        className="claim-section"
       >
         <div
-          className="claim-card-details"
+          className="claim-status"
         >
           <h2>
-            Unemployment Insurance (UI)
+            Claim Status
           </h2>
           <div
-            className="info"
+            className="pending-status"
           >
-            <h3
-              className="info-label"
-            >
-              Benefit Year
-            </h3>
-            <span
-              className="info-entry"
-            >
-              3/21/2020 - 3/20/2021
-            </span>
+            Your payments are pending further review.
           </div>
           <div
-            className="info"
+            className="status-box"
           >
-            <h3
-              className="info-label"
+            <div
+              className="topbar"
             >
-              Claim Balance
-            </h3>
-            <span
-              className="info-entry"
+              You need to:
+            </div>
+            <div
+              className="explanation"
             >
-              $0.00
-            </span>
+              <div
+                className="next-steps"
+              >
+                <ul>
+                  <li
+                    className="next-step"
+                  >
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </li>
+                  <li
+                    className="next-step"
+                  >
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  </li>
+                </ul>
+              </div>
+              <span
+                className="claim-status-date"
+              >
+                 
+                Posted February 25th, 2021
+              </span>
+            </div>
           </div>
+          <a
+            href="https://uio.edd.ca.gov"
+          >
+            <button
+              className="btn btn-primary"
+              type="button"
+            >
+              Manage Claim
+            </button>
+          </a>
         </div>
         <div
-          className="claim-card-body"
+          className="claim-details container"
         >
-          <span
-            className="claim-status-top"
-          >
-            Claim Status
-            <svg
-              className="bi bi-dot"
-              fill="currentColor"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-              />
-            </svg>
-            <span
-              className="claim-status-date"
-            >
-               
-              Updated 2-25-2021
-            </span>
-          </span>
-          <h3
-            className="claim-status-main"
-          >
-            Your claim balance has been exhausted.
-          </h3>
+          <h2>
+            Claim Details
+          </h2>
           <div
-            className="claim-status-details"
+            className="claim-details-box"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div
+              className="row"
+            >
+              <div
+                className="col-12"
+              >
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Program Type
+                  </h3>
+                  <span
+                    className="info-entry-primary"
+                  >
+                    Unemployment Insurance (UI)
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-6"
+              >
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Benefit Year
+                  </h3>
+                  <span
+                    className="info-entry"
+                  >
+                    3/21/2020 - 3/20/2021
+                  </span>
+                </div>
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Claim Balance
+                  </h3>
+                  <span
+                    className="info-entry"
+                  >
+                    $0.00
+                  </span>
+                </div>
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Weekly Benefit Amount
+                  </h3>
+                  <span
+                    className="info-entry"
+                  >
+                    $111.00
+                  </span>
+                </div>
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Last Payment Issued
+                  </h3>
+                  <span
+                    className="info-entry"
+                  >
+                    4/29/2021
+                  </span>
+                </div>
+              </div>
+              <div
+                className="col-6"
+              >
+                <div />
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Extension Type
+                  </h3>
+                  <span
+                    className="info-entry"
+                  >
+                    Tier 2 Extension
+                  </span>
+                </div>
+                <div
+                  className="info"
+                >
+                  <h3
+                    className="info-label"
+                  >
+                    Extension End Date
+                  </h3>
+                  <span
+                    className="info-entry"
+                  >
+                    5/22/2021
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-          <h4
-            className="next-steps-label"
-          >
-            Next Steps
-          </h4>
+        </div>
+      </div>
+      <div
+        className="feedback"
+      >
+        <div
+          className="feedback-content"
+        >
           <div
-            className="next-steps"
+            className="feedback-title"
           >
-            <ul>
-              <li
-                className="next-step"
-              >
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </li>
-              <li
-                className="next-step"
-              >
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </li>
-            </ul>
+            Help us improve this page
           </div>
-          <button
-            className="btn btn-primary"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            type="button"
+          <div
+            className="feedback-message"
           >
-            En español
-          </button>
+            This is a new part of UI Online. 
+            <a
+              href="https://navapbc.com"
+            >
+              Your Feedback
+            </a>
+             will help us improve it.
+          </div>
         </div>
       </div>
     </div>
