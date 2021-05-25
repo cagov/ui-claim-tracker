@@ -18,6 +18,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         target="_blank"
       >
         <img
+          alt="CA.gov"
           height="34"
           src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
           width="46"
@@ -89,6 +90,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         target="_blank"
       >
         <img
+          alt="EDD Employment Development Department State of California Home"
           className="d-inline-block align-top mr-5"
           height="60"
           src="/claimstatus/images/edd-logo-2-Color.svg"
