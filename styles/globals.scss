@@ -76,7 +76,7 @@ body {
 
     .text {
       text-decoration: underline;
-      color: #046B99;
+      color: #046b99;
     }
 
     margin-bottom: 2em;
@@ -96,51 +96,49 @@ body {
     margin-bottom: 0.5em;
   }
 
-  .claim-card {
-    border: 3px solid lightgray;
-  }
+  .claim-details {
+    padding: 1.5em 0 1em 0;
 
-  .claim-card-details {
-    background: lightgray;
-    padding: 1em;
-    padding-top: 1.5em;
+    .claim-details-box {
+      padding: 1em;
+      border: 3px solid #f0f0f0;
+    }
 
     .info {
       .info-label {
-        color: #3D3D3D;
+        color: #3d3d3d;
         font-size: 1em;
         padding-top: 0.75em;
+      }
+
+      .info-entry-primary {
+        font-size: 1.25em;
+        font-weight: bold;
       }
     }
   }
 
-  .claim-card-body {
-    padding: 1em;
-    padding-top: 1.5em;
-
-    .claim-status-top {
-      color: #3D3D3D;
-      font-size: 0.75em;
-      padding-top: 0.75em;
-      svg {
-        vertical-align: middle !important; //override storybook
-      }
-      .claim-status-date {
-        font-style: italic;
-      }
+  .claim-status {
+    .pending-status {
+      padding: 1em 0;
     }
 
-    .claim-status-main {
-      font-size: 1.25em;
+    .status-box {
+      border: 3px solid #f0f0f0;
     }
 
-    .claim-status-details {
-      font-size: 1em;
+    .topbar {
+      background: #f0f0f0;
+      padding: 0.5em;
+      font-weight: bold;
+    }
+
+    .explanation {
       padding: 1em;
     }
 
-    .next-steps-label {
-      font-size: 1em;
+    .claim-status-date {
+      font-size: 0.75em;
     }
 
     .btn {
