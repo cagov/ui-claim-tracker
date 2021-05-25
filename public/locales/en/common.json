@@ -1,13 +1,29 @@
 {
   "title": "Claim Tracker",
-  "welcome": "Your Claims",
+  "welcome": "Claim Tracker",
   "change-locale": "En español",
   "crumb-uio": "UI Online",
   "crumb-your-claims": "Your Claims",
-  "claim-benefit-year": "Benefit Year",
-  "claim-benefit-balance": "Claim Balance",
-  "claim-status": "Claim Status",
-  "claim-status-updated": "Updated {{date}}",
+  "claim-status": {
+    "title": "Claim Status",
+    "pending": "Your payments are pending further review.",
+    "you-need-to": "You need to:",
+    "updated": "Posted {{date}}",
+    "manage-claim": "Manage Claim"
+  },
+  "claim-details": {
+    "benefit-year": "Benefit Year",
+    "program-type": "Program Type",
+    "claim-balance": "Claim Balance",
+    "weekly-benefit-amount": "Weekly Benefit Amount",
+    "last-payment-issued": "Last Payment Issued",
+    "extension-type": "Extension Type",
+    "extension-end-date": "Extension End Date"
+  },
+  "feedback": {
+    "title": "Help us improve this page",
+    "message": "This is a new part of UI Online. <1>Your Feedback</1> will help us improve it."
+  },
   "timeout-modal": {
     "header": "Your Session Will End Soon",
     "warning": "To protect your information, you will be logged out in {{numberOfMinutes}} minutes if you do not continue.",
