@@ -16,6 +16,7 @@ import fetch, { ResponseType } from 'node-fetch'
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
+import { Http2ServerResponse } from 'node:http2'
 
 
 export interface Claim {
@@ -45,8 +46,8 @@ export default function Home({claimData}: HomeProps): ReactElement {
 }
 
 export interface QueryParams {
-  user_key: String,
-  uniqueNumber: String
+  user_key: string,
+  uniqueNumber: (string | "")
 }
 
 // accepts a URL string and object containing query Parameters.
@@ -112,15 +113,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     const sslConfiguredAgent = new https.Agent(options);
 
     // TODO: if no uniqueNumber, redirect. 
-    const apiUrlParams = {
+    const apiUrlParams: QueryParams = {
       user_key: API_USER_KEY,
-      uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER]
+      uniqueNumber: (req.headers[UNIQUE_NUMBER_HEADER] | "")
     }
 
-    const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams)
+    const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams )
 
     try {
-      const response: Response = await fetch(apiUrl, {
+      const response: Promise = await fetch(apiUrl, {
         headers: headers, 
         agent: sslConfiguredAgent, 
       });
