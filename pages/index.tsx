@@ -47,7 +47,7 @@ export default function Home({claimData}: HomeProps): ReactElement {
 
 export interface QueryParams {
   user_key: string,
-  uniqueNumber: (string | "")
+  uniqueNumber: string
 }
 
 // accepts a URL string and object containing query Parameters.
@@ -115,7 +115,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     // TODO: if no uniqueNumber, redirect. 
     const apiUrlParams: QueryParams = {
       user_key: API_USER_KEY,
-      uniqueNumber: (req.headers[UNIQUE_NUMBER_HEADER] | "")
+      uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER]
     }
 
     const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams )
@@ -133,6 +133,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     } catch (error) {
       console.log(error);
     }
+
+    // do we need to explicitly kill the agent?
+    // https://nodejs.org/api/http.html#http_agent_destroy
+    // sslConfiguredAgent.destroy()
 
     return apiData;
   }
