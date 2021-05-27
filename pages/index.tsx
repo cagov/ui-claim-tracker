@@ -123,13 +123,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
 
     
     try {
-      // @ts-ignore
       const response: Response = await fetch(apiUrl, {
-        // @ts-ignore
         headers: headers, 
-        // @ts-ignore
         agent: sslConfiguredAgent
-      // @ts-ignore
       });
 
       const responseBody: JSON = await response.json()
@@ -140,9 +136,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       console.log(error);
     }
 
-    // do we need to explicitly kill the agent?
+    // Explicitly destroy agent so connection does not persist. 
     // https://nodejs.org/api/http.html#http_agent_destroy
-    // sslConfiguredAgent.destroy()
+    sslConfiguredAgent.destroy()
 
     return apiData;
   }
