@@ -11,7 +11,7 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
 import pem, { Pkcs12ReadResult } from 'pem'
-import fetch, { ResponseType } from 'node-fetch'
+import fetch, { Response } from 'node-fetch'
 
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
@@ -46,7 +46,7 @@ export default function Home({claimData}: HomeProps): ReactElement {
 }
 
 export interface QueryParams {
-  user_key: string,
+  user_key: string, 
   uniqueNumber: string
 }
 
@@ -56,7 +56,7 @@ function buildApiUrl(url: string, queryParams: QueryParams) {
   let apiUrl = new URL(url)
   
   for (let key in queryParams) {
-    apiUrl.searchParams.append(key, queryParams[key])
+    apiUrl.searchParams.append(key, queryParams[key as 'user_key' | 'uniqueNumber'])
   }
 
   return apiUrl.toString()
@@ -78,13 +78,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
   const PASSWORD: string = process.env.CERTIFICATE_PASSPHRASE!
 
-  let apiData: (string | null) = null
+  let apiData: (JSON | null) = null
 
   // return certificate object with cert and key fields. 
   async function getCertificate() {
     const pemReadPkcs12 = promisify(pem.readPkcs12)
     const pfx = fs.readFileSync(P12_PATH);
 
+    // @ts-ignore -- TypeScript does not handle promisify well.
     const cert = await pemReadPkcs12(pfx, { p12Password: PASSWORD })
 
     return cert;
@@ -110,23 +111,28 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       rejectUnauthorized: false, 
       keepAlive: false
     };
-    const sslConfiguredAgent = new https.Agent(options);
+    const sslConfiguredAgent: https.Agent  = new https.Agent(options);
 
     // TODO: if no uniqueNumber, redirect. 
     const apiUrlParams: QueryParams = {
       user_key: API_USER_KEY,
-      uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER]
+      uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER] as string
     }
 
     const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams )
 
+    
     try {
-      const response: Promise = await fetch(apiUrl, {
+      // @ts-ignore
+      const response: Response = await fetch(apiUrl, {
+        // @ts-ignore
         headers: headers, 
-        agent: sslConfiguredAgent, 
+        // @ts-ignore
+        agent: sslConfiguredAgent
+      // @ts-ignore
       });
 
-      const responseBody = await response.json();
+      const responseBody: JSON = await response.json()
 
       apiData = responseBody
 
