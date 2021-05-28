@@ -48,8 +48,6 @@ export interface QueryParams {
   uniqueNumber: string
 }
 
-// accepts a URL string and object containing query Parameters.
-// returns a URL in the format
 function buildApiUrl(url: string, queryParams: QueryParams) {
   const apiUrl = new URL(url)
 
@@ -65,6 +63,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   const logger = isProd ? pino({}) : pino({ prettyPrint: true })
   logger.info(req)
 
+  // Load environmental variables to be used for authentication & API calls.
+  // TypeScript: Use non-null assertions (`!`) because these environmental vars need to
+  // exist for the app to function properly.
+  // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
   // API fields
   const API_URL: string = process.env.API_URL!
   const API_USER_KEY: string = process.env.API_USER_KEY!
@@ -72,16 +74,21 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   // TLS Certificate fields
   const CERT_DIR: string = process.env.CERTIFICATE_DIR!
   const P12_FILE: string = process.env.P12_FILE!
-  const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
+  const P12_PATH: string = path.join(CERT_DIR, P12_FILE)!
   const PASSWORD: string = process.env.CERTIFICATE_PASSPHRASE!
 
   let apiData: JSON | null = null
 
-  // return certificate object with cert and key fields.
+  // Returns certificate object with cert, key, and ca fields.
+  // https://dexus.github.io/pem/jsdoc/module-pem.html#.readPkcs12
   async function getCertificate() {
     const pemReadPkcs12 = promisify(pem.readPkcs12)
     const pfx = fs.readFileSync(P12_PATH)
+
     console.log('got here')
+    // TS does not play very nicely with util.promisify
+    // See, e.g., https://github.com/Microsoft/TypeScript/issues/26048
+    // Non-MVP TODO: Consider removing this ignore & TypeScriptifying.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- TypeScript does not handle promisify well.
     const cert = await pemReadPkcs12(pfx, { p12Password: PASSWORD })
@@ -90,6 +97,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     return cert
   }
 
+  // Takes certificate that getCertificate function returns as argument,
+  // makes API call, returns all API data.
   async function makeRequest(certificate: Pkcs12ReadResult) {
     const headers = {
       Accept: 'application/json',
@@ -109,6 +118,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       rejectUnauthorized: false,
       keepAlive: false,
     }
+
+    // Instantiate agent to use with TLS Certificate.
+    // Reference: https://sebtrif.xyz/blog/2019-10-03-client-side-ssl-in-node-js-with-fetch/
     const sslConfiguredAgent: https.Agent = new https.Agent(options)
 
     // TODO: if no uniqueNumber, redirect.
@@ -125,7 +137,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
         agent: sslConfiguredAgent,
       })
 
-      // TODO why does @ts-ignore not work on this line?
+      // TODO: Why does @ts-ignore not work on this line?
+      // TODO: Implement proper typing of responseBody if possible.
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const responseBody: JSON = await response.json()
 
@@ -136,15 +149,20 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
 
     // Explicitly destroy agent so connection does not persist.
     // https://nodejs.org/api/http.html#http_agent_destroy
+    // There were reports (SNAT?) of connection pool problems,
+    // which could be caused by testing?  Either way, explicitly destroy the HTTP Agent.
     sslConfiguredAgent.destroy()
 
     return apiData
   }
 
-  // where it comes together
+  // The 3 steps where the above code is invoked and getServerSideProps returns props.
+  // Step 1: Get the certificate.
   const certificate = await getCertificate()
+  // Step 2: Use certificate to make the API request and return the data.
   const data = await makeRequest(certificate)
 
+  // Step 3: Return Props
   return {
     props: {
       claimData: [data],
