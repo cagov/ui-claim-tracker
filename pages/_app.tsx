@@ -11,8 +11,6 @@ if (process.env.NODE_ENV === 'development') {
   config({ path: resolve(process.cwd(), '..', '.env') })
 }
 
-console.log('ENV ----- ', process.env.NODE_ENV === 'production')
-
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return <Component {...pageProps} />
 }
