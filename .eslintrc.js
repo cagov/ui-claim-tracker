@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'plugin:jest-dom/recommended',
+    "plugin:jsx-a11y/strict",
     'plugin:testing-library/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
@@ -33,6 +34,7 @@ module.exports = {
   plugins: [
     'jest',
     'jest-dom',
+    'jsx-a11y',
     'react',
     'testing-library',
     '@typescript-eslint'
