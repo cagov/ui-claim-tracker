@@ -43,6 +43,5 @@ module.exports = {
     "react/react-in-jsx-scope": "off", //React is provided by NextJS instead
     "react/prop-types": "off", //strict TypeScript provides the same benefits
     "camelcase": ["error", {"allow": ["user_key"]}], // necessary API parameter - index.tsx
-    "@typescript-eslint/ban-ts-comment": "off" // TypeScript doesn't work well with everything
   }
 }
