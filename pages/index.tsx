@@ -81,10 +81,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   async function getCertificate() {
     const pemReadPkcs12 = promisify(pem.readPkcs12)
     const pfx = fs.readFileSync(P12_PATH)
-
+    console.log('got here')
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- TypeScript does not handle promisify well.
     const cert = await pemReadPkcs12(pfx, { p12Password: PASSWORD })
+    console.log('cert is', cert.cert.substr(0, 5))
 
     return cert
   }
