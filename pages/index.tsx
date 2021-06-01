@@ -75,7 +75,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   const CERT_DIR: string = process.env.CERTIFICATE_DIR!
   const P12_FILE: string = process.env.P12_FILE!
   const P12_PATH: string = path.join(CERT_DIR, P12_FILE)!
-  const PASSWORD: string = process.env.CERTIFICATE_PASSPHRASE!
+  // const PASSWORD: string = process.env.CERTIFICATE_PASSPHRASE!
 
   let apiData: JSON | null = null
 
@@ -91,10 +91,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     // Non-MVP TODO: Consider removing this ignore & TypeScriptifying.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- TypeScript does not handle promisify well.
-    const cert = await pemReadPkcs12(pfx, { p12Password: PASSWORD })
-    console.log('cert is', cert.cert.substr(0, 5))
+    const keybundle = await pemReadPkcs12(pfx, {})
+    console.log('cert is', keybundle.cert.substr(0, 5))
 
-    return cert
+    return keybundle
   }
 
   // Takes certificate that getCertificate function returns as argument,
