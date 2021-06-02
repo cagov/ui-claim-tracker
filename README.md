@@ -6,19 +6,30 @@ relates to weekly certification
 ## Running the Application
 
 **Prerequisites:**
-  - Node 12+
-  - yarn
+
+- Node 12+
+- yarn
 
 **Run this app**
 
-Clone this repo, and then run:
+1. Clone this repo
+2. Run `yarn install`
+3. Define environment variables (see below)
+4. Run `yarn dev`
+5. Open [http://localhost:3000/claimstatus](http://localhost:3000/claimstatus) with your browser to see the result
 
-```bash
-yarn install
-yarn dev
-```
+### Environment Variables
 
-Open [http://localhost:3000/claimstatus](http://localhost:3000/claimstatus) with your browser to see the result.
+- ID_HEADER_NAME: The name of the header that contains the unique ID in the incoming request
+- API_URL: The url for the API
+- API_USER_KEY: The user key for the API
+- CERTIFICATE_DIR: The path to the client certificate (certificate must be in PFX/P12 format)
+- P12_FILE: The name of the client certificate file
+
+For local development:
+
+1. Create a `.env` file in the root of this repo
+2. Define each of the environment variables above
 
 ## Running the test suite
 
