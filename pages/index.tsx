@@ -37,8 +37,7 @@ export default function Home({ claimData }: HomeProps): ReactElement {
       <Header />
       <Main />
       <Footer />
-      {console.log('-Test Response-')} {/* TODO: testing, remove these console.logs before user-facing launch */}
-      {console.dir({ claimData })} {/* testing */}
+      {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
   )
 }
@@ -85,15 +84,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     const pemReadPkcs12 = promisify(pem.readPkcs12)
     const pfx = fs.readFileSync(P12_PATH)
 
-    console.log('got here')
     // TS does not play very nicely with util.promisify
     // See, e.g., https://github.com/Microsoft/TypeScript/issues/26048
     // Non-MVP TODO: Consider removing this ignore & TypeScriptifying.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- TypeScript does not handle promisify well.
     const keybundle = await pemReadPkcs12(pfx, {})
-    console.log('cert is', keybundle.cert.substr(0, 5))
-
     return keybundle
   }
 
