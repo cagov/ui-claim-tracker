@@ -67,15 +67,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
    * @TODO: Handle error case where env vars are null or undefined.
    */
   // Request fields
-  const ID_HEADER_NAME: string = process.env.ID_HEADER_NAME
+  const ID_HEADER_NAME: string = process.env.ID_HEADER_NAME ?? ''
 
   // API fields
-  const API_URL: string = process.env.API_URL
-  const API_USER_KEY: string = process.env.API_USER_KEY
+  const API_URL: string = process.env.API_URL ?? ''
+  const API_USER_KEY: string = process.env.API_USER_KEY ?? ''
 
   // TLS Certificate fields
-  const CERT_DIR: string = process.env.CERTIFICATE_DIR
-  const P12_FILE: string = process.env.P12_FILE
+  const CERT_DIR: string = process.env.CERTIFICATE_DIR ?? ''
+  const P12_FILE: string = process.env.P12_FILE ?? ''
   const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
 
   let apiData: JSON | null = null
