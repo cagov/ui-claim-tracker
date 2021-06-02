@@ -493,6 +493,5 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
     </div>
   </footer>
    
-   
 </div>
 `;
