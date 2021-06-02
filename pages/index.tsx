@@ -62,19 +62,21 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   const logger = isProd ? pino({}) : pino({ prettyPrint: true })
   logger.info(req)
 
-  // Load environmental variables to be used for authentication & API calls.
-  // TypeScript: Use non-null assertions (`!`) because these environmental vars need to
-  // exist for the app to function properly.
-  // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+  /*
+   * Load environment variables to be used for authentication & API calls.
+   * @TODO: Handle error case where env vars are null or undefined.
+   */
+  // Request fields
+  const ID_HEADER_NAME: string = process.env.ID_HEADER_NAME
+
   // API fields
-  const API_URL: string = process.env.API_URL!
-  const API_USER_KEY: string = process.env.API_USER_KEY!
-  const UNIQUE_NUMBER_HEADER: string = process.env.UNIQUE_NUMBER_HEADER_TITLE!
+  const API_URL: string = process.env.API_URL
+  const API_USER_KEY: string = process.env.API_USER_KEY
+
   // TLS Certificate fields
-  const CERT_DIR: string = process.env.CERTIFICATE_DIR!
-  const P12_FILE: string = process.env.P12_FILE!
-  const P12_PATH: string = path.join(CERT_DIR, P12_FILE)!
-  // const PASSWORD: string = process.env.CERTIFICATE_PASSPHRASE!
+  const CERT_DIR: string = process.env.CERTIFICATE_DIR
+  const P12_FILE: string = process.env.P12_FILE
+  const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
 
   let apiData: JSON | null = null
 
@@ -122,7 +124,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     // TODO: if no uniqueNumber, redirect.
     const apiUrlParams: QueryParams = {
       user_key: API_USER_KEY,
-      uniqueNumber: req.headers[UNIQUE_NUMBER_HEADER] as string,
+      uniqueNumber: req.headers[ID_HEADER_NAME] as string,
     }
 
     const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams)
