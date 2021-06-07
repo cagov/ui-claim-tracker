@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import https from 'https'
-import { promisify } from 'util'
 
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
@@ -10,7 +9,6 @@ import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
-import pem, { Pkcs12ReadResult } from 'pem'
 import fetch, { Response } from 'node-fetch'
 
 import { Header } from '../components/Header'
