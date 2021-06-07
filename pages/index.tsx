@@ -80,34 +80,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
 
   let apiData: JSON | null = null
 
-  // Returns certificate object with cert, key, and ca fields.
-  // https://dexus.github.io/pem/jsdoc/module-pem.html#.readPkcs12
-  async function getCertificate() {
-    const pemReadPkcs12 = promisify(pem.readPkcs12)
-    const pfx = fs.readFileSync(P12_PATH)
-
-    // TS does not play very nicely with util.promisify
-    // See, e.g., https://github.com/Microsoft/TypeScript/issues/26048
-    // Non-MVP TODO: Consider removing this ignore & TypeScriptifying.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- TypeScript does not handle promisify well.
-    const keybundle = await pemReadPkcs12(pfx)
-    return keybundle
-  }
-
-  // Takes certificate that getCertificate function returns as argument,
-  // makes API call, returns all API data.
-  async function makeRequest(certificate: Pkcs12ReadResult) {
+  // Makes API call, returns all API data.
+  async function makeRequest() {
     const headers = {
       Accept: 'application/json',
     }
 
     // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
     const options = {
-      cert: certificate.cert,
-      key: certificate.key,
-      rejectUnauthorized: false,
-      keepAlive: false,
+      pfx: fs.readFileSync(P12_PATH),
     }
 
     // Instantiate agent to use with TLS Certificate.
@@ -137,22 +118,21 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       console.log(error)
     }
 
-    // Explicitly destroy agent so connection does not persist.
-    // https://nodejs.org/api/http.html#http_agent_destroy
-    // There were reports (SNAT?) of connection pool problems,
-    // which could be caused by testing?  Either way, explicitly destroy the HTTP Agent.
+    // Although we are using an https.Agent with keepAlive false (default behaviour),
+    // we are explicitly destroying it because:
+    // > It is good practice, to destroy() an Agent instance when it is no longer in use,
+    // > because unused sockets consume OS resources.
+    // https://nodejs.org/api/http.html#http_class_http_agent
     sslConfiguredAgent.destroy()
 
     return apiData
   }
 
-  // The 3 steps where the above code is invoked and getServerSideProps returns props.
-  // Step 1: Get the certificate.
-  const certificate = await getCertificate()
-  // Step 2: Use certificate to make the API request and return the data.
-  const data = await makeRequest(certificate)
+  // Use the above code so getServerSideProps returns props.
+  // Step 1: Make the API request and return the data.
+  const data = await makeRequest()
 
-  // Step 3: Return Props
+  // Step 2: Return Props
   return {
     props: {
       claimData: [data],
