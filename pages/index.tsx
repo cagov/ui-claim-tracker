@@ -91,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     // Non-MVP TODO: Consider removing this ignore & TypeScriptifying.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- TypeScript does not handle promisify well.
-    const keybundle = await pemReadPkcs12(pfx, {})
+    const keybundle = await pemReadPkcs12(pfx)
     return keybundle
   }
 
