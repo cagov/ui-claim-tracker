@@ -20,7 +20,7 @@ relates to weekly certification
 
 ### Environment Variables
 
-- ID_HEADER_NAME: The name of the header that contains the unique ID in the incoming request
+- ID_HEADER_NAME: The name of the header that contains the EDD-defined unique ID / "Unique Number" in the incoming request
 - API_URL: The url for the API
 - API_USER_KEY: The user key for the API
 - CERTIFICATE_DIR: The path to the client certificate (certificate must be in PFX/P12 format)
