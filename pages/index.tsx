@@ -102,14 +102,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       Accept: 'application/json',
     }
 
-    /* https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-
-    // TODO: Store certs in memory, instead of loading every time.
-    // TODO: rejectUnauthorized - set to true or implement a `checkServerIdentity`
-    // function to check that the certificate is actually
-    //  issued by the host you're connecting to.
-    //  https://nodejs.org/api/https.html#https_https_request_url_options_callback
-    */
+    // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
     const options = {
       cert: certificate.cert,
       key: certificate.key,
@@ -121,7 +114,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     // Reference: https://sebtrif.xyz/blog/2019-10-03-client-side-ssl-in-node-js-with-fetch/
     const sslConfiguredAgent: https.Agent = new https.Agent(options)
 
-    // TODO: if no uniqueNumber, redirect.
     const apiUrlParams: QueryParams = {
       user_key: API_USER_KEY,
       uniqueNumber: req.headers[ID_HEADER_NAME] as string,
