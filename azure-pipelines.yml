@@ -50,5 +50,4 @@ steps:
       version: '$(build.buildNumber)'
       filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
-    enabled: false
     continueOnError: true
