@@ -90,7 +90,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     }
 
     // Instantiate agent to use with TLS Certificate.
-    // Reference: https://sebtrif.xyz/blog/2019-10-03-client-side-ssl-in-node-js-with-fetch/
+    // Reference: https://github.com/node-fetch/node-fetch/issues/904#issuecomment-747828286
     const sslConfiguredAgent: https.Agent = new https.Agent(options)
 
     const apiUrlParams: QueryParams = {
