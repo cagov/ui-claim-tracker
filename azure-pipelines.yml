@@ -38,7 +38,11 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
 
+
+
+
   - task: Veracode@3
+    displayName: 'Upload and scan: $(build.artifactstagingdirectory)'
     inputs:
       ConnectionDetailsSelection: 'Endpoint'
       AnalysisService: 'veracode'
@@ -46,5 +50,5 @@ steps:
       version: '$(build.buildNumber)'
       filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
-      maximumWaitTime: '360'
-      continueOnError: true
+    enabled: false
+    continueOnError: true
