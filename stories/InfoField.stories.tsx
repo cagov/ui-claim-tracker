@@ -9,8 +9,5 @@ export default {
 
 const Template: Story<InfoFieldProps> = (args) => <InfoFieldComponent {...args} />
 
-export const Loaded = Template.bind({})
-Loaded.args = {}
-
-export const Loading = Template.bind({})
-Loading.args = { loading: true }
+export const InfoField = Template.bind({})
+InfoField.args = {}
