@@ -4,14 +4,15 @@ about: Template for a new task
 title: ''
 labels: ''
 assignees: ''
-
 ---
+
 ### Description
+
 <!-- Describe what needs to be done in detail -->
 
 ### Acceptance Criteria
 
-  - [ ] <!-- acceptance criteria here -->
+- [ ] <!-- acceptance criteria here -->
 
 <!--
 _Note_ When you create this issue, remember to add:

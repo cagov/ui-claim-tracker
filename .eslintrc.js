@@ -42,5 +42,6 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off", //React is provided by NextJS instead
     "react/prop-types": "off", //strict TypeScript provides the same benefits
+    "camelcase": ["error", {"allow": ["user_key"]}], // parameter named by external API gateway and used in index.tsx
   }
 }
