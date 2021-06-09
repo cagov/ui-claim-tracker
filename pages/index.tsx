@@ -21,7 +21,7 @@ export default function Home(): ReactElement {
       </Head>
 
       <Header />
-      <Main />
+      <Main loading={false} />
       <Footer />
     </Container>
   )

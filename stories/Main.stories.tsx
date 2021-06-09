@@ -16,3 +16,6 @@ Main.args = {}
 
 export const TimedOut = Template.bind({})
 TimedOut.args = { timedOut: true }
+
+export const Loading = Template.bind({})
+Loading.args = { loading: true }

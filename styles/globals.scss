@@ -177,6 +177,8 @@ body {
   .shimmer {
     display: inline-block;
     position: relative;
+    margin-top: 10px !important;
+
 
     -webkit-animation-duration: 1.3s;
     -webkit-animation-fill-mode: forwards;
@@ -243,9 +245,8 @@ body {
     }
   }
 
-
   .shimmer-field {
-    margin-bottom: 36px;
+    margin-bottom: 10px;
   }
 
   .footer {

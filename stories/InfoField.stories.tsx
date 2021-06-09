@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import { InfoField as InfoFieldComponent, InfoFieldProps } from '../components/InfoField'
 
 export default {
-  title: 'Component/Blocks/Info Field',
+  title: 'Component/Atoms/Info Field',
   component: InfoFieldComponent,
 } as Meta
 
