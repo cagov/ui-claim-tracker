@@ -4,44 +4,39 @@ import https from 'https'
 import fetch, { Response } from 'node-fetch'
 import type { NextApiRequest } from 'next'
 
+export interface Claim {
+  ClaimType: string | 'not working'
+}
+
 export interface QueryParams {
   user_key: string
   uniqueNumber: string
+}
+
+export interface ApiEnvVars {
+  idHeaderName: string
+  apiUrl: string
+  apiUserKey: string
+  pfxPath: string
 }
 
 /**
  * Returns results from API Gateway
  *
  * @param {Qbject} request
- * @returns {Object}
+ * @returns {Promise<string>}
  */
-const queryApiGateway = async (req: NextApiRequest): Promise<string> => {
-  /**
-   * Load environment variables to be used for authentication & API calls.
-   * @TODO: Handle error case where env vars are null or undefined.
-   */
-  // Request fields
-  const ID_HEADER_NAME: string = process.env.ID_HEADER_NAME ?? ''
-
-  // API fields
-  const API_URL: string = process.env.API_URL ?? ''
-  const API_USER_KEY: string = process.env.API_USER_KEY ?? ''
-
-  // TLS Certificate fields
-  const CERT_DIR: string = process.env.CERTIFICATE_DIR ?? ''
-  const P12_FILE: string = process.env.P12_FILE ?? ''
-  const P12_PATH: string = path.join(CERT_DIR, P12_FILE)
-
-  let apiData: JSON | null = null
+export default async function queryApiGateway(req: NextApiRequest): Promise<string> {
+  const apiEnvVars: ApiEnvVars = getApiVars()
+  let apiData: Claim | null = null
 
   const headers = {
     Accept: 'application/json',
   }
 
   // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-  const pfxFile: Buffer = fs.readFileSync(P12_PATH)
   const options = {
-    pfx: pfxFile,
+    pfx: fs.readFileSync(apiEnvVars.pfxPath),
   }
 
   // Instantiate agent to use with TLS Certificate.
@@ -49,11 +44,11 @@ const queryApiGateway = async (req: NextApiRequest): Promise<string> => {
   const sslConfiguredAgent: https.Agent = new https.Agent(options)
 
   const apiUrlParams: QueryParams = {
-    user_key: API_USER_KEY,
-    uniqueNumber: req.headers[ID_HEADER_NAME] as string,
+    user_key: apiEnvVars.apiUserKey,
+    uniqueNumber: req.headers[apiEnvVars.idHeaderName] as string,
   }
 
-  const apiUrl: RequestInfo = buildApiUrl(API_URL, apiUrlParams)
+  const apiUrl: RequestInfo = buildApiUrl(apiEnvVars.apiUrl, apiUrlParams)
 
   try {
     const response: Response = await fetch(apiUrl, {
@@ -61,12 +56,12 @@ const queryApiGateway = async (req: NextApiRequest): Promise<string> => {
       agent: sslConfiguredAgent,
     })
 
-    // TODO: Why does @ts-ignore not work on this line?
-    // TODO: Implement proper typing of responseBody if possible.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const responseBody: JSON = await response.json()
-
-    apiData = responseBody
+    if (response.ok) {
+      const responseBody: string = await response.text()
+      apiData = extractJSON(responseBody)
+    } else {
+      throw new Error('API Gateway error')
+    }
   } catch (error) {
     console.log(error)
   }
@@ -82,13 +77,35 @@ const queryApiGateway = async (req: NextApiRequest): Promise<string> => {
 }
 
 /**
+ * Load environment variables to be used for authentication & API calls.
+ * @TODO: Handle error case where env vars are null or undefined.
+ */
+export function getApiVars(): ApiEnvVars {
+  const apiEnvVars: ApiEnvVars = {}
+
+  // Request fields
+  apiEnvVars.idHeaderName = process.env.ID_HEADER_NAME ?? ''
+
+  // API fields
+  apiEnvVars.apiUrl = process.env.API_URL ?? ''
+  apiEnvVars.apiUserKey = process.env.API_USER_KEY ?? ''
+
+  // TLS Certificate fields
+  const certDir: string = process.env.CERTIFICATE_DIR ?? ''
+  const pfxFilename: string = process.env.P12_FILE ?? ''
+  apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+
+  return apiEnvVars
+}
+
+/**
  * Construct the url request to the API gateway.
  *
  * @param {string} url - base url for the API gateway
  * @param {QueryParams} queryParams - query params to append to the API gateway url
  * @returns {string}
  */
-function buildApiUrl(url: string, queryParams: QueryParams) {
+export function buildApiUrl(url: string, queryParams: QueryParams): string {
   const apiUrl = new URL(url)
 
   for (const key in queryParams) {
@@ -98,4 +115,11 @@ function buildApiUrl(url: string, queryParams: QueryParams) {
   return apiUrl.toString()
 }
 
-export default queryApiGateway
+/**
+ * Extract JSON body from API gateway response
+ * See https://github.com/typescript-eslint/typescript-eslint/issues/2118#issuecomment-641464651
+ * @TODO: Validate response. See #150
+ */
+export function extractJSON(responseBody: JSON): Claim {
+  return JSON.parse(responseBody) as Claim
+}

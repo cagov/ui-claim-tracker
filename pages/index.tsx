@@ -9,11 +9,7 @@ import { GetServerSideProps } from 'next'
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
-import queryApiGateway from '../utils/queryApiGateway'
-
-export interface Claim {
-  ClaimType: string | 'not working'
-}
+import queryApiGateway, { Claim } from '../utils/queryApiGateway'
 
 export interface HomeProps {
   claimData?: Claim[]
