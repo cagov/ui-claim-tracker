@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next'
 
-import { Button } from './Button'
 import { NextSteps } from './NextSteps'
 import { TextLine } from './TextLine'
 
@@ -34,10 +33,6 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
           </span>
         </div>
       </div>
-      <a href="https://uio.edd.ca.gov">
-        {/*  TODO what is the URL here? */}
-        <Button primary label={t('claim-status.manage-claim')} />
-      </a>
     </div>
   )
 }
