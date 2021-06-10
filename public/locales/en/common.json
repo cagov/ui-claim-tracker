@@ -2,8 +2,6 @@
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",
   "change-locale": "En español",
-  "crumb-uio": "UI Online",
-  "crumb-your-claims": "Your Claims",
   "claim-status": {
     "title": "Claim Status",
     "pending": "Your payments are pending further review.",

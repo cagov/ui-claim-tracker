@@ -68,20 +68,6 @@ body {
     padding: 0px;
   }
 
-  .breadcrumbs {
-    svg {
-      vertical-align: middle !important; //override storybook
-      margin: 0 4px;
-    }
-
-    .text {
-      text-decoration: underline;
-      color: #046b99;
-    }
-
-    margin-bottom: 2em;
-  }
-
   .language-switcher {
     .text {
       text-decoration: underline;

@@ -2,8 +2,6 @@
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",
   "change-locale": "In English",
-  "crumb-uio": "UI Online",
-  "crumb-your-claims": "Your Claims",
   "claim-status": {
     "title": "Claim Status",
     "pending": "Sus pagos están pendientes de revisión adicional.",

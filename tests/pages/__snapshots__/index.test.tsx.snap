@@ -141,41 +141,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
     <div
       className="main-content container"
     >
-      <div
-        className="breadcrumbs"
-      >
-        <a
-          href="https://uio.edd.ca.gov"
-        >
-          <span
-            className="text"
-          >
-            UI Online
-          </span>
-        </a>
-        <svg
-          className="bi bi-chevron-right"
-          fill="#565C65"
-          height="12"
-          viewBox="0 0 16 16"
-          width="12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-            fillRule="evenodd"
-          />
-        </svg>
-        <a
-          href="https://uio.edd.ca.gov"
-        >
-          <span
-            className="text"
-          >
-            Your Claims
-          </span>
-        </a>
-      </div>
       <h1
         className="title"
       >
