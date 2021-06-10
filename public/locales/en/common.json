@@ -5,8 +5,8 @@
   "claim-status": {
     "title": "Claim Status",
     "pending": "Your payments are pending further review.",
-    "you-need-to": "You need to:",
-    "updated": "Posted {{date}}",
+    "next-steps": "Next Steps",
+    "updated": "Posted {{date}}"
   },
   "claim-details": {
     "benefit-year": "Benefit Year",

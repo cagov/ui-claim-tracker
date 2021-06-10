@@ -181,11 +181,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <div
               className="topbar"
             >
-              <span
-                className="text-line"
-              >
-                You need to:
-              </span>
+              <h3>
+                Next Steps
+              </h3>
             </div>
             <div
               className="explanation"
@@ -217,16 +215,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
               </span>
             </div>
           </div>
-          <a
-            href="https://uio.edd.ca.gov"
-          >
-            <button
-              className="btn btn-primary"
-              type="button"
-            >
-              Manage Claim
-            </button>
-          </a>
         </div>
         <div
           className="claim-details container"

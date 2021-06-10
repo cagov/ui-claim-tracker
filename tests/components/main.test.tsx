@@ -17,6 +17,8 @@ describe('Main component shows the page', () => {
 
     render(<Main loading={false} />)
     expect(screen.queryByText('Claim Tracker')).toBeInTheDocument()
+    expect(screen.queryByText('Claim Status')).toBeInTheDocument()
+    expect(screen.queryByText('Next Steps')).toBeInTheDocument()
     expect(screen.queryByText('Benefit Year')).toBeInTheDocument()
     expect(screen.queryByText('Claim Status')).toBeInTheDocument()
   })
@@ -31,6 +33,8 @@ describe('Main component shows loading', () => {
 
     render(<Main loading />)
     expect(screen.queryByText('Claim Tracker')).toBeInTheDocument()
+    expect(screen.queryByText('Claim Status')).toBeInTheDocument()
+    expect(screen.queryByText('Next Steps')).toBeInTheDocument()
     expect(screen.queryByText('Benefit Year')).not.toBeInTheDocument()
     expect(screen.queryByText('Claim Status')).toBeInTheDocument()
     expect(screen.queryByText('Your payments')).not.toBeInTheDocument()
