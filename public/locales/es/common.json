@@ -18,8 +18,8 @@
     "extension-end-date": "Fecha de Finalización de la Extensión"
   },
   "feedback": {
-    "title": "Ayúdanos a mejorar esta página",
-    "message": "Esta es una parte nueva de UI Online. <1>Tus comentarios</1> nos ayudarán a mejorarlo."
+    "title": "Esta página es un trabajo en progreso.",
+    "message": "Mientras probamos esta nueva parte de UI Online, la información aquí puede ser limitada para su reclamo. Estamos trabajando para agregar información sobre problemas comunes que generan <1>pagos pendientes</1>."
   },
   "timeout-modal": {
     "header": "Tu sesión terminará pronto",

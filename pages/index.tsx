@@ -14,6 +14,7 @@ import fetch, { Response } from 'node-fetch'
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
+import { Feedback } from '../components/Feedback'
 
 export interface Claim {
   ClaimType: string | 'not working'
@@ -33,6 +34,7 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
         <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Feedback />
       <Header />
       <Main loading={loading} />
       <Footer />

@@ -1,22 +1,35 @@
+import Alert from 'react-bootstrap/Alert'
+
 import { useTranslation } from 'next-i18next'
 import { Trans } from 'react-i18next'
+import React, { useState } from 'react'
 
 export const Feedback: React.FC = () => {
   const { t } = useTranslation('common')
+  const [show, setShow] = useState(true)
 
-  return (
-    <div className="feedback">
-      <div className="feedback-content">
-        <div className="feedback-title">{t('feedback.title')}</div>
-        <div className="feedback-message">
-          {
-            // TODO correct feedback link?
-            <Trans i18nKey="feedback.message">
-              This is a new part of UI Online. <a href="https://navapbc.com">Your Feedback</a> will help us improve it.
-            </Trans>
-          }
+  if (show) {
+    return (
+      <Alert variant="primary" onClose={() => setShow(false)} dismissible fixed-top>
+        <div className="feedback">
+          <div className="feedback-content">
+            <span className="feedback-title">{t('feedback.title')}</span>
+            &nbsp;
+            <span className="feedback-message">
+              {
+                // TODO correct link
+                <Trans i18nKey="feedback.message">
+                  While we test this new part of UI Online, the information here may be limited for your claim.
+                  We&apos;re working to add information about common issues that lead to{' '}
+                  <a href="https://navapbc.com">pending payments</a>
+                </Trans>
+              }
+            </span>
+          </div>
         </div>
-      </div>
-    </div>
-  )
+      </Alert>
+    )
+  } else {
+    return <div className="feedback"> </div>
+  }
 }

@@ -152,15 +152,14 @@ body {
   }
 
   .feedback {
-    padding: 1em 0;
-
-    .feedback-content {
-      padding: 1em;
+    .alert {
+      color: #214c62;
       background-color: #e1f2f7;
+      margin-bottom: 0;
+    }
 
-      .feedback-title {
-        font-weight: bold;
-      }
+    .feedback-title {
+      font-weight: bold;
     }
   }
 
