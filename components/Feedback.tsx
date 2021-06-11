@@ -20,7 +20,7 @@ export const Feedback: React.FC = () => {
                 // TODO correct link
                 <Trans i18nKey="feedback.message">
                   While we test this new part of UI Online, the information here may be limited for your claim.
-                  We&apos;re working to add information about common issues that lead to{' '}
+                  We&apos;re working to add information about common issues that lead to&nbsp;
                   <a href="https://navapbc.com">pending payments</a>
                 </Trans>
               }

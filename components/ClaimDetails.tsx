@@ -33,7 +33,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
       <div className="claim-details-box">
         <div className="row">
           <div className="col-12">
-            <InfoField primary loading={loading} label={t('claim-details.program-type')} text={programType} />
+            <InfoField loading={loading} label={t('claim-details.program-type')} text={programType} />
           </div>
         </div>
 
