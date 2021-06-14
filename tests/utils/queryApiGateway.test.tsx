@@ -12,7 +12,7 @@ const { Response } = jest.requireActual('node-fetch')
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
-const emptyResponse = { ClaimType: null }
+const emptyResponse = { ClaimType: undefined }
 
 /**
  * Begin tests

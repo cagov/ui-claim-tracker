@@ -5,7 +5,7 @@ import fetch, { Response } from 'node-fetch'
 import type { IncomingMessage } from 'http'
 
 export interface Claim {
-  ClaimType: string | null
+  ClaimType: string | null | undefined
 }
 
 export interface QueryParams {
@@ -28,7 +28,7 @@ export interface ApiEnvVars {
  */
 export default async function queryApiGateway(req: IncomingMessage): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
-  let apiData: Claim = { ClaimType: null }
+  let apiData: Claim = { ClaimType: undefined }
 
   const headers = {
     Accept: 'application/json',
