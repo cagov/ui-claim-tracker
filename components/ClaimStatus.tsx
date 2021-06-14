@@ -28,9 +28,6 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
         </div>
         <div className="explanation">
           <NextSteps loading={loading} nextSteps={nextSteps} />
-          <span className="claim-status-date">
-            <TextLine loading={loading} text={t('claim-status.updated', { date: statusUpdated })} />
-          </span>
         </div>
       </div>
     </div>

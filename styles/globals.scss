@@ -96,7 +96,7 @@ body {
   }
 
   .claim-details {
-    padding: 1.5rem 0 1rem 0;
+    padding: 3rem 0 1rem 0;
 
     .claim-details-box {
       padding: 1rem;
@@ -134,14 +134,11 @@ body {
     .explanation {
       padding: 1rem;
     }
+  }
 
-    .claim-status-date {
-      font-size: 0.75rem;
-    }
-
-    .btn {
-      margin-top: 1rem;
-    }
+  //override bootstrap for our NextSteps layout
+  ul {
+    margin-bottom: 0;
   }
 
   .main {
@@ -159,17 +156,15 @@ body {
     }
   }
 
-  .work-in-progress {
     .alert {
       color: #214c62;
       background-color: #e1f2f7;
       margin-bottom: 0;
-    }
 
     .work-in-progress-title {
       font-weight: bold;
-    }
   }
+    }
 
   .shimmer {
     display: inline-block;

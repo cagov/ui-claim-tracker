@@ -10,7 +10,7 @@ export const WorkInProgress: React.FC = () => {
 
   if (show) {
     return (
-      <Alert variant="primary" onClose={() => setShow(false)} dismissible fixed-top>
+      <Alert variant="primary" onClose={() => setShow(false)} dismissible fixed-top="true">
         <div className="work-in-progress">
           <div className="work-in-progress-content">
             <span className="work-in-progress-title">{t('work-in-progress.title')}</span>
