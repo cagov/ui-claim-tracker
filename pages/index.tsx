@@ -21,9 +21,10 @@ export interface Claim {
 
 export interface HomeProps {
   claimData?: Claim[]
+  loading: boolean
 }
 
-export default function Home({ claimData }: HomeProps): ReactElement {
+export default function Home({ claimData, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
   return (
@@ -33,7 +34,7 @@ export default function Home({ claimData }: HomeProps): ReactElement {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Main />
+      <Main loading={loading} />
       <Footer />
       {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
@@ -134,6 +135,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   return {
     props: {
       claimData: [data],
+      loading: false,
       ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
     },
   }

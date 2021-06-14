@@ -204,7 +204,11 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           <div
             className="pending-status"
           >
-            Your payments are pending further review.
+            <span
+              className="text-line"
+            >
+              Your payments are pending further review.
+            </span>
           </div>
           <div
             className="status-box"
@@ -212,7 +216,11 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <div
               className="topbar"
             >
-              You need to:
+              <span
+                className="text-line"
+              >
+                You need to:
+              </span>
             </div>
             <div
               className="explanation"
@@ -236,8 +244,11 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
               <span
                 className="claim-status-date"
               >
-                 
-                Posted February 25th, 2021
+                <span
+                  className="text-line"
+                >
+                  Posted February 25th, 2021
+                </span>
               </span>
             </div>
           </div>

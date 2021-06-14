@@ -9,16 +9,17 @@ import { Feedback } from './Feedback'
 
 export interface MainProps {
   timedOut?: boolean
+  loading: boolean
 }
 
-export const Main: React.FC<MainProps> = ({ timedOut = false }) => {
+export const Main: React.FC<MainProps> = ({ timedOut = false, loading = false }) => {
   return (
     <main className="main">
       <Container className="main-content">
         <Breadcrumbs />
         <Title />
         <LanguageSwitcher />
-        <ClaimSection />
+        <ClaimSection loading={loading} />
         <Feedback />
       </Container>
       <TimeoutModal action="startOrUpdate" timedOut={timedOut} />
