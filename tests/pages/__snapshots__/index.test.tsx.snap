@@ -4,6 +4,53 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
 <div
   className="index container-fluid"
 >
+  <div
+    className="fade alert alert-primary alert-dismissible show"
+    fixed-top="true"
+    role="alert"
+  >
+    <button
+      className="close"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ×
+      </span>
+      <span
+        className="sr-only"
+      >
+        Close alert
+      </span>
+    </button>
+    <div
+      className="work-in-progress"
+    >
+      <div
+        className="work-in-progress-content"
+      >
+        <span
+          className="work-in-progress-title"
+        >
+          This page is a work in progress.
+        </span>
+         
+        <span
+          className="work-in-progress-message"
+        >
+          While we test this new part of UI Online, the information here may be limited for your claim. We're working to add information about common issues that lead to 
+          <a
+            href="https://navapbc.com"
+          >
+            pending payments
+          </a>
+          .
+        </span>
+      </div>
+    </div>
+  </div>
   <header
     className="header border-bottom border-secondary"
   >
@@ -11,31 +58,50 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
       className="justify-content-between navbar navbar-expand-lg navbar-dark"
       fixed-top="true"
     >
-      <a
-        className="navbar-brand"
-        href="https://ca.gov"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="CA.gov"
-          height="34"
-          src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
-          width="46"
-        />
-      </a>
       <div
-        className="navbar-nav"
-        onKeyDown={[Function]}
+        className="container"
       >
-        <div
-          aria-expanded={null}
-          className="navbar-collapse collapse"
+        <a
+          className="navbar-brand"
+          href="https://ca.gov"
+          rel="noopener noreferrer"
+          target="_blank"
         >
+          <img
+            alt="CA.gov"
+            height="34"
+            src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
+            width="46"
+          />
+        </a>
+        <div
+          className="navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <div
+            aria-expanded={null}
+            className="navbar-collapse collapse"
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://edd.ca.gov"
+              href="https://edd.ca.gov"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                className="text"
+              >
+                EDD Home
+              </span>
+            </a>
+          </div>
           <a
             className="nav-link"
-            data-rb-event-key="https://edd.ca.gov"
-            href="https://edd.ca.gov"
+            data-rb-event-key="https://askedd.edd.ca.gov/"
+            href="https://askedd.edd.ca.gov/"
             onClick={[Function]}
             onKeyDown={[Function]}
             rel="noopener noreferrer"
@@ -44,93 +110,82 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <span
               className="text"
             >
-              EDD Home
+              Help
+            </span>
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="https://edd.ca.gov/login.htm"
+            href="https://edd.ca.gov/login.htm"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              className="text"
+            >
+              Log out
             </span>
           </a>
         </div>
-        <a
-          className="nav-link"
-          data-rb-event-key="https://askedd.edd.ca.gov/"
-          href="https://askedd.edd.ca.gov/"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span
-            className="text"
-          >
-            Help
-          </span>
-        </a>
-        <a
-          className="nav-link"
-          data-rb-event-key="https://edd.ca.gov/login.htm"
-          href="https://edd.ca.gov/login.htm"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span
-            className="text"
-          >
-            Log out
-          </span>
-        </a>
       </div>
     </nav>
     <nav
       className="justify-content-between navbar navbar-expand-lg navbar-light"
     >
-      <a
-        className="navbar-brand"
-        href="https://edd.ca.gov"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="EDD Employment Development Department State of California Home"
-          className="d-inline-block align-top mr-5"
-          height="60"
-          src="/claimstatus/images/edd-logo-2-Color.svg"
-          width="171"
-        />
-      </a>
-      <button
-        aria-controls="basic-navbar-nav"
-        aria-label="Toggle navigation"
-        className="navbar-toggler collapsed"
-        onClick={[Function]}
-        type="button"
-      >
-        <span
-          className="navbar-toggler-icon"
-        />
-      </button>
       <div
-        aria-expanded={null}
-        className="navbar-collapse collapse"
+        className="container"
       >
-        <div
-          className="navbar-nav"
-          onKeyDown={[Function]}
+        <a
+          className="navbar-brand"
+          href="https://edd.ca.gov"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <a
-            className="nav-link"
-            data-rb-event-key="https://uio.edd.ca.gov"
-            href="https://uio.edd.ca.gov"
-            onClick={[Function]}
+          <img
+            alt="EDD Employment Development Department State of California Home"
+            className="d-inline-block align-top mr-5"
+            height="60"
+            src="/claimstatus/images/edd-logo-2-Color.svg"
+            width="171"
+          />
+        </a>
+        <button
+          aria-controls="basic-navbar-nav"
+          aria-label="Toggle navigation"
+          className="navbar-toggler collapsed"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          aria-expanded={null}
+          className="navbar-collapse collapse"
+        >
+          <div
+            className="navbar-nav"
             onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
           >
-            <span
-              className="text"
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov"
+              href="https://uio.edd.ca.gov"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              UI Online Home
-            </span>
-          </a>
+              <span
+                className="text"
+              >
+                UI Online Home
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -181,7 +236,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <div
               className="topbar"
             >
-              <h3>
+              <h3
+                className="next-steps"
+              >
                 Next Steps
               </h3>
             </div>
@@ -204,15 +261,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   </li>
                 </ul>
               </div>
-              <span
-                className="claim-status-date"
-              >
-                <span
-                  className="text-line"
-                >
-                  Posted February 25th, 2021
-                </span>
-              </span>
             </div>
           </div>
         </div>
@@ -229,85 +277,77 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
               className="row"
             >
               <div
-                className="col-12"
-              >
-                <div
-                  className="info"
-                >
-                  <h3
-                    className="info-label"
-                  >
-                    Program Type
-                  </h3>
-                  <span
-                    className="info-entry-primary"
-                  >
-                    Unemployment Insurance (UI)
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="row"
-            >
-              <div
                 className="col-6"
               >
                 <div
                   className="info"
                 >
-                  <h3
+                  <div
+                    className="info-label"
+                  >
+                    Program Type
+                  </div>
+                  <div
+                    className="info-entry"
+                  >
+                    Unemployment Insurance (UI)
+                  </div>
+                </div>
+                <div
+                  className="info"
+                >
+                  <div
                     className="info-label"
                   >
                     Benefit Year
-                  </h3>
-                  <span
+                  </div>
+                  <div
                     className="info-entry"
                   >
                     3/21/2020 - 3/20/2021
-                  </span>
+                  </div>
                 </div>
                 <div
                   className="info"
                 >
-                  <h3
+                  <div
                     className="info-label"
                   >
                     Claim Balance
-                  </h3>
-                  <span
+                  </div>
+                  <div
                     className="info-entry"
                   >
                     $0.00
-                  </span>
+                  </div>
                 </div>
                 <div
                   className="info"
                 >
-                  <h3
+                  <div
                     className="info-label"
                   >
                     Weekly Benefit Amount
-                  </h3>
-                  <span
+                  </div>
+                  <div
                     className="info-entry"
                   >
                     $111.00
-                  </span>
+                  </div>
                 </div>
                 <div
                   className="info"
                 >
-                  <h3
+                  <div
                     className="info-label"
                   >
                     Last Payment Issued
-                  </h3>
-                  <span
+                  </div>
+                  <div
                     className="info-entry"
                   >
                     4/29/2021
-                  </span>
+                  </div>
                 </div>
               </div>
               <div
@@ -317,57 +357,33 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                 <div
                   className="info"
                 >
-                  <h3
+                  <div
                     className="info-label"
                   >
                     Extension Type
-                  </h3>
-                  <span
+                  </div>
+                  <div
                     className="info-entry"
                   >
                     Tier 2 Extension
-                  </span>
+                  </div>
                 </div>
                 <div
                   className="info"
                 >
-                  <h3
+                  <div
                     className="info-label"
                   >
                     Extension End Date
-                  </h3>
-                  <span
+                  </div>
+                  <div
                     className="info-entry"
                   >
                     5/22/2021
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="feedback"
-      >
-        <div
-          className="feedback-content"
-        >
-          <div
-            className="feedback-title"
-          >
-            Help us improve this page
-          </div>
-          <div
-            className="feedback-message"
-          >
-            This is a new part of UI Online. 
-            <a
-              href="https://navapbc.com"
-            >
-              Your Feedback
-            </a>
-             will help us improve it.
           </div>
         </div>
       </div>
