@@ -1,5 +1,8 @@
 import { useTranslation } from 'next-i18next'
+import { InfoField } from './InfoField'
+
 export interface ClaimDetailsProps {
+  loading: boolean
   title: string
   programType: string
   benefitYear: string
@@ -11,6 +14,7 @@ export interface ClaimDetailsProps {
 }
 
 export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
+  loading = false,
   title = 'Claim Details',
   programType = 'Unemployment Insurance (UI)',
   benefitYear = '3/21/2020 - 3/20/2021',
@@ -29,46 +33,25 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
       <div className="claim-details-box">
         <div className="row">
           <div className="col-12">
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.program-type')}</h3>
-              <span className="info-entry-primary">{programType}</span>
-            </div>
+            <InfoField primary loading={loading} label={t('claim-details.program-type')} text={programType} />
           </div>
         </div>
 
         <div className="row">
           <div className="col-6">
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.benefit-year')}</h3>
-              <span className="info-entry">{benefitYear}</span>
-            </div>
+            <InfoField loading={loading} label={t('claim-details.benefit-year')} text={benefitYear} />
 
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.claim-balance')}</h3>
-              <span className="info-entry">{claimBalance}</span>
-            </div>
+            <InfoField loading={loading} label={t('claim-details.claim-balance')} text={claimBalance} />
 
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.weekly-benefit-amount')}</h3>
-              <span className="info-entry">{weeklyBenefitAmount}</span>
-            </div>
+            <InfoField loading={loading} label={t('claim-details.weekly-benefit-amount')} text={weeklyBenefitAmount} />
 
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.last-payment-issued')}</h3>
-              <span className="info-entry">{lastPaymentIssued}</span>
-            </div>
+            <InfoField loading={loading} label={t('claim-details.last-payment-issued')} text={lastPaymentIssued} />
           </div>
           <div className="col-6">
             <div />
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.extension-type')}</h3>
-              <span className="info-entry">{extentionType}</span>
-            </div>
+            <InfoField loading={loading} label={t('claim-details.extension-type')} text={extentionType} />
 
-            <div className="info">
-              <h3 className="info-label">{t('claim-details.extension-end-date')}</h3>
-              <span className="info-entry">{extensionEndDate}</span>
-            </div>
+            <InfoField loading={loading} label={t('claim-details.extension-end-date')} text={extensionEndDate} />
           </div>
         </div>
       </div>

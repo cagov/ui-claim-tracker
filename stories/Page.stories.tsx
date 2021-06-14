@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { withNextRouter } from 'storybook-addon-next-router'
 
-import Home from '../pages/index'
+import Home, { HomeProps } from '../pages/index'
 
 export default {
   title: 'Claim Tracker/Page',
@@ -9,7 +9,7 @@ export default {
   decorators: [withNextRouter],
 } as Meta
 
-const Template: Story = (args) => <Home {...args} />
+const Template: Story<HomeProps> = (args) => <Home {...args} />
 
 export const Page = Template.bind({})
 Page.args = {}
