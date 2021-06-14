@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   logger.info(req)
 
   // Step 1: Make the API request and return the data.
-  const data: Promise<string> = await queryApiGateway(req)
+  const data: Claim = await queryApiGateway(req)
 
   // Step 2: Return Props
   return {

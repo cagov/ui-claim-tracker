@@ -2,10 +2,10 @@ import path from 'path'
 import fs from 'fs'
 import https from 'https'
 import fetch, { Response } from 'node-fetch'
-import type { NextApiRequest } from 'next'
+import type { IncomingMessage } from 'http'
 
 export interface Claim {
-  ClaimType: string | 'not working'
+  ClaimType: string | null
 }
 
 export interface QueryParams {
@@ -26,9 +26,9 @@ export interface ApiEnvVars {
  * @param {Qbject} request
  * @returns {Promise<string>}
  */
-export default async function queryApiGateway(req: NextApiRequest): Promise<string> {
+export default async function queryApiGateway(req: IncomingMessage): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
-  let apiData: Claim | null = null
+  let apiData: Claim = { ClaimType: null }
 
   const headers = {
     Accept: 'application/json',
@@ -81,7 +81,7 @@ export default async function queryApiGateway(req: NextApiRequest): Promise<stri
  * @TODO: Handle error case where env vars are null or undefined.
  */
 export function getApiVars(): ApiEnvVars {
-  const apiEnvVars: ApiEnvVars = {}
+  const apiEnvVars: ApiEnvVars = { idHeaderName: '', apiUrl: '', apiUserKey: '', pfxPath: '' }
 
   // Request fields
   apiEnvVars.idHeaderName = process.env.ID_HEADER_NAME ?? ''
@@ -120,6 +120,6 @@ export function buildApiUrl(url: string, queryParams: QueryParams): string {
  * See https://github.com/typescript-eslint/typescript-eslint/issues/2118#issuecomment-641464651
  * @TODO: Validate response. See #150
  */
-export function extractJSON(responseBody: JSON): Claim {
+export function extractJSON(responseBody: string): Claim {
   return JSON.parse(responseBody) as Claim
 }

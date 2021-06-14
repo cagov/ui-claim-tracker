@@ -12,6 +12,7 @@ const { Response } = jest.requireActual('node-fetch')
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
+const emptyResponse = { ClaimType: null }
 
 /**
  * Begin tests
@@ -77,7 +78,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
-    expect(data).toStrictEqual(null)
+    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
 
     // Restore env vars
@@ -102,7 +103,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
-    expect(data).toStrictEqual(null)
+    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
 
     // Restore env vars
@@ -124,7 +125,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
-    expect(data).toStrictEqual(null)
+    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
 
     // Restore env vars
