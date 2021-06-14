@@ -148,23 +148,27 @@ body {
     justify-content: center;
     align-items: center;
 
+    .main-content {
+      padding: 2rem 1rem;
+    }
+
     @media (min-width: 768px) {
       .main-content {
         max-width: 650px;
-        padding: 2rem 0;
       }
     }
   }
 
-    .alert {
-      color: #214c62;
-      background-color: #e1f2f7;
-      margin-bottom: 0;
+  // WorkInProgress banner
+  .alert {
+    color: #214c62;
+    background-color: #e1f2f7;
+    margin-bottom: 0;
 
     .work-in-progress-title {
       font-weight: bold;
-  }
     }
+  }
 
   .shimmer {
     display: inline-block;
@@ -245,7 +249,7 @@ body {
     background-color: #222;
 
     .copyright {
-      padding: 5px 0 23px;
+      padding: 5px 8px 23px;
     }
 
     .navbar {

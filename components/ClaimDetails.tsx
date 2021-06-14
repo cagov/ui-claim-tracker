@@ -34,6 +34,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
         <div className="row">
           <div className="col-6">
             <InfoField loading={loading} label={t('claim-details.program-type')} text={programType} />
+
             <InfoField loading={loading} label={t('claim-details.benefit-year')} text={benefitYear} />
 
             <InfoField loading={loading} label={t('claim-details.claim-balance')} text={claimBalance} />
