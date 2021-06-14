@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 // Mock some modules
 jest.mock('fs')
 jest.mock('node-fetch')
-// const { Response } = jest.requireActual('node-fetch')
+const { Response } = jest.requireActual('node-fetch')
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
@@ -26,7 +26,7 @@ describe('Querying the API Gateway', () => {
 
   beforeEach(() => {
     // Mock the fetch response
-    // fetch.mockReturnValue(Promise.resolve(new Response(JSON.stringify(goodResponse))))
+    fetch.mockReturnValue(Promise.resolve(new Response(JSON.stringify(goodResponse))))
     // Mock fs.readFileSync()
     fs.readFileSync = jest.fn().mockResolvedValue('mock file data')
   })
@@ -63,7 +63,7 @@ describe('Querying the API Gateway', () => {
   // Test that queryApiGateway handles Errors
   it('handles errors thrown by fetch', async () => {
     // Mock a network error
-    // fetch.mockRejectedValueOnce(new Error('network error'))
+    fetch.mockRejectedValueOnce(new Error('network error'))
 
     // Mock process.env
     const restore = mockEnv({
@@ -81,10 +81,10 @@ describe('Querying the API Gateway', () => {
   // Test that queryApiGateway handles non-200 responses from API gateway
   it('handles non-200 responses from API gateway', async () => {
     // Mock a 403 response error
-    // const errorResponse403: Response = new Response('403 Forbidden', {
-    //   status: 403,
-    // })
-    // fetch.mockReturnValue(Promise.resolve(errorResponse403))
+    const errorResponse403: Response = new Response('403 Forbidden', {
+      status: 403,
+    })
+    fetch.mockReturnValue(Promise.resolve(errorResponse403))
 
     // Mock process.env
     const restore = mockEnv({
@@ -104,7 +104,7 @@ describe('Querying the API Gateway', () => {
     // Mock a string response from API gateway
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
-    // fetch.mockReturnValue(Promise.resolve(new Response('not json')))
+    fetch.mockReturnValue(Promise.resolve(new Response('not json')))
 
     // Mock process.env
     const restore = mockEnv({
