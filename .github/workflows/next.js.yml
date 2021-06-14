@@ -44,5 +44,6 @@ jobs:
     # vkey
          vkey:  ${{ secrets.key }}
     # true or flase
-         createsandbox: flase
+         continueOnError: true
+       
 
