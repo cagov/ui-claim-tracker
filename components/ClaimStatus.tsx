@@ -24,7 +24,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
       </div>
       <div className="status-box">
         <div className="topbar">
-          <h3>{t('claim-status.next-steps')}</h3>
+          <h3 className="next-steps">{t('claim-status.next-steps')}</h3>
         </div>
         <div className="explanation">
           <NextSteps loading={loading} nextSteps={nextSteps} />

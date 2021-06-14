@@ -6,8 +6,7 @@
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-  Helvetica Neue, sans-serif;
+  font-family: 'Source Sans Pro';
   color: #333333;
 
   h1 {
@@ -15,12 +14,12 @@ body {
   }
 
   h2 {
-    font-size: 1.75em;
     font-weight: bold;
   }
 
   h3 {
-    font-size: 1.25em;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
 
@@ -89,26 +88,25 @@ body {
       color: #046b99;
     }
 
-    //TODO - correct this margin
-    margin-bottom: 2em;
+    margin-bottom: 3rem;
   }
 
   .title {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
   }
 
   .claim-details {
-    padding: 1.5em 0 1em 0;
+    padding: 1.5rem 0 1rem 0;
 
     .claim-details-box {
-      padding: 1em;
+      padding: 1rem;
       border: 3px solid #f0f0f0;
     }
 
     .info {
       .info-label {
-        padding-top: 0.75em;
-        font-size: 0.75em;
+        padding-top: 0.75rem;
+        font-size: 0.75rem;
         color: #757575;
       }
     }
@@ -116,7 +114,7 @@ body {
 
   .claim-status {
     .pending-status {
-      padding: 1em 0;
+      padding: 0.5rem 0 2rem 0;
     }
 
     .status-box {
@@ -125,20 +123,24 @@ body {
 
     .topbar {
       background: #f0f0f0;
-      padding: 0.5em;
+      padding: 0.5rem;
       font-weight: bold;
+
+      .next-steps {
+        padding-left: 1.5rem;
+      }
     }
 
     .explanation {
-      padding: 1em;
+      padding: 1rem;
     }
 
     .claim-status-date {
-      font-size: 0.75em;
+      font-size: 0.75rem;
     }
 
     .btn {
-      margin-top: 1em;
+      margin-top: 1rem;
     }
   }
 
@@ -152,7 +154,7 @@ body {
     @media (min-width: 768px) {
       .main-content {
         max-width: 650px;
-        padding: 2em 0;
+        padding: 2rem 0;
       }
     }
   }
