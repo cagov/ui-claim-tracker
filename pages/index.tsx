@@ -14,7 +14,7 @@ import fetch, { Response } from 'node-fetch'
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
-import { Feedback } from '../components/Feedback'
+import { WorkInProgress } from '../components/WorkInProgress'
 
 export interface Claim {
   ClaimType: string | 'not working'
@@ -35,7 +35,7 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
       </Head>
-      <Feedback />
+      <WorkInProgress />
       <Header />
       <Main loading={loading} />
       <Footer />
