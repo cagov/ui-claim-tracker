@@ -1,6 +1,6 @@
 import { Shimmer } from '../components/Shimmer'
 
-export const ShimmerField = () => (
+export const ShimmerField: React.FC = () => (
   <div className="shimmer-field">
     <div className="shimmer-label">
       <Shimmer width="40%" height={15} baseColor="#B6B2B2" shimColor="#656565" borderRadius={3} />
