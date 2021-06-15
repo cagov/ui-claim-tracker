@@ -39,3 +39,4 @@ jobs:
          vid: ${{ secrets.id }}
          vkey:  ${{ secrets.key }}
          createsandbox: flase
+      continue-on-error: true
