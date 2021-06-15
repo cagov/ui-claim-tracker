@@ -26,3 +26,24 @@ jobs:
     - run: yarn test
     - run: yarn lint
 
+    - name: Veracode Upload And Scan
+  # You may pin to the exact commit or the version.
+  # uses: veracode/veracode-uploadandscan-action@c5e63c8383debb26a0d48250eab75d94327635ba
+      uses: veracode/veracode-uploadandscan-action@0.2.1
+      with:
+    # appname
+         appname:  'uiclaim.tracker'
+    # createprofile
+         createprofile: true
+    # filepath
+         filepath:  .
+    # version
+         version:  ${{ github.run_id }}
+    # vid
+         vid: ${{ secrets.id }}
+    # vkey
+         vkey:  ${{ secrets.key }}
+    # true or flase
+         continueOnError: true
+       
+
