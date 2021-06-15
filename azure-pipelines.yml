@@ -51,4 +51,3 @@ steps:
       filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
     continueOnError: true
-    enabled: false
