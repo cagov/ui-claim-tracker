@@ -31,7 +31,7 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
     <Container fluid className="index">
       <Head>
         <title>{t('title')}</title>
-        <link rel="icon" href="claimstatus/favicon.ico" />
+        <link rel="icon" href="/claimstatus/favicon.ico" />
       </Head>
       <Header />
       <Main loading={loading} />
