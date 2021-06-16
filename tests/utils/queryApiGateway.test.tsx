@@ -18,7 +18,7 @@ const emptyResponse = { ClaimType: undefined }
  * Begin tests
  */
 
-// Test queryApiGateway
+// Test queryApiGateway()
 describe('Querying the API Gateway', () => {
   const goodResponse = { ClaimType: 'PUA' }
   const goodRequest = {
@@ -41,7 +41,8 @@ describe('Querying the API Gateway', () => {
     jest.clearAllMocks()
   })
 
-  // Test mock fetch is working correctly
+  // Test mocked fetch is working correctly to eliminate testing issues that might be
+  // originating from the way fetch is mocked.
   it('has a correctly mocked fetch', async () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
@@ -50,7 +51,6 @@ describe('Querying the API Gateway', () => {
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
-  // Test that queryApiGateway works correctly
   it('returns the expected value', async () => {
     // Mock process.env
     const restore = mockEnv({
@@ -65,9 +65,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  // Test that queryApiGateway handles Errors
   it('handles errors thrown by fetch', async () => {
-    // Mock a network error
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fetch.mockRejectedValueOnce(new Error('network error'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
@@ -85,9 +83,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  // Test that queryApiGateway handles non-200 responses from API gateway
   it('handles non-200 responses from API gateway', async () => {
-    // Mock a 403 response error
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     const errorResponse403: Response = new Response('403 Forbidden', {
@@ -110,7 +106,6 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  // Test that queryApiGateway handles errors from API gateway
   it('handles errors returned by API gateway', async () => {
     // Mock a string response from API gateway
     // This happens when an incorrect query is sent to API gateway,
@@ -133,7 +128,7 @@ describe('Querying the API Gateway', () => {
   })
 })
 
-// Test buildApiUrl
+// Test buildApiUrl()
 describe('Building the API url', () => {
   const goodParams: QueryParams = {
     user_key: 'key',
