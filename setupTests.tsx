@@ -4,8 +4,6 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 import enCommon from './public/locales/en/common.json'
-import enHeader from './public/locales/en/header.json'
-import enFooter from './public/locales/en/footer.json'
 
 /* eslint-disable @typescript-eslint/no-floating-promises */
 // Disabling this rule due to hitting a half hour of debugging,
@@ -15,10 +13,10 @@ import enFooter from './public/locales/en/footer.json'
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
-  ns: ['common', 'header'],
+  ns: ['common'],
   defaultNS: 'common',
   resources: {
-    en: { common: enCommon, header: enHeader, footer: enFooter },
+    en: { common: enCommon },
   },
 })
 /* eslint-enable @typescript-eslint/no-floating-promises */

@@ -3,27 +3,32 @@ import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
 export const Header: React.FC = () => {
-  const { t } = useTranslation('header')
+  const { t } = useTranslation('common')
 
   return (
     <header className="header border-bottom border-secondary">
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://ca.gov">
-          <img src="/claimstatus/images/Ca-Gov-Logo-Gold.svg" alt={t('alt-image-cagov')} width="46" height="34" />
+          <img
+            src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
+            alt={t('header.alt-image-cagov')}
+            width="46"
+            height="34"
+          />
         </Navbar.Brand>
         <Nav>
           <Navbar.Collapse>
             <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
-              <span className="text">{t('edd-home')}</span>
+              <span className="text">{t('header.edd-home')}</span>
             </Nav.Link>
           </Navbar.Collapse>
           {/*  TODO what is the URL here? */}
           <Nav.Link target="_blank" rel="noopener noreferrer" href="https://askedd.edd.ca.gov/">
-            <span className="text">{t('help')}</span>
+            <span className="text">{t('header.help')}</span>
           </Nav.Link>
           {/*  TODO what is the URL here? */}
           <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/login.htm">
-            <span className="text">{t('logout')}</span>
+            <span className="text">{t('header.logout')}</span>
           </Nav.Link>
         </Nav>
       </Navbar>
@@ -31,7 +36,7 @@ export const Header: React.FC = () => {
         <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
           <img
             src="/claimstatus/images/edd-logo-2-Color.svg"
-            alt={t('alt-image-edd')}
+            alt={t('header.alt-image-edd')}
             height="60"
             width="171"
             className="d-inline-block align-top mr-5"
@@ -41,7 +46,7 @@ export const Header: React.FC = () => {
         <Navbar.Collapse>
           <Nav>
             <Nav.Link target="_blank" rel="noopener noreferrer" href="https://uio.edd.ca.gov">
-              <span className="text">{t('uio-home')}</span>
+              <span className="text">{t('header.uio-home')}</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
