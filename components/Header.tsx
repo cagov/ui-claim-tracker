@@ -1,6 +1,7 @@
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 
 export interface HeaderProps {
   mobile: boolean
@@ -8,9 +9,13 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ mobile = false }) => {
   const { t } = useTranslation('common')
-  const uioHomeLink = mobile
+  const router = useRouter()
+
+  const locale = router.locale || 'en'
+  const uioHomeBase = mobile
     ? 'https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx'
     : 'https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx'
+  const uioHomeLink = uioHomeBase + '?l=' + locale
 
   return (
     <header className="header border-bottom border-secondary">
