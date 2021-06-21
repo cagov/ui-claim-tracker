@@ -7,8 +7,6 @@ import { initReactI18next } from 'react-i18next'
 import i18n from './i18n';
 
 import enCommon from '../public/locales/en/common.json'
-import enHeader from '../public/locales/en/header.json'
-import enFooter from '../public/locales/en/footer.json'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -32,10 +30,10 @@ export const decorators = [
 
       lng: 'en',
       fallbackLng: 'en',
-      ns: ['common', 'header'],
+      ns: ['common'],
       defaultNS: 'common',
       resources: {
-        en: { common: enCommon, header: enHeader, footer: enFooter },
+        en: { common: enCommon },
       },
     })
 

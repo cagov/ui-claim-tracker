@@ -1,4 +1,13 @@
 {
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "Página principal del Departamento de Desarrollo de Empleo del EDD",
+    "edd-home": "EDD Casa",
+    "help": "Ayuda",
+    "welcome": "Bienvenidas, nombre",
+    "logout": "Cerrar sesión",
+    "uio-home": "UI Online Casa"
+  },
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",
   "change-locale": "In English",
@@ -23,6 +32,14 @@
   "feedback": {
     "title": "Ayúdanos a mejorar esta página",
     "message": "Esta es una parte nueva de UI Online. <1>Tus comentarios</1> nos ayudarán a mejorarlo."
+  },
+  "footer": {
+    "toTop": "Volver Arriba",
+    "contact": "Contacta con EDD",
+    "conditionsOfUse": "Condiciones de Uso",
+    "privacyPolicy": "Política de Privacidad",
+    "accessibility": "Accesibilidad",
+    "copyright": "Copyright © 2021 Estado de California"
   },
   "timeout-modal": {
     "header": "Tu sesión terminará pronto",
