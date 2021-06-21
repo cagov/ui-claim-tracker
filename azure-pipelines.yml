@@ -38,9 +38,6 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifacts: drop"
 
-
-
-
   - task: Veracode@3
     displayName: 'Upload and scan: $(build.artifactstagingdirectory)'
     inputs:
