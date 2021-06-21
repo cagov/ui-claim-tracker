@@ -10,6 +10,11 @@ import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
 import queryApiGateway, { Claim } from '../utils/queryApiGateway'
+import { useRouter } from 'next/router'
+
+export interface Claim {
+  ClaimType: string | 'not working'
+}
 
 export interface HomeProps {
   claimData?: Claim[]
@@ -18,6 +23,8 @@ export interface HomeProps {
 
 export default function Home({ claimData, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
+  const router = useRouter()
+  const mobile = router.query.from === 'uiom'
 
   return (
     <Container fluid className="index">
@@ -25,7 +32,7 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
         <title>{t('title')}</title>
         <link rel="icon" href="/claimstatus/favicon.ico" />
       </Head>
-      <Header />
+      <Header mobile={mobile} />
       <Main loading={loading} />
       <Footer />
       {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}

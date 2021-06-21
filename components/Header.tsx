@@ -2,8 +2,15 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
-export const Header: React.FC = () => {
+export interface HeaderProps {
+  mobile: boolean
+}
+
+export const Header: React.FC<HeaderProps> = ({ mobile = false }) => {
   const { t } = useTranslation('common')
+  const uioHomeLink = mobile
+    ? 'https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx'
+    : 'https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx'
 
   return (
     <header className="header border-bottom border-secondary">
@@ -45,7 +52,7 @@ export const Header: React.FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://uio.edd.ca.gov">
+            <Nav.Link target="_blank" rel="noopener noreferrer" href={uioHomeLink}>
               <span className="text">{t('header.uio-home')}</span>
             </Nav.Link>
           </Nav>
