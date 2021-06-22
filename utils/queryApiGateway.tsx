@@ -21,6 +21,54 @@ export interface ApiEnvVars {
 }
 
 /**
+ * Load environment variables to be used for authentication & API calls.
+ * @TODO: Handle error case where env vars are null or undefined.
+ */
+export function getApiVars(): ApiEnvVars {
+  const apiEnvVars: ApiEnvVars = { idHeaderName: '', apiUrl: '', apiUserKey: '', pfxPath: '' }
+
+  // Request fields
+  apiEnvVars.idHeaderName = process.env.ID_HEADER_NAME ?? ''
+
+  // API fields
+  apiEnvVars.apiUrl = process.env.API_URL ?? ''
+  apiEnvVars.apiUserKey = process.env.API_USER_KEY ?? ''
+
+  // TLS Certificate fields
+  const certDir: string = process.env.CERTIFICATE_DIR ?? ''
+  const pfxFilename: string = process.env.P12_FILE ?? ''
+  apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+
+  return apiEnvVars
+}
+
+/**
+ * Construct the url request to the API gateway.
+ *
+ * @param {string} url - base url for the API gateway
+ * @param {QueryParams} queryParams - query params to append to the API gateway url
+ * @returns {string}
+ */
+export function buildApiUrl(url: string, queryParams: QueryParams): string {
+  const apiUrl = new URL(url)
+
+  for (const key in queryParams) {
+    apiUrl.searchParams.append(key, queryParams[key as 'user_key' | 'uniqueNumber'])
+  }
+
+  return apiUrl.toString()
+}
+
+/**
+ * Extract JSON body from API gateway response
+ * See https://github.com/typescript-eslint/typescript-eslint/issues/2118#issuecomment-641464651
+ * @TODO: Validate response. See #150
+ */
+export function extractJSON(responseBody: string): Claim {
+  return JSON.parse(responseBody) as Claim
+}
+
+/**
  * Returns results from API Gateway
  *
  * @param {Qbject} request
@@ -74,52 +122,4 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
   sslConfiguredAgent.destroy()
 
   return apiData
-}
-
-/**
- * Load environment variables to be used for authentication & API calls.
- * @TODO: Handle error case where env vars are null or undefined.
- */
-export function getApiVars(): ApiEnvVars {
-  const apiEnvVars: ApiEnvVars = { idHeaderName: '', apiUrl: '', apiUserKey: '', pfxPath: '' }
-
-  // Request fields
-  apiEnvVars.idHeaderName = process.env.ID_HEADER_NAME ?? ''
-
-  // API fields
-  apiEnvVars.apiUrl = process.env.API_URL ?? ''
-  apiEnvVars.apiUserKey = process.env.API_USER_KEY ?? ''
-
-  // TLS Certificate fields
-  const certDir: string = process.env.CERTIFICATE_DIR ?? ''
-  const pfxFilename: string = process.env.P12_FILE ?? ''
-  apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
-
-  return apiEnvVars
-}
-
-/**
- * Construct the url request to the API gateway.
- *
- * @param {string} url - base url for the API gateway
- * @param {QueryParams} queryParams - query params to append to the API gateway url
- * @returns {string}
- */
-export function buildApiUrl(url: string, queryParams: QueryParams): string {
-  const apiUrl = new URL(url)
-
-  for (const key in queryParams) {
-    apiUrl.searchParams.append(key, queryParams[key as 'user_key' | 'uniqueNumber'])
-  }
-
-  return apiUrl.toString()
-}
-
-/**
- * Extract JSON body from API gateway response
- * See https://github.com/typescript-eslint/typescript-eslint/issues/2118#issuecomment-641464651
- * @TODO: Validate response. See #150
- */
-export function extractJSON(responseBody: string): Claim {
-  return JSON.parse(responseBody) as Claim
 }
