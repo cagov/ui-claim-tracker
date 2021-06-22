@@ -136,7 +136,7 @@ body {
     }
   }
 
-  //override bootstrap for our NextSteps layout
+  //override bootstrap for our NextSteps component layout
   ul {
     margin-bottom: 0;
   }
@@ -148,6 +148,7 @@ body {
     justify-content: center;
     align-items: center;
 
+    //Keep reasonable padding regardless of screen size
     .main-content {
       padding: 2rem 1rem;
     }
