@@ -5,15 +5,10 @@ import { TextLine } from './TextLine'
 
 export interface ClaimStatusProps {
   loading: boolean
-  statusUpdated: string
   nextSteps?: string[]
 }
 
-export const ClaimStatus: React.FC<ClaimStatusProps> = ({
-  loading,
-  statusUpdated = 'April 4th, 2021',
-  nextSteps = ['step one', 'step two'],
-}) => {
+export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading, nextSteps = ['step one', 'step two'] }) => {
   const { t } = useTranslation('common')
 
   return (

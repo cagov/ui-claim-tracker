@@ -5,8 +5,7 @@
   "claim-status": {
     "title": "Claim Status",
     "pending": "Sus pagos están pendientes de revisión adicional.",
-    "next-steps": "Próximos Pasos",
-    "updated": "Publicado {{date}}"
+    "next-steps": "Próximos Pasos"
   },
   "claim-details": {
     "benefit-year": "Año de beneficio",
