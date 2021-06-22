@@ -14,10 +14,6 @@ import { WorkInProgress } from '../components/WorkInProgress'
 import queryApiGateway, { Claim } from '../utils/queryApiGateway'
 import { useRouter } from 'next/router'
 
-export interface Claim {
-  ClaimType: string | 'not working'
-}
-
 export interface HomeProps {
   claimData?: Claim[]
   loading: boolean
