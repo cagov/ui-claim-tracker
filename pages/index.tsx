@@ -22,7 +22,7 @@ export interface HomeProps {
 export default function Home({ claimData, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
   const router = useRouter()
-  const mobile = router.query.from === 'uiom'
+  const mobile = router.query?.from === 'uiom'
 
   return (
     <Container fluid className="index">
