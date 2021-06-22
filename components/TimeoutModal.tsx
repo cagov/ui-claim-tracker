@@ -39,9 +39,15 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     }
   })
 
-  function closeWarningModal() {
-    setShowWarningModal(false)
-    startOrUpdate()
+  function clear() {
+    if (timeOutTimerId) {
+      clearTimeout(timeOutTimerId)
+      timeOutTimerId = null
+    }
+    if (warningTimerId) {
+      clearTimeout(warningTimerId)
+      warningTimerId = null
+    }
   }
 
   function startOrUpdate() {
@@ -59,15 +65,9 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     }, TIMEOUT_MS)
   }
 
-  function clear() {
-    if (timeOutTimerId) {
-      clearTimeout(timeOutTimerId)
-      timeOutTimerId = null
-    }
-    if (warningTimerId) {
-      clearTimeout(warningTimerId)
-      warningTimerId = null
-    }
+  function closeWarningModal() {
+    setShowWarningModal(false)
+    startOrUpdate()
   }
 
   // If the modal is showing, we don't want to restart the timer.

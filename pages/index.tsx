@@ -9,6 +9,8 @@ import { GetServerSideProps } from 'next'
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
+import { WorkInProgress } from '../components/WorkInProgress'
+
 import queryApiGateway, { Claim } from '../utils/queryApiGateway'
 import { useRouter } from 'next/router'
 
@@ -31,7 +33,9 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/claimstatus/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
       </Head>
+      <WorkInProgress />
       <Header mobile={mobile} />
       <Main loading={loading} />
       <Footer />

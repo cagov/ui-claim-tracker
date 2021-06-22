@@ -16,14 +16,14 @@ describe('Exemplar react-test-renderer Snapshot test', () => {
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    const tree = renderer.create(<Index />).toJSON()
+    const tree = renderer.create(<Index loading={false} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
 
 describe('Example react testing-library Test', () => {
   it('has our placeholder app', () => {
-    render(<Index />)
-    expect(screen.queryByText('UI Online')).toBeInTheDocument()
+    render(<Index loading={false} />)
+    expect(screen.queryByText('Claim Tracker')).toBeInTheDocument()
   })
 })
