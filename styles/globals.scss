@@ -6,8 +6,22 @@
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-  Helvetica Neue, sans-serif;
+  font-family: 'Source Sans Pro';
+  color: #333333;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
 
   .header {
     width: 100%;
@@ -68,59 +82,39 @@ body {
     padding: 0px;
   }
 
-  .breadcrumbs {
-    svg {
-      vertical-align: middle !important; //override storybook
-      margin: 0 4px;
-    }
-
-    .text {
-      text-decoration: underline;
-      color: #046b99;
-    }
-
-    margin-bottom: 2em;
-  }
-
   .language-switcher {
     .text {
       text-decoration: underline;
       color: #046b99;
     }
 
-    //TODO - correct this margin
-    margin-bottom: 2em;
+    margin-bottom: 3rem;
   }
 
   .title {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
   }
 
   .claim-details {
-    padding: 1.5em 0 1em 0;
+    padding: 3rem 0 1rem 0;
 
     .claim-details-box {
-      padding: 1em;
+      padding: 1rem;
       border: 3px solid #f0f0f0;
     }
 
     .info {
       .info-label {
-        color: #3d3d3d;
-        font-size: 1em;
-        padding-top: 0.75em;
-      }
-
-      .info-entry-primary {
-        font-size: 1.25em;
-        font-weight: bold;
+        padding-top: 0.75rem;
+        font-size: 0.75rem;
+        color: #757575;
       }
     }
   }
 
   .claim-status {
     .pending-status {
-      padding: 1em 0;
+      padding: 0.5rem 0 2rem 0;
     }
 
     .status-box {
@@ -129,21 +123,22 @@ body {
 
     .topbar {
       background: #f0f0f0;
-      padding: 0.5em;
+      padding: 0.5rem;
       font-weight: bold;
+
+      .next-steps {
+        padding-left: 1.5rem;
+      }
     }
 
     .explanation {
-      padding: 1em;
+      padding: 1rem;
     }
+  }
 
-    .claim-status-date {
-      font-size: 0.75em;
-    }
-
-    .btn {
-      margin-top: 1em;
-    }
+  //override bootstrap for our NextSteps component layout
+  ul {
+    margin-bottom: 0;
   }
 
   .main {
@@ -153,25 +148,102 @@ body {
     justify-content: center;
     align-items: center;
 
+    //Keep reasonable padding regardless of screen size
+    .main-content {
+      padding: 2rem 1rem;
+    }
+
     @media (min-width: 768px) {
       .main-content {
         max-width: 650px;
-        padding: 2em 0;
       }
     }
   }
 
-  .feedback {
-    padding: 1em 0;
+  // WorkInProgress banner
+  .alert {
+    color: #214c62;
+    background-color: #e1f2f7;
+    margin-bottom: 0;
 
-    .feedback-content {
-      padding: 1em;
-      background-color: #e1f2f7;
-
-      .feedback-title {
-        font-weight: bold;
-      }
+    .work-in-progress-title {
+      font-weight: bold;
     }
+  }
+
+  .shimmer {
+    display: inline-block;
+    position: relative;
+    margin-top: 10px !important;
+
+
+    -webkit-animation-duration: 1.3s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+
+    -moz-webkit-animation-duration: 1.3s;
+    -moz-webkit-animation-fill-mode: forwards;
+    -moz-webkit-animation-iteration-count: infinite;
+    -moz-webkit-animation-name: placeholderShimmer;
+    -moz-webkit-animation-timing-function: linear;
+
+    -ms-webkit-animation-duration: 1.3s;
+    -ms-webkit-animation-fill-mode: forwards;
+    -ms-webkit-animation-iteration-count: infinite;
+    -ms-webkit-animation-name: placeholderShimmer;
+    -ms-webkit-animation-timing-function: linear;
+
+    -o-webkit-animation-duration: 1.3s;
+    -o-webkit-animation-fill-mode: forwards;
+    -o-webkit-animation-iteration-count: infinite;
+    -o-webkit-animation-name: placeholderShimmer;
+    -o-webkit-animation-timing-function: linear;
+
+    animation-duration: 1.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: linear;
+  }
+
+  //shimmer related
+  @-webkit-keyframes placeholderShimmer {
+    0% {
+      background-position: -400px 0;
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      background-position: 400px 0;
+      opacity: 1;
+    }
+  }
+
+  //shimmer related
+  @keyframes placeholderShimmer {
+    0% {
+      background-position: -400px 0;
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      background-position: 400px 0;
+      opacity: 1;
+    }
+  }
+
+  .shimmer-field {
+    margin-bottom: 10px;
   }
 
   .shimmer {
@@ -253,7 +325,7 @@ body {
     background-color: #222;
 
     .copyright {
-      padding: 5px 0 23px;
+      padding: 5px 8px 23px;
     }
 
     .navbar {

@@ -1,20 +1,14 @@
 import { useTranslation } from 'next-i18next'
 
-import { Button } from './Button'
 import { NextSteps } from './NextSteps'
 import { TextLine } from './TextLine'
 
 export interface ClaimStatusProps {
   loading: boolean
-  statusUpdated: string
   nextSteps?: string[]
 }
 
-export const ClaimStatus: React.FC<ClaimStatusProps> = ({
-  loading,
-  statusUpdated = 'April 4th, 2021',
-  nextSteps = ['step one', 'step two'],
-}) => {
+export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading, nextSteps = ['step one', 'step two'] }) => {
   const { t } = useTranslation('common')
 
   return (
@@ -25,19 +19,12 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
       </div>
       <div className="status-box">
         <div className="topbar">
-          <TextLine loading={loading} text={t('claim-status.you-need-to')} />
+          <h3 className="next-steps">{t('claim-status.next-steps')}</h3>
         </div>
         <div className="explanation">
           <NextSteps loading={loading} nextSteps={nextSteps} />
-          <span className="claim-status-date">
-            <TextLine loading={loading} text={t('claim-status.updated', { date: statusUpdated })} />
-          </span>
         </div>
       </div>
-      <a href="https://uio.edd.ca.gov">
-        {/*  TODO what is the URL here? */}
-        <Button primary label={t('claim-status.manage-claim')} />
-      </a>
     </div>
   )
 }
