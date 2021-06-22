@@ -33,7 +33,7 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
       </Head>
       <WorkInProgress />
       <Header mobile={mobile} />
-      <Main loading={loading} />
+      <Main loading={loading} mobile={mobile} />
       <Footer />
       {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
