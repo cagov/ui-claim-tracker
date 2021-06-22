@@ -1,4 +1,13 @@
 {
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "EDD Employment Development Department State of California Home",
+    "edd-home": "EDD Home",
+    "help": "Help",
+    "welcome": "Welcome, name",
+    "logout": "Log out",
+    "uio-home": "UI Online Home"
+  },
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",
   "change-locale": "En español",
@@ -19,6 +28,14 @@
   "work-in-progress": {
     "title": "This page is a work in progress.",
     "message": "While we test this new part of UI Online, the information here may be limited for your claim. We're working to add information about common issues that lead to <1>pending payments</1>."
+  },
+  "footer": {
+    "toTop": "Back to Top",
+    "contact": "Contact EDD",
+    "conditionsOfUse": "Conditions of Use",
+    "privacyPolicy": "Privacy Policy",
+    "accessibility": "Accessibility",
+    "copyright": "Copyright © 2021 State of California"
   },
   "timeout-modal": {
     "header": "Your Session Will End Soon",
