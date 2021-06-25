@@ -4,13 +4,16 @@ import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
 export interface HeaderProps {
-  mobile: boolean
+  userArrivedFromUioMobile: boolean
 }
 
-export const Header: React.FC<HeaderProps> = ({ mobile = false }) => {
+export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false }) => {
   const { t } = useTranslation('common')
 
-  const uioHomeBase = mobile ? t('header.uio-home-url.mobile') : t('header.uio-home-url.desktop')
+  // Return a link back to:
+  //   UIO Mobile landing page if user arrived from UIO Mobile
+  //   main UIO landing page if user arrived from main UIO
+  const uioHomeBase = userArrivedFromUioMobile ? t('header.uio-home-url.mobile') : t('header.uio-home-url.desktop')
   const uioHomeLink = uioHomeBase + t('header.uio-home-url.locale')
 
   return (

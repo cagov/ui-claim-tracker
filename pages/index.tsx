@@ -21,8 +21,11 @@ export interface HomeProps {
 
 export default function Home({ claimData, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
+
+  // Note whether the user came from the main UIO website or UIO Mobile, and match
+  // that in our links back out to UIO.
   const router = useRouter()
-  const mobile = router.query?.from === 'uiom'
+  const userArrivedFromUioMobile = router.query?.from === 'uiom'
 
   return (
     <Container fluid className="index">
@@ -32,8 +35,8 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
       </Head>
       <WorkInProgress />
-      <Header mobile={mobile} />
-      <Main loading={loading} mobile={mobile} />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
+      <Main loading={loading} userArrivedFromUioMobile={userArrivedFromUioMobile} />
       <Footer />
       {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}
     </Container>

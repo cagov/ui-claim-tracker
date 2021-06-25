@@ -15,7 +15,7 @@ describe('Header component loads', () => {
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    render(<Header mobile={false} />)
+    render(<Header userArrivedFromUioMobile={false} />)
     expect(screen.queryByText('UI Online Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Online Home' })).toHaveAttribute(
       'href',
@@ -23,13 +23,13 @@ describe('Header component loads', () => {
     )
   })
 
-  it('has the mobile UIO Link when mobile', () => {
+  it('has the UIO Mobile Link when the user arrived from UIO Mobile', () => {
     const mockRouter = {
       locale: 'en',
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    render(<Header mobile />)
+    render(<Header userArrivedFromUioMobile />)
     expect(screen.queryByText('UI Online Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Online Home' })).toHaveAttribute(
       'href',
