@@ -98,8 +98,12 @@ body {
   .claim-details {
     padding: 3rem 0 1rem 0;
 
+    .claim-details-title {
+      margin-bottom: 1rem;
+    }
+
     .claim-details-box {
-      padding: 1rem;
+      padding: 0.5rem 1.5rem 1.5rem 1.5rem;
       border: 3px solid #f0f0f0;
     }
 
