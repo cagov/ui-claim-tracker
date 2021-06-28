@@ -1,34 +1,25 @@
 import { useTranslation } from 'next-i18next'
 import { InfoField } from './InfoField'
+import { ClaimDetailsContent } from '../types/common'
 
-export interface ClaimDetailsProps {
+export interface ClaimDetailsProps extends ClaimDetailsContent {
   loading: boolean
-  title: string
-  programType: string
-  benefitYear: string
-  claimBalance: string
-  weeklyBenefitAmount: string
-  lastPaymentIssued: string
-  extentionType: string
-  extensionEndDate: string
 }
 
 export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
   loading = false,
-  title = 'Claim Details',
-  programType = 'Unemployment Insurance (UI)',
-  benefitYear = '3/21/2020 - 3/20/2021',
-  claimBalance = '$508.00',
-  weeklyBenefitAmount = '$120.00',
-  lastPaymentIssued = '4/29/2021',
-  extentionType = 'Tier 2 Extension',
-  extensionEndDate = '5/22/2021',
+  programType,
+  benefitYear,
+  claimBalance,
+  weeklyBenefitAmount,
+  lastPaymentIssued,
+  extensionType,
 }) => {
   const { t } = useTranslation('common')
 
   return (
     <div className="claim-details container">
-      <h2>{title}</h2>
+      <h2>{t('claim-details.title')}</h2>
 
       <div className="claim-details-box">
         <div className="row">
@@ -45,9 +36,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
           </div>
           <div className="col-6">
             <div />
-            <InfoField loading={loading} label={t('claim-details.extension-type')} text={extentionType} />
-
-            <InfoField loading={loading} label={t('claim-details.extension-end-date')} text={extensionEndDate} />
+            <InfoField loading={loading} label={t('claim-details.extension-type')} text={extensionType} />
           </div>
         </div>
       </div>
