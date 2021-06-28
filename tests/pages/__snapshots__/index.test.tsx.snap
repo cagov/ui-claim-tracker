@@ -267,7 +267,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         <div
           className="claim-details container"
         >
-          <h2>
+          <h2
+            className="claim-details-title"
+          >
             Claim Details
           </h2>
           <div
