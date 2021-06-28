@@ -172,8 +172,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           >
             <a
               className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov"
-              href="https://uio.edd.ca.gov"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx?l=en"
+              href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx?l=en"
               onClick={[Function]}
               onKeyDown={[Function]}
               rel="noopener noreferrer"

@@ -27,6 +27,7 @@ describe('Main component shows the page', () => {
     render(
       <Main
         loading={false}
+        userArrivedFromUioMobile={false}
         statusContent={scenarioContent.statusContent}
         detailsContent={scenarioContent.detailsContent}
       />,
@@ -47,7 +48,12 @@ describe('Main component shows loading', () => {
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
     render(
-      <Main loading statusContent={scenarioContent.statusContent} detailsContent={scenarioContent.detailsContent} />,
+      <Main
+        loading
+        userArrivedFromUioMobile={false}
+        statusContent={scenarioContent.statusContent}
+        detailsContent={scenarioContent.detailsContent}
+      />,
     )
     expect(screen.queryByText('Claim Tracker')).toBeInTheDocument()
     expect(screen.queryByText('Claim Status')).toBeInTheDocument()
@@ -69,6 +75,7 @@ describe('Main component shows the timeout', () => {
       <Main
         timedOut
         loading={false}
+        userArrivedFromUioMobile={false}
         statusContent={scenarioContent.statusContent}
         detailsContent={scenarioContent.detailsContent}
       />,

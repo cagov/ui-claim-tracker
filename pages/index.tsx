@@ -14,6 +14,7 @@ import { WorkInProgress } from '../components/WorkInProgress'
 import queryApiGateway from '../utils/queryApiGateway'
 import getScenarioContent from '../utils/getScenarioContent'
 import { ScenarioContent } from '../types/common'
+import { useRouter } from 'next/router'
 
 export interface HomeProps {
   scenarioContent: ScenarioContent
@@ -23,6 +24,11 @@ export interface HomeProps {
 export default function Home({ scenarioContent, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
+  // Note whether the user came from the main UIO website or UIO Mobile, and match
+  // that in our links back out to UIO.
+  const router = useRouter()
+  const userArrivedFromUioMobile = router.query?.from === 'uiom'
+
   return (
     <Container fluid className="index">
       <Head>
@@ -31,9 +37,10 @@ export default function Home({ scenarioContent, loading }: HomeProps): ReactElem
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
       </Head>
       <WorkInProgress />
-      <Header />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       <Main
         loading={loading}
+        userArrivedFromUioMobile={userArrivedFromUioMobile}
         statusContent={scenarioContent.statusContent}
         detailsContent={scenarioContent.detailsContent}
       />
