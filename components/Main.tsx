@@ -8,14 +8,15 @@ import { TimeoutModal } from './TimeoutModal'
 export interface MainProps {
   timedOut?: boolean
   loading: boolean
+  userArrivedFromUioMobile: boolean
 }
 
-export const Main: React.FC<MainProps> = ({ timedOut = false, loading = false }) => {
+export const Main: React.FC<MainProps> = ({ timedOut = false, loading = false, userArrivedFromUioMobile = false }) => {
   return (
     <main className="main">
       <Container className="main-content">
         <Title />
-        <LanguageSwitcher />
+        <LanguageSwitcher userArrivedFromUioMobile={userArrivedFromUioMobile} />
         <ClaimSection loading={loading} />
       </Container>
       <TimeoutModal action="startOrUpdate" timedOut={timedOut} />

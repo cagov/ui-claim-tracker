@@ -12,6 +12,7 @@ import { Footer } from '../components/Footer'
 import { WorkInProgress } from '../components/WorkInProgress'
 
 import queryApiGateway, { Claim } from '../utils/queryApiGateway'
+import { useRouter } from 'next/router'
 
 export interface HomeProps {
   claimData?: Claim[]
@@ -21,6 +22,11 @@ export interface HomeProps {
 export default function Home({ claimData, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
+  // Note whether the user came from the main UIO website or UIO Mobile, and match
+  // that in our links back out to UIO.
+  const router = useRouter()
+  const userArrivedFromUioMobile = router.query?.from === 'uiom'
+
   return (
     <Container fluid className="index">
       <Head>
@@ -29,8 +35,8 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
       </Head>
       <WorkInProgress />
-      <Header />
-      <Main loading={loading} />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
+      <Main loading={loading} userArrivedFromUioMobile={userArrivedFromUioMobile} />
       <Footer />
       {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
