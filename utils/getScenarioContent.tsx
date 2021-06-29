@@ -3,14 +3,12 @@ import { Claim, ClaimDetailsContent, ClaimStatusContent, ScenarioContent } from 
 export enum ScenarioType {
   PendingDetermination = 'Pending determination scenario',
   BasePending = 'Base state with pending weeks',
-  BaseNoPending = 'Base state with no pending weeks',
+  BaseNoPendingActive = 'Base state with no pending weeks; Active claim',
+  BaseNoPendingInactive = 'Base state with no pending weeks; Inactive claim',
 }
 
 /**
  * Identify the correct scenario to display.
- *
- * @param {Qbject} claim
- * @returns {Object}
  */
 export function getScenario(claimData: Claim): ScenarioType {
   // The pending determination scenario: if claimData contains any pendingDetermination
@@ -19,55 +17,81 @@ export function getScenario(claimData: Claim): ScenarioType {
   if (claimData.pendingDetermination && claimData.pendingDetermination.length > 0) {
     return ScenarioType.PendingDetermination
   }
-  // The generic pending scenario: if there are no pendingDetermination objects
-  // AND hasPendingWeeks is true
+  // The base state (with pending weeks) scenario:
+  // - there are no pendingDetermination objects AND
+  // - hasPendingWeeks is true
   else if (claimData.hasPendingWeeks === true) {
     return ScenarioType.BasePending
-  }
-  // The generic "all clear"/base state scenario: if there are no pendingDetermination objects
-  // and hasPendingWeeks is false
-  else if (claimData.hasPendingWeeks === false) {
-    return ScenarioType.BaseNoPending
-  }
-  // This is unexpected
-  // @TODO: Log the scenario and display 500
-  else {
-    // throw new Error('Unexpected scenario')
-    return ScenarioType.BaseNoPending
+  } else if (claimData.hasPendingWeeks === false) {
+    if (claimData.claimDetails) {
+      // The base state (with no pending weeks); active claim scenario:
+      // - there are no pendingDetermination objects AND
+      // - hasPendingWeeks is false AND
+      // - monetaryStatus is "active"
+      if (claimData.claimDetails.monetaryStatus && claimData.claimDetails.monetaryStatus.toLowerCase() === 'active') {
+        return ScenarioType.BaseNoPendingActive
+      }
+      // The base state (with no pending weeks); Inactive claim scenario:
+      // - there are no pendingDetermination objects AND
+      // - hasPendingWeeks is false AND
+      // - monetaryStatus is not "active"
+      else {
+        return ScenarioType.BaseNoPendingInactive
+      }
+    } else {
+      return ScenarioType.BaseNoPendingInactive
+      // throw new Error('Missing claim details')
+    }
+  } else {
+    // throw new Error('Unknown Scenario')
+    return ScenarioType.BaseNoPendingInactive
   }
 }
 
 /**
+ * Get Claim Status description content.
+ * This returns an i18n string.
+ */
+export function getClaimStatusDescription(scenarioType: ScenarioType): string {
+  switch (scenarioType) {
+    case ScenarioType.PendingDetermination:
+      return 'claim-status:pending-determination.description'
+    case ScenarioType.BasePending:
+      return 'claim-status:base-pending.description'
+    case ScenarioType.BaseNoPendingActive:
+      return 'claim-status:base-no-pending-active.description'
+    case ScenarioType.BaseNoPendingInactive:
+      return 'claim-status:base-no-pending-inactive.description'
+  }
+
+  // If an unknown Scenario Type is given, throw an error.
+  throw new Error('Unknown Scenario Type')
+}
+
+/**
+ * Get Claim Status content.
+ */
+export function buildClaimStatusContent(scenarioType: ScenarioType): ClaimStatusContent {
+  const statusContent: ClaimStatusContent = {
+    statusDescription: getClaimStatusDescription(scenarioType),
+    nextSteps: [
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    ],
+  }
+
+  return statusContent
+}
+
+/**
  * Return scenario content.
- *
- * @param {Object} claim
- * @param {enum} scenarioType
- * @returns {Object}
  */
 export default function getScenarioContent(claimData: Claim): ScenarioContent {
   // Get the scenario type.
   const scenarioType = getScenario(claimData)
 
   // Construct claim status content.
-  // This sets an i18n string.
-  let statusDescription = ''
-  if (scenarioType === ScenarioType.PendingDetermination) {
-    statusDescription = 'claim-status:pending-determination.description'
-  } else if (scenarioType === ScenarioType.BasePending) {
-    statusDescription = 'claim-status:base-pending.description'
-  } else {
-    statusDescription = 'claim-status:base-no-pending.description'
-  }
-
-  const nextSteps = [
-    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  ]
-
-  const statusContent: ClaimStatusContent = {
-    statusDescription: statusDescription,
-    nextSteps: nextSteps,
-  }
+  const statusContent = buildClaimStatusContent(scenarioType)
 
   // Construct claim details content.
   // @TODO: Remove placeholder default content
