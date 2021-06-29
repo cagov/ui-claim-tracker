@@ -14,7 +14,7 @@ import { WorkInProgress } from '../components/WorkInProgress'
 
 import queryApiGateway from '../utils/queryApiGateway'
 import getScenarioContent from '../utils/getScenarioContent'
-import { Claim, ScenarioContent } from '../types/common'
+import { ScenarioContent } from '../types/common'
 import { useRouter } from 'next/router'
 
 export interface HomeProps {
@@ -69,12 +69,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   logger.info(req)
 
   let errorCode: number | null = null
-  let claimData: Claim | null = null
   let scenarioContent: ScenarioContent | null = null
 
   try {
     // Make the API request and return the data.
-    claimData = await queryApiGateway(req)
+    const claimData = await queryApiGateway(req)
 
     // Run business logic to get content for the current scenario.
     scenarioContent = getScenarioContent(claimData)
