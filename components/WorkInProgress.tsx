@@ -21,7 +21,7 @@ export const WorkInProgress: React.FC = () => {
                 <Trans i18nKey="work-in-progress.message">
                   While we test this new part of UI Online, the information here may be limited for your claim.
                   We&apos;re working to add information about common issues that lead to&nbsp;
-                  <a href="https://navapbc.com">pending payments</a>
+                  <a href="https://edd.ca.gov/unemployment/claim-status.htm">pending payments</a>
                 </Trans>
               }
             </span>
