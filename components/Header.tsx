@@ -41,8 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
             >
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
-            {/*  TODO what is the URL here? */}
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://portal.edd.ca.gov/WebApp/Logout">
+            <Nav.Link href="https://portal.edd.ca.gov/WebApp/Logout">
               <span className="text">{t('header.logout')}</span>
             </Nav.Link>
           </Nav>
