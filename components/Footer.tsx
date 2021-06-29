@@ -12,20 +12,28 @@ export const Footer: React.FC = () => {
         <Navbar className="justify-content-between" variant="dark">
           <Nav className="flex-column flex-sm-row">
             <Nav.Link href="#top">{t('footer.toTop')}</Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/about_edd/contact_edd.htm">
+            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm">
               {t('footer.contact')}
             </Nav.Link>
             <Nav.Link
               target="_blank"
               rel="noopener noreferrer"
-              href="https://edd.ca.gov/about_edd/conditions_of_use.htm"
+              href="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
             >
               {t('footer.conditionsOfUse')}
             </Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/about_edd/privacy_policy.htm">
+            <Nav.Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
+            >
               {t('footer.privacyPolicy')}
             </Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/about_edd/accessibility.htm">
+            <Nav.Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
+            >
               {t('footer.accessibility')}
             </Nav.Link>
           </Nav>
