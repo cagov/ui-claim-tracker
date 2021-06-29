@@ -6,17 +6,22 @@
     "help": "Ayuda",
     "welcome": "Bienvenidas, nombre",
     "logout": "Cerrar sesión",
-    "uio-home": "UI Online Casa"
+    "uio-home": "UI Online Casa",
+    "uio-home-url": {
+      "mobile": "https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx",
+      "desktop": "https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx",
+      "locale": "?l=es"
+    }
   },
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",
   "change-locale": "In English",
   "claim-status": {
     "title": "Claim Status",
-    "pending": "Sus pagos están pendientes de revisión adicional.",
     "next-steps": "Próximos Pasos"
   },
   "claim-details": {
+    "title": "Claim Details",
     "benefit-year": "Año de beneficio",
     "program-type": "Tipo de Programa",
     "claim-balance": "Balance de Reclamación",

@@ -11,15 +11,23 @@ import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
 import { WorkInProgress } from '../components/WorkInProgress'
 
-import queryApiGateway, { Claim } from '../utils/queryApiGateway'
+import queryApiGateway from '../utils/queryApiGateway'
+import getScenarioContent from '../utils/getScenarioContent'
+import { ScenarioContent } from '../types/common'
+import { useRouter } from 'next/router'
 
 export interface HomeProps {
-  claimData?: Claim[]
+  scenarioContent: ScenarioContent
   loading: boolean
 }
 
-export default function Home({ claimData, loading }: HomeProps): ReactElement {
+export default function Home({ scenarioContent, loading }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
+
+  // Note whether the user came from the main UIO website or UIO Mobile, and match
+  // that in our links back out to UIO.
+  const router = useRouter()
+  const userArrivedFromUioMobile = router.query?.from === 'uiom'
 
   return (
     <Container fluid className="index">
@@ -29,10 +37,15 @@ export default function Home({ claimData, loading }: HomeProps): ReactElement {
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
       </Head>
       <WorkInProgress />
-      <Header />
-      <Main loading={loading} />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
+      <Main
+        loading={loading}
+        userArrivedFromUioMobile={userArrivedFromUioMobile}
+        statusContent={scenarioContent.statusContent}
+        detailsContent={scenarioContent.detailsContent}
+      />
       <Footer />
-      {console.dir({ claimData })} {/* @TODO: Remove. For development purposes only. */}
+      {console.dir({ scenarioContent })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
   )
 }
@@ -42,15 +55,18 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   const logger = isProd ? pino({}) : pino({ prettyPrint: true })
   logger.info(req)
 
-  // Step 1: Make the API request and return the data.
-  const data: Claim = await queryApiGateway(req)
+  // Make the API request and return the data.
+  const claimData = await queryApiGateway(req)
 
-  // Step 2: Return Props
+  // Run business logic to get content for the current scenario.
+  const scenarioContent = getScenarioContent(claimData)
+
+  // Return Props.
   return {
     props: {
-      claimData: [data],
+      scenarioContent: scenarioContent,
       loading: false,
-      ...(await serverSideTranslations(locale || 'en', ['common', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale || 'en', ['common', 'claim-status'])),
     },
   }
 }
