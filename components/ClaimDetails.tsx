@@ -19,7 +19,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
 
   return (
     <div className="claim-details container">
-      <h2>{t('claim-details.title')}</h2>
+      <h2 className="claim-details-title">{t('claim-details.title')}</h2>
 
       <div className="claim-details-box">
         <div className="row">
