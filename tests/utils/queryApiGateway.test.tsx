@@ -1,5 +1,5 @@
 import { Claim } from '../../types/common'
-import queryApiGateway, { buildApiUrl, extractJSON, QueryParams } from '../../utils/queryApiGateway'
+import queryApiGateway, { buildApiUrl, getUniqueNumber, extractJSON, QueryParams } from '../../utils/queryApiGateway'
 import mockEnv from 'mocked-env'
 import fs from 'fs'
 import fetch from 'node-fetch'
@@ -14,6 +14,11 @@ const { Response } = jest.requireActual('node-fetch')
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
 const emptyResponse = { ClaimType: undefined }
+const goodRequest = {
+  headers: {
+    id: '12345',
+  },
+}
 
 /**
  * Begin tests
@@ -22,11 +27,6 @@ const emptyResponse = { ClaimType: undefined }
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
   const goodResponse = { ClaimType: 'PUA' }
-  const goodRequest = {
-    headers: {
-      id: '12345',
-    },
-  }
 
   beforeEach(() => {
     // Mock the fetch response
@@ -148,6 +148,43 @@ describe('Building the API url', () => {
     expect(() => {
       buildApiUrl(badUrl, goodParams)
     }).toThrowError('Invalid URL')
+  })
+})
+
+// Test getUniqueNumber()
+describe('The unique number', () => {
+  it('is returned when given the correct ID key', () => {
+    const idHeaderName = 'id'
+    const id = getUniqueNumber(goodRequest, idHeaderName)
+    expect(id).toStrictEqual(goodRequest.headers.id)
+  })
+
+  it('is not case sensitive', () => {
+    const key = 'uniqueNumber'
+    const request = {
+      headers: {
+        uniquenumber: 'lower',
+        UNIQUENUMBER: 'UPPER',
+        uniqueNumber: 'mixedCase',
+      },
+    }
+
+    const mixed = getUniqueNumber(request, key)
+    expect(mixed).toStrictEqual(request.headers.uniquenumber)
+
+    const lower = getUniqueNumber(request, key.toLowerCase())
+    expect(lower).toStrictEqual(request.headers.uniquenumber)
+
+    const upper = getUniqueNumber(request, key.toUpperCase())
+    expect(upper).toStrictEqual(request.headers.uniquenumber)
+  })
+
+  // Current behavior is to return undefined.
+  // @TODO: Correct behavior to be implemented in #217
+  it('is not returned when given the incorrect ID key', () => {
+    const idHeaderName = 'key'
+    const id = getUniqueNumber(goodRequest, idHeaderName)
+    expect(id).toStrictEqual(undefined)
   })
 })
 
