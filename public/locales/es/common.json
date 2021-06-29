@@ -18,10 +18,10 @@
   "change-locale": "In English",
   "claim-status": {
     "title": "Claim Status",
-    "pending": "Sus pagos están pendientes de revisión adicional.",
     "next-steps": "Próximos Pasos"
   },
   "claim-details": {
+    "title": "Claim Details",
     "benefit-year": "Año de beneficio",
     "program-type": "Tipo de Programa",
     "claim-balance": "Balance de Reclamación",

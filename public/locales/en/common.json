@@ -18,10 +18,10 @@
   "change-locale": "En español",
   "claim-status": {
     "title": "Claim Status",
-    "pending": "Your payments are pending further review.",
     "next-steps": "Next Steps"
   },
   "claim-details": {
+    "title": "Claim Details",
     "benefit-year": "Benefit Year",
     "program-type": "Program Type",
     "claim-balance": "Claim Balance",

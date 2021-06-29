@@ -1,30 +1,27 @@
 import { ClaimDetails } from './ClaimDetails'
 import { ClaimStatus } from './ClaimStatus'
+import { ScenarioContent } from '../types/common'
 
-export interface ClaimSectionProps {
+export interface ClaimSectionProps extends ScenarioContent {
   loading: boolean
 }
 
-export const ClaimSection: React.FC<ClaimSectionProps> = ({ loading = false }) => {
+export const ClaimSection: React.FC<ClaimSectionProps> = ({ loading = false, statusContent, detailsContent }) => {
   return (
     <div className="claim-section">
       <ClaimStatus
         loading={loading}
-        nextSteps={[
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        ]}
+        statusDescription={statusContent.statusDescription}
+        nextSteps={statusContent.nextSteps}
       />
       <ClaimDetails
         loading={loading}
-        title="Claim Details"
-        programType="Unemployment Insurance (UI)"
-        benefitYear="3/21/2020 - 3/20/2021"
-        claimBalance="$0.00"
-        weeklyBenefitAmount="$111.00"
-        lastPaymentIssued="4/29/2021"
-        extentionType="Tier 2 Extension"
-        extensionEndDate="5/22/2021"
+        programType={detailsContent.programType}
+        benefitYear={detailsContent.benefitYear}
+        claimBalance={detailsContent.claimBalance}
+        weeklyBenefitAmount={detailsContent.weeklyBenefitAmount}
+        lastPaymentIssued={detailsContent.lastPaymentIssued}
+        extensionType={detailsContent.extensionType}
       />
     </div>
   )

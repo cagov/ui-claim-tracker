@@ -2,11 +2,8 @@ import path from 'path'
 import fs from 'fs'
 import https from 'https'
 import fetch, { Response } from 'node-fetch'
-import type { IncomingMessage } from 'http'
-
-export interface Claim {
-  ClaimType: string | null | undefined
-}
+import { IncomingMessage } from 'http'
+import { Claim } from '../types/common'
 
 export interface QueryParams {
   user_key: string
