@@ -66,6 +66,14 @@ export function extractJSON(responseBody: string): Claim {
 }
 
 /**
+ * Return the unique number.
+ */
+export function getUniqueNumber(req: IncomingMessage, idHeaderName: string): string {
+  // Request converts all headers to lowercase, so we need to convert the key to lowercase too.
+  return req.headers[idHeaderName.toLowerCase()] as string
+}
+
+/**
  * Returns results from API Gateway
  *
  * @param {Qbject} request
@@ -90,7 +98,7 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
 
   const apiUrlParams: QueryParams = {
     user_key: apiEnvVars.apiUserKey,
-    uniqueNumber: req.headers[apiEnvVars.idHeaderName] as string,
+    uniqueNumber: getUniqueNumber(req, apiEnvVars.idHeaderName),
   }
 
   const apiUrl: RequestInfo = buildApiUrl(apiEnvVars.apiUrl, apiUrlParams)
