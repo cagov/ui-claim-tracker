@@ -42,7 +42,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         >
           While we test this new part of UI Online, the information here may be limited for your claim. We're working to add information about common issues that lead to 
           <a
-            href="https://navapbc.com"
+            href="https://edd.ca.gov/unemployment/claim-status.htm"
           >
             pending payments
           </a>
