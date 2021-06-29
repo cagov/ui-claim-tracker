@@ -39,10 +39,12 @@ export function getScenario(claimData: Claim): ScenarioType {
         return ScenarioType.BaseNoPendingInactive
       }
     } else {
-      return ScenarioType.BaseNoPendingInactive
+      // @TODO: This should throw an error
       // throw new Error('Missing claim details')
+      return ScenarioType.BaseNoPendingInactive
     }
   } else {
+    // @TODO: This should throw an error
     // throw new Error('Unknown Scenario')
     return ScenarioType.BaseNoPendingInactive
   }
