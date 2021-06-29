@@ -79,6 +79,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     // Run business logic to get content for the current scenario.
     scenarioContent = getScenarioContent(claimData)
   } catch (error) {
+    // If an error occurs, log it and show 500.
+    logger.error(error)
     errorCode = 500
   }
 
