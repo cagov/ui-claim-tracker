@@ -42,7 +42,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         >
           While we test this new part of UI Online, the information here may be limited for your claim. We're working to add information about common issues that lead to 
           <a
-            href="https://navapbc.com"
+            href="https://edd.ca.gov/unemployment/claim-status.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             pending payments
           </a>
@@ -63,7 +65,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
       >
         <a
           className="navbar-brand"
-          href="https://ca.gov"
+          href="https://www.ca.gov/"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -100,8 +102,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </div>
           <a
             className="nav-link"
-            data-rb-event-key="https://askedd.edd.ca.gov/"
-            href="https://askedd.edd.ca.gov/"
+            data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
             onClick={[Function]}
             onKeyDown={[Function]}
             rel="noopener noreferrer"
@@ -115,17 +117,15 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </a>
           <a
             className="nav-link"
-            data-rb-event-key="https://edd.ca.gov/login.htm"
-            href="https://edd.ca.gov/login.htm"
+            data-rb-event-key="https://portal.edd.ca.gov/WebApp/Logout"
+            href="https://portal.edd.ca.gov/WebApp/Logout"
             onClick={[Function]}
             onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
           >
             <span
               className="text"
             >
-              Log out
+              Log Out
             </span>
           </a>
         </div>
@@ -401,8 +401,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </a>
           <a
             className="nav-link"
-            data-rb-event-key="https://edd.ca.gov/about_edd/contact_edd.htm"
-            href="https://edd.ca.gov/about_edd/contact_edd.htm"
+            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
+            href="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
             onClick={[Function]}
             onKeyDown={[Function]}
             rel="noopener noreferrer"
@@ -412,8 +412,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </a>
           <a
             className="nav-link"
-            data-rb-event-key="https://edd.ca.gov/about_edd/conditions_of_use.htm"
-            href="https://edd.ca.gov/about_edd/conditions_of_use.htm"
+            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
+            href="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
             onClick={[Function]}
             onKeyDown={[Function]}
             rel="noopener noreferrer"
@@ -423,8 +423,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </a>
           <a
             className="nav-link"
-            data-rb-event-key="https://edd.ca.gov/about_edd/privacy_policy.htm"
-            href="https://edd.ca.gov/about_edd/privacy_policy.htm"
+            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
+            href="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
             onClick={[Function]}
             onKeyDown={[Function]}
             rel="noopener noreferrer"
@@ -434,8 +434,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           </a>
           <a
             className="nav-link"
-            data-rb-event-key="https://edd.ca.gov/about_edd/accessibility.htm"
-            href="https://edd.ca.gov/about_edd/accessibility.htm"
+            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
+            href="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
             onClick={[Function]}
             onKeyDown={[Function]}
             rel="noopener noreferrer"

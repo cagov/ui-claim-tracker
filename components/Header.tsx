@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
     <header className="header border-bottom border-secondary">
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://ca.gov">
+          <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://www.ca.gov/">
             <img
               src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
               alt={t('header.alt-image-cagov')}
@@ -34,12 +34,14 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
                 <span className="text">{t('header.edd-home')}</span>
               </Nav.Link>
             </Navbar.Collapse>
-            {/*  TODO what is the URL here? */}
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://askedd.edd.ca.gov/">
+            <Nav.Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
+            >
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
-            {/*  TODO what is the URL here? */}
-            <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov/login.htm">
+            <Nav.Link href="https://portal.edd.ca.gov/WebApp/Logout">
               <span className="text">{t('header.logout')}</span>
             </Nav.Link>
           </Nav>
