@@ -14,10 +14,24 @@ import enClaimStatus from './public/locales/en/claim-status.json'
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
-  ns: ['common', 'claim-status'],
+  ns: ['common', 'claim-status', 'test'],
   defaultNS: 'common',
   resources: {
-    en: { common: enCommon, 'claim-status': enClaimStatus },
+    en: {
+      common: enCommon,
+      'claim-status': enClaimStatus,
+      test: {
+        transLine: {
+          plainString: 'just text',
+          plainStringOneLink: 'first <0>second</0> third',
+          plainStringLinks: 'first <0>second</0> <1>third</1>',
+          plainStringLinksComplicated: '<1>first</1> <0>second</0> third <0>fourth</0> <1>fifth</1>',
+          styledString: 'first <strong>second</strong> third',
+          styledStringOneLink: 'first <strong>second</strong> <0>third</0>',
+          styledLink: 'first <strong><0>second</0></strong>',
+        },
+      },
+    },
   },
 })
 /* eslint-enable @typescript-eslint/no-floating-promises */
