@@ -43,6 +43,8 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
           While we test this new part of UI Online, the information here may be limited for your claim. We're working to add information about common issues that lead to 
           <a
             href="https://edd.ca.gov/unemployment/claim-status.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             pending payments
           </a>
@@ -119,8 +121,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             href="https://portal.edd.ca.gov/WebApp/Logout"
             onClick={[Function]}
             onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
           >
             <span
               className="text"
