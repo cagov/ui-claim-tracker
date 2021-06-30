@@ -7,7 +7,7 @@ relates to weekly certification
 
 **Prerequisites:**
 
-- Node 12+
+- Node 14 LTS
 - yarn
 
 **Run this app**
