@@ -33,7 +33,16 @@ const Template: Story<StoryHomeProps> = ({ ...args }) => {
   return <Home {...args} />
 }
 
-export const Page = Template.bind({})
-Page.args = {
+export const Default = Template.bind({})
+Default.args = {
   errorCode: null,
 }
+
+export const TimedOut = Template.bind({})
+TimedOut.args = { timedOut: true, ...Default.args }
+
+export const Loading = Template.bind({})
+Loading.args = { loading: true, ...Default.args }
+
+export const Errorred = Template.bind({})
+Errorred.args = { errorCode: 500 }

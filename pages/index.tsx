@@ -8,7 +8,10 @@ import { GetServerSideProps } from 'next'
 import Error from 'next/error'
 
 import { Header } from '../components/Header'
-import { Main } from '../components/Main'
+import { Title } from '../components/Title'
+import { LanguageSwitcher } from '../components/LanguageSwitcher'
+import { ClaimSection } from '../components/ClaimSection'
+import { TimeoutModal } from '../components/TimeoutModal'
 import { Footer } from '../components/Footer'
 import { WorkInProgress } from '../components/WorkInProgress'
 
@@ -19,11 +22,17 @@ import { useRouter } from 'next/router'
 
 export interface HomeProps {
   scenarioContent: ScenarioContent
+  timedOut?: boolean
   loading: boolean
   errorCode?: number | null
 }
 
-export default function Home({ scenarioContent, loading, errorCode = null }: HomeProps): ReactElement {
+export default function Home({
+  scenarioContent,
+  timedOut = false,
+  loading,
+  errorCode = null,
+}: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
   // Note whether the user came from the main UIO website or UIO Mobile, and match
@@ -34,15 +43,26 @@ export default function Home({ scenarioContent, loading, errorCode = null }: Hom
   // If any errorCode is provided, render the error page.
   let mainComponent: JSX.Element
   if (errorCode) {
-    mainComponent = <Error statusCode={errorCode} />
+    mainComponent = (
+      <main className="main">
+        <Container className="main-content">
+          <Error statusCode={errorCode} />
+        </Container>
+      </main>
+    )
   } else {
     mainComponent = (
-      <Main
-        loading={loading}
-        userArrivedFromUioMobile={userArrivedFromUioMobile}
-        statusContent={scenarioContent.statusContent}
-        detailsContent={scenarioContent.detailsContent}
-      />
+      <main className="main">
+        <Container className="main-content">
+          <Title />
+          <LanguageSwitcher userArrivedFromUioMobile={userArrivedFromUioMobile} />
+          <ClaimSection
+            loading={loading}
+            statusContent={scenarioContent.statusContent}
+            detailsContent={scenarioContent.detailsContent}
+          />
+        </Container>
+      </main>
     )
   }
 
@@ -57,6 +77,7 @@ export default function Home({ scenarioContent, loading, errorCode = null }: Hom
       <WorkInProgress />
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
+      <TimeoutModal action="startOrUpdate" timedOut={timedOut} />
       <Footer />
       {console.dir({ scenarioContent })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
