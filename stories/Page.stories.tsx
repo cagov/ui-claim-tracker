@@ -12,7 +12,6 @@ export default {
   decorators: [withNextRouter],
   argTypes: {
     scenario: {
-      type: { name: ScenarioType, required: false },
       options: Object.keys(ScenarioType),
       mapping: Object.keys(ScenarioType), // return the key instead of the value
       defaultValue: 'BaseNoPending',
