@@ -15,6 +15,7 @@ export default {
       type: { name: ScenarioType, required: false },
       options: Object.keys(ScenarioType),
       mapping: Object.keys(ScenarioType), // return the key instead of the value
+      defaultValue: 'BaseNoPending',
       control: {
         type: 'select',
         labels: ScenarioType,
@@ -29,11 +30,7 @@ interface StoryHomeProps extends HomeProps {
 }
 
 const Template: Story<StoryHomeProps> = ({ ...args }) => {
-  let scenarioType: ScenarioType = ScenarioType.BaseNoPending
-  if (args.scenario) {
-    scenarioType = ScenarioType[args.scenario]
-  }
-  args.scenarioContent = getScenarioContent(apiGatewayStub(scenarioType))
+  args.scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType[args.scenario]))
   return <Home {...args} />
 }
 
