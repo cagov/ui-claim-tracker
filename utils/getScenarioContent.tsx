@@ -1,5 +1,7 @@
 import { Claim, ClaimDetailsContent, ClaimStatusContent, ScenarioContent } from '../types/common'
 
+export type ScenarioTypeKey = keyof typeof ScenarioType
+
 export enum ScenarioType {
   PendingDetermination = 'Pending determination scenario',
   BasePending = 'Base state with pending weeks',
