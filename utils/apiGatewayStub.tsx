@@ -5,7 +5,6 @@ import { Claim } from '../types/common'
  * Stub the API gateway response for a given scenario.
  */
 export default function apiGatewayStub(scenarioType: ScenarioType): Claim {
-  console.log('apiGatewayStub')
   const claim: Claim = {
     uniqueNumber: null,
     claimDetails: null,
@@ -19,12 +18,21 @@ export default function apiGatewayStub(scenarioType: ScenarioType): Claim {
       claim.pendingDetermination = [{ determinationStatus: null }]
       break
 
-    case ScenarioType.BasePending:
+    // @TODO: This scenario should probably not be the default case.
+    // case ScenarioType.Scenario7:
+
+    case ScenarioType.Scenario8:
+      claim.hasCertificationWeeksAvailable = true
+      break
+
+    case ScenarioType.Scenario9:
       claim.hasPendingWeeks = true
       break
 
-    // @TODO: This scenario should probably not be the default case.
-    // case ScenarioType.BaseNoPending:
+    case ScenarioType.Scenario10:
+      claim.hasPendingWeeks = true
+      claim.hasCertificationWeeksAvailable = true
+      break
 
     // @TODO: No match should throw an error
     // default:

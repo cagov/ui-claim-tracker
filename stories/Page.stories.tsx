@@ -14,7 +14,7 @@ export default {
     scenario: {
       options: Object.keys(ScenarioType),
       mapping: Object.keys(ScenarioType), // return the key instead of the value
-      defaultValue: 'BaseNoPending',
+      defaultValue: 'Scenario7',
       control: {
         type: 'select',
         labels: ScenarioType,
