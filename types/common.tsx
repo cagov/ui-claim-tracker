@@ -16,9 +16,11 @@ export interface ClaimDetailsResult {
 
 export interface Claim {
   ClaimType?: null | undefined | string
+  uniqueNumber?: null | string
+  claimDetails?: null | ClaimDetailsResult
   hasPendingWeeks?: null | undefined | boolean
+  hasCertificationWeeksAvailable?: null | boolean
   pendingDetermination?: null | [PendingDetermination]
-  claimDetails?: ClaimDetailsResult
 }
 
 // Type interfaces for Claim Status and Claim Details
