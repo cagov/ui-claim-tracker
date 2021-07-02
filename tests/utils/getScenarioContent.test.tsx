@@ -61,7 +61,7 @@ describe('Scenario 1', () => {
 })
 
 // Scenarios 7-10
-describe('The base scenarios', () => {
+describe('The Base State scenarios', () => {
   it('are returned as expected', () => {
     const baseScenarios = [
       ScenarioType.Scenario7,
