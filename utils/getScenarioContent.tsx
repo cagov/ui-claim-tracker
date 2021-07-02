@@ -10,9 +10,7 @@ export enum ScenarioType {
   Scenario10 = 'Base state; Has pending weeks; Has weeks to certify',
 }
 
-// export const Test = Object.assign({}, ...Object.entries(ScenarioType).map(([a, b]) => ({ [b]: a })))
-
-export function MyFunc(): { [key: string]: ScenarioTypeKey } {
+export function reverseLookup(): { [key: string]: ScenarioTypeKey } {
   const reverse: { [key: string]: ScenarioTypeKey } = {}
   for (const [a, b] of Object.entries(ScenarioType)) {
     reverse[b] = a as ScenarioTypeKey
@@ -20,7 +18,7 @@ export function MyFunc(): { [key: string]: ScenarioTypeKey } {
   return reverse
 }
 
-// export const ScenarioTypeReverse = Object.assign({}, ...Object.entries(ScenarioType).map(([a, b]) => ({ [b]: a })))
+export const ScenarioTypeReverse = reverseLookup()
 
 /**
  * Identify the correct scenario to display.
@@ -60,8 +58,7 @@ export function getScenario(claimData: Claim): ScenarioType {
  * This returns an i18n string.
  */
 export function getClaimStatusDescription(scenarioType: ScenarioType): string {
-  const downcase = MyFunc()
-  return `claim-status:scenarios.${downcase[scenarioType].toLowerCase()}.description`
+  return `claim-status:scenarios.${ScenarioTypeReverse[scenarioType].toLowerCase()}.description`
 }
 
 /**
