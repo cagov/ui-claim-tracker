@@ -10,8 +10,15 @@ export enum ScenarioType {
   Scenario10 = 'Base state; Has pending weeks; Has weeks to certify',
 }
 
-export function reverseLookup(): { [key: string]: ScenarioTypeKey } {
-  const reverse: { [key: string]: ScenarioTypeKey } = {}
+// Build a reverse lookup of the ScenarioType.
+// Typescript only provides reverse lookup for numeric enum members
+// https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
+// This could be simplified down to one line if we are able to pass eslint:
+// export const ScenarioTypeReverse = Object.assign({}, ...Object.entries(ScenarioType).map(([a, b]) => ({ [b]: a as ScenarioTypeKey })))
+type ReverseLookupType = { [key: string]: ScenarioTypeKey }
+
+export function reverseLookup(): ReverseLookupType {
+  const reverse: ReverseLookupType = {}
   for (const [a, b] of Object.entries(ScenarioType)) {
     reverse[b] = a as ScenarioTypeKey
   }
