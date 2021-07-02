@@ -14,7 +14,7 @@ export default function apiGatewayStub(scenarioType: ScenarioType): Claim {
   }
 
   switch (scenarioType) {
-    case ScenarioType.PendingDetermination:
+    case ScenarioType.Scenario1:
       claim.pendingDetermination = [{ determinationStatus: null }]
       break
 

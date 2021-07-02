@@ -3,13 +3,24 @@ import { Claim, ClaimDetailsContent, ClaimStatusContent, ScenarioContent } from 
 export type ScenarioTypeKey = keyof typeof ScenarioType
 
 export enum ScenarioType {
-  PendingDetermination = 'Pending determination scenario',
+  Scenario1 = 'Pending determination scenario',
   Scenario7 = 'Base state; No pending weeks; No weeks to certify',
   Scenario8 = 'Base state; No pending weeks; Has weeks to certify',
   Scenario9 = 'Base state; Has pending weeks; No weeks to certify',
   Scenario10 = 'Base state; Has pending weeks; Has weeks to certify',
 }
-console.log(ScenarioType)
+
+// export const Test = Object.assign({}, ...Object.entries(ScenarioType).map(([a, b]) => ({ [b]: a })))
+
+export function MyFunc(): { [key: string]: ScenarioTypeKey } {
+  const reverse: { [key: string]: ScenarioTypeKey } = {}
+  for (const [a, b] of Object.entries(ScenarioType)) {
+    reverse[b] = a as ScenarioTypeKey
+  }
+  return reverse
+}
+
+// export const ScenarioTypeReverse = Object.assign({}, ...Object.entries(ScenarioType).map(([a, b]) => ({ [b]: a })))
 
 /**
  * Identify the correct scenario to display.
@@ -21,7 +32,7 @@ export function getScenario(claimData: Claim): ScenarioType {
   // objects
   // @TODO: refactor with more detailed pending determination scenarios #252
   if (claimData.pendingDetermination && claimData.pendingDetermination.length > 0) {
-    return ScenarioType.PendingDetermination
+    return ScenarioType.Scenario1
   }
 
   // Otherwise display a Base State scenario.
@@ -49,19 +60,8 @@ export function getScenario(claimData: Claim): ScenarioType {
  * This returns an i18n string.
  */
 export function getClaimStatusDescription(scenarioType: ScenarioType): string {
-  switch (scenarioType) {
-    case ScenarioType.PendingDetermination:
-      return 'claim-status:pending-determination.description'
-    case ScenarioType.Scenario7:
-      return 'claim-status:base-pending.description'
-    case ScenarioType.Scenario8:
-      return 'claim-status:base-no-pending-active.description'
-    case ScenarioType.Scenario9:
-      return 'claim-status:base-no-pending-inactive.description'
-  }
-
-  // If an unknown Scenario Type is given, throw an error.
-  throw new Error('Unknown Scenario Type')
+  const downcase = MyFunc()
+  return `claim-status:scenarios.${downcase[scenarioType].toLowerCase()}.description`
 }
 
 /**
