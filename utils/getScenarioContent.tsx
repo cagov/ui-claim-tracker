@@ -1,31 +1,20 @@
 import { Claim, ClaimDetailsContent, ClaimStatusContent, ScenarioContent } from '../types/common'
 
-export type ScenarioTypeKey = keyof typeof ScenarioType
-
 export enum ScenarioType {
-  Scenario1 = 'Pending determination scenario',
-  Scenario7 = 'Base state; No pending weeks; No weeks to certify',
-  Scenario8 = 'Base state; No pending weeks; Has weeks to certify',
-  Scenario9 = 'Base state; Has pending weeks; No weeks to certify',
-  Scenario10 = 'Base state; Has pending weeks; Has weeks to certify',
+  Scenario1,
+  Scenario7,
+  Scenario8,
+  Scenario9,
+  Scenario10,
 }
 
-// Build a reverse lookup of the ScenarioType.
-// Typescript only provides reverse lookup for numeric enum members
-// https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
-// This could be simplified down to one line if we are able to pass eslint:
-// export const ScenarioTypeReverse = Object.assign({}, ...Object.entries(ScenarioType).map(([a, b]) => ({ [b]: a as ScenarioTypeKey })))
-type ReverseLookupType = { [key: string]: ScenarioTypeKey }
-
-export function reverseLookup(): ReverseLookupType {
-  const reverse: ReverseLookupType = {}
-  for (const [a, b] of Object.entries(ScenarioType)) {
-    reverse[b] = a as ScenarioTypeKey
-  }
-  return reverse
+export const ScenarioTypeNames = {
+  [ScenarioType.Scenario1]: 'Pending determination scenario',
+  [ScenarioType.Scenario7]: 'Base state; No pending weeks; No weeks to certify',
+  [ScenarioType.Scenario8]: 'Base state; No pending weeks; Has weeks to certify',
+  [ScenarioType.Scenario9]: 'Base state; Has pending weeks; No weeks to certify',
+  [ScenarioType.Scenario10]: 'Base state; Has pending weeks; Has weeks to certify',
 }
-
-export const ScenarioTypeReverse = reverseLookup()
 
 /**
  * Identify the correct scenario to display.
@@ -65,7 +54,7 @@ export function getScenario(claimData: Claim): ScenarioType {
  * This returns an i18n string.
  */
 export function getClaimStatusDescription(scenarioType: ScenarioType): string {
-  return `claim-status:scenarios.${ScenarioTypeReverse[scenarioType].toLowerCase()}.description`
+  return `claim-status:scenarios.${ScenarioType[scenarioType].toLowerCase()}.description`
 }
 
 /**
