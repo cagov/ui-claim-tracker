@@ -1,3 +1,6 @@
+// Type aliases
+export type I18nString = string
+
 // Type interfaces for API gateway result
 export interface PendingDetermination {
   determinationStatus?: null | undefined | string

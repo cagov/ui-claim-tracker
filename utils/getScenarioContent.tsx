@@ -1,4 +1,4 @@
-import { Claim, ClaimDetailsContent, ClaimStatusContent, ScenarioContent } from '../types/common'
+import { Claim, ClaimDetailsContent, ClaimStatusContent, I18nString, ScenarioContent } from '../types/common'
 
 export enum ScenarioType {
   Scenario1,
@@ -51,9 +51,8 @@ export function getScenario(claimData: Claim): ScenarioType {
 
 /**
  * Get Claim Status description content.
- * This returns an i18n string.
  */
-export function getClaimStatusDescription(scenarioType: ScenarioType): string {
+export function getClaimStatusDescription(scenarioType: ScenarioType): I18nString {
   return `claim-status:scenarios.${ScenarioType[scenarioType].toLowerCase()}.description`
 }
 
