@@ -15,7 +15,7 @@ jest.mock('next/router', () => ({
 let scenarioContent: ScenarioContent
 
 beforeAll(() => {
-  scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.PendingDetermination))
+  scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.Scenario1))
 })
 
 describe('Exemplar react-test-renderer Snapshot test', () => {
