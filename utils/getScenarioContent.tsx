@@ -38,7 +38,7 @@ export function getScenario(claimData: Claim): ScenarioType {
     return ScenarioType.Scenario1
   }
 
-  // Otherwise display a Base State scenario.
+  // No pendingDetermination objects: display a Base State scenario.
   else {
     // @TODO: Validate that hasPendingWeeks is a boolean
     if (claimData.hasPendingWeeks === false) {
@@ -48,7 +48,9 @@ export function getScenario(claimData: Claim): ScenarioType {
       } else {
         return ScenarioType.Scenario8
       }
-    } else {
+    }
+    // hasPendingWeeks === true
+    else {
       if (claimData.hasCertificationWeeksAvailable === false) {
         return ScenarioType.Scenario9
       } else {
