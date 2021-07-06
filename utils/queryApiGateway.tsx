@@ -1,3 +1,16 @@
+/**
+ * Utility file for connecting to and querying the API gateway.
+ *
+ * Prerequisites for a successful connection:
+ * - unique number in the received request header
+ * - the following environment variables:
+ *   - ID_HEADER_NAME: string for the unique number header key
+ *   - API_URL: url for the API gateway
+ *   - API_USER_KEY: key for authenticating with the API gateway
+ *   - CERTIFICATE_DIR: path to the PKCS#12 certificate
+ *   - P12_FILE: filename of the PKCS#12 certificate for authenticating with the API gateway
+ */
+
 import path from 'path'
 import fs from 'fs'
 import https from 'https'

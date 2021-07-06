@@ -1,3 +1,9 @@
+/**
+ * Stub for the API gateway.
+ *
+ * Provides stub responses for API gateway queries for Storybook and Jest testing.
+ */
+
 import { ScenarioType } from '../utils/getScenarioContent'
 import { Claim } from '../types/common'
 

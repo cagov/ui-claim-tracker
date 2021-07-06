@@ -1,3 +1,19 @@
+/**
+ * Utility file with helper functions for working with Typescript Enums with numeric members.
+ *
+ * References:
+ * - https://www.typescriptlang.org/docs/handbook/enums.html#numeric-enums
+ * - https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
+ *
+ * Typescript Enums with numeric members look like this:
+ * enum TestEnum {
+ *   FOO,
+ *   BAR
+ * }
+ * They have integer values starting with 0 and incrementing by 1: TestEnum.FOO == 0
+ * They have built-in reverse mappings: TestEnum[0] == "FOO"
+ */
+
 type NumericEnum = { [key: number]: string }
 
 /**

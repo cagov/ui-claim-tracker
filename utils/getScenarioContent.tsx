@@ -1,3 +1,12 @@
+/**
+ * Utility file for returning the correct content for each scenario.
+ *
+ * Scenarios are referred to by number and the numbers match the content spreadsheet from
+ * UIB. The ScenarioType enum is a numeric enum so that we can take advantage of the
+ * built-in Typescript reverse mapping for numeric enums. However, we set the long-form
+ * description in ScenarioTypeNames for easy(ish) reference.
+ */
+
 import { Claim, ClaimDetailsContent, ClaimStatusContent, I18nString, ScenarioContent } from '../types/common'
 
 export enum ScenarioType {
