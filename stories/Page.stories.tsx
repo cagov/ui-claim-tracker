@@ -2,8 +2,9 @@ import { Story, Meta } from '@storybook/react'
 import { withNextRouter } from 'storybook-addon-next-router'
 
 import Home, { HomeProps } from '../pages/index'
-import getScenarioContent, { ScenarioType, ScenarioTypeKey } from '../utils/getScenarioContent'
+import getScenarioContent, { ScenarioType, ScenarioTypeNames } from '../utils/getScenarioContent'
 import apiGatewayStub from '../utils/apiGatewayStub'
+import { getNumericEnumKeys } from '../utils/numericEnum'
 
 // See https://storybook.js.org/docs/riot/essentials/controls#dealing-with-complex-values
 export default {
@@ -12,12 +13,11 @@ export default {
   decorators: [withNextRouter],
   argTypes: {
     scenario: {
-      options: Object.keys(ScenarioType),
-      mapping: Object.keys(ScenarioType), // return the key instead of the value
-      defaultValue: 'BaseNoPending',
+      options: getNumericEnumKeys(ScenarioType),
+      defaultValue: 0,
       control: {
         type: 'select',
-        labels: ScenarioType,
+        labels: ScenarioTypeNames,
       },
     },
   },
@@ -25,11 +25,11 @@ export default {
 
 // Extend HomeProps to add a complex story value
 interface StoryHomeProps extends HomeProps {
-  scenario: ScenarioTypeKey
+  scenario: number
 }
 
 const Template: Story<StoryHomeProps> = ({ ...args }) => {
-  args.scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType[args.scenario]))
+  args.scenarioContent = getScenarioContent(apiGatewayStub(args.scenario))
   return <Home {...args} />
 }
 

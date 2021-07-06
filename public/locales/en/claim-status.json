@@ -1,11 +1,25 @@
 {
-  "pending-determination": {
-    "description": "We need to confirm your eligibility for benefits."
+  "scenarios": {
+    "scenario1": {
+      "description": "We need to confirm your eligibility for benefits."
+    },
+    "scenario7": {
+      "description": "There are no pending issues at this time."
+    },
+    "scenario8": {
+      "description": "Your claim is active and there are no pending issues at this time."
+    },
+    "scenario9": {
+      "description": "Your payments are pending further review.",
+      "next-step": "Check your UI Online inbox for the latest updates."
+    },
+    "scenario10": {
+      "description": "[this copy may or may not be unique] Your payments are pending further review."
+    }
   },
-  "base-pending": {
-    "description": "Your payments are pending further review."
-  },
-  "base-no-pending": {
-    "description": "There are no pending issues at this time."
+  "conditional-next-steps": {
+    "certify-no-pending": "<0>Keep certifying</0> as long as you need benefits.",
+    "certify-pending": "<0>Keep certifying</0> as long as you need benefits, so your payments are not delayed further.",
+    "contact-info": "Make sure we have your current phone number and email address."
   }
 }

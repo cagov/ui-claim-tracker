@@ -1,3 +1,6 @@
+// Type aliases
+export type I18nString = string
+
 // Type interfaces for API gateway result
 export interface PendingDetermination {
   determinationStatus?: null | undefined | string
@@ -19,7 +22,7 @@ export interface Claim {
   uniqueNumber?: null | string
   claimDetails?: null | ClaimDetailsResult
   hasPendingWeeks?: null | undefined | boolean
-  hasCertificationWeeksAvailable?: null | boolean
+  hasCertificationWeeksAvailable?: null | undefined | boolean
   pendingDetermination?: null | [PendingDetermination]
 }
 

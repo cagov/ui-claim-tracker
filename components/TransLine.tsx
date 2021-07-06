@@ -1,8 +1,9 @@
 import { Trans } from 'react-i18next'
 import React from 'react'
+import { I18nString } from '../types/common'
 
 export interface TransLineProps {
-  i18nKey: string // Expects an i18n key
+  i18nKey: I18nString
   links?: string[] | null
 }
 

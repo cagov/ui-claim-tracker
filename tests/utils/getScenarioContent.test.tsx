@@ -1,34 +1,34 @@
-import getScenarioContent, { getScenario, ScenarioType } from '../../utils/getScenarioContent'
-import { ScenarioContent } from '../../types/common'
-
-// Shared test constants for mock API gateway responses
-const pendingDeterminationScenario = { pendingDetermination: ['temporary text'] }
-const basePendingScenario = { hasPendingWeeks: true }
-const baseNoPendingScenario = { hasPendingWeeks: false }
+import { getClaimStatusDescription, getScenario, ScenarioType } from '../../utils/getScenarioContent'
+import apiGatewayStub from '../../utils/apiGatewayStub'
+import { getNumericEnumKeys } from '../../utils/numericEnum'
 
 /**
  * Begin tests
  */
 
-// Test getScenarioContent()
-describe('Retrieving the scenario content', () => {
-  it('returns the correct status description for the scenario', () => {
-    const pendingDetermination: ScenarioContent = getScenarioContent(pendingDeterminationScenario)
-    expect(pendingDetermination.statusContent.statusDescription).toBe('claim-status:pending-determination.description')
-
-    const basePending: ScenarioContent = getScenarioContent(basePendingScenario)
-    expect(basePending.statusContent.statusDescription).toBe('claim-status:base-pending.description')
-
-    const baseNoPending: ScenarioContent = getScenarioContent(baseNoPendingScenario)
-    expect(baseNoPending.statusContent.statusDescription).toBe('claim-status:base-no-pending.description')
+// Test getClaimStatusDescripton()
+describe('Getting the Claim Status description', () => {
+  it('returns the correct description for the scenario', () => {
+    for (const key of getNumericEnumKeys(ScenarioType)) {
+      expect(getClaimStatusDescription(key)).toEqual(
+        expect.stringMatching(/claim-status:scenarios.scenario[0-9]+.description/),
+      )
+    }
   })
 })
 
-// Test getScenario(): pending determination scenario
-describe('The pending determination scenario', () => {
+/**
+ * Test getScenario()
+ *
+ * Refer to ScenarioType and ScenarioTypeNames for which scenario has which number.
+ */
+
+// Scenario 1
+describe('Scenario 1', () => {
   it('is returned when there is a pendingDetermination object', () => {
-    const scenarioType: ScenarioType = getScenario(pendingDeterminationScenario)
-    expect(scenarioType).toBe(ScenarioType.PendingDetermination)
+    const pendingDeterminationScenario = apiGatewayStub(ScenarioType.Scenario1)
+    const scenarioType = getScenario(pendingDeterminationScenario)
+    expect(scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   it('is returned when there is a pendingDetermination object regardless of other criteria', () => {
@@ -36,63 +36,41 @@ describe('The pending determination scenario', () => {
       pendingDetermination: ['temporary text'],
       hasPendingWeeks: true,
     }
-    const scenarioTypeWith: ScenarioType = getScenario(pendingDeterminationScenarioWith)
-    expect(scenarioTypeWith).toBe(ScenarioType.PendingDetermination)
+    const scenarioTypeWith = getScenario(pendingDeterminationScenarioWith)
+    expect(scenarioTypeWith).toBe(ScenarioType.Scenario1)
 
     const pendingDeterminationScenarioWithout = {
       pendingDetermination: ['temporary text'],
       hasPendingWeeks: false,
     }
-    const scenarioTypeWithout: ScenarioType = getScenario(pendingDeterminationScenarioWithout)
-    expect(scenarioTypeWithout).toBe(ScenarioType.PendingDetermination)
+    const scenarioTypeWithout = getScenario(pendingDeterminationScenarioWithout)
+    expect(scenarioTypeWithout).toBe(ScenarioType.Scenario1)
+  })
+
+  it('is not returned if pendingDetermination is null', () => {
+    const pendingDeterminationScenarioNull = { pendingDetermination: null }
+    const scenarioTypeNull = getScenario(pendingDeterminationScenarioNull)
+    expect(scenarioTypeNull).not.toBe(ScenarioType.Scenario1)
+  })
+
+  it('is not returned if pendingDetermination is an empty array', () => {
+    const pendingDeterminationScenarioEmpty = { pendingDetermination: [] }
+    const scenarioTypeEmpty = getScenario(pendingDeterminationScenarioEmpty)
+    expect(scenarioTypeEmpty).not.toBe(ScenarioType.Scenario1)
   })
 })
 
-// Test getScenario(): base state with pending weeks scenario
-describe('The base state (with pending weeks) scenario', () => {
-  it('is returned when there are pending weeks', () => {
-    const scenarioType: ScenarioType = getScenario(basePendingScenario)
-    expect(scenarioType).toBe(ScenarioType.BasePending)
-  })
-
-  it('is returned when there are pending weeks and pendingDetermination is null', () => {
-    const basePendingScenarioNull = { hasPendingWeeks: true, pendingDetermination: null }
-    const scenarioType: ScenarioType = getScenario(basePendingScenarioNull)
-    expect(scenarioType).toBe(ScenarioType.BasePending)
-  })
-
-  it('is returned when there are pending weeks and pendingDetermination is an empty array', () => {
-    const basePendingScenarioEmpty = { hasPendingWeeks: true, pendingDetermination: [] }
-    const scenarioType: ScenarioType = getScenario(basePendingScenarioEmpty)
-    expect(scenarioType).toBe(ScenarioType.BasePending)
-  })
-})
-
-// Test getScenario(): base state with no pending weeks scenario
-describe('The base state (with no pending weeks) scenario', () => {
-  it('is returned when there are no pending weeks', () => {
-    const scenarioType: ScenarioType = getScenario(baseNoPendingScenario)
-    expect(scenarioType).toBe(ScenarioType.BaseNoPending)
-  })
-
-  it('is returned when there are no pending weeks and pendingDetermination is null', () => {
-    const baseNoPendingScenarioNull = { hasPendingWeeks: false, pendingDetermination: null }
-    const scenarioType: ScenarioType = getScenario(baseNoPendingScenarioNull)
-    expect(scenarioType).toBe(ScenarioType.BaseNoPending)
-  })
-
-  it('is returned when there are no pending weeks and pendingDetermination is an empty array', () => {
-    const baseNoPendingScenarioEmpty = { hasPendingWeeks: false, pendingDetermination: [] }
-    const scenarioType: ScenarioType = getScenario(baseNoPendingScenarioEmpty)
-    expect(scenarioType).toBe(ScenarioType.BaseNoPending)
-  })
-})
-
-// Test getScenario(): error
-describe('Getting the scenario', () => {
-  it.skip('errors when given an unknown scenario', () => {
-    expect(() => {
-      getScenario({})
-    }).toThrowError('Unknown Scenario')
+// Scenarios 7-10
+describe('The Base State scenarios', () => {
+  it('are returned as expected', () => {
+    const baseScenarios = [
+      ScenarioType.Scenario7,
+      ScenarioType.Scenario8,
+      ScenarioType.Scenario9,
+      ScenarioType.Scenario10,
+    ]
+    for (const scenarioType of baseScenarios) {
+      expect(getScenario(apiGatewayStub(scenarioType))).toBe(scenarioType)
+    }
   })
 })

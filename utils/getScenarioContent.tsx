@@ -1,75 +1,96 @@
-import { Claim, ClaimDetailsContent, ClaimStatusContent, ScenarioContent } from '../types/common'
+/**
+ * Utility file for returning the correct content for each scenario.
+ *
+ * Scenarios are referred to by number and the numbers match the content spreadsheet from
+ * UIB. The ScenarioType enum is a numeric enum so that we can take advantage of the
+ * built-in Typescript reverse mapping for numeric enums. However, we set the long-form
+ * description in ScenarioTypeNames for easy(ish) reference.
+ */
 
-export type ScenarioTypeKey = keyof typeof ScenarioType
+import { Claim, ClaimDetailsContent, ClaimStatusContent, I18nString, ScenarioContent } from '../types/common'
 
 export enum ScenarioType {
-  PendingDetermination = 'Pending determination scenario',
-  BasePending = 'Base state with pending weeks',
-  BaseNoPending = 'Base state with no pending weeks',
+  Scenario1,
+  Scenario7,
+  Scenario8,
+  Scenario9,
+  Scenario10,
+}
+
+export const ScenarioTypeNames = {
+  [ScenarioType.Scenario1]: 'Pending determination scenario',
+  [ScenarioType.Scenario7]: 'Base state; No pending weeks; No weeks to certify',
+  [ScenarioType.Scenario8]: 'Base state; No pending weeks; Has weeks to certify',
+  [ScenarioType.Scenario9]: 'Base state; Has pending weeks; No weeks to certify',
+  [ScenarioType.Scenario10]: 'Base state; Has pending weeks; Has weeks to certify',
 }
 
 /**
  * Identify the correct scenario to display.
  *
- * @param {Qbject} claim
- * @returns {Object}
+ * @TODO: Validating the API gateway response #150
  */
 export function getScenario(claimData: Claim): ScenarioType {
   // The pending determination scenario: if claimData contains any pendingDetermination
   // objects
   // @TODO: refactor with more detailed pending determination scenarios #252
   if (claimData.pendingDetermination && claimData.pendingDetermination.length > 0) {
-    return ScenarioType.PendingDetermination
+    return ScenarioType.Scenario1
   }
-  // The generic pending scenario: if there are no pendingDetermination objects
-  // AND hasPendingWeeks is true
-  else if (claimData.hasPendingWeeks === true) {
-    return ScenarioType.BasePending
-  }
-  // The generic "all clear"/base state scenario: if there are no pendingDetermination objects
-  // and hasPendingWeeks is false
-  else if (claimData.hasPendingWeeks === false) {
-    return ScenarioType.BaseNoPending
-  }
-  // This is unexpected
-  // @TODO: Log the scenario and display 500
+
+  // No pendingDetermination objects: display a Base State scenario.
   else {
-    // throw new Error('Unexpected scenario')
-    return ScenarioType.BaseNoPending
+    // @TODO: Validate that hasPendingWeeks is a boolean
+    if (claimData.hasPendingWeeks === false) {
+      // @TODO: Validate that hasCertificationWeeks is a boolean
+      if (claimData.hasCertificationWeeksAvailable === false) {
+        return ScenarioType.Scenario7
+      } else {
+        return ScenarioType.Scenario8
+      }
+    }
+    // hasPendingWeeks === true
+    else {
+      if (claimData.hasCertificationWeeksAvailable === false) {
+        return ScenarioType.Scenario9
+      } else {
+        return ScenarioType.Scenario10
+      }
+    }
   }
 }
 
 /**
+ * Get Claim Status description content.
+ */
+export function getClaimStatusDescription(scenarioType: ScenarioType): I18nString {
+  return `claim-status:scenarios.${ScenarioType[scenarioType].toLowerCase()}.description`
+}
+
+/**
+ * Get Claim Status content.
+ */
+export function buildClaimStatusContent(scenarioType: ScenarioType): ClaimStatusContent {
+  const statusContent: ClaimStatusContent = {
+    statusDescription: getClaimStatusDescription(scenarioType),
+    nextSteps: [
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    ],
+  }
+
+  return statusContent
+}
+
+/**
  * Return scenario content.
- *
- * @param {Object} claim
- * @param {enum} scenarioType
- * @returns {Object}
  */
 export default function getScenarioContent(claimData: Claim): ScenarioContent {
   // Get the scenario type.
   const scenarioType = getScenario(claimData)
 
   // Construct claim status content.
-  // This sets an i18n string.
-  let statusDescription = ''
-  if (scenarioType === ScenarioType.PendingDetermination) {
-    statusDescription = 'claim-status:pending-determination.description'
-  } else if (scenarioType === ScenarioType.BasePending) {
-    statusDescription = 'claim-status:base-pending.description'
-  } else {
-    statusDescription = 'claim-status:base-no-pending.description'
-  }
-
-  const nextSteps = [
-    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  ]
-
-  const statusContent: ClaimStatusContent = {
-    statusDescription: statusDescription,
-    nextSteps: nextSteps,
-  }
+  const statusContent = buildClaimStatusContent(scenarioType)
 
   // Construct claim details content.
   // @TODO: Remove placeholder default content
