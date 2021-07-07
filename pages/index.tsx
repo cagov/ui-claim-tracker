@@ -93,7 +93,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
 
   // Pino: otherwise, log to Azure Application Insights.
   if (isProd) {
-    const appInsightsStream = await appInsights.createWriteStream({ key: 'something' })
+    const appInsightsStream = await appInsights.createWriteStream()
     logger = pino(appInsightsStream)
   }
 
