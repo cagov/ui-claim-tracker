@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import pino from 'pino'
+import appInsights from 'pino-applicationinsights'
+// import appInsights = require('pino-applicationinsights')
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -85,8 +87,17 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
-  const isProd = process.env.NODE_ENV === 'production'
-  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
+  // const isProd = process.env.NODE_ENV === 'production'
+  const isProd = true
+
+  let logger = pino({ prettyPrint: true })
+  if (isProd) {
+    const appInsightsStream = await appInsights.createWriteStream({ key: 'something' })
+    // const appInsightsStream = await createWriteStream({ key: 'something' })
+    console.log(appInsightsStream)
+    logger = pino(appInsightsStream)
+  }
+
   logger.info(req)
 
   let errorCode: number | null = null
@@ -100,7 +111,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
     scenarioContent = getScenarioContent(claimData)
   } catch (error) {
     // If an error occurs, log it and show 500.
-    logger.error(error)
+    logger.error(error, 'Application error')
     errorCode = 500
   }
 
