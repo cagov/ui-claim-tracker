@@ -14,10 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "ts-node": {
-    "files": true
-  },
-  "files": ["types/pino-applicationinsights/index.d.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types"],
   "exclude": ["node_modules"]
 }

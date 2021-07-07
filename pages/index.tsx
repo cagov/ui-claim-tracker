@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import pino from 'pino'
 import appInsights from 'pino-applicationinsights'
-// import appInsights = require('pino-applicationinsights')
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -87,14 +86,14 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
-  // const isProd = process.env.NODE_ENV === 'production'
-  const isProd = true
+  const isProd = process.env.NODE_ENV === 'production'
 
+  // Pino: use pretty print and log to STDOUT if not in production mode.
   let logger = pino({ prettyPrint: true })
+
+  // Pino: otherwise, log to Azure Application Insights.
   if (isProd) {
     const appInsightsStream = await appInsights.createWriteStream({ key: 'something' })
-    // const appInsightsStream = await createWriteStream({ key: 'something' })
-    console.log(appInsightsStream)
     logger = pino(appInsightsStream)
   }
 
