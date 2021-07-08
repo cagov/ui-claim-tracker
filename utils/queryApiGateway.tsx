@@ -14,7 +14,6 @@
 import path from 'path'
 import fs from 'fs'
 import https from 'https'
-import fetch, { Response } from 'node-fetch'
 import { IncomingMessage } from 'http'
 import { Claim } from '../types/common'
 
@@ -107,6 +106,7 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
 
   // Instantiate agent to use with TLS Certificate.
   // Reference: https://github.com/node-fetch/node-fetch/issues/904#issuecomment-747828286
+  // https://nextjs.org/blog/next-9-4#improved-built-in-fetch-support
   const sslConfiguredAgent: https.Agent = new https.Agent(options)
 
   const apiUrlParams: QueryParams = {
@@ -117,10 +117,11 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
   const apiUrl: RequestInfo = buildApiUrl(apiEnvVars.apiUrl, apiUrlParams)
 
   try {
-    const response: Response = await fetch(apiUrl, {
+    const requestInit = {
       headers: headers,
       agent: sslConfiguredAgent,
-    })
+    }
+    const response = await fetch(apiUrl, requestInit)
 
     if (response.ok) {
       const responseBody: string = await response.text()
