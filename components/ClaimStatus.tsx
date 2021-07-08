@@ -20,7 +20,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
     <div className="claim-status">
       <h2>{t('claim-status.title')}</h2>
       <div className="pending-status">
-        <TextLine loading={loading} text={t(statusDescription)} />
+        <TextLine loading={loading} header text={t(statusDescription)} />
       </div>
       <NextSteps loading={loading} header={t('claim-status.your-next-steps')} nextSteps={yourNextSteps} />
       <NextSteps loading={loading} header={t('claim-status.edd-next-steps')} nextSteps={eddNextSteps} />
