@@ -19,6 +19,7 @@
     "bootstrap": "^4.6.0",
     "next": "10.0.8",
     "pino": "^6.11.3",
+    "pino-applicationinsights": "^2.1.0",
     "react": "17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-dom": "17.0.1"
@@ -52,6 +53,7 @@
     "@testing-library/react": "^11.2.5",
     "@types/node": "^14.14.33",
     "@types/pem": "^1.9.5",
+    "@types/pumpify": "^1.4.1",
     "@types/react": "^17.0.3",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
