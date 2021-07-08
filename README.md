@@ -28,7 +28,7 @@ relates to weekly certification
 
 For local development:
 
-1. Create a `.env` file in the root of this repo
+1. Create a `.env.local` file in the root of this repo
 2. Define each of the environment variables above
 
 ## Running the test suite
