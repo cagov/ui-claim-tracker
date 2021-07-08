@@ -2,14 +2,11 @@ import { Claim } from '../../types/common'
 import queryApiGateway, { buildApiUrl, getUniqueNumber, extractJSON, QueryParams } from '../../utils/queryApiGateway'
 import mockEnv from 'mocked-env'
 import fs from 'fs'
-import fetch from 'node-fetch'
+import jestFetchMock from 'jest-fetch-mock'
 
 // Mock some modules
 jest.mock('fs')
-jest.mock('node-fetch')
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-const { Response } = jest.requireActual('node-fetch')
-/* eslint-enable  @typescript-eslint/no-unsafe-assignment */
+jestFetchMock.enableMocks()
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
