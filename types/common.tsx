@@ -29,7 +29,8 @@ export interface Claim {
 // Type interfaces for Claim Status and Claim Details
 export interface ClaimStatusContent {
   statusDescription: string // This is an i18n string
-  nextSteps?: string[]
+  yourNextSteps?: string[]
+  eddNextSteps?: string[]
 }
 
 export interface ClaimDetailsContent {
