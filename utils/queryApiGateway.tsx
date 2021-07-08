@@ -106,7 +106,6 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
 
   // Instantiate agent to use with TLS Certificate.
   // Reference: https://github.com/node-fetch/node-fetch/issues/904#issuecomment-747828286
-  // https://nextjs.org/blog/next-9-4#improved-built-in-fetch-support
   const sslConfiguredAgent: https.Agent = new https.Agent(options)
 
   const apiUrlParams: QueryParams = {
@@ -117,10 +116,16 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
   const apiUrl: RequestInfo = buildApiUrl(apiEnvVars.apiUrl, apiUrlParams)
 
   try {
+    // For typing, we break out the requestInit object separately.
+    // https://github.com/node-fetch/node-fetch/blob/ffef5e3c2322e8493dd75120b1123b01b106ab23/%40types/index.d.ts#L180
     const requestInit = {
       headers: headers,
       agent: sslConfiguredAgent,
     }
+    // Next.js includes polyfills for fetch(). It essentially just binds node-fetch to
+    // global variables, so we don't need to do explicit imports, including for typing.
+    // - https://nextjs.org/docs/basic-features/supported-browsers-features#server-side-polyfills
+    // - https://nextjs.org/blog/next-9-4#improved-built-in-fetch-support
     const response = await fetch(apiUrl, requestInit)
 
     if (response.ok) {
