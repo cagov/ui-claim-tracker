@@ -86,7 +86,8 @@ body {
   }
 
   .claim-details {
-    padding: 3rem 0 1rem 0;
+    margin: 3rem 0 0 0;
+    padding: 0;
 
     .claim-details-title {
       margin-bottom: 1rem;
@@ -112,13 +113,15 @@ body {
     }
 
     .explanation {
-      padding: 1rem;
+      margin: 1rem;
     }
   }
 
   //override bootstrap for our NextSteps component layout
   ul {
     margin-bottom: 0;
+    margin-left: 0.5rem;
+    padding-left: 0;
   }
 
   .main {
