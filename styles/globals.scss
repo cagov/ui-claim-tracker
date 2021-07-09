@@ -9,19 +9,9 @@ body {
   font-family: 'Source Sans Pro';
   color: #333333;
 
-  h1 {
-    font-weight: bold;
-  }
-
-  h2 {
-    font-weight: bold;
-  }
-
   h3 {
     font-size: 1.5rem;
-    font-weight: bold;
   }
-
 
   .header {
     width: 100%;
@@ -96,7 +86,8 @@ body {
   }
 
   .claim-details {
-    padding: 3rem 0 1rem 0;
+    margin: 3rem 0 0 0;
+    padding: 0;
 
     .claim-details-title {
       margin-bottom: 1rem;
@@ -121,28 +112,16 @@ body {
       padding: 0.5rem 0 2rem 0;
     }
 
-    .status-box {
-      border: 3px solid #f0f0f0;
-    }
-
-    .topbar {
-      background: #f0f0f0;
-      padding: 0.5rem;
-      font-weight: bold;
-
-      .next-steps {
-        padding-left: 1.5rem;
-      }
-    }
-
     .explanation {
-      padding: 1rem;
+      margin: 1rem;
     }
   }
 
   //override bootstrap for our NextSteps component layout
   ul {
     margin-bottom: 0;
+    margin-left: 0.5rem;
+    padding-left: 0;
   }
 
   .main {
@@ -161,17 +140,6 @@ body {
       .main-content {
         max-width: 650px;
       }
-    }
-  }
-
-  // WorkInProgress banner
-  .alert {
-    color: #214c62;
-    background-color: #e1f2f7;
-    margin-bottom: 0;
-
-    .work-in-progress-title {
-      font-weight: bold;
     }
   }
 

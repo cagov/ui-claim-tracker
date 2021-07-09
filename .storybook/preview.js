@@ -26,7 +26,6 @@ export const parameters = {
         [
           'Page Section',
           [
-            'Work In Progress',
             'Header',
             'Main',
             'Claim Section',
