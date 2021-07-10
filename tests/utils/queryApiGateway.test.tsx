@@ -124,6 +124,28 @@ describe('Querying the API Gateway', () => {
     // Restore env vars
     restore()
   })
+
+  it('loads pfx passphrase when given', async () => {
+    // Mock process.env
+    const testPassphrase = 'teststring'
+    const restore = mockEnv({
+      API_URL: goodUrl,
+      PFX_PASSPHRASE: testPassphrase,
+    })
+
+    await queryApiGateway(goodRequest)
+    /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
+    expect(fetch).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({
+        agent: expect.objectContaining({ options: expect.objectContaining({ passphrase: testPassphrase }) }),
+      }),
+    )
+    /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
+
+    // Restore env vars
+    restore()
+  })
 })
 
 // Test buildApiUrl()

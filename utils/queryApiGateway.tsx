@@ -27,6 +27,12 @@ export interface ApiEnvVars {
   apiUrl: string
   apiUserKey: string
   pfxPath: string
+  pfxPassphrase?: string
+}
+
+export interface AgentOptions {
+  pfx: Buffer
+  passphrase?: string
 }
 
 /**
@@ -47,6 +53,11 @@ export function getApiVars(): ApiEnvVars {
   const certDir: string = process.env.CERTIFICATE_DIR ?? ''
   const pfxFilename: string = process.env.P12_FILE ?? ''
   apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+
+  // Some certificates have an import password
+  if (process.env.PFX_PASSPHRASE) {
+    apiEnvVars.pfxPassphrase = process.env.PFX_PASSPHRASE ?? ''
+  }
 
   return apiEnvVars
 }
@@ -100,8 +111,12 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
   }
 
   // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-  const options = {
+  const options: AgentOptions = {
     pfx: fs.readFileSync(apiEnvVars.pfxPath),
+  }
+
+  if (apiEnvVars.pfxPassphrase) {
+    options.passphrase = apiEnvVars.pfxPassphrase
   }
 
   // Instantiate agent to use with TLS Certificate.
