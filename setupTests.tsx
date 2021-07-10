@@ -4,6 +4,7 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 import enCommon from './public/locales/en/common.json'
+import enClaimDetails from './public/locales/en/claim-details.json'
 import enClaimStatus from './public/locales/en/claim-status.json'
 
 /* eslint-disable @typescript-eslint/no-floating-promises */
@@ -14,11 +15,12 @@ import enClaimStatus from './public/locales/en/claim-status.json'
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
-  ns: ['common', 'claim-status', 'test'],
+  ns: ['common', 'claim-details', 'claim-status', 'test'],
   defaultNS: 'common',
   resources: {
     en: {
       common: enCommon,
+      'claim-details': enClaimDetails,
       'claim-status': enClaimStatus,
       test: {
         transLine: {

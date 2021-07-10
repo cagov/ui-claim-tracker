@@ -120,7 +120,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
       scenarioContent: scenarioContent,
       loading: false,
       errorCode: errorCode,
-      ...(await serverSideTranslations(locale || 'en', ['common', 'claim-status'])),
+      ...(await serverSideTranslations(locale || 'en', ['common', 'claim-details', 'claim-status'])),
     },
   }
 }
