@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClaimStatus renders for Scenario1 1`] = `
+<div
+  className="claim-status"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status"
+  >
+    <span
+      className="text-line"
+    >
+      We need to confirm your eligibility for benefits.
+    </span>
+  </div>
+  <div
+    className="status-box"
+  >
+    <div
+      className="topbar"
+    >
+      <h3
+        className="next-steps"
+      >
+        Next Steps
+      </h3>
+    </div>
+    <div
+      className="explanation"
+    >
+      <div
+        className="next-steps"
+      >
+        <ul>
+          <li
+            className="next-step"
+          >
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </li>
+          <li
+            className="next-step"
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClaimStatus renders for Scenario7 1`] = `
+<div
+  className="claim-status"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status"
+  >
+    <span
+      className="text-line"
+    >
+      There are no pending issues at this time.
+    </span>
+  </div>
+  <div
+    className="status-box"
+  >
+    <div
+      className="topbar"
+    >
+      <h3
+        className="next-steps"
+      >
+        Next Steps
+      </h3>
+    </div>
+    <div
+      className="explanation"
+    >
+      <div
+        className="next-steps"
+      >
+        <ul>
+          <li
+            className="next-step"
+          >
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </li>
+          <li
+            className="next-step"
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClaimStatus renders for Scenario8 1`] = `
+<div
+  className="claim-status"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status"
+  >
+    <span
+      className="text-line"
+    >
+      Your claim is active and there are no pending issues at this time.
+    </span>
+  </div>
+  <div
+    className="status-box"
+  >
+    <div
+      className="topbar"
+    >
+      <h3
+        className="next-steps"
+      >
+        Next Steps
+      </h3>
+    </div>
+    <div
+      className="explanation"
+    >
+      <div
+        className="next-steps"
+      >
+        <ul>
+          <li
+            className="next-step"
+          >
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </li>
+          <li
+            className="next-step"
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClaimStatus renders for Scenario9 1`] = `
+<div
+  className="claim-status"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status"
+  >
+    <span
+      className="text-line"
+    >
+      Your payments are pending further review.
+    </span>
+  </div>
+  <div
+    className="status-box"
+  >
+    <div
+      className="topbar"
+    >
+      <h3
+        className="next-steps"
+      >
+        Next Steps
+      </h3>
+    </div>
+    <div
+      className="explanation"
+    >
+      <div
+        className="next-steps"
+      >
+        <ul>
+          <li
+            className="next-step"
+          >
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </li>
+          <li
+            className="next-step"
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClaimStatus renders for Scenario10 1`] = `
+<div
+  className="claim-status"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status"
+  >
+    <span
+      className="text-line"
+    >
+      [this copy may or may not be unique] Your payments are pending further review.
+    </span>
+  </div>
+  <div
+    className="status-box"
+  >
+    <div
+      className="topbar"
+    >
+      <h3
+        className="next-steps"
+      >
+        Next Steps
+      </h3>
+    </div>
+    <div
+      className="explanation"
+    >
+      <div
+        className="next-steps"
+      >
+        <ul>
+          <li
+            className="next-step"
+          >
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </li>
+          <li
+            className="next-step"
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
