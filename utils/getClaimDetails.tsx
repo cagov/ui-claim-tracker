@@ -5,7 +5,7 @@
  * shown in the Claim Tracker to the user.
  */
 
-import { I18nString } from '../types/common'
+import { ClaimDetailsContent, ClaimDetailsResult, I18nString } from '../types/common'
 
 export interface ProgramType {
   [key: string]: string
@@ -92,4 +92,22 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
  */
 export function buildBenefitYear(start: string, end: string): string {
   return `${start} - ${end}`
+}
+
+/**
+ * Get Claim Details content.
+ */
+export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDetailsContent {
+  // Get programType and extensionType.
+  const pair: programExtensionPairType = getProgramExtensionPair(rawDetails.programType)
+  const benefitYear = buildBenefitYear(rawDetails.benefitYearStartDate, rawDetails.benefitYearEndDate)
+
+  return {
+    programType: pair.programType,
+    benefitYear: benefitYear,
+    claimBalance: rawDetails.claimBalance,
+    weeklyBenefitAmount: rawDetails.weeklyBenefitAmount,
+    lastPaymentIssued: rawDetails.lastPaymentIssued,
+    extensionType: pair.extensionType,
+  }
 }
