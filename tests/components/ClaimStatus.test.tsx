@@ -4,7 +4,7 @@ import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import { ClaimStatusContent } from '../../types/common'
 
-function getClaimStatusJSON(statusContent: ClaimStatusContent): string {
+function getClaimStatusJson(statusContent: ClaimStatusContent): string {
   return renderer
     .create(
       <ClaimStatus
@@ -18,7 +18,7 @@ function getClaimStatusJSON(statusContent: ClaimStatusContent): string {
 
 function testClaimStatus(scenarioType: ScenarioType): void {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType))
-  const tree = getClaimStatusJSON(scenarioContent.statusContent)
+  const tree = getClaimStatusJson(scenarioContent.statusContent)
   expect(tree).toMatchSnapshot()
 }
 
