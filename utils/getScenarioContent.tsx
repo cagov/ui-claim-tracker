@@ -8,6 +8,7 @@
  */
 
 import { Claim, ClaimDetailsContent, ClaimStatusContent, I18nString, ScenarioContent } from '../types/common'
+import getClaimDetails from './getClaimDetails'
 
 export enum ScenarioType {
   Scenario1,
@@ -93,25 +94,10 @@ export default function getScenarioContent(claimData: Claim): ScenarioContent {
   const statusContent = buildClaimStatusContent(scenarioType)
 
   // Construct claim details content.
-  // @TODO: Remove placeholder default content
-  const detailsContent: ClaimDetailsContent = {
-    programType: 'Unemployment Insurance (UI)',
-    benefitYear: '3/21/2020 - 3/20/2021',
-    claimBalance: '$0.00',
-    weeklyBenefitAmount: '$111.00',
-    lastPaymentIssued: '4/29/2021',
-    extensionType: 'Tier 2 Extension',
+  if (!claimData.claimDetails) {
+    throw new Error('Missing claim details')
   }
-
-  if (claimData.claimDetails) {
-    detailsContent.programType = claimData.claimDetails.programType
-    detailsContent.benefitYear = `${claimData.claimDetails.benefitYearStartDate} - ${claimData.claimDetails.benefitYearEndDate}`
-    detailsContent.claimBalance = claimData.claimDetails.claimBalance
-    detailsContent.weeklyBenefitAmount = claimData.claimDetails.weeklyBenefitAmount
-    detailsContent.lastPaymentIssued = claimData.claimDetails.lastPaymentIssued
-    // @TODO
-    // detailsContent.extensionType = ''
-  }
+  const detailsContent: ClaimDetailsContent = getClaimDetails(claimData.claimDetails)
 
   const content: ScenarioContent = {
     statusContent: statusContent,
