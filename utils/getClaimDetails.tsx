@@ -86,3 +86,10 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
   // If no known mapping is found, throw an error.
   throw new Error('Unknown Program Type')
 }
+
+/**
+ * Constrtuct the benefit year string.
+ */
+export function buildBenefitYear(start: string, end: string): string {
+  return `${start} - ${end}`
+}
