@@ -15,7 +15,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
   lastPaymentIssued,
   extensionType,
 }) => {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation(['common', 'claim-status'])
 
   return (
     <div className="claim-details container">
@@ -24,7 +24,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
       <div className="claim-details-box">
         <div className="row">
           <div className="col-6">
-            <InfoField loading={loading} label={t('claim-details.program-type')} text={programType} />
+            <InfoField loading={loading} label={t('claim-details.program-type')} text={t(programType)} />
 
             <InfoField loading={loading} label={t('claim-details.benefit-year')} text={benefitYear} />
 
@@ -36,7 +36,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
           </div>
           <div className="col-6">
             <div />
-            <InfoField loading={loading} label={t('claim-details.extension-type')} text={extensionType} />
+            <InfoField loading={loading} label={t('claim-details.extension-type')} text={t(extensionType)} />
           </div>
         </div>
       </div>
