@@ -1,4 +1,5 @@
 import {
+  buildBenefitYear,
   getProgramExtensionPair,
   programExtensionPairs,
   programExtensionPairType,
@@ -19,5 +20,13 @@ describe('Converting ProgramType to user-facing strings', () => {
     expect(() => {
       getProgramExtensionPair('unknown')
     }).toThrowError('Unknown Program Type')
+  })
+})
+
+// Test buildBenefitYear()
+describe('Constructing the benefit year', () => {
+  it('results in a date range string', () => {
+    const range = buildBenefitYear('foo', 'bar')
+    expect(range).toBe('foo - bar')
   })
 })
