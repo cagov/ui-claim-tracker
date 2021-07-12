@@ -1,5 +1,6 @@
 import getClaimDetails, {
   buildBenefitYear,
+  formatCurrency,
   getProgramExtensionPair,
   programExtensionPairs,
   programExtensionPairType,
@@ -31,6 +32,26 @@ describe('Constructing the benefit year', () => {
   })
 })
 
+// Test formatCurrency()
+describe('Formatting dollar amounts', () => {
+  it('displays the correct string for amounts with cents', () => {
+    const withCents = '532.82'
+    expect(formatCurrency(withCents)).toEqual(`$${withCents}`)
+  })
+  it('displays the correct string for amounts without cents', () => {
+    const noCents = '500'
+    expect(formatCurrency(noCents)).toEqual(`$${noCents}.00`)
+  })
+  it('displays the correct string for zero dollars', () => {
+    const zero = '0'
+    expect(formatCurrency(zero)).toEqual('$0.00')
+  })
+  it('displays the correct string for negative amounts', () => {
+    const negative = '-40900'
+    expect(formatCurrency(negative)).toEqual('-$40,900.00')
+  })
+})
+
 // Test getClaimDetails()
 describe('Constructing the Claim Details object', () => {
   it('returns all the expected values', () => {
@@ -39,10 +60,10 @@ describe('Constructing the Claim Details object', () => {
       programType: 'UI',
       benefitYearStartDate: '5/21/21',
       benefitYearEndDate: '5/20/22',
-      claimBalance: '$100',
-      weeklyBenefitAmount: '$25',
+      claimBalance: 100,
+      weeklyBenefitAmount: 25,
       lastPaymentIssued: '3/12/21',
-      lastPaymentAmount: '$10',
+      lastPaymentAmount: 10,
       monetaryStatus: 'active',
     }
 
@@ -50,8 +71,8 @@ describe('Constructing the Claim Details object', () => {
     const expected = {
       programType: 'claim-details:program-type.ui',
       benefitYear: '5/21/21 - 5/20/22',
-      claimBalance: rawDetails.claimBalance,
-      weeklyBenefitAmount: rawDetails.weeklyBenefitAmount,
+      claimBalance: formatCurrency(rawDetails.claimBalance),
+      weeklyBenefitAmount: formatCurrency(rawDetails.weeklyBenefitAmount),
       lastPaymentIssued: rawDetails.lastPaymentIssued,
       extensionType: '',
     }
