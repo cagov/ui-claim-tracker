@@ -55,9 +55,7 @@ export function getApiVars(): ApiEnvVars {
   apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
 
   // Some certificates have an import password
-  if (process.env.PFX_PASSPHRASE) {
-    apiEnvVars.pfxPassphrase = process.env.PFX_PASSPHRASE ?? ''
-  }
+  apiEnvVars.pfxPassphrase = process.env.PFX_PASSPHRASE || ''
 
   return apiEnvVars
 }
