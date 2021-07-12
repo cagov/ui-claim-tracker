@@ -8,7 +8,7 @@
  *   - API_URL: url for the API gateway
  *   - API_USER_KEY: key for authenticating with the API gateway
  *   - CERTIFICATE_DIR: path to the PKCS#12 certificate
- *   - P12_FILE: filename of the PKCS#12 certificate for authenticating with the API gateway
+ *   - PFX_FILE: filename of the PKCS#12 certificate for authenticating with the API gateway
  */
 
 import path from 'path'
@@ -51,7 +51,7 @@ export function getApiVars(): ApiEnvVars {
 
   // TLS Certificate fields
   const certDir: string = process.env.CERTIFICATE_DIR ?? ''
-  const pfxFilename: string = process.env.P12_FILE ?? ''
+  const pfxFilename: string = process.env.PFX_FILE ?? ''
   apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
 
   // Some certificates have an import password
