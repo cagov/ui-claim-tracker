@@ -95,6 +95,13 @@ export function buildBenefitYear(start: string, end: string): string {
 }
 
 /**
+ * Format currency.
+ */
+export function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount)
+}
+
+/**
  * Get Claim Details content.
  */
 export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDetailsContent {
@@ -105,8 +112,8 @@ export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDe
   return {
     programType: pair.programType,
     benefitYear: benefitYear,
-    claimBalance: rawDetails.claimBalance,
-    weeklyBenefitAmount: rawDetails.weeklyBenefitAmount,
+    claimBalance: formatCurrency(rawDetails.claimBalance),
+    weeklyBenefitAmount: formatCurrency(rawDetails.weeklyBenefitAmount),
     lastPaymentIssued: rawDetails.lastPaymentIssued,
     extensionType: pair.extensionType,
   }
