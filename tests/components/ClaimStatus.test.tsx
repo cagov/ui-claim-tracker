@@ -16,26 +16,25 @@ function getClaimStatusJson(statusContent: ClaimStatusContent): string {
     .toJSON()
 }
 
-function testClaimStatus(scenarioType: ScenarioType): void {
+function testClaimStatus(scenarioType: ScenarioType): string {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType))
-  const tree = getClaimStatusJson(scenarioContent.statusContent)
-  expect(tree).toMatchSnapshot()
+  return getClaimStatusJson(scenarioContent.statusContent)
 }
 
 describe('ClaimStatus', () => {
   it('renders for Scenario1', () => {
-    testClaimStatus(ScenarioType.Scenario1)
+    expect(testClaimStatus(ScenarioType.Scenario1)).toMatchSnapshot()
   })
   it('renders for Scenario7', () => {
-    testClaimStatus(ScenarioType.Scenario7)
+    expect(testClaimStatus(ScenarioType.Scenario7)).toMatchSnapshot()
   })
   it('renders for Scenario8', () => {
-    testClaimStatus(ScenarioType.Scenario8)
+    expect(testClaimStatus(ScenarioType.Scenario8)).toMatchSnapshot()
   })
   it('renders for Scenario9', () => {
-    testClaimStatus(ScenarioType.Scenario9)
+    expect(testClaimStatus(ScenarioType.Scenario9)).toMatchSnapshot()
   })
   it('renders for Scenario10', () => {
-    testClaimStatus(ScenarioType.Scenario10)
+    expect(testClaimStatus(ScenarioType.Scenario10)).toMatchSnapshot()
   })
 })
