@@ -73,7 +73,7 @@ export function getClaimStatusDescription(scenarioType: ScenarioType): I18nStrin
 export function buildClaimStatusContent(scenarioType: ScenarioType): ClaimStatusContent {
   const statusContent: ClaimStatusContent = {
     statusDescription: getClaimStatusDescription(scenarioType),
-    nextSteps: [
+    yourNextSteps: [
       'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     ],
