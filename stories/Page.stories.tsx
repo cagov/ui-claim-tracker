@@ -20,6 +20,11 @@ export default {
         labels: ScenarioTypeNames,
       },
     },
+    errorCode: {
+      control: {
+        type: 'text',
+      },
+    },
   },
 } as Meta
 
