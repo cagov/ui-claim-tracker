@@ -5,6 +5,7 @@
  * shown in the Claim Tracker to the user.
  */
 
+import { format, parse } from 'date-fns'
 import { ClaimDetailsContent, ClaimDetailsResult, I18nString } from '../types/common'
 
 export interface ProgramType {
@@ -88,10 +89,18 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
 }
 
 /**
+ * Format dates.
+ */
+export function formatDate(dateString: string): string {
+  const parsedDate = parse(dateString, "yyyy-MM-dd'T'HH:mm:ss", new Date())
+  return format(parsedDate, 'M/d/yyyy')
+}
+
+/**
  * Constrtuct the benefit year string.
  */
 export function buildBenefitYear(start: string, end: string): string {
-  return `${start} - ${end}`
+  return `${formatDate(start)} - ${formatDate(end)}`
 }
 
 /**
@@ -114,7 +123,7 @@ export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDe
     benefitYear: benefitYear,
     claimBalance: formatCurrency(rawDetails.claimBalance),
     weeklyBenefitAmount: formatCurrency(rawDetails.weeklyBenefitAmount),
-    lastPaymentIssued: rawDetails.lastPaymentIssued,
+    lastPaymentIssued: formatDate(rawDetails.lastPaymentIssued),
     extensionType: pair.extensionType,
   }
 }
