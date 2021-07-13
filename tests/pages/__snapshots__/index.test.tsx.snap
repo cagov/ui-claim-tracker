@@ -227,7 +227,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <span
               className="text-line"
             >
-              We need to confirm your eligibility for benefits.
+              Pending Eligibility - Phone Interview Will Be Scheduled
             </span>
           </div>
           <div

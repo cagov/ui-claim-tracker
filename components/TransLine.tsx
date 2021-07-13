@@ -1,11 +1,6 @@
 import { Trans } from 'react-i18next'
 import React from 'react'
-import { I18nString } from '../types/common'
-
-export interface TransLineProps {
-  i18nKey: I18nString
-  links?: string[] | null
-}
+import { TransLineProps } from '../types/common'
 
 export const TransLine: React.FC<TransLineProps> = ({ i18nKey, links = null }) => {
   let linkComponents: JSX.Element[] = []

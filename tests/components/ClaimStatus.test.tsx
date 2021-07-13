@@ -6,13 +6,7 @@ import { ClaimStatusContent } from '../../types/common'
 
 function getClaimStatusJson(statusContent: ClaimStatusContent): string {
   return renderer
-    .create(
-      <ClaimStatus
-        loading={false}
-        statusDescription={statusContent.statusDescription}
-        nextSteps={statusContent.nextSteps}
-      />,
-    )
+    .create(<ClaimStatus loading={false} heading={statusContent.heading} nextSteps={statusContent.nextSteps} />)
     .toJSON()
 }
 
@@ -25,16 +19,13 @@ describe('ClaimStatus', () => {
   it('renders for Scenario1', () => {
     expect(testClaimStatus(ScenarioType.Scenario1)).toMatchSnapshot()
   })
-  it('renders for Scenario7', () => {
-    expect(testClaimStatus(ScenarioType.Scenario7)).toMatchSnapshot()
+  it('renders for Scenario4', () => {
+    expect(testClaimStatus(ScenarioType.Scenario4)).toMatchSnapshot()
   })
-  it('renders for Scenario8', () => {
-    expect(testClaimStatus(ScenarioType.Scenario8)).toMatchSnapshot()
+  it('renders for Scenario5', () => {
+    expect(testClaimStatus(ScenarioType.Scenario5)).toMatchSnapshot()
   })
-  it('renders for Scenario9', () => {
-    expect(testClaimStatus(ScenarioType.Scenario9)).toMatchSnapshot()
-  })
-  it('renders for Scenario10', () => {
-    expect(testClaimStatus(ScenarioType.Scenario10)).toMatchSnapshot()
+  it('renders for Scenario6', () => {
+    expect(testClaimStatus(ScenarioType.Scenario6)).toMatchSnapshot()
   })
 })

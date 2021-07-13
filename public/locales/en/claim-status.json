@@ -1,20 +1,32 @@
 {
   "scenarios": {
     "scenario1": {
-      "description": "We need to confirm your eligibility for benefits."
+      "heading": "Pending Eligibility - Phone Interview Will Be Scheduled",
+      "summary": {
+        "text": "We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.",
+        "links": []
+      }
     },
-    "scenario7": {
-      "description": "There are no pending issues at this time."
+    "scenario4": {
+      "heading": "Review Required",
+      "summary": {
+        "text": "We identified an issue and may need to determine your eligibility or verify your information.",
+        "links": []
+      }
     },
-    "scenario8": {
-      "description": "Your claim is active and there are no pending issues at this time."
+    "scenario5": {
+      "heading": "No Weeks Available to Certify",
+      "summary": {
+        "text": "You currently have no weeks available to certify for benefits.",
+        "links": []
+      }
     },
-    "scenario9": {
-      "description": "Your payments are pending further review.",
-      "next-step": "Check your UI Online inbox for the latest updates."
-    },
-    "scenario10": {
-      "description": "[this copy may or may not be unique] Your payments are pending further review."
+    "scenario6": {
+      "heading": "Weeks Available to Certify",
+      "summary": {
+        "text": "You have weeks available to <0>certify for benefits</0>.",
+        "links": ["edd-ui-certify"]
+      }
     }
   },
   "conditional-next-steps": {

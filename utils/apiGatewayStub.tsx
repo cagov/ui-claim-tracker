@@ -11,6 +11,7 @@ import { Claim } from '../types/common'
  * Stub the API gateway response for a given scenario.
  */
 export default function apiGatewayStub(scenarioType: ScenarioType, hasClaimDetails = true): Claim {
+  // Default empty response from the API gateway
   const claim: Claim = {
     uniqueNumber: null,
     claimDetails: null,
@@ -19,30 +20,33 @@ export default function apiGatewayStub(scenarioType: ScenarioType, hasClaimDetai
     pendingDetermination: null,
   }
 
+  // If this is a known scenarioType, set a uniqueNumber.
+  if (scenarioType in ScenarioType) {
+    claim.uniqueNumber = '12345'
+  }
+
   switch (scenarioType) {
     case ScenarioType.Scenario1:
       claim.pendingDetermination = [{ determinationStatus: null }]
       break
 
-    // @TODO: This scenario should probably not be the default case.
-    // case ScenarioType.Scenario7:
-
-    case ScenarioType.Scenario8:
-      claim.hasCertificationWeeksAvailable = true
-      break
-
-    case ScenarioType.Scenario9:
+    case ScenarioType.Scenario4:
       claim.hasPendingWeeks = true
       break
 
-    case ScenarioType.Scenario10:
-      claim.hasPendingWeeks = true
+    case ScenarioType.Scenario5:
+      claim.hasPendingWeeks = false
+      claim.hasCertificationWeeksAvailable = false
+      break
+
+    case ScenarioType.Scenario6:
+      claim.hasPendingWeeks = false
       claim.hasCertificationWeeksAvailable = true
       break
 
-    // @TODO: No match should throw an error
-    // default:
-    //   throw new Error('Unknown scenario type')
+    // No match should throw an error
+    default:
+      throw new Error('Unknown scenario type')
   }
 
   if (hasClaimDetails) {
