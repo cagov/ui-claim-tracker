@@ -11,6 +11,6 @@ const Template: Story<ClaimStatusProps> = (args) => <ClaimStatusComponent {...ar
 
 export const ClaimStatus = Template.bind({})
 ClaimStatus.args = {
-  statusDescription: 'claim-status:base-pending.description',
+  statusDescription: 'claim-status:scenarios:scenario1.description',
   nextSteps: ['step one', 'step two'],
 }
