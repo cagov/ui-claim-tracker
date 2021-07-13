@@ -17,7 +17,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
 }) => {
   const { t } = useTranslation(['common', 'claim-status'])
 
-  let extension: JSX.element | null = null
+  let extension: JSX.Element | null = null
   if (extensionType) {
     extension = (
       <div className="col-6">
