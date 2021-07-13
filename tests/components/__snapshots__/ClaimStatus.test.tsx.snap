@@ -2,51 +2,97 @@
 
 exports[`ClaimStatus renders for Scenario1 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       We need to confirm your eligibility for benefits.
-    </span>
+    </h3>
+    <div
+      className="claim-status-extra-info"
+    >
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      More text.
+    </div>
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
-    <div
-      className="explanation"
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -54,51 +100,97 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
 
 exports[`ClaimStatus renders for Scenario7 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       There are no pending issues at this time.
-    </span>
+    </h3>
+    <div
+      className="claim-status-extra-info"
+    >
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      More text.
+    </div>
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
-    <div
-      className="explanation"
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -106,51 +198,97 @@ exports[`ClaimStatus renders for Scenario7 1`] = `
 
 exports[`ClaimStatus renders for Scenario8 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       Your claim is active and there are no pending issues at this time.
-    </span>
+    </h3>
+    <div
+      className="claim-status-extra-info"
+    >
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      More text.
+    </div>
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
-    <div
-      className="explanation"
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -158,51 +296,97 @@ exports[`ClaimStatus renders for Scenario8 1`] = `
 
 exports[`ClaimStatus renders for Scenario9 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       Your payments are pending further review.
-    </span>
+    </h3>
+    <div
+      className="claim-status-extra-info"
+    >
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      More text.
+    </div>
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
-    <div
-      className="explanation"
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -210,51 +394,97 @@ exports[`ClaimStatus renders for Scenario9 1`] = `
 
 exports[`ClaimStatus renders for Scenario10 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       [this copy may or may not be unique] Your payments are pending further review.
-    </span>
+    </h3>
+    <div
+      className="claim-status-extra-info"
+    >
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      Placehold text to talk more about the status of your claim with some verbosity.
+      <br />
+      More text.
+    </div>
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
-    <div
-      className="explanation"
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another step with longer text
+        </li>
+        <li
+          className="next-step"
+        >
+          a third bullet
+        </li>
+        <li
+          className="next-step"
+        >
+          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+        </li>
+      </ul>
     </div>
   </div>
 </div>
