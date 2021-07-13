@@ -44,21 +44,9 @@ describe('Constructing the benefit year', () => {
 
 // Test formatCurrency()
 describe('Formatting dollar amounts', () => {
-  it('displays the correct string for amounts with cents', () => {
-    const withCents = '532.82'
-    expect(formatCurrency(withCents)).toEqual(`$${withCents}`)
-  })
   it('displays the correct string for amounts without cents', () => {
-    const noCents = '500'
+    const noCents = 500
     expect(formatCurrency(noCents)).toEqual(`$${noCents}.00`)
-  })
-  it('displays the correct string for zero dollars', () => {
-    const zero = '0'
-    expect(formatCurrency(zero)).toEqual('$0.00')
-  })
-  it('displays the correct string for negative amounts', () => {
-    const negative = '-40900'
-    expect(formatCurrency(negative)).toEqual('-$40,900.00')
   })
 })
 
