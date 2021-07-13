@@ -24,7 +24,8 @@ relates to weekly certification
 - API_URL: The url for the API
 - API_USER_KEY: The user key for the API
 - CERTIFICATE_DIR: The path to the client certificate (certificate must be in PFX/P12 format)
-- P12_FILE: The name of the client certificate file
+- PFX_FILE: The name of the client certificate file
+- (Optional) PFX_PASSPHRASE: The import passphrase for the client certificate if there is one
 
 For local development:
 
