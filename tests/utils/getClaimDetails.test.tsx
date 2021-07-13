@@ -1,6 +1,7 @@
 import getClaimDetails, {
   buildBenefitYear,
   formatCurrency,
+  formatDate,
   getProgramExtensionPair,
   programExtensionPairs,
   programExtensionPairType,
@@ -24,11 +25,20 @@ describe('Converting ProgramType to user-facing strings', () => {
   })
 })
 
+// Test formatDate()
+describe('Formatting dates', () => {
+  it('displays the expected date string', () => {
+    const notFormatted = '2013-09-27T00:00:00'
+    const formatted = formatDate(notFormatted)
+    expect(formatted).toEqual('9/27/2013')
+  })
+})
+
 // Test buildBenefitYear()
 describe('Constructing the benefit year', () => {
   it('results in a date range string', () => {
-    const range = buildBenefitYear('foo', 'bar')
-    expect(range).toBe('foo - bar')
+    const range = buildBenefitYear('2013-09-27T12:34:33', '2021-10-28T05:33:34')
+    expect(range).toBe('9/27/2013 - 10/28/2021')
   })
 })
 
@@ -58,11 +68,11 @@ describe('Constructing the Claim Details object', () => {
     // Mock ClaimDetailsResults
     const rawDetails = {
       programType: 'UI',
-      benefitYearStartDate: '5/21/21',
-      benefitYearEndDate: '5/20/22',
+      benefitYearStartDate: '2021-05-21T00:00:00',
+      benefitYearEndDate: '2022-05-20T00:00:00',
       claimBalance: 100,
       weeklyBenefitAmount: 25,
-      lastPaymentIssued: '3/12/21',
+      lastPaymentIssued: '2021-03-12T00:00:00',
       lastPaymentAmount: 10,
       monetaryStatus: 'active',
     }
@@ -70,10 +80,10 @@ describe('Constructing the Claim Details object', () => {
     // Expected results
     const expected = {
       programType: 'claim-details:program-type.ui',
-      benefitYear: '5/21/21 - 5/20/22',
-      claimBalance: formatCurrency(rawDetails.claimBalance),
-      weeklyBenefitAmount: formatCurrency(rawDetails.weeklyBenefitAmount),
-      lastPaymentIssued: rawDetails.lastPaymentIssued,
+      benefitYear: '5/21/2021 - 5/20/2022',
+      claimBalance: '$100.00',
+      weeklyBenefitAmount: '$25.00',
+      lastPaymentIssued: '3/12/2021',
       extensionType: '',
     }
     const claimDetails = getClaimDetails(rawDetails)

@@ -48,11 +48,11 @@ export default function apiGatewayStub(scenarioType: ScenarioType, hasClaimDetai
   if (hasClaimDetails) {
     claim.claimDetails = {
       programType: 'PEUC - Tier 2 Extension',
-      benefitYearStartDate: '3/21/2020',
-      benefitYearEndDate: '3/20/2021',
+      benefitYearStartDate: '2020-03-21T00:00:00',
+      benefitYearEndDate: '2021-03-20T00:00:00',
       claimBalance: 1100.45,
       weeklyBenefitAmount: 111,
-      lastPaymentIssued: '4/29/2021',
+      lastPaymentIssued: '2021-04-29T00:00:00',
       lastPaymentAmount: 100,
       monetaryStatus: 'Active',
     }
