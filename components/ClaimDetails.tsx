@@ -18,7 +18,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
   const { t } = useTranslation('common')
 
   return (
-    <div className="claim-details container">
+    <div className="claim-details claim-section container">
       <h2 className="claim-details-title">{t('claim-details.title')}</h2>
 
       <div className="claim-details-box">
