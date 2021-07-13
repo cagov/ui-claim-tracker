@@ -73,6 +73,7 @@ export default function Home({
         <title>{t('title')}</title>
         <link rel="icon" href="/claimstatus/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
+        <link href="https://allfont.net/allfont.css?fonts=source-sans-pro-bold" rel="stylesheet" type="text/css" />
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
