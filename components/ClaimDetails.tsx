@@ -15,7 +15,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
   lastPaymentIssued,
   extensionType,
 }) => {
-  const { t } = useTranslation(['common', 'claim-status'])
+  const { t } = useTranslation('claim-details')
 
   let extension: JSX.Element | null = null
   if (extensionType) {
