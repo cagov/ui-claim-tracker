@@ -2,10 +2,10 @@
  * Utility file to get content for the Claim Status section.
  */
 
-import urls from '../public/urls.json'
 import claimStatusJson from '../public/locales/en/claim-status.json'
 import { ClaimStatusContent, I18nString, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
+import getUrl, { UrlType } from './getUrl'
 
 /**
  * Helper function to get shared Claim Status translation string prefix.
@@ -43,8 +43,8 @@ export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProp
   if (linkKeys && linkKeys.length > 0) {
     for (const linkKey of linkKeys) {
       // Explicitly cast to one of the allowed keys in urls.json
-      const key = linkKey as keyof typeof urls
-      const url = urls[key]
+      const key = linkKey as UrlType
+      const url = getUrl(key)
       if (url) {
         transLineProps.links.push(url)
       }
