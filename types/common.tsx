@@ -35,6 +35,7 @@ export interface Claim {
 // Type interfaces for Claim Status and Claim Details
 export interface ClaimStatusContent {
   heading: I18nString
+  summary: TransLineProps
   nextSteps?: string[]
 }
 

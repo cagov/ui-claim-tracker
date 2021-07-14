@@ -9,7 +9,12 @@ export interface ClaimSectionProps extends ScenarioContent {
 export const ClaimSection: React.FC<ClaimSectionProps> = ({ loading = false, statusContent, detailsContent }) => {
   return (
     <div className="claim-section">
-      <ClaimStatus loading={loading} heading={statusContent.heading} nextSteps={statusContent.nextSteps} />
+      <ClaimStatus
+        loading={loading}
+        heading={statusContent.heading}
+        summary={statusContent.summary}
+        nextSteps={statusContent.nextSteps}
+      />
       <ClaimDetails
         loading={loading}
         programType={detailsContent.programType}

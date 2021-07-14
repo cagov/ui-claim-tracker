@@ -23,15 +23,10 @@ export function getClaimStatusHeading(scenarioType: ScenarioType): I18nString {
  * Get Claim Status summary.
  */
 export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
-  const transLineProps = {
-    i18nKey: getTranslationPrefix(scenarioType) + '.summary.text',
+  const transLineProps: TransLineProps = {
+    i18nKey: getTranslationPrefix(scenarioType) + '.summary',
+    links: [],
   }
-  const linkKeys = getTranslationPrefix(scenarioType) + '.summary.links'
-  // console.log(getUrls())
-  // const urls = getUrls(linkKeys)
-  // if (urls) {
-  //   transLineProps.links = urls
-  // }
   return transLineProps
 }
 
@@ -42,6 +37,7 @@ export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusC
   getClaimStatusSummary(scenarioType)
   const statusContent: ClaimStatusContent = {
     heading: getClaimStatusHeading(scenarioType),
+    summary: getClaimStatusSummary(scenarioType),
     nextSteps: [
       'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
