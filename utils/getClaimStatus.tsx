@@ -2,6 +2,8 @@
  * Utility file to get content for the Claim Status section.
  */
 
+import urls from '../public/urls.json'
+import claimStatusJson from '../public/locales/en/claim-status.json'
 import { ClaimStatusContent, I18nString, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
 
@@ -21,11 +23,32 @@ export function getClaimStatusHeading(scenarioType: ScenarioType): I18nString {
 
 /**
  * Get Claim Status summary.
+ *
+ * Note: This function has a lot of verbosity due to Typescript + eslint.
  */
 export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
   const transLineProps: TransLineProps = {
-    i18nKey: getTranslationPrefix(scenarioType) + '.summary',
-    links: [],
+    i18nKey: getTranslationPrefix(scenarioType) + '.summary.text',
+  }
+  // Explicitly initialize to an empty array.
+  transLineProps.links = []
+
+  // Explicitly cast the scenarioType into one of the keys of claim-status.json
+  // (i.e. scenario1 | scenario2 etc)
+  const scenarioString = ScenarioType[scenarioType].toLowerCase() as keyof typeof claimStatusJson.scenarios
+  // Retrieve the summary links for the current scenario.
+  const linkKeys = claimStatusJson.scenarios[scenarioString].summary.links as string[]
+
+  // Lookup each link and send the array to the TransLine component.
+  if (linkKeys && linkKeys.length > 0) {
+    for (const linkKey of linkKeys) {
+      // Explicitly cast to one of the allowed keys in urls.json
+      const key = linkKey as keyof typeof urls
+      const url = urls[key]
+      if (url) {
+        transLineProps.links.push(url)
+      }
+    }
   }
   return transLineProps
 }
