@@ -13,22 +13,21 @@ describe('The Claim Status heading', () => {
 })
 
 // Test getClaimStatusSummary()
+// Note: These tests test against real content
 describe('The Claim Status summary', () => {
-  it('is correct for each scenario', () => {
-    for (const key of getNumericEnumKeys(ScenarioType)) {
-      const summary = getClaimStatusSummary(key)
-      const scenarioString = ScenarioType[key].toLowerCase() as keyof typeof claimStatusJson.scenarios
-
-      // Test the summary text.
-      expect(summary.i18nKey).toEqual(`claim-status:scenarios.${scenarioString}.summary.text`)
-
-      // Test the summary links.
-      const scenarioLinks = claimStatusJson.scenarios[scenarioString].summary.links
-      if (scenarioLinks) {
-        expect(summary.links.length).toEqual(claimStatusJson.scenarios[scenarioString].summary.links.length)
-      } else {
-        expect(summary.links).ToBe(undefined)
-      }
+  it('is correct for scenarios with no links', () => {
+    const scenarioType = ScenarioType.Scenario1
+    const expected = {
+      i18nKey: 'claim-status:scenarios.scenario1.summary.text',
+      links: [],
     }
+    expect(getClaimStatusSummary(scenarioType)).toEqual(expected)
+  })
+
+  it('is correct for scenarios with links', () => {
+    const scenarioType = ScenarioType.Scenario6
+    const summary = getClaimStatusSummary(scenarioType)
+    expect(summary.i18nKey).toEqual('claim-status:scenarios.scenario6.summary.text')
+    expect(summary.links.length).toEqual(1)
   })
 })
