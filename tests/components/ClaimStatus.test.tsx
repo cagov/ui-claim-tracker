@@ -4,15 +4,22 @@ import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import { ClaimStatusContent } from '../../types/common'
 
-function getClaimStatusJson(statusContent: ClaimStatusContent): string {
+function renderClaimStatusComponent(statusContent: ClaimStatusContent): string {
   return renderer
-    .create(<ClaimStatus loading={false} heading={statusContent.heading} nextSteps={statusContent.nextSteps} />)
+    .create(
+      <ClaimStatus
+        loading={false}
+        heading={statusContent.heading}
+        summary={statusContent.summary}
+        nextSteps={statusContent.nextSteps}
+      />,
+    )
     .toJSON()
 }
 
 function testClaimStatus(scenarioType: ScenarioType): string {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType))
-  return getClaimStatusJson(scenarioContent.statusContent)
+  return renderClaimStatusComponent(scenarioContent.statusContent)
 }
 
 describe('ClaimStatus', () => {

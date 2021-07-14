@@ -1,7 +1,6 @@
 import { getClaimStatusHeading, getClaimStatusSummary } from '../../utils/getClaimStatus'
 import { ScenarioType } from '../../utils/getScenarioContent'
 import { getNumericEnumKeys } from '../../utils/numericEnum'
-import claimStatusJson from '../../public/locales/en/claim-status.json'
 
 // Test getClaimStatusHeading()
 describe('The Claim Status heading', () => {

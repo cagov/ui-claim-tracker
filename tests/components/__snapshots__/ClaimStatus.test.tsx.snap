@@ -17,6 +17,11 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     </span>
   </div>
   <div
+    className="summary"
+  >
+    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+  </div>
+  <div
     className="status-box"
   >
     <div
@@ -67,6 +72,11 @@ exports[`ClaimStatus renders for Scenario4 1`] = `
     >
       Review Required
     </span>
+  </div>
+  <div
+    className="summary"
+  >
+    We identified an issue and may need to determine your eligibility or verify your information.
   </div>
   <div
     className="status-box"
@@ -121,6 +131,11 @@ exports[`ClaimStatus renders for Scenario5 1`] = `
     </span>
   </div>
   <div
+    className="summary"
+  >
+    You currently have no weeks available to certify for benefits.
+  </div>
+  <div
     className="status-box"
   >
     <div
@@ -171,6 +186,17 @@ exports[`ClaimStatus renders for Scenario6 1`] = `
     >
       Weeks Available to Certify
     </span>
+  </div>
+  <div
+    className="summary"
+  >
+    You have weeks available to 
+    <a
+      href="https://edd.ca.gov/Unemployment/certify.htm"
+    >
+      certify for benefits
+    </a>
+    .
   </div>
   <div
     className="status-box"
