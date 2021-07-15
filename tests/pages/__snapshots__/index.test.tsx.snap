@@ -249,7 +249,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    3/6/yyyy - 3/6/yyyy
+                    3/21/2020 - 3/20/2021
                   </div>
                 </div>
                 <div
@@ -291,7 +291,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    4/4/yyyy
+                    4/29/2021
                   </div>
                 </div>
               </div>
