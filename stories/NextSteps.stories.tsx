@@ -9,4 +9,10 @@ export default {
 const Template: Story<NextStepsProps> = (args) => <NextStepsComponent {...args} />
 
 export const NextSteps = Template.bind({})
-NextSteps.args = {}
+NextSteps.args = {
+  nextSteps: [
+    {
+      i18nKey: 'work-in-progress.message',
+    },
+  ],
+}

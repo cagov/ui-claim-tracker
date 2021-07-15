@@ -42,7 +42,7 @@ export interface Claim {
 export interface ClaimStatusContent {
   heading: I18nString
   summary: TransLineProps
-  nextSteps?: string[]
+  yourNextSteps: TransLineProps[]
 }
 
 export interface ClaimDetailsContent {
