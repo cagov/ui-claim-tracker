@@ -3,7 +3,7 @@
  */
 
 import claimStatusJson from '../public/locales/en/claim-status.json'
-import { ClaimStatusContent, I18nString, TransLineProps } from '../types/common'
+import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
 import getUrl, { UrlType } from './getUrl'
 
@@ -37,7 +37,8 @@ export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProp
   // (i.e. scenario1 | scenario2 etc)
   const scenarioString = ScenarioType[scenarioType].toLowerCase() as keyof typeof claimStatusJson.scenarios
   // Retrieve the summary links for the current scenario.
-  const linkKeys = claimStatusJson.scenarios[scenarioString].summary.links as string[]
+  const summary = claimStatusJson.scenarios[scenarioString].summary as TextOptionalLink
+  const linkKeys = summary.links
 
   // Lookup each link and send the array to the TransLine component.
   if (linkKeys && linkKeys.length > 0) {

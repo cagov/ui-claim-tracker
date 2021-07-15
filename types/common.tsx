@@ -1,13 +1,19 @@
 // Type aliases
 export type I18nString = string
 
-// Type interfaces for TransLine component
+// Types for TransLine component
 export interface TransLineProps {
   i18nKey: I18nString
   links?: string[] | null
 }
 
-// Type interfaces for API gateway result
+// Types for translation file JSON
+export interface TextOptionalLink {
+  text: string
+  links?: string[]
+}
+
+// Types for API gateway result
 export interface PendingDetermination {
   determinationStatus?: null | undefined | string
 }
@@ -32,7 +38,7 @@ export interface Claim {
   pendingDetermination?: null | [PendingDetermination]
 }
 
-// Type interfaces for Claim Status and Claim Details
+// Types for Claim Status and Claim Details
 export interface ClaimStatusContent {
   heading: I18nString
   summary: TransLineProps
