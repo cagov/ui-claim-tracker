@@ -50,48 +50,51 @@ export function getTransLineLinks(linkKeys: string[] | undefined): string[] {
   return links
 }
 
-function getChildJson(jsonObject: Json, key: string): Json {
+function getChildJson(jsonObject: Json, keys: string[], index: number): Json {
   if (!jsonObject) {
     throw new Error('JSON error')
   }
 
-  type jsonType = keyof typeof jsonObject
-  const castKey = key as jsonType
-  const newJson = jsonObject[castKey]
-  return newJson
+  if (index < keys.length) {
+    const key = keys[index]
+    type jsonType = keyof typeof jsonObject
+    const castKey = key as jsonType
+    const newJson = jsonObject[castKey]
+    // Recurse.
+    return getChildJson(newJson, keys, index + 1)
+  }
+  // Leaf.
+  else {
+    return jsonObject
+  }
 }
-
-// function get
 
 /**
  * Build props to pass to the TransLine react component.
  */
-export function getTransLineProps(jsonObject: Json, keys: string[], index: number): TransLineProps {
+export function getTransLineProps(jsonObject: Json, keys: string[]): TransLineProps {
   // jsonObject could possibly be null.
-  if (!jsonObject) {
-    throw new Error('Unable to retrieve JSON object')
+  // if (!jsonObject) {
+  //   throw new Error('Unable to retrieve JSON object')
+  // }
+
+  const targetJson = getChildJson(jsonObject, keys, 0)
+
+  // Get the links.
+  let links: string[] = []
+  if (targetJson.links) {
+    links = getTransLineLinks(targetJson.links as string[])
   }
+  // const linksJson = getChildJson(targetJson, ['links'], 0)
+  // const links = getTransLineLinks(linksJson as string[])
 
-  if (index < keys.length) {
-    const key = keys[index]
-    const newJson = getChildJson(jsonObject, key)
-    // Recurse.
-    return getTransLineProps(newJson, keys, index + 1)
-  }
-  // index === keys.length
-  else {
-    // Get the links.
-    const newJson = getChildJson(jsonObject, 'links')
-    const links = getTransLineLinks(newJson as string[])
+  // Append to the keys array to build the full i18nKey.
+  keys.push('text')
 
-    // Append to the keys array to build the full i18nKey.
-    keys.push('text')
-
-    // Return the final TransLineProps object.
-    return {
-      i18nKey: 'claim-status:' + keys.join('.'),
-      links: links,
-    }
+  // Return the final TransLineProps object.
+  return {
+    i18nKey: 'claim-status:' + keys.join('.'),
+    links: links,
   }
 }
 
@@ -100,7 +103,7 @@ export function getTransLineProps(jsonObject: Json, keys: string[], index: numbe
  */
 export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
   const keys = ['scenarios', scenarioToString(scenarioType), 'summary']
-  return getTransLineProps(claimStatusJson as Json, keys, 0)
+  return getTransLineProps(claimStatusJson as Json, keys)
 }
 
 /**
@@ -113,13 +116,14 @@ export function getNextSteps(
   const steps: TransLineProps[] = []
 
   const scenarioString = scenarioToString(scenarioType)
-  const scenarios = getChildJson(claimStatusJson as Json, 'scenarios')
-  const currentScenario = getChildJson(scenarios, scenarioString)
-  const currentSteps = getChildJson(currentScenario, whichSteps)
 
-  for (const index of currentSteps.keys()) {
-    const keys = ['scenarios', scenarioString, whichSteps, index]
-    steps.push(getTransLineProps(claimStatusJson, keys, 0))
+  const outerKeys = ['scenarios', scenarioString, whichSteps]
+  const targetJson = getChildJson(claimStatusJson, outerKeys, 0)
+
+  for (const index of targetJson.keys()) {
+    const innerKeys = outerKeys.slice()
+    innerKeys.push(index)
+    steps.push(getTransLineProps(claimStatusJson, innerKeys, 0))
   }
   return steps
 }
