@@ -16,13 +16,6 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading = false, statu
       <h2>{t('claim-status.title')}</h2>
       <div className="pending-status claim-subsection">
         <TextLine loading={loading} header text={t(statusDescription)} />
-        <div className="claim-status-extra-info">
-          Placehold text to talk more about the status of your claim with some verbosity.
-          <br />
-          Placehold text to talk more about the status of your claim with some verbosity.
-          <br />
-          More text.
-        </div>
       </div>
       <NextSteps loading={loading} header={t('claim-status.next-steps')} nextSteps={nextSteps} />
     </div>

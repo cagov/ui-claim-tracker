@@ -15,15 +15,6 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     >
       We need to confirm your eligibility for benefits.
     </h3>
-    <div
-      className="claim-status-extra-info"
-    >
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      More text.
-    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -68,15 +59,6 @@ exports[`ClaimStatus renders for Scenario7 1`] = `
     >
       There are no pending issues at this time.
     </h3>
-    <div
-      className="claim-status-extra-info"
-    >
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      More text.
-    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -121,15 +103,6 @@ exports[`ClaimStatus renders for Scenario8 1`] = `
     >
       Your claim is active and there are no pending issues at this time.
     </h3>
-    <div
-      className="claim-status-extra-info"
-    >
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      More text.
-    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -174,15 +147,6 @@ exports[`ClaimStatus renders for Scenario9 1`] = `
     >
       Your payments are pending further review.
     </h3>
-    <div
-      className="claim-status-extra-info"
-    >
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      More text.
-    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -227,15 +191,6 @@ exports[`ClaimStatus renders for Scenario10 1`] = `
     >
       [this copy may or may not be unique] Your payments are pending further review.
     </h3>
-    <div
-      className="claim-status-extra-info"
-    >
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      Placehold text to talk more about the status of your claim with some verbosity.
-      <br />
-      More text.
-    </div>
   </div>
   <div
     className="next-steps claim-subsection"
