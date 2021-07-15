@@ -13,7 +13,7 @@ export const ClaimStatus = Template.bind({})
 ClaimStatus.args = {
   heading: 'claim-status:scenarios.scenario1.heading',
   summary: {
-    i18nKey: 'claim-status:scenarios.scenario1.summary',
+    i18nKey: 'claim-status:scenarios.scenario1.summary.text',
   },
   nextSteps: ['step one', 'step two'],
 }
