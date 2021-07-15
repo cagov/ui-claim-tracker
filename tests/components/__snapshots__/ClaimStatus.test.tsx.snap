@@ -31,7 +31,7 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     <h3
       className="next-steps-header"
     >
-      Your Next Steps
+      Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -40,57 +40,12 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
         <li
           className="next-step"
         >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </li>
         <li
           className="next-step"
         >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div
-    className="next-steps claim-subsection"
-  >
-    <h3
-      className="next-steps-header"
-    >
-      EDD Next Steps
-    </h3>
-    <div
-      className="next-step-explanation"
-    >
-      <ul>
-        <li
-          className="next-step"
-        >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </li>
       </ul>
     </div>
@@ -129,7 +84,7 @@ exports[`ClaimStatus renders for Scenario7 1`] = `
     <h3
       className="next-steps-header"
     >
-      Your Next Steps
+      Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -138,57 +93,12 @@ exports[`ClaimStatus renders for Scenario7 1`] = `
         <li
           className="next-step"
         >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </li>
         <li
           className="next-step"
         >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div
-    className="next-steps claim-subsection"
-  >
-    <h3
-      className="next-steps-header"
-    >
-      EDD Next Steps
-    </h3>
-    <div
-      className="next-step-explanation"
-    >
-      <ul>
-        <li
-          className="next-step"
-        >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </li>
       </ul>
     </div>
@@ -227,7 +137,7 @@ exports[`ClaimStatus renders for Scenario8 1`] = `
     <h3
       className="next-steps-header"
     >
-      Your Next Steps
+      Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -236,57 +146,12 @@ exports[`ClaimStatus renders for Scenario8 1`] = `
         <li
           className="next-step"
         >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </li>
         <li
           className="next-step"
         >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div
-    className="next-steps claim-subsection"
-  >
-    <h3
-      className="next-steps-header"
-    >
-      EDD Next Steps
-    </h3>
-    <div
-      className="next-step-explanation"
-    >
-      <ul>
-        <li
-          className="next-step"
-        >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </li>
       </ul>
     </div>
@@ -325,7 +190,7 @@ exports[`ClaimStatus renders for Scenario9 1`] = `
     <h3
       className="next-steps-header"
     >
-      Your Next Steps
+      Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -334,57 +199,12 @@ exports[`ClaimStatus renders for Scenario9 1`] = `
         <li
           className="next-step"
         >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </li>
         <li
           className="next-step"
         >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div
-    className="next-steps claim-subsection"
-  >
-    <h3
-      className="next-steps-header"
-    >
-      EDD Next Steps
-    </h3>
-    <div
-      className="next-step-explanation"
-    >
-      <ul>
-        <li
-          className="next-step"
-        >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </li>
       </ul>
     </div>
@@ -423,7 +243,7 @@ exports[`ClaimStatus renders for Scenario10 1`] = `
     <h3
       className="next-steps-header"
     >
-      Your Next Steps
+      Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -432,57 +252,12 @@ exports[`ClaimStatus renders for Scenario10 1`] = `
         <li
           className="next-step"
         >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </li>
         <li
           className="next-step"
         >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div
-    className="next-steps claim-subsection"
-  >
-    <h3
-      className="next-steps-header"
-    >
-      EDD Next Steps
-    </h3>
-    <div
-      className="next-step-explanation"
-    >
-      <ul>
-        <li
-          className="next-step"
-        >
-          a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another step with longer text
-        </li>
-        <li
-          className="next-step"
-        >
-          a third bullet
-        </li>
-        <li
-          className="next-step"
-        >
-          another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </li>
       </ul>
     </div>

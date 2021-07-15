@@ -8,12 +8,7 @@ export interface ClaimStatusProps extends ClaimStatusContent {
   loading: boolean
 }
 
-export const ClaimStatus: React.FC<ClaimStatusProps> = ({
-  loading = false,
-  statusDescription,
-  yourNextSteps,
-  eddNextSteps,
-}) => {
+export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading = false, statusDescription, nextSteps }) => {
   const { t } = useTranslation(['common', 'claim-status'])
 
   return (
@@ -29,8 +24,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
           More text.
         </div>
       </div>
-      <NextSteps loading={loading} header={t('claim-status.your-next-steps')} nextSteps={yourNextSteps} />
-      <NextSteps loading={loading} header={t('claim-status.edd-next-steps')} nextSteps={eddNextSteps} />
+      <NextSteps loading={loading} header={t('claim-status.next-steps')} nextSteps={nextSteps} />
     </div>
   )
 }

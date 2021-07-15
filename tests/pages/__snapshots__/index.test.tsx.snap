@@ -196,7 +196,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <h3
               className="next-steps-header"
             >
-              Your Next Steps
+              Next Steps
             </h3>
             <div
               className="next-step-explanation"
@@ -211,41 +211,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   className="next-step"
                 >
                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            className="next-steps claim-subsection"
-          >
-            <h3
-              className="next-steps-header"
-            >
-              EDD Next Steps
-            </h3>
-            <div
-              className="next-step-explanation"
-            >
-              <ul>
-                <li
-                  className="next-step"
-                >
-                  a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet
-                </li>
-                <li
-                  className="next-step"
-                >
-                  another step with longer text
-                </li>
-                <li
-                  className="next-step"
-                >
-                  a third bullet
-                </li>
-                <li
-                  className="next-step"
-                >
-                  another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet
                 </li>
               </ul>
             </div>
@@ -293,7 +258,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    3/21/2020 - 3/20/2021
+                    3/6/yyyy - 3/6/yyyy
                   </div>
                 </div>
                 <div
@@ -335,7 +300,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    4/29/2021
+                    4/4/yyyy
                   </div>
                 </div>
               </div>
