@@ -3,7 +3,7 @@
  */
 
 import claimStatusJson from '../public/locales/en/claim-status.json'
-import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
+import { ClaimStatusContent, I18nString, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
 import getUrl, { UrlType } from './getUrl'
 
@@ -50,38 +50,41 @@ export function getTransLineLinks(linkKeys: string[] | undefined): string[] {
   return links
 }
 
+function getChildJson(jsonObject: Json, key: string): Json {
+  if (!jsonObject) {
+    throw new Error('JSON error')
+  }
+
+  type jsonType = keyof typeof jsonObject
+  const castKey = key as jsonType
+  const newJson = jsonObject[castKey]
+  return newJson
+}
+
 /**
  * Build props to pass to the TransLine react component.
  */
 export function getTransLineProps(jsonObject: Json, keys: string[], index: number): TransLineProps {
-  // jsonObject could possibly be null
+  // jsonObject could possibly be null.
   if (!jsonObject) {
     throw new Error('Unable to retrieve JSON object')
   }
 
-  let isLeaf = false
-  if (index >= keys.length) {
-    isLeaf = true
-    keys.push('links')
-  }
-
-  const key = keys[index]
-  type jsonType = keyof typeof jsonObject
-  const castKey = key as jsonType
-  const newJson = jsonObject[castKey]
-
-  if (!isLeaf) {
+  if (index < keys.length) {
+    const key = keys[index]
+    const newJson = getChildJson(jsonObject, key)
     return getTransLineProps(newJson, keys, index + 1)
   }
-  // Leaf node.
+  // index === keys.length
   else {
-    keys.pop()
+    // Get the links.
+    const newJson = getChildJson(jsonObject, 'links')
+    const links = getTransLineLinks(newJson as string[])
+
+    // Append to the keys array to build the full i18nKey.
     keys.push('text')
 
-    console.log(jsonObject)
-    const links = getTransLineLinks(jsonObject as string[])
-    console.log(links)
-
+    // Return the final TransLineProps object.
     return {
       i18nKey: 'claim-status:' + keys.join('.'),
       links: links,
@@ -94,7 +97,7 @@ export function getTransLineProps(jsonObject: Json, keys: string[], index: numbe
  */
 export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
   const keys = ['scenarios', ScenarioType[scenarioType].toLowerCase(), 'summary']
-  return getTransLineProps(claimStatusJson, keys, 0)
+  return getTransLineProps(claimStatusJson as Json, keys, 0)
 }
 
 /**
@@ -109,16 +112,9 @@ export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProp
 //   // Create dynamic type for the current scenario.
 //   type currentScenarioType = keyof typeof currentScenario
 
-//   // Cast the indexer to the new dynamic type.
-//   const convertedIndexer = indexer as currentScenarioType
-
-//   // Retrieve the text + links.
-//   const wrapper = currentScenario[convertedIndexer] as TextOptionalLink
-
 //   for (const [index, value] of currentScenario['your-next-steps']) {
-//     const transLine: TransLineProps = {
-//       i18nKey: getTranslationPrefix(scenarioType) + `.your-next-steps.${index}.text`,
-//     }
+//     const keys = ['scenarios', ScenarioType[scenarioType].toLowerCase(), 'your-next-steps', index]
+//     yourNextSteps.push(getTransLineProps(claimStatusJson, keys, 0))
 //   }
 // }
 
@@ -126,7 +122,7 @@ export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProp
  * Get combined Claim Status content.
  */
 export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusContent {
-  getClaimStatusSummary(scenarioType)
+  // console.log(getNextSteps(scenarioType))
   const statusContent: ClaimStatusContent = {
     heading: getClaimStatusHeading(scenarioType),
     summary: getClaimStatusSummary(scenarioType),
