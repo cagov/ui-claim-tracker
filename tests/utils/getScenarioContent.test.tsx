@@ -1,21 +1,5 @@
-import { getClaimStatusDescription, getScenario, ScenarioType } from '../../utils/getScenarioContent'
+import { getScenario, ScenarioType } from '../../utils/getScenarioContent'
 import apiGatewayStub from '../../utils/apiGatewayStub'
-import { getNumericEnumKeys } from '../../utils/numericEnum'
-
-/**
- * Begin tests
- */
-
-// Test getClaimStatusDescripton()
-describe('Getting the Claim Status description', () => {
-  it('returns the correct description for the scenario', () => {
-    for (const key of getNumericEnumKeys(ScenarioType)) {
-      expect(getClaimStatusDescription(key)).toEqual(
-        expect.stringMatching(/claim-status:scenarios.scenario[0-9]+.description/),
-      )
-    }
-  })
-})
 
 /**
  * Test getScenario()

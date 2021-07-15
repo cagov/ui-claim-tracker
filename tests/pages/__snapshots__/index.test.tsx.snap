@@ -307,7 +307,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    $0.00
+                    $1,100.45
                   </div>
                 </div>
                 <div
@@ -354,7 +354,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    Tier 2 Extension
+                    Pandemic Emergency Unemployment Compensation (PEUC) - Tier 2 Extension
                   </div>
                 </div>
               </div>

@@ -7,7 +7,9 @@
  * description in ScenarioTypeNames for easy(ish) reference.
  */
 
-import { Claim, ClaimDetailsContent, ClaimStatusContent, I18nString, ScenarioContent } from '../types/common'
+import { Claim, ClaimDetailsContent, ScenarioContent } from '../types/common'
+import getClaimDetails from './getClaimDetails'
+import getClaimStatus from './getClaimStatus'
 
 export enum ScenarioType {
   Scenario1,
@@ -61,28 +63,6 @@ export function getScenario(claimData: Claim): ScenarioType {
 }
 
 /**
- * Get Claim Status description content.
- */
-export function getClaimStatusDescription(scenarioType: ScenarioType): I18nString {
-  return `claim-status:scenarios.${ScenarioType[scenarioType].toLowerCase()}.description`
-}
-
-/**
- * Get Claim Status content.
- */
-export function buildClaimStatusContent(scenarioType: ScenarioType): ClaimStatusContent {
-  const statusContent: ClaimStatusContent = {
-    statusDescription: getClaimStatusDescription(scenarioType),
-    yourNextSteps: [
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    ],
-  }
-
-  return statusContent
-}
-
-/**
  * Return scenario content.
  */
 export default function getScenarioContent(claimData: Claim): ScenarioContent {
@@ -90,28 +70,13 @@ export default function getScenarioContent(claimData: Claim): ScenarioContent {
   const scenarioType = getScenario(claimData)
 
   // Construct claim status content.
-  const statusContent = buildClaimStatusContent(scenarioType)
+  const statusContent = getClaimStatus(scenarioType)
 
   // Construct claim details content.
-  // @TODO: Remove placeholder default content
-  const detailsContent: ClaimDetailsContent = {
-    programType: 'Unemployment Insurance (UI)',
-    benefitYear: '3/21/2020 - 3/20/2021',
-    claimBalance: '$0.00',
-    weeklyBenefitAmount: '$111.00',
-    lastPaymentIssued: '4/29/2021',
-    extensionType: 'Tier 2 Extension',
+  if (!claimData.claimDetails) {
+    throw new Error('Missing claim details')
   }
-
-  if (claimData.claimDetails) {
-    detailsContent.programType = claimData.claimDetails.programType
-    detailsContent.benefitYear = `${claimData.claimDetails.benefitYearStartDate} - ${claimData.claimDetails.benefitYearEndDate}`
-    detailsContent.claimBalance = claimData.claimDetails.claimBalance
-    detailsContent.weeklyBenefitAmount = claimData.claimDetails.weeklyBenefitAmount
-    detailsContent.lastPaymentIssued = claimData.claimDetails.lastPaymentIssued
-    // @TODO
-    // detailsContent.extensionType = ''
-  }
+  const detailsContent: ClaimDetailsContent = getClaimDetails(claimData.claimDetails)
 
   const content: ScenarioContent = {
     statusContent: statusContent,

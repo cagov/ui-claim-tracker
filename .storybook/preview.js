@@ -7,6 +7,7 @@ import { initReactI18next } from 'react-i18next'
 import i18n from './i18n'
 
 import enCommon from '../public/locales/en/common.json'
+import enClaimDetails from '../public/locales/en/claim-details.json'
 import enClaimStatus from '../public/locales/en/claim-status.json'
 
 export const parameters = {
@@ -46,10 +47,10 @@ export const decorators = [
     i18n.use(initReactI18next).init({
       lng: 'en',
       fallbackLng: 'en',
-      ns: ['common', 'claim-status'],
+      ns: ['common', 'claim-details', 'claim-status'],
       defaultNS: 'common',
       resources: {
-        en: { common: enCommon, 'claim-status': enClaimStatus },
+        en: { common: enCommon, 'claim-details': enClaimDetails, 'claim-status': enClaimStatus },
       },
     })
 

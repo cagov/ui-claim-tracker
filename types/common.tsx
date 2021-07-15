@@ -10,10 +10,10 @@ export interface ClaimDetailsResult {
   programType: string
   benefitYearStartDate: string
   benefitYearEndDate: string
-  claimBalance: string
-  weeklyBenefitAmount: string
+  claimBalance: number
+  weeklyBenefitAmount: number
   lastPaymentIssued: string
-  lastPaymentAmount: string
+  lastPaymentAmount: number
   monetaryStatus: string
 }
 
