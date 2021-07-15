@@ -7,6 +7,8 @@ import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from
 import { ScenarioType } from './getScenarioContent'
 import getUrl, { UrlType } from './getUrl'
 
+type JsonScenario = keyof typeof claimStatusJson.scenarios
+
 /**
  * Helper function to get shared Claim Status translation string prefix.
  */
@@ -22,37 +24,86 @@ export function getClaimStatusHeading(scenarioType: ScenarioType): I18nString {
 }
 
 /**
- * Get Claim Status summary.
- *
- * Note: This function has a lot of verbosity due to Typescript + eslint.
+ * Convert a ScenarioType into the string key used in json translation files.
  */
-export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
-  const transLineProps: TransLineProps = {
-    i18nKey: getTranslationPrefix(scenarioType) + '.summary.text',
-  }
-  // Explicitly initialize to an empty array.
-  transLineProps.links = []
+export function scenarioToString(scenarioType: ScenarioType): JsonScenario {
+  return ScenarioType[scenarioType].toLowerCase() as JsonScenario
+}
 
-  // Explicitly cast the scenarioType into one of the keys of claim-status.json
-  // (i.e. scenario1 | scenario2 etc)
-  const scenarioString = ScenarioType[scenarioType].toLowerCase() as keyof typeof claimStatusJson.scenarios
-  // Retrieve the summary links for the current scenario.
-  const summary = claimStatusJson.scenarios[scenarioString].summary as TextOptionalLink
-  const linkKeys = summary.links
-
-  // Lookup each link and send the array to the TransLine component.
-  if (linkKeys && linkKeys.length > 0) {
-    for (const linkKey of linkKeys) {
-      // Explicitly cast to one of the allowed keys in urls.json
-      const key = linkKey as UrlType
-      const url = getUrl(key)
-      if (url) {
-        transLineProps.links.push(url)
+/**
+ * Build a list of urls from keys in the json translation files.
+ */
+export function getTransLineLinks(linkKeys: string[] | undefined): string[] {
+  const links: string[] = []
+  if (linkKeys) {
+    if (linkKeys && linkKeys.length > 0) {
+      for (const linkKey of linkKeys) {
+        // Explicitly cast to one of the allowed keys in urls.json
+        const key = linkKey as UrlType
+        const url = getUrl(key)
+        if (url) {
+          links.push(url)
+        }
       }
     }
   }
-  return transLineProps
+  return links
 }
+
+/**
+ * Build props to pass to the TransLine react component.
+ */
+export function getTransLineProps(scenarioType: ScenarioType, indexer: string): TransLineProps {
+  const scenarioString: JsonScenario = scenarioToString(scenarioType)
+  const currentScenario = claimStatusJson.scenarios[scenarioString]
+
+  // Create dynamic type for the current scenario.
+  type currentScenarioType = keyof typeof currentScenario
+
+  // Cast the indexer to the new dynamic type.
+  const convertedIndexer = indexer as currentScenarioType
+
+  // Retrieve the text + links.
+  const wrapper = currentScenario[convertedIndexer] as TextOptionalLink
+
+  // Build the TransLineProps object.
+  return {
+    i18nKey: `${getTranslationPrefix(scenarioType)}.${indexer}.text`,
+    links: getTransLineLinks(wrapper.links),
+  }
+}
+
+/**
+ * Get Claim Status summary.
+ */
+export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
+  return getTransLineProps(scenarioType, 'summary')
+}
+
+/**
+ * Get next steps content for Claim Status.
+ */
+// export function getNextSteps(scenarioType: ScenarioType): void {
+//   const yourNextSteps: TransLineProps[] = []
+
+//   const scenarioString: JsonScenario = scenarioToString(scenarioType)
+//   const currentScenario = claimStatusJson.scenarios[scenarioString]
+
+//   // Create dynamic type for the current scenario.
+//   type currentScenarioType = keyof typeof currentScenario
+
+//   // Cast the indexer to the new dynamic type.
+//   const convertedIndexer = indexer as currentScenarioType
+
+//   // Retrieve the text + links.
+//   const wrapper = currentScenario[convertedIndexer] as TextOptionalLink
+
+//   for (const [index, value] of currentScenario['your-next-steps']) {
+//     const transLine: TransLineProps = {
+//       i18nKey: getTranslationPrefix(scenarioType) + `.your-next-steps.${index}.text`,
+//     }
+//   }
+// }
 
 /**
  * Get combined Claim Status content.
