@@ -10,10 +10,17 @@ import getUrl, { UrlType } from './getUrl'
 type Json = string | number | boolean | null | Json[] | { [key: string]: Json }
 
 /**
+ * Convert a ScenarioType into the string key used in json translation files.
+ */
+export function scenarioToString(scenarioType: ScenarioType): string {
+  return ScenarioType[scenarioType].toLowerCase()
+}
+
+/**
  * Helper function to get shared Claim Status translation string prefix.
  */
 function getTranslationPrefix(scenarioType: ScenarioType): I18nString {
-  return `claim-status:scenarios.${ScenarioType[scenarioType].toLowerCase()}`
+  return `claim-status:scenarios.${scenarioToString(scenarioType)}`
 }
 
 /**
@@ -22,13 +29,6 @@ function getTranslationPrefix(scenarioType: ScenarioType): I18nString {
 export function getClaimStatusHeading(scenarioType: ScenarioType): I18nString {
   return getTranslationPrefix(scenarioType) + '.heading'
 }
-
-// /**
-//  * Convert a ScenarioType into the string key used in json translation files.
-//  */
-// export function scenarioToString(scenarioType: ScenarioType): JsonScenario {
-//   return ScenarioType[scenarioType].toLowerCase() as JsonScenario
-// }
 
 /**
  * Build a list of urls from keys in the json translation files.
@@ -61,6 +61,8 @@ function getChildJson(jsonObject: Json, key: string): Json {
   return newJson
 }
 
+// function get
+
 /**
  * Build props to pass to the TransLine react component.
  */
@@ -73,6 +75,7 @@ export function getTransLineProps(jsonObject: Json, keys: string[], index: numbe
   if (index < keys.length) {
     const key = keys[index]
     const newJson = getChildJson(jsonObject, key)
+    // Recurse.
     return getTransLineProps(newJson, keys, index + 1)
   }
   // index === keys.length
@@ -96,7 +99,7 @@ export function getTransLineProps(jsonObject: Json, keys: string[], index: numbe
  * Get Claim Status summary.
  */
 export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
-  const keys = ['scenarios', ScenarioType[scenarioType].toLowerCase(), 'summary']
+  const keys = ['scenarios', scenarioToString(scenarioType), 'summary']
   return getTransLineProps(claimStatusJson as Json, keys, 0)
 }
 
@@ -109,24 +112,16 @@ export function getNextSteps(
 ): TransLineProps[] {
   const steps: TransLineProps[] = []
 
-  // const scenarioString: JsonScenario = scenarioToString(scenarioType)
-  // const currentScenario = claimStatusJson.scenarios[scenarioString]
+  const scenarioString = scenarioToString(scenarioType)
+  const scenarios = getChildJson(claimStatusJson as Json, 'scenarios')
+  const currentScenario = getChildJson(scenarios, scenarioString)
+  const currentSteps = getChildJson(currentScenario, whichSteps)
 
-  // // Create dynamic type for the current scenario.
-  // type currentScenarioType = keyof typeof currentScenario
-  const scenarioString = ScenarioType[scenarioType].toLowerCase()
-  const wrapper = claimStatusJson.scenarios[scenarioString][whichSteps]
-
-  for (const index of wrapper.keys()) {
+  for (const index of currentSteps.keys()) {
     const keys = ['scenarios', scenarioString, whichSteps, index]
     steps.push(getTransLineProps(claimStatusJson, keys, 0))
   }
   return steps
-
-  // for (const [index, value] of claimStatusJson.scenarios.scenario4[whichSteps]) {
-  //   const keys = ['scenarios', ScenarioType[scenarioType].toLowerCase(), whichSteps, index]
-  //   yourNextSteps.push(getTransLineProps(claimStatusJson, keys, 0))
-  // }
 }
 
 /**
