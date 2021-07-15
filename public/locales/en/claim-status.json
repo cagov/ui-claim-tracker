@@ -4,7 +4,12 @@
       "heading": "Pending Eligibility - Phone Interview Will Be Scheduled",
       "summary": {
         "text": "We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Check your mail for the <em>Notification of Unemployment Insurance Benefits Eligibility Interview</em> (DE 4800). It will explain the issue and help you prepare for the interview."
+        }
+      ]
     },
     "scenario4": {
       "heading": "Review Required",

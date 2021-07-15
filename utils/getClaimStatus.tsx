@@ -103,39 +103,40 @@ export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProp
 /**
  * Get next steps content for Claim Status.
  */
-// export function getNextSteps(scenarioType: ScenarioType): void {
-//   const yourNextSteps: TransLineProps[] = []
+export function getNextSteps(
+  scenarioType: ScenarioType,
+  whichSteps: 'your-next-steps' | 'edd-next-steps',
+): TransLineProps[] {
+  const steps: TransLineProps[] = []
 
-//   const scenarioString: JsonScenario = scenarioToString(scenarioType)
-//   const currentScenario = claimStatusJson.scenarios[scenarioString]
+  // const scenarioString: JsonScenario = scenarioToString(scenarioType)
+  // const currentScenario = claimStatusJson.scenarios[scenarioString]
 
-//   // Create dynamic type for the current scenario.
-//   type currentScenarioType = keyof typeof currentScenario
+  // // Create dynamic type for the current scenario.
+  // type currentScenarioType = keyof typeof currentScenario
+  const scenarioString = ScenarioType[scenarioType].toLowerCase()
+  const wrapper = claimStatusJson.scenarios[scenarioString][whichSteps]
 
-//   for (const [index, value] of currentScenario['your-next-steps']) {
-//     const keys = ['scenarios', ScenarioType[scenarioType].toLowerCase(), 'your-next-steps', index]
-//     yourNextSteps.push(getTransLineProps(claimStatusJson, keys, 0))
-//   }
-// }
+  for (const index of wrapper.keys()) {
+    const keys = ['scenarios', scenarioString, whichSteps, index]
+    steps.push(getTransLineProps(claimStatusJson, keys, 0))
+  }
+  return steps
+
+  // for (const [index, value] of claimStatusJson.scenarios.scenario4[whichSteps]) {
+  //   const keys = ['scenarios', ScenarioType[scenarioType].toLowerCase(), whichSteps, index]
+  //   yourNextSteps.push(getTransLineProps(claimStatusJson, keys, 0))
+  // }
+}
 
 /**
  * Get combined Claim Status content.
  */
 export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusContent {
-  // console.log(getNextSteps(scenarioType))
   const statusContent: ClaimStatusContent = {
     heading: getClaimStatusHeading(scenarioType),
     summary: getClaimStatusSummary(scenarioType),
-    yourNextSteps: [
-      {
-        i18nKey:
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      },
-      {
-        i18nKey:
-          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-      },
-    ],
+    yourNextSteps: getNextSteps(scenarioType, 'your-next-steps'),
   }
 
   return statusContent
