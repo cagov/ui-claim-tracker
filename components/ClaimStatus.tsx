@@ -19,7 +19,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading = false, headi
         <TextLine loading={loading} header text={t(heading)} />
       </div>
       <div className="summary">
-        <TransLine i18nKey={summary.i18nKey} links={summary.links} />
+        <TransLine loading={loading} i18nKey={summary.i18nKey} links={summary.links} />
       </div>
       <NextSteps loading={loading} header={t('claim-status.next-steps')} nextSteps={nextSteps} />
     </div>

@@ -1,8 +1,13 @@
 import { Trans } from 'react-i18next'
 import React from 'react'
+import { Shimmer } from './Shimmer'
 import { TransLineProps } from '../types/common'
 
-export const TransLine: React.FC<TransLineProps> = ({ i18nKey, links = [] }) => {
+export const TransLine: React.FC<TransLineProps> = ({ loading, i18nKey, links = [] }) => {
+  if (loading) {
+    return <Shimmer width={120} height={15} baseColor="#B6B2B2" shimColor="#656565" borderRadius={3} />
+  }
+
   let linkComponents: JSX.Element[] = []
   if (links && links.length > 0) {
     // Disabling some linting rules for this line. The anchor <a> element will
