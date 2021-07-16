@@ -14,7 +14,6 @@ import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { ClaimSection } from '../components/ClaimSection'
 import { TimeoutModal } from '../components/TimeoutModal'
 import { Footer } from '../components/Footer'
-import { WorkInProgress } from '../components/WorkInProgress'
 
 import queryApiGateway from '../utils/queryApiGateway'
 import getScenarioContent from '../utils/getScenarioContent'
@@ -74,8 +73,8 @@ export default function Home({
         <title>{t('title')}</title>
         <link rel="icon" href="/claimstatus/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
+        <link href="https://allfont.net/allfont.css?fonts=source-sans-pro-bold" rel="stylesheet" type="text/css" />
       </Head>
-      <WorkInProgress />
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
       <TimeoutModal action="startOrUpdate" timedOut={timedOut} />

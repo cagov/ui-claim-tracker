@@ -2,19 +2,19 @@
 
 exports[`ClaimStatus renders for Scenario1 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       Pending Eligibility - Phone Interview Will Be Scheduled
-    </span>
+    </h3>
   </div>
   <div
     className="summary"
@@ -22,36 +22,28 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
-    </div>
+      Next Steps
+    </h3>
     <div
-      className="explanation"
+      className="next-step-explanation"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li
+          className="next-step"
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </li>
+        <li
+          className="next-step"
+        >
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -59,19 +51,19 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
 
 exports[`ClaimStatus renders for Scenario4 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       Review Required
-    </span>
+    </h3>
   </div>
   <div
     className="summary"
@@ -79,36 +71,28 @@ exports[`ClaimStatus renders for Scenario4 1`] = `
     We identified an issue and may need to determine your eligibility or verify your information.
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
-    </div>
+      Next Steps
+    </h3>
     <div
-      className="explanation"
+      className="next-step-explanation"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li
+          className="next-step"
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </li>
+        <li
+          className="next-step"
+        >
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -116,19 +100,19 @@ exports[`ClaimStatus renders for Scenario4 1`] = `
 
 exports[`ClaimStatus renders for Scenario5 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       No Weeks Available to Certify
-    </span>
+    </h3>
   </div>
   <div
     className="summary"
@@ -136,36 +120,28 @@ exports[`ClaimStatus renders for Scenario5 1`] = `
     You currently have no weeks available to certify for benefits.
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
-    </div>
+      Next Steps
+    </h3>
     <div
-      className="explanation"
+      className="next-step-explanation"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li
+          className="next-step"
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </li>
+        <li
+          className="next-step"
+        >
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -173,19 +149,19 @@ exports[`ClaimStatus renders for Scenario5 1`] = `
 
 exports[`ClaimStatus renders for Scenario6 1`] = `
 <div
-  className="claim-status"
+  className="claim-status claim-section"
 >
   <h2>
     Claim Status
   </h2>
   <div
-    className="pending-status"
+    className="pending-status claim-subsection"
   >
-    <span
-      className="text-line"
+    <h3
+      className="header-line"
     >
       Weeks Available to Certify
-    </span>
+    </h3>
   </div>
   <div
     className="summary"
@@ -199,36 +175,28 @@ exports[`ClaimStatus renders for Scenario6 1`] = `
     .
   </div>
   <div
-    className="status-box"
+    className="next-steps claim-subsection"
   >
-    <div
-      className="topbar"
+    <h3
+      className="next-steps-header"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
-    </div>
+      Next Steps
+    </h3>
     <div
-      className="explanation"
+      className="next-step-explanation"
     >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li
+          className="next-step"
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </li>
+        <li
+          className="next-step"
+        >
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </li>
+      </ul>
     </div>
   </div>
 </div>

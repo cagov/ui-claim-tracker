@@ -8,20 +8,16 @@ html,
 body {
   font-family: 'Source Sans Pro';
   color: #333333;
+  line-height: 22.4px;
 
-  h1 {
-    font-weight: bold;
-  }
-
-  h2 {
-    font-weight: bold;
+  b, strong {
+    font-family: 'Source Sans Pro Bold';
   }
 
   h3 {
     font-size: 1.5rem;
-    font-weight: bold;
+    margin-bottom: 1rem;
   }
-
 
   .header {
     width: 100%;
@@ -78,6 +74,7 @@ body {
     }
   }
 
+  //Stretch the header/footer edge-to-edge
   .index {
     padding: 0px;
   }
@@ -87,62 +84,44 @@ body {
       text-decoration: underline;
       color: #046b99;
     }
-
-    margin-bottom: 3rem;
   }
 
-  .title {
-    margin-bottom: 0.5rem;
+  .claim-section {
+    margin-top: 3rem;
+  }
+
+  .claim-subsection {
+    margin-top: 1.5rem;
   }
 
   .claim-details {
-    padding: 3rem 0 1rem 0;
+    padding: 0;
 
     .claim-details-title {
       margin-bottom: 1rem;
     }
 
     .claim-details-box {
-      padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-      border: 3px solid #f0f0f0;
+      padding: 0 1.5rem 1.0rem 1.5rem;
+      border: 4px solid #f0f0f0;
     }
 
     .info {
+      padding-top: 1rem;
       .info-label {
-        padding-top: 0.75rem;
-        font-size: 0.75rem;
         color: #757575;
       }
     }
   }
 
-  .claim-status {
-    .pending-status {
-      padding: 0.5rem 0 2rem 0;
-    }
-
-    .status-box {
-      border: 3px solid #f0f0f0;
-    }
-
-    .topbar {
-      background: #f0f0f0;
-      padding: 0.5rem;
-      font-weight: bold;
-
-      .next-steps {
-        padding-left: 1.5rem;
-      }
-    }
-
-    .explanation {
-      padding: 1rem;
-    }
-  }
-
   //override bootstrap for our NextSteps component layout
   ul {
-    margin-bottom: 0;
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  li {
+    margin-bottom:0.5rem;
   }
 
   .main {
@@ -154,24 +133,13 @@ body {
 
     //Keep reasonable padding regardless of screen size
     .main-content {
-      padding: 2rem 1rem;
+      padding: 5rem 1rem;
     }
 
     @media (min-width: 768px) {
       .main-content {
         max-width: 650px;
       }
-    }
-  }
-
-  // WorkInProgress banner
-  .alert {
-    color: #214c62;
-    background-color: #e1f2f7;
-    margin-bottom: 0;
-
-    .work-in-progress-title {
-      font-weight: bold;
     }
   }
 

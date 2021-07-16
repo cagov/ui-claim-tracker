@@ -40,6 +40,7 @@ describe('Main component shows loading', () => {
     render(<Index loading scenarioContent={scenarioContent} />)
     expect(screen.queryByText('Claim Tracker')).toBeInTheDocument()
     expect(screen.queryByText('Claim Status')).toBeInTheDocument()
+    expect(screen.queryByText('There are no pending issues at this time.')).not.toBeInTheDocument()
     expect(screen.queryByText('Next Steps')).toBeInTheDocument()
     expect(screen.queryByText('Benefit Year')).not.toBeInTheDocument()
     expect(screen.queryByText('Claim Status')).toBeInTheDocument()

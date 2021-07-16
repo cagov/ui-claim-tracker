@@ -4,55 +4,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
 <div
   className="index container-fluid"
 >
-  <div
-    className="fade alert alert-primary alert-dismissible show"
-    fixed-top="true"
-    role="alert"
-  >
-    <button
-      className="close"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ×
-      </span>
-      <span
-        className="sr-only"
-      >
-        Close alert
-      </span>
-    </button>
-    <div
-      className="work-in-progress"
-    >
-      <div
-        className="work-in-progress-content"
-      >
-        <span
-          className="work-in-progress-title"
-        >
-          This page is a work in progress.
-        </span>
-         
-        <span
-          className="work-in-progress-message"
-        >
-          While we test this new part of UI Online, the information here may be limited for your claim. We're working to add information about common issues that lead to 
-          <a
-            href="https://edd.ca.gov/unemployment/claim-status.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            pending payments
-          </a>
-          .
-        </span>
-      </div>
-    </div>
-  </div>
   <header
     className="header border-bottom border-secondary"
   >
@@ -216,19 +167,19 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         className="claim-section"
       >
         <div
-          className="claim-status"
+          className="claim-status claim-section"
         >
           <h2>
             Claim Status
           </h2>
           <div
-            className="pending-status"
+            className="pending-status claim-subsection"
           >
-            <span
-              className="text-line"
+            <h3
+              className="header-line"
             >
               Pending Eligibility - Phone Interview Will Be Scheduled
-            </span>
+            </h3>
           </div>
           <div
             className="summary"
@@ -236,41 +187,33 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
           </div>
           <div
-            className="status-box"
+            className="next-steps claim-subsection"
           >
-            <div
-              className="topbar"
+            <h3
+              className="next-steps-header"
             >
-              <h3
-                className="next-steps"
-              >
-                Next Steps
-              </h3>
-            </div>
+              Next Steps
+            </h3>
             <div
-              className="explanation"
+              className="next-step-explanation"
             >
-              <div
-                className="next-steps"
-              >
-                <ul>
-                  <li
-                    className="next-step"
-                  >
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </li>
-                  <li
-                    className="next-step"
-                  >
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  </li>
-                </ul>
-              </div>
+              <ul>
+                <li
+                  className="next-step"
+                >
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </li>
+                <li
+                  className="next-step"
+                >
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div
-          className="claim-details container"
+          className="claim-details claim-section container"
         >
           <h2
             className="claim-details-title"
