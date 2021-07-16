@@ -3,11 +3,28 @@
  */
 
 import claimStatusJson from '../public/locales/en/claim-status.json'
-import { ClaimStatusContent, I18nString, TransLineProps } from '../types/common'
+import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
 import getUrl, { UrlType } from './getUrl'
 
-type Json = string | number | boolean | null | Json[] | { [key: string]: Json }
+type ClaimStatusJson = WrapperJson | ScenarioWrapperJson | ScenarioJson | string | TextOptionalLink | TextOptionalLink[]
+
+type StepType = 'your-next-steps' | 'edd-next-steps'
+
+interface ScenarioJson {
+  heading: string
+  summary: TextOptionalLink
+  'your-next-steps': TextOptionalLink[]
+  'edd-next-steps': TextOptionalLink[]
+}
+
+interface ScenarioWrapperJson {
+  [key: string]: ScenarioJson
+}
+
+interface WrapperJson {
+  scenarios: ScenarioWrapperJson
+}
 
 /**
  * Convert a ScenarioType into the string key used in json translation files.
@@ -50,29 +67,10 @@ export function getTransLineLinks(linkKeys: string[] | undefined): string[] {
   return links
 }
 
-function getChildJson(jsonObject: Json, keys: string[], index: number = 0): Json {
-  if (!jsonObject) {
-    throw new Error('JSON error')
-  }
-
-  if (index < keys.length) {
-    const key = keys[index]
-    type jsonType = keyof typeof jsonObject
-    const castKey = key as jsonType
-    const newJson = jsonObject[castKey]
-    // Recurse.
-    return getChildJson(newJson, keys, index + 1)
-  }
-  // Leaf.
-  else {
-    return jsonObject
-  }
-}
-
 /**
  * Build props to pass to the TransLine react component.
  */
-export function getTransLineProps(targetJson: Json, i18nKey: string): TransLineProps {
+export function getTransLineProps(targetJson: TextOptionalLink, i18nKey: string): TransLineProps {
   // jsonObject could possibly be null.
   // if (!jsonObject) {
   //   throw new Error('Unable to retrieve JSON object')
@@ -84,7 +82,7 @@ export function getTransLineProps(targetJson: Json, i18nKey: string): TransLineP
   //   links = getTransLineLinks(targetJson.links as string[])
   // }
   // const linksJson = getChildJson(targetJson, ['links'], 0)
-  const links = getTransLineLinks(targetJson.links as string[])
+  const links = getTransLineLinks(targetJson.links)
 
   // Append to the keys array to build the full i18nKey.
   // keys.push('text')
@@ -103,25 +101,26 @@ function buildI18nKey(keys: string[]): I18nString {
 /**
  * Get Claim Status summary.
  */
-export function getClaimStatusSummary(scenarioObject: Json, scenarioString: string): TransLineProps {
+export function getClaimStatusSummary(scenarioObject: ScenarioJson, scenarioString: string): TransLineProps {
   const keys = ['scenarios', scenarioString, 'summary']
-  const jsonObject = getChildJson(scenarioObject, ['summary'])
-  return getTransLineProps(jsonObject, buildI18nKey(keys))
+  // const jsonObject = getChildJson(scenarioObject, ['summary'])
+  return getTransLineProps(scenarioObject.summary, buildI18nKey(keys))
 }
 
 /**
  * Get next steps content for Claim Status.
  */
 export function getNextSteps(
-  scenarioObject: Json,
+  scenarioObject: ScenarioJson,
   scenarioString: string,
-  whichSteps: 'your-next-steps' | 'edd-next-steps',
+  whichSteps: StepType,
 ): TransLineProps[] {
   const steps: TransLineProps[] = []
 
-  const targetJson = getChildJson(scenarioObject, [whichSteps])
+  // const targetJson = getChildJson(scenarioObject, [whichSteps])
+  const targetJson = scenarioObject[whichSteps]
   for (const [index, value] of targetJson.entries()) {
-    const keys = ['scenarios', scenarioString, whichSteps, index]
+    const keys = ['scenarios', scenarioString, whichSteps, index.toString()]
     steps.push(getTransLineProps(value, buildI18nKey(keys)))
   }
   return steps
@@ -131,8 +130,9 @@ export function getNextSteps(
  * Get combined Claim Status content.
  */
 export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusContent {
-  const scenarioString = scenarioToString(scenarioType)
-  const scenarioObject = getChildJson(claimStatusJson, ['scenarios', scenarioString])
+  const scenarioString = scenarioToString(scenarioType) as keyof typeof claimStatusJson.scenarios
+  // const scenarioObject = getChildJson(claimStatusJson, ['scenarios', scenarioString])
+  const scenarioObject = claimStatusJson.scenarios[scenarioString]
 
   const statusContent: ClaimStatusContent = {
     heading: getClaimStatusHeading(scenarioType),
