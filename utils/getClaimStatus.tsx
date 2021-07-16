@@ -116,5 +116,6 @@ export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusC
     heading: buildClaimStatusHeading(scenarioType),
     summary: buildClaimStatusSummary(scenarioObject, scenarioString),
     yourNextSteps: buildNextSteps(scenarioObject, scenarioString, 'your-next-steps'),
+    eddNextSteps: buildNextSteps(scenarioObject, scenarioString, 'edd-next-steps'),
   }
 }

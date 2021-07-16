@@ -14,6 +14,7 @@ export const ClaimSection: React.FC<ClaimSectionProps> = ({ loading = false, sta
         heading={statusContent.heading}
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
+        eddNextSteps={statusContent.eddNextSteps}
       />
       <ClaimDetails
         loading={loading}
