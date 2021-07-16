@@ -4,7 +4,7 @@ export type I18nString = string
 // Types for TransLine component
 export interface TransLineProps {
   i18nKey: I18nString
-  links?: string[] | null
+  links?: string[]
 }
 
 // Types for translation file JSON
