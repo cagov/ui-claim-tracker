@@ -11,6 +11,9 @@ const Template: Story<ClaimStatusProps> = (args) => <ClaimStatusComponent {...ar
 
 export const ClaimStatus = Template.bind({})
 ClaimStatus.args = {
-  statusDescription: 'claim-status:scenarios:scenario1.description',
+  heading: 'claim-status:scenarios.scenario1.heading',
+  summary: {
+    i18nKey: 'claim-status:scenarios.scenario1.summary.text',
+  },
   nextSteps: ['step one', 'step two'],
 }

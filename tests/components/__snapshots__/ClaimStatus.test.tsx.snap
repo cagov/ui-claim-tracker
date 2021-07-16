@@ -13,8 +13,13 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     <span
       className="text-line"
     >
-      We need to confirm your eligibility for benefits.
+      Pending Eligibility - Phone Interview Will Be Scheduled
     </span>
+  </div>
+  <div
+    className="summary"
+  >
+    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
   </div>
   <div
     className="status-box"
@@ -52,7 +57,7 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
 </div>
 `;
 
-exports[`ClaimStatus renders for Scenario7 1`] = `
+exports[`ClaimStatus renders for Scenario4 1`] = `
 <div
   className="claim-status"
 >
@@ -65,8 +70,13 @@ exports[`ClaimStatus renders for Scenario7 1`] = `
     <span
       className="text-line"
     >
-      There are no pending issues at this time.
+      Review Required
     </span>
+  </div>
+  <div
+    className="summary"
+  >
+    We identified an issue and may need to determine your eligibility or verify your information.
   </div>
   <div
     className="status-box"
@@ -104,7 +114,7 @@ exports[`ClaimStatus renders for Scenario7 1`] = `
 </div>
 `;
 
-exports[`ClaimStatus renders for Scenario8 1`] = `
+exports[`ClaimStatus renders for Scenario5 1`] = `
 <div
   className="claim-status"
 >
@@ -117,8 +127,13 @@ exports[`ClaimStatus renders for Scenario8 1`] = `
     <span
       className="text-line"
     >
-      Your claim is active and there are no pending issues at this time.
+      No Weeks Available to Certify
     </span>
+  </div>
+  <div
+    className="summary"
+  >
+    You currently have no weeks available to certify for benefits.
   </div>
   <div
     className="status-box"
@@ -156,7 +171,7 @@ exports[`ClaimStatus renders for Scenario8 1`] = `
 </div>
 `;
 
-exports[`ClaimStatus renders for Scenario9 1`] = `
+exports[`ClaimStatus renders for Scenario6 1`] = `
 <div
   className="claim-status"
 >
@@ -169,60 +184,19 @@ exports[`ClaimStatus renders for Scenario9 1`] = `
     <span
       className="text-line"
     >
-      Your payments are pending further review.
+      Weeks Available to Certify
     </span>
   </div>
   <div
-    className="status-box"
+    className="summary"
   >
-    <div
-      className="topbar"
+    You have weeks available to 
+    <a
+      href="https://edd.ca.gov/Unemployment/certify.htm"
     >
-      <h3
-        className="next-steps"
-      >
-        Next Steps
-      </h3>
-    </div>
-    <div
-      className="explanation"
-    >
-      <div
-        className="next-steps"
-      >
-        <ul>
-          <li
-            className="next-step"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </li>
-          <li
-            className="next-step"
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ClaimStatus renders for Scenario10 1`] = `
-<div
-  className="claim-status"
->
-  <h2>
-    Claim Status
-  </h2>
-  <div
-    className="pending-status"
-  >
-    <span
-      className="text-line"
-    >
-      [this copy may or may not be unique] Your payments are pending further review.
-    </span>
+      certify for benefits
+    </a>
+    .
   </div>
   <div
     className="status-box"

@@ -13,18 +13,16 @@ import getClaimStatus from './getClaimStatus'
 
 export enum ScenarioType {
   Scenario1,
-  Scenario7,
-  Scenario8,
-  Scenario9,
-  Scenario10,
+  Scenario4,
+  Scenario5,
+  Scenario6,
 }
 
 export const ScenarioTypeNames = {
   [ScenarioType.Scenario1]: 'Pending determination scenario',
-  [ScenarioType.Scenario7]: 'Base state; No pending weeks; No weeks to certify',
-  [ScenarioType.Scenario8]: 'Base state; No pending weeks; Has weeks to certify',
-  [ScenarioType.Scenario9]: 'Base state; Has pending weeks; No weeks to certify',
-  [ScenarioType.Scenario10]: 'Base state; Has pending weeks; Has weeks to certify',
+  [ScenarioType.Scenario4]: 'Generic pending state: pending weeks',
+  [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
+  [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
 }
 
 /**
@@ -40,29 +38,25 @@ export function getScenario(claimData: Claim): ScenarioType {
     return ScenarioType.Scenario1
   }
 
-  // No pendingDetermination objects: display a Base State scenario.
+  // No pendingDetermination objects.
   else {
     // @TODO: Validate that hasPendingWeeks is a boolean
-    if (claimData.hasPendingWeeks === false) {
+    if (claimData.hasPendingWeeks === true) {
       // @TODO: Validate that hasCertificationWeeks is a boolean
-      if (claimData.hasCertificationWeeksAvailable === false) {
-        return ScenarioType.Scenario7
-      } else {
-        return ScenarioType.Scenario8
-      }
+      return ScenarioType.Scenario4
     }
-    // hasPendingWeeks === true
+    // hasPendingWeeks === false
     else {
       if (claimData.hasCertificationWeeksAvailable === false) {
-        return ScenarioType.Scenario9
+        return ScenarioType.Scenario5
       } else {
-        return ScenarioType.Scenario10
+        return ScenarioType.Scenario6
       }
     }
   }
 }
 
-/**
+/*
  * Return scenario content.
  */
 export default function getScenarioContent(claimData: Claim): ScenarioContent {
