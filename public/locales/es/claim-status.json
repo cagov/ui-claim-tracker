@@ -4,25 +4,83 @@
       "heading": "Elegibilidad pendiente - Se programará una entrevista telefónica",
       "summary": {
         "text": "Identificamos un problema que podría hacer que no sea elegible para los beneficios. Necesitamos confirmar su elegibilidad en una entrevista telefónica."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Confirme que tenemos su <0> número de teléfono y dirección postal </0> actuales."
+        },
+        {
+          "text": "Consulte su correo para obtener la <em> Notificación de la entrevista de elegibilidad para los beneficios del seguro de desempleo </em> (DE 4800). Le explicará el problema y le ayudará a prepararse para la entrevista."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Programaremos una entrevista telefónica para determinar su elegibilidad para los beneficios. Esta página se actualizará con los detalles de la cita una vez que se programe su entrevista."
+        }
+      ]
     },
     "scenario4": {
       "heading": "Revisión requerida",
       "summary": {
         "text": "Identificamos un problema y es posible que necesitemos determinar su elegibilidad o verificar su información."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Revisar su <0>UI Online homepage</0> y bandeja de entrada para las últimas actualizaciones."
+        },
+        {
+          "text": "Revisa tu correo. Podemos enviar solicitudes de información adicional. Asegúrese de responder según se le solicite para evitar demoras en el procesamiento de su reclamo."
+        },
+        {
+          "text": "Para más información visite <0>Claim Status: Pending Payment</0>."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Nos comunicaremos contigo si necesitamos más información para resolver el problema."
+        },
+        {
+          "text": "Le enviaremos un correo electrónico cuando tenga semanas disponibles para <0> certificar los beneficios </0>."
+        }
+      ]
     },
     "scenario5": {
       "heading": "No hay semanas disponibles para certificar",
       "summary": {
         "text": "Actualmente no tiene semanas disponibles para certificar los beneficios."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Consulte la página de inicio y la bandeja de entrada de UI Online para obtener las últimas actualizaciones."
+        },
+        {
+          "text": "Revisa tu correo. Podemos enviar solicitudes de información adicional. Asegúrese de responder según se le solicite para evitar demoras en el procesamiento de su reclamo."
+        },
+        {
+          "text": "Si han pasado más de 30 días desde la última vez que certificó los beneficios, debe <0> reabrir su reclamo </0> antes de poder certificar."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Le enviaremos un correo electrónico cuando tenga semanas disponibles para <0> certificar los beneficios </0>."
+        }
+      ]
     },
     "scenario6": {
       "heading": "Semanas disponibles para certificar",
       "summary": {
         "text": "Tiene semanas disponibles para <0> certificar los beneficios </0>."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Seleccione <strong> Certificar para obtener beneficios </strong> en la sección de notificaciones de la página de inicio de UI Online."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Cuando procesemos su certificación, actualizaremos el estado de pago en su Historial de reclamos."
+        }
+      ]
     }
   },
   "conditional-next-steps": {

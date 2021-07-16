@@ -7,12 +7,16 @@
       },
       "your-next-steps": [
         {
+          "text": "Confirm we have your current <0>phone number and mailing address</0>.",
+          "links": ["edd-faq-bpo"]
+        },
+        {
           "text": "Check your mail for the <em>Notification of Unemployment Insurance Benefits Eligibility Interview</em> (DE 4800). It will explain the issue and help you prepare for the interview."
         }
       ],
       "edd-next-steps": [
         {
-          "text": "something"
+          "text": "We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled."
         }
       ]
     },
