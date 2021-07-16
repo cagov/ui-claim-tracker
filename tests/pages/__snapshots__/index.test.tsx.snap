@@ -178,8 +178,13 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <h3
               className="header-line"
             >
-              We need to confirm your eligibility for benefits.
+              Pending Eligibility - Phone Interview Will Be Scheduled
             </h3>
+          </div>
+          <div
+            className="summary"
+          >
+            We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
           </div>
           <div
             className="next-steps claim-subsection"

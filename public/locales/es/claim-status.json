@@ -1,19 +1,28 @@
 {
   "scenarios": {
     "scenario1": {
-      "description": "Necesitamos confirmar su elegibilidad para los beneficios."
+      "heading": "Elegibilidad pendiente - Se programará una entrevista telefónica",
+      "summary": {
+        "text": "Identificamos un problema que podría hacer que no sea elegible para los beneficios. Necesitamos confirmar su elegibilidad en una entrevista telefónica."
+      }
     },
-    "scenario7": {
-      "description": "No hay asuntos pendientes en este momento."
+    "scenario4": {
+      "heading": "Revisión requerida",
+      "summary": {
+        "text": "Identificamos un problema y es posible que necesitemos determinar su elegibilidad o verificar su información."
+      }
     },
-    "scenario8": {
-      "description": "Su reclamo está activo y no hay problemas pendientes en este momento."
+    "scenario5": {
+      "heading": "No hay semanas disponibles para certificar",
+      "summary": {
+        "text": "Actualmente no tiene semanas disponibles para certificar los beneficios."
+      }
     },
-    "scenario9": {
-      "description": "Sus pagos están pendientes de revisión adicional."
-    },
-    "scenario10": {
-      "description": "Sus pagos están pendientes de revisión adicional."
+    "scenario6": {
+      "heading": "Semanas disponibles para certificar",
+      "summary": {
+        "text": "Tiene semanas disponibles para <0> certificar los beneficios </0>."
+      }
     }
   },
   "conditional-next-steps": {

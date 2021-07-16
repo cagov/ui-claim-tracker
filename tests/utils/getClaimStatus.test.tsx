@@ -1,14 +1,12 @@
-import { getClaimStatusDescription } from '../../utils/getClaimStatus'
+import { getClaimStatusHeading } from '../../utils/getClaimStatus'
 import { ScenarioType } from '../../utils/getScenarioContent'
 import { getNumericEnumKeys } from '../../utils/numericEnum'
 
-// Test getClaimStatusDescripton()
-describe('Getting the Claim Status description', () => {
-  it('returns the correct description for the scenario', () => {
+// Test getClaimStatusHeading()
+describe('The Claim Status heading', () => {
+  it('is correct for each scenario', () => {
     for (const key of getNumericEnumKeys(ScenarioType)) {
-      expect(getClaimStatusDescription(key)).toEqual(
-        expect.stringMatching(/claim-status:scenarios.scenario[0-9]+.description/),
-      )
+      expect(getClaimStatusHeading(key)).toEqual(expect.stringMatching(/claim-status:scenarios.scenario[0-9]+.heading/))
     }
   })
 })
