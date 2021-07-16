@@ -12,6 +12,7 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent): string {
         heading={statusContent.heading}
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
+        eddNextSteps={statusContent.eddNextSteps}
       />,
     )
     .toJSON()
