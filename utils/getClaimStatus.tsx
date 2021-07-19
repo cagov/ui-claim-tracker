@@ -5,7 +5,7 @@
 import claimStatusJson from '../public/locales/en/claim-status.json'
 import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
-import getUrl, { UrlType } from './getUrl'
+import getUrl from './getUrl'
 
 type StepType = 'your-next-steps' | 'edd-next-steps'
 
@@ -43,15 +43,13 @@ export function buildClaimStatusHeading(scenarioType: ScenarioType): I18nString 
 export function buildTransLineLinks(linkKeys: string[] | undefined): string[] {
   const links: string[] = []
   if (linkKeys) {
-    if (linkKeys && linkKeys.length > 0) {
-      for (const linkKey of linkKeys) {
-        // Explicitly cast to one of the allowed keys in urls.json
-        const key = linkKey as UrlType
-        const url = getUrl(key)
-        if (url) {
-          links.push(url)
-        }
+    for (const linkKey of linkKeys) {
+      const url = getUrl(linkKey)
+      if (url) {
+        links.push(url)
       }
+      // @TODO: else log that we attempted to get a url using a key that
+      // doesn't exist.
     }
   }
   return links
@@ -107,7 +105,10 @@ export function buildNextSteps(
  */
 export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusContent {
   // Explicitly cast the scenario string (e.g. scenario1, scenario2) into the union of literal types
-  // expected by Typescript.
+  // expected by Typescript. scenarioString must be one of the key names in claimStatusJson.scenarios
+  // or this won't compile. For a very good explanation of `keyof typeof` Typescript's and union of
+  // literal types, see:
+  // https://stackoverflow.com/questions/55377365/what-does-keyof-typeof-mean-in-typescript/62764510#62764510
   const scenarioString = scenarioToString(scenarioType) as keyof typeof claimStatusJson.scenarios
 
   const scenarioObject = claimStatusJson.scenarios[scenarioString]
