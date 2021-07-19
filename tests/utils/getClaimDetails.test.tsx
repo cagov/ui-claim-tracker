@@ -71,7 +71,7 @@ describe('Constructing the Claim Details object', () => {
       benefitYear: '5/21/2021–5/20/2022',
       claimBalance: '$100.00',
       weeklyBenefitAmount: '$25.00',
-      lastPaymentIssued: '3/12/2021',
+      lastPaymentIssued: '$10.00 on 3/12/2021',
       extensionType: '',
     }
     const claimDetails = getClaimDetails(rawDetails)

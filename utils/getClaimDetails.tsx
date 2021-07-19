@@ -123,7 +123,7 @@ export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDe
     benefitYear: benefitYear,
     claimBalance: formatCurrency(rawDetails.claimBalance),
     weeklyBenefitAmount: formatCurrency(rawDetails.weeklyBenefitAmount),
-    lastPaymentIssued: formatDate(rawDetails.lastPaymentIssued),
+    lastPaymentIssued: `${formatCurrency(rawDetails.lastPaymentAmount)} on ${formatDate(rawDetails.lastPaymentIssued)}`,
     extensionType: pair.extensionType,
   }
 }
