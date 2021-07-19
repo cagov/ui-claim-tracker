@@ -3,6 +3,7 @@ export type I18nString = string
 
 // Types for TransLine component
 export interface TransLineProps {
+  loading?: boolean
   i18nKey: I18nString
   links?: string[]
 }

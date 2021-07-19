@@ -19,30 +19,16 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
   const { t } = useTranslation(['common', 'claim-status'])
 
   return (
-    <div className="claim-status">
+    <div className="claim-status claim-section">
       <h2>{t('claim-status.title')}</h2>
-      <div className="pending-status">
-        <TextLine loading={loading} text={t(heading)} />
+      <div className="pending-status claim-subsection">
+        <TextLine loading={loading} header text={t(heading)} />
       </div>
       <div className="summary">
-        <TransLine i18nKey={summary.i18nKey} links={summary.links} />
+        <TransLine loading={loading} i18nKey={summary.i18nKey} links={summary.links} />
       </div>
-      <div className="status-box">
-        <div className="topbar">
-          <h3 className="next-steps">{t('claim-status.your-next-steps')}</h3>
-        </div>
-        <div className="explanation">
-          <NextSteps loading={loading} nextSteps={yourNextSteps} />
-        </div>
-      </div>
-      <div className="status-box">
-        <div className="topbar">
-          <h3 className="next-steps">{t('claim-status.edd-next-steps')}</h3>
-        </div>
-        <div className="explanation">
-          <NextSteps loading={loading} nextSteps={eddNextSteps} />
-        </div>
-      </div>
+      <NextSteps loading={loading} header={t('claim-status.your-next-steps')} nextSteps={yourNextSteps} />
+      <NextSteps loading={loading} header={t('claim-status.edd-next-steps')} nextSteps={eddNextSteps} />
     </div>
   )
 }
