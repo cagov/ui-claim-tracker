@@ -51,7 +51,7 @@ export default function apiGatewayStub(scenarioType: ScenarioType, hasClaimDetai
 
   if (hasClaimDetails) {
     claim.claimDetails = {
-      programType: 'PEUC - Tier 2 Extension',
+      programType: 'PEUX - Tier 2 Extension',
       benefitYearStartDate: '2020-03-21T00:00:00',
       benefitYearEndDate: '2021-03-20T00:00:00',
       claimBalance: 1100.45,

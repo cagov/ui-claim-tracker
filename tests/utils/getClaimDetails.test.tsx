@@ -38,7 +38,7 @@ describe('Formatting dates', () => {
 describe('Constructing the benefit year', () => {
   it('results in a date range string', () => {
     const range = buildBenefitYear('2013-09-27T12:34:33', '2021-10-28T05:33:34')
-    expect(range).toBe('9/27/2013 - 10/28/2021')
+    expect(range).toBe('9/27/2013–10/28/2021')
   })
 })
 
@@ -68,7 +68,7 @@ describe('Constructing the Claim Details object', () => {
     // Expected results
     const expected = {
       programType: 'claim-details:program-type.ui',
-      benefitYear: '5/21/2021 - 5/20/2022',
+      benefitYear: '5/21/2021–5/20/2022',
       claimBalance: '$100.00',
       weeklyBenefitAmount: '$25.00',
       lastPaymentIssued: '3/12/2021',

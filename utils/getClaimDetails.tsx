@@ -16,8 +16,8 @@ export interface ProgramType {
 export const programTypeNames: ProgramType = {
   UI: 'UI',
   PEUC: 'PEUC - Tier 1 Extension',
-  PEUX: 'PEUC - Tier 2 Extension',
-  PEUY: 'PEUC - Tier 2 Augmentation',
+  PEUX: 'PEUX - Tier 2 Extension',
+  PEUY: 'PEUY - Tier 2 Augmentation',
   FEDED: 'FED-ED Extension',
   TRA: 'TRA Basic Extension',
   TRAAdditional: 'TRA Additional/Remedial Extension',
@@ -39,15 +39,15 @@ export const programExtensionPairs = {
   },
   PEUC: {
     programType: 'claim-details:program-type.ui',
-    extensionType: 'claim-details:extension-type.peuc-1',
+    extensionType: 'claim-details:extension-type.peuc',
   },
   PEUX: {
     programType: 'claim-details:program-type.ui',
-    extensionType: 'claim-details:extension-type.peuc-2',
+    extensionType: 'claim-details:extension-type.peux',
   },
   PEUY: {
     programType: 'claim-details:program-type.ui',
-    extensionType: 'claim-details:extension-type.peuc-2-augmentation',
+    extensionType: 'claim-details:extension-type.peuy',
   },
   FEDED: {
     programType: 'claim-details:program-type.ui',
@@ -100,7 +100,7 @@ export function formatDate(dateString: string): string {
  * Constrtuct the benefit year string.
  */
 export function buildBenefitYear(start: string, end: string): string {
-  return `${formatDate(start)} - ${formatDate(end)}`
+  return `${formatDate(start)}–${formatDate(end)}`
 }
 
 /**

@@ -178,7 +178,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <h3
               className="header-line"
             >
-              Pending Eligibility - Phone Interview Will Be Scheduled
+              Pending Eligibility — Phone Interview Will Be Scheduled
             </h3>
           </div>
           <div
@@ -282,7 +282,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    3/21/2020 - 3/20/2021
+                    3/21/2020–3/20/2021
                   </div>
                 </div>
                 <div
@@ -343,7 +343,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   <div
                     className="info-entry"
                   >
-                    Pandemic Emergency Unemployment Compensation (PEUC) - Tier 2 Extension
+                    Pandemic Emergency Unemployment Compensation (PEUC) — Tier 2 Extension
                   </div>
                 </div>
               </div>
