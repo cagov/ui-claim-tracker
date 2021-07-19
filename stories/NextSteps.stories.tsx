@@ -12,7 +12,7 @@ export const NextSteps = Template.bind({})
 NextSteps.args = {
   nextSteps: [
     {
-      i18nKey: 'work-in-progress.message',
+      i18nKey: 'claim-status:scenarios.scenario1.your-next-steps.0.text',
     },
   ],
 }
