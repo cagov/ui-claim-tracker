@@ -328,25 +328,6 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   </div>
                 </div>
               </div>
-              <div
-                className="col-6"
-              >
-                <div />
-                <div
-                  className="info"
-                >
-                  <div
-                    className="info-label"
-                  >
-                    Extension Type
-                  </div>
-                  <div
-                    className="info-entry"
-                  >
-                    Pandemic Emergency Unemployment Compensation (PEUC) — Tier 2 Extension
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
