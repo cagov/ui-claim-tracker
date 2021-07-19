@@ -9,7 +9,13 @@ export interface ClaimStatusProps extends ClaimStatusContent {
   loading: boolean
 }
 
-export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading = false, heading, summary, nextSteps }) => {
+export const ClaimStatus: React.FC<ClaimStatusProps> = ({
+  loading = false,
+  heading,
+  summary,
+  yourNextSteps,
+  eddNextSteps,
+}) => {
   const { t } = useTranslation(['common', 'claim-status'])
 
   return (
@@ -21,7 +27,8 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({ loading = false, headi
       <div className="summary">
         <TransLine loading={loading} i18nKey={summary.i18nKey} links={summary.links} />
       </div>
-      <NextSteps loading={loading} header={t('claim-status.next-steps')} nextSteps={nextSteps} />
+      <NextSteps loading={loading} header={t('claim-status.your-next-steps')} nextSteps={yourNextSteps} />
+      <NextSteps loading={loading} header={t('claim-status.edd-next-steps')} nextSteps={eddNextSteps} />
     </div>
   )
 }

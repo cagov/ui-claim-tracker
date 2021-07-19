@@ -27,7 +27,7 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     <h3
       className="next-steps-header"
     >
-      Next Steps
+      Your Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -36,12 +36,40 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
         <li
           className="next-step"
         >
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Confirm we have your current 
+          <a
+            href="https://edd.ca.gov/FAQ_-_Benefit_Programs_Online.htm"
+          >
+            phone number and mailing address
+          </a>
+          .
         </li>
         <li
           className="next-step"
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Check your mail for the 
+          &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+           (DE 4800). It will explain the issue and help you prepare for the interview.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
         </li>
       </ul>
     </div>
@@ -76,7 +104,7 @@ exports[`ClaimStatus renders for Scenario4 1`] = `
     <h3
       className="next-steps-header"
     >
-      Next Steps
+      Your Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -85,12 +113,56 @@ exports[`ClaimStatus renders for Scenario4 1`] = `
         <li
           className="next-step"
         >
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Check your 
+          UI Online homepage
+           and inbox for the latest updates.
         </li>
         <li
           className="next-step"
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+        </li>
+        <li
+          className="next-step"
+        >
+          For more information, visit 
+          <a
+            href="https://www.edd.ca.gov/unemployment/claim-status.htm"
+          >
+            Claim Status: Pending Payment
+          </a>
+          .
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will contact you if we need more information to resolve the issue.
+        </li>
+        <li
+          className="next-step"
+        >
+          We will email you when you have weeks available to 
+          <a
+            href="https://edd.ca.gov/Unemployment/certify.htm"
+          >
+            certify for benefits
+          </a>
+          .
         </li>
       </ul>
     </div>
@@ -125,7 +197,7 @@ exports[`ClaimStatus renders for Scenario5 1`] = `
     <h3
       className="next-steps-header"
     >
-      Next Steps
+      Your Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -134,12 +206,49 @@ exports[`ClaimStatus renders for Scenario5 1`] = `
         <li
           className="next-step"
         >
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Check your UI Online homepage and inbox for the latest updates.
         </li>
         <li
           className="next-step"
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+        </li>
+        <li
+          className="next-step"
+        >
+          If it’s been more than 30 days since you last certified for benefits, you must 
+          <a
+            href="https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm"
+          >
+            reopen your claim
+          </a>
+           before you can certify.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will email you when you have weeks available to 
+          <a
+            href="https://edd.ca.gov/Unemployment/certify.htm"
+          >
+            certify for benefits
+          </a>
+          .
         </li>
       </ul>
     </div>
@@ -180,7 +289,7 @@ exports[`ClaimStatus renders for Scenario6 1`] = `
     <h3
       className="next-steps-header"
     >
-      Next Steps
+      Your Next Steps
     </h3>
     <div
       className="next-step-explanation"
@@ -189,12 +298,31 @@ exports[`ClaimStatus renders for Scenario6 1`] = `
         <li
           className="next-step"
         >
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Select 
+          <strong>
+            Certify for Benefits
+          </strong>
+           in the Notification section on your UI Online homepage.
         </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
         <li
           className="next-step"
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          When we process your certification, we will update the payment status on your Claim History.
         </li>
       </ul>
     </div>

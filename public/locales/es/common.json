@@ -18,7 +18,8 @@
   "change-locale": "In English",
   "claim-status": {
     "title": "Claim Status",
-    "next-steps": "Próximos Pasos"
+    "your-next-steps": "Tus Siguientes Pasos",
+    "edd-next-steps": "Próximos pasos del EDD"
   },
   "claim-details": {
     "title": "Claim Details",

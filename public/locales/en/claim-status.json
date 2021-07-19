@@ -4,26 +4,89 @@
       "heading": "Pending Eligibility - Phone Interview Will Be Scheduled",
       "summary": {
         "text": "We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Confirm we have your current <0>phone number and mailing address</0>.",
+          "links": ["edd-faq-bpo"]
+        },
+        {
+          "text": "Check your mail for the <em>Notification of Unemployment Insurance Benefits Eligibility Interview</em> (DE 4800). It will explain the issue and help you prepare for the interview."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled."
+        }
+      ]
     },
     "scenario4": {
       "heading": "Review Required",
       "summary": {
         "text": "We identified an issue and may need to determine your eligibility or verify your information."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Check your <0>UI Online homepage</0> and inbox for the latest updates."
+        },
+        {
+          "text": "Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim."
+        },
+        {
+          "text": "For more information, visit <0>Claim Status: Pending Payment</0>.",
+          "links": ["edd-ui-claim-status"]
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "We will contact you if we need more information to resolve the issue."
+        },
+        {
+          "text": "We will email you when you have weeks available to <0>certify for benefits</0>.",
+          "links": ["edd-ui-certify"]
+        }
+      ]
     },
     "scenario5": {
       "heading": "No Weeks Available to Certify",
       "summary": {
         "text": "You currently have no weeks available to certify for benefits."
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Check your UI Online homepage and inbox for the latest updates."
+        },
+        {
+          "text": "Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim."
+        },
+        {
+          "text": "If it’s been more than 30 days since you last certified for benefits, you must <0>reopen your claim</0> before you can certify.",
+          "links": ["edd-ui-reopen"]
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "We will email you when you have weeks available to <0>certify for benefits</0>.",
+          "links": ["edd-ui-certify"]
+        }
+      ]
     },
     "scenario6": {
       "heading": "Weeks Available to Certify",
       "summary": {
         "text": "You have weeks available to <0>certify for benefits</0>.",
         "links": ["edd-ui-certify"]
-      }
+      },
+      "your-next-steps": [
+        {
+          "text": "Select <strong>Certify for Benefits</strong> in the Notification section on your UI Online homepage."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "When we process your certification, we will update the payment status on your Claim History."
+        }
+      ]
     }
   },
   "conditional-next-steps": {

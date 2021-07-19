@@ -5,68 +5,118 @@
 import claimStatusJson from '../public/locales/en/claim-status.json'
 import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
-import getUrl, { UrlType } from './getUrl'
+import getUrl from './getUrl'
+
+type StepType = 'your-next-steps' | 'edd-next-steps'
+
+interface ClaimStatusScenarioJson {
+  heading: string
+  summary: TextOptionalLink
+  'your-next-steps': TextOptionalLink[]
+  'edd-next-steps': TextOptionalLink[]
+}
+
+/**
+ * Convert a ScenarioType into the string key used in json translation files.
+ */
+export function scenarioToString(scenarioType: ScenarioType): string {
+  return ScenarioType[scenarioType].toLowerCase()
+}
 
 /**
  * Helper function to get shared Claim Status translation string prefix.
  */
-function getTranslationPrefix(scenarioType: ScenarioType): I18nString {
-  return `claim-status:scenarios.${ScenarioType[scenarioType].toLowerCase()}`
+function buildTranslationPrefix(scenarioType: ScenarioType): I18nString {
+  return `claim-status:scenarios.${scenarioToString(scenarioType)}`
 }
 
 /**
  * Get Claim Status heading.
  */
-export function getClaimStatusHeading(scenarioType: ScenarioType): I18nString {
-  return getTranslationPrefix(scenarioType) + '.heading'
+export function buildClaimStatusHeading(scenarioType: ScenarioType): I18nString {
+  return buildTranslationPrefix(scenarioType) + '.heading'
+}
+
+/**
+ * Build a list of urls from keys in the json translation files.
+ */
+export function buildTransLineLinks(linkKeys: string[] | undefined): string[] {
+  const links: string[] = []
+  if (linkKeys) {
+    for (const linkKey of linkKeys) {
+      const url = getUrl(linkKey)
+      if (url) {
+        links.push(url)
+      }
+      // @TODO: else log that we attempted to get a url using a key that
+      // doesn't exist.
+    }
+  }
+  return links
+}
+
+/**
+ * Build props to pass to the TransLine react component.
+ */
+export function buildTransLineProps(json: TextOptionalLink, i18nKey: I18nString): TransLineProps {
+  return {
+    i18nKey: i18nKey,
+    links: buildTransLineLinks(json.links),
+  }
+}
+
+/**
+ * Helper function to construct the i18nKey for claim status link text.
+ */
+function buildI18nKey(keys: string[]): I18nString {
+  return 'claim-status:' + keys.join('.') + '.text'
 }
 
 /**
  * Get Claim Status summary.
- *
- * Note: This function has a lot of verbosity due to Typescript + eslint.
  */
-export function getClaimStatusSummary(scenarioType: ScenarioType): TransLineProps {
-  const transLineProps: TransLineProps = {
-    i18nKey: getTranslationPrefix(scenarioType) + '.summary.text',
-  }
-  // Explicitly initialize to an empty array.
-  transLineProps.links = []
+export function buildClaimStatusSummary(
+  scenarioObject: ClaimStatusScenarioJson,
+  scenarioString: string,
+): TransLineProps {
+  const keys = ['scenarios', scenarioString, 'summary']
+  return buildTransLineProps(scenarioObject.summary, buildI18nKey(keys))
+}
 
-  // Explicitly cast the scenarioType into one of the keys of claim-status.json
-  // (i.e. scenario1 | scenario2 etc)
-  const scenarioString = ScenarioType[scenarioType].toLowerCase() as keyof typeof claimStatusJson.scenarios
-  // Retrieve the summary links for the current scenario.
-  const summary = claimStatusJson.scenarios[scenarioString].summary as TextOptionalLink
-  const linkKeys = summary.links
-
-  // Lookup each link and send the array to the TransLine component.
-  if (linkKeys && linkKeys.length > 0) {
-    for (const linkKey of linkKeys) {
-      // Explicitly cast to one of the allowed keys in urls.json
-      const key = linkKey as UrlType
-      const url = getUrl(key)
-      if (url) {
-        transLineProps.links.push(url)
-      }
-    }
+/**
+ * Get next steps content for Claim Status.
+ */
+export function buildNextSteps(
+  scenarioObject: ClaimStatusScenarioJson,
+  scenarioString: string,
+  whichSteps: StepType,
+): TransLineProps[] {
+  const steps: TransLineProps[] = []
+  const json = scenarioObject[whichSteps]
+  for (const [index, value] of json.entries()) {
+    const keys = ['scenarios', scenarioString, whichSteps, index.toString()]
+    steps.push(buildTransLineProps(value, buildI18nKey(keys)))
   }
-  return transLineProps
+  return steps
 }
 
 /**
  * Get combined Claim Status content.
  */
 export default function getClaimStatus(scenarioType: ScenarioType): ClaimStatusContent {
-  getClaimStatusSummary(scenarioType)
-  const statusContent: ClaimStatusContent = {
-    heading: getClaimStatusHeading(scenarioType),
-    summary: getClaimStatusSummary(scenarioType),
-    nextSteps: [
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    ],
-  }
+  // Explicitly cast the scenario string (e.g. scenario1, scenario2) into the union of literal types
+  // expected by Typescript. scenarioString must be one of the key names in claimStatusJson.scenarios
+  // or this won't compile. For a very good explanation of `keyof typeof` Typescript's and union of
+  // literal types, see:
+  // https://stackoverflow.com/questions/55377365/what-does-keyof-typeof-mean-in-typescript/62764510#62764510
+  const scenarioString = scenarioToString(scenarioType) as keyof typeof claimStatusJson.scenarios
 
-  return statusContent
+  const scenarioObject = claimStatusJson.scenarios[scenarioString]
+
+  return {
+    heading: buildClaimStatusHeading(scenarioType),
+    summary: buildClaimStatusSummary(scenarioObject, scenarioString),
+    yourNextSteps: buildNextSteps(scenarioObject, scenarioString, 'your-next-steps'),
+    eddNextSteps: buildNextSteps(scenarioObject, scenarioString, 'edd-next-steps'),
+  }
 }

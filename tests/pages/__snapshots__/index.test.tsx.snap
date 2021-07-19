@@ -192,7 +192,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             <h3
               className="next-steps-header"
             >
-              Next Steps
+              Your Next Steps
             </h3>
             <div
               className="next-step-explanation"
@@ -201,12 +201,40 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                 <li
                   className="next-step"
                 >
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Confirm we have your current 
+                  <a
+                    href="https://edd.ca.gov/FAQ_-_Benefit_Programs_Online.htm"
+                  >
+                    phone number and mailing address
+                  </a>
+                  .
                 </li>
                 <li
                   className="next-step"
                 >
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Check your mail for the 
+                  &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+                   (DE 4800). It will explain the issue and help you prepare for the interview.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="next-steps claim-subsection"
+          >
+            <h3
+              className="next-steps-header"
+            >
+              EDD Next Steps
+            </h3>
+            <div
+              className="next-step-explanation"
+            >
+              <ul>
+                <li
+                  className="next-step"
+                >
+                  We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
                 </li>
               </ul>
             </div>

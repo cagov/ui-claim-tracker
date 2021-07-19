@@ -11,8 +11,6 @@ const Template: Story<TransLineProps> = (args) => <TransLineComponent {...args} 
 
 export const TransLine = Template.bind({})
 TransLine.args = {
-  i18nKey: 'work-in-progress.message',
-  // There are two links in this array because the work-in-progress.message translation
-  // string uses <1> as the link placeholder. <0> is not used and is ignored.
-  links: ['example.com/placeholder', 'https://edd.ca.gov'],
+  i18nKey: 'claim-status:scenarios.scenario1.your-next-steps.0.text',
+  links: ['https://edd.ca.gov'],
 }

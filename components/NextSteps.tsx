@@ -1,21 +1,14 @@
 import { Shimmer } from './Shimmer'
+import { TransLine } from './TransLine'
+import { TransLineProps } from '../types/common'
 
 export interface NextStepsProps {
   loading: boolean
   header: string[]
-  nextSteps?: string[]
+  nextSteps: TransLineProps[]
 }
 
-export const NextSteps: React.FC<NextStepsProps> = ({
-  loading = false,
-  header = 'Next Steps',
-  nextSteps = [
-    'a very very very very very very very very very very very very very very very very very very very very very very very very very very very long bullet',
-    'another step with longer text',
-    'a third bullet',
-    'another very very very very very very very very very very very very very very very very very very very very very very very very very very very long other bullet',
-  ],
-}) => {
+export const NextSteps: React.FC<NextStepsProps> = ({ loading = false, header, nextSteps }) => {
   let loadableContent: JSX.Element
   if (loading) {
     loadableContent = <Shimmer width="100%" height={50} baseColor="#B6B2B2" shimColor="#656565" borderRadius={3} />
@@ -25,7 +18,7 @@ export const NextSteps: React.FC<NextStepsProps> = ({
         <ul>
           {nextSteps.map((nextStep, index) => (
             <li key={index} className="next-step">
-              {nextStep}
+              <TransLine i18nKey={nextStep.i18nKey} links={nextStep.links} />
             </li>
           ))}
         </ul>

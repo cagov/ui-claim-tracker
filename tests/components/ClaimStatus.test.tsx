@@ -11,7 +11,8 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent): string {
         loading={false}
         heading={statusContent.heading}
         summary={statusContent.summary}
-        nextSteps={statusContent.nextSteps}
+        yourNextSteps={statusContent.yourNextSteps}
+        eddNextSteps={statusContent.eddNextSteps}
       />,
     )
     .toJSON()
