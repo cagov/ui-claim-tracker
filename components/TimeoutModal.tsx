@@ -3,6 +3,7 @@ import { useTranslation } from 'next-i18next'
 import Modal from 'react-bootstrap/Modal'
 
 import { Button } from './Button'
+import getUrl from '../utils/getUrl'
 
 let timeOutTimerId: NodeJS.Timeout | null = null
 let warningTimerId: NodeJS.Timeout | null = null
@@ -58,9 +59,8 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     }, TIMEOUT_WARNING_MS)
     timeOutTimerId = setTimeout(() => {
       if (typeof window !== 'undefined') {
-        const eddLocation =
-          'https://portal.edd.ca.gov/WebApp/Login?resource_url=' + encodeURIComponent(window.location.toString())
-        window.location.href = eddLocation
+        const eddLocation = getUrl('edd-log-in')?.concat(encodeURIComponent(window.location.toString()))
+        window.location.href = eddLocation || ''
       }
     }, TIMEOUT_MS)
   }
