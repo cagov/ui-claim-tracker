@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
+import getUrl from '../utils/getUrl'
 
 export interface HeaderProps {
   userArrivedFromUioMobile: boolean
@@ -13,14 +14,14 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
   //   main UIO landing page if user arrived from main UIO
-  const uioHomeBase = userArrivedFromUioMobile ? t('header.uio-home-url.mobile') : t('header.uio-home-url.desktop')
-  const uioHomeLink = uioHomeBase + t('header.uio-home-url.locale')
+  const uioHomeBase = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
+  const uioHomeLink = uioHomeBase?.concat(t('header.uio-home-url-locale'))
 
   return (
     <header className="header border-bottom border-secondary">
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://www.ca.gov/">
+          <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('ca-gov')}>
             <img
               src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
               alt={t('header.alt-image-cagov')}
@@ -30,18 +31,14 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           </Navbar.Brand>
           <Nav>
             <Navbar.Collapse>
-              <Nav.Link target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
+              <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
                 <span className="text">{t('header.edd-home')}</span>
               </Nav.Link>
             </Navbar.Collapse>
-            <Nav.Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
-            >
+            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-help-new-claim')}>
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
-            <Nav.Link href="https://portal.edd.ca.gov/WebApp/Logout">
+            <Nav.Link href={getUrl('edd-log-out')}>
               <span className="text">{t('header.logout')}</span>
             </Nav.Link>
           </Nav>
@@ -49,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       </Navbar>
       <Navbar className="justify-content-between" expand="lg" variant="light">
         <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href="https://edd.ca.gov">
+          <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
             <img
               src="/claimstatus/images/edd-logo-2-Color.svg"
               alt={t('header.alt-image-edd')}
