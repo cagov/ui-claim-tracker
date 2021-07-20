@@ -6,12 +6,7 @@
     "help": "Help",
     "welcome": "Welcome, name",
     "logout": "Log Out",
-    "uio-home": "UI Online Home",
-    "uio-home-url": {
-      "mobile": "https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx",
-      "desktop": "https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx",
-      "locale": "?l=en"
-    }
+    "uio-home": "UI Online Home"
   },
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",
