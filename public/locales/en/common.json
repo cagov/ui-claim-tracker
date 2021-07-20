@@ -6,8 +6,7 @@
     "help": "Help",
     "welcome": "Welcome, name",
     "logout": "Log Out",
-    "uio-home": "UI Online Home",
-    "uio-home-url-locale": "?l=en"
+    "uio-home": "UI Online Home"
   },
   "title": "Claim Tracker",
   "welcome": "Claim Tracker",

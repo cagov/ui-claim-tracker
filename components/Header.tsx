@@ -14,8 +14,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
   //   main UIO landing page if user arrived from main UIO
-  const uioHomeBase = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
-  const uioHomeLink = uioHomeBase?.concat(t('header.uio-home-url-locale'))
+  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
 
   return (
     <header className="header border-bottom border-secondary">

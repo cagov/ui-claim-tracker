@@ -7,7 +7,7 @@ describe('Header component loads', () => {
     expect(screen.queryByText('UI Online Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Online Home' })).toHaveAttribute(
       'href',
-      'https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx?l=en',
+      'https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx',
     )
   })
 
@@ -16,7 +16,7 @@ describe('Header component loads', () => {
     expect(screen.queryByText('UI Online Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Online Home' })).toHaveAttribute(
       'href',
-      'https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx?l=en',
+      'https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx',
     )
   })
 })
