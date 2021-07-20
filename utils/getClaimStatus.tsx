@@ -61,7 +61,7 @@ export function buildTransLineLinks(linkKeys: string[] | undefined): string[] {
 export function buildTransLineProps(json: TextOptionalLink, i18nKey: I18nString): TransLineProps {
   return {
     i18nKey: i18nKey,
-    links: buildTransLineLinks(json.links),
+    links: json.links,
   }
 }
 
