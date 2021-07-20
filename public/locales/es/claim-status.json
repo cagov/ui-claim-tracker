@@ -1,7 +1,7 @@
 {
   "scenarios": {
     "scenario1": {
-      "heading": "Elegibilidad pendiente - Se programará una entrevista telefónica",
+      "heading": "Elegibilidad pendiente — Se programará una entrevista telefónica",
       "summary": {
         "text": "Identificamos un problema que podría hacer que no sea elegible para los beneficios. Necesitamos confirmar su elegibilidad en una entrevista telefónica."
       },
