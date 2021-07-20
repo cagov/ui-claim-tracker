@@ -1,7 +1,7 @@
 {
   "scenarios": {
     "scenario1": {
-      "heading": "Pending Eligibility - Phone Interview Will Be Scheduled",
+      "heading": "Pending Eligibility — Phone Interview Will Be Scheduled",
       "summary": {
         "text": "We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview."
       },

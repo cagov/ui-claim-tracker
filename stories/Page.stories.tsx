@@ -2,8 +2,9 @@ import { Story, Meta } from '@storybook/react'
 import { withNextRouter } from 'storybook-addon-next-router'
 
 import Home, { HomeProps } from '../pages/index'
-import getScenarioContent, { ScenarioType, ScenarioTypeNames } from '../utils/getScenarioContent'
 import apiGatewayStub from '../utils/apiGatewayStub'
+import { programTypeNames } from '../utils/getClaimDetails'
+import getScenarioContent, { ScenarioType, ScenarioTypeNames } from '../utils/getScenarioContent'
 import { getNumericEnumKeys } from '../utils/numericEnum'
 
 // See https://storybook.js.org/docs/riot/essentials/controls#dealing-with-complex-values
@@ -20,6 +21,14 @@ export default {
         labels: ScenarioTypeNames,
       },
     },
+    programType: {
+      options: Object.values(programTypeNames),
+      defaultValue: 'UI',
+      control: {
+        type: 'select',
+        labels: programTypeNames,
+      },
+    },
     errorCode: {
       control: {
         type: 'text',
@@ -31,10 +40,11 @@ export default {
 // Extend HomeProps to add a complex story value
 interface StoryHomeProps extends HomeProps {
   scenario: number
+  programType: string
 }
 
 const Template: Story<StoryHomeProps> = ({ ...args }) => {
-  args.scenarioContent = getScenarioContent(apiGatewayStub(args.scenario))
+  args.scenarioContent = getScenarioContent(apiGatewayStub(args.scenario, args.programType))
   return <Home {...args} />
 }
 

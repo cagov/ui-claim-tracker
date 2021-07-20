@@ -13,7 +13,7 @@ exports[`ClaimStatus renders for Scenario1 1`] = `
     <h3
       className="header-line"
     >
-      Pending Eligibility - Phone Interview Will Be Scheduled
+      Pending Eligibility — Phone Interview Will Be Scheduled
     </h3>
   </div>
   <div

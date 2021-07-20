@@ -10,7 +10,7 @@ import { Claim } from '../types/common'
 /**
  * Stub the API gateway response for a given scenario.
  */
-export default function apiGatewayStub(scenarioType: ScenarioType, hasClaimDetails = true): Claim {
+export default function apiGatewayStub(scenarioType: ScenarioType, programType = 'UI'): Claim {
   // Default empty response from the API gateway
   const claim: Claim = {
     uniqueNumber: null,
@@ -49,17 +49,15 @@ export default function apiGatewayStub(scenarioType: ScenarioType, hasClaimDetai
       throw new Error('Unknown scenario type')
   }
 
-  if (hasClaimDetails) {
-    claim.claimDetails = {
-      programType: 'PEUC - Tier 2 Extension',
-      benefitYearStartDate: '2020-03-21T00:00:00',
-      benefitYearEndDate: '2021-03-20T00:00:00',
-      claimBalance: 1100.45,
-      weeklyBenefitAmount: 111,
-      lastPaymentIssued: '2021-04-29T00:00:00',
-      lastPaymentAmount: 100,
-      monetaryStatus: 'Active',
-    }
+  claim.claimDetails = {
+    programType: programType,
+    benefitYearStartDate: '2020-03-21T00:00:00',
+    benefitYearEndDate: '2021-03-20T00:00:00',
+    claimBalance: 1100.45,
+    weeklyBenefitAmount: 111,
+    lastPaymentIssued: '2021-04-29T00:00:00',
+    lastPaymentAmount: 100,
+    monetaryStatus: 'Active',
   }
 
   return claim
