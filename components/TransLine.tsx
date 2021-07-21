@@ -1,7 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next'
 import React from 'react'
 import { Shimmer } from './Shimmer'
-import { useRouter } from 'next/router'
 import { TransLineContent } from '../types/common'
 import getUrl from '../utils/getUrl'
 
