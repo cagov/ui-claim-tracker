@@ -3,7 +3,7 @@
  */
 
 import claimStatusJson from '../public/locales/en/claim-status.json'
-import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
+import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineContent } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
 
 type StepType = 'your-next-steps' | 'edd-next-steps'
@@ -59,17 +59,17 @@ function buildI18nKey(keys: string[]): I18nString {
 export function buildClaimStatusSummary(
   scenarioObject: ClaimStatusScenarioJson,
   scenarioString: string,
-): TransLineProps {
+): TransLineContent {
   const keys = ['scenarios', scenarioString, 'summary']
-  return buildTransLineProps(scenarioObject.summary, buildI18nKey(keys))
+  return buildTransLineContent(scenarioObject.summary, buildI18nKey(keys))
 }
 
 /**
  * Get conditional continue certifying next step.
  */
-export function displayContinueCertifying(): TransLineProps {
+export function displayContinueCertifying(): TransLineContent {
   const keys = ['conditional-next-steps', 'continue-certifying']
-  return buildTransLineProps(claimStatusJson['conditional-next-steps']['continue-certifying'], buildI18nKey(keys))
+  return buildTransLineContent(claimStatusJson['conditional-next-steps']['continue-certifying'], buildI18nKey(keys))
 }
 
 /**
@@ -80,12 +80,12 @@ export function buildNextSteps(
   scenarioString: string,
   whichSteps: StepType,
   continueCertifying = false,
-): TransLineProps[] {
-  const steps: TransLineProps[] = []
+): TransLineContent[] {
+  const steps: TransLineContent[] = []
   const json = scenarioObject[whichSteps]
   for (const [index, value] of json.entries()) {
     const keys = ['scenarios', scenarioString, whichSteps, index.toString()]
-    steps.push(buildTransLineProps(value, buildI18nKey(keys)))
+    steps.push(buildTransLineContent(value, buildI18nKey(keys)))
   }
 
   // If we should display the "continue certifying" next step, then display it as the first step.

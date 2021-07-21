@@ -2,8 +2,7 @@
 export type I18nString = string
 
 // Types for TransLine component
-export interface TransLineProps {
-  loading?: boolean
+export interface TransLineContent {
   i18nKey: I18nString
   links?: I18nString[]
 }
@@ -42,9 +41,9 @@ export interface Claim {
 // Types for Claim Status and Claim Details
 export interface ClaimStatusContent {
   heading: I18nString
-  summary: TransLineProps
-  yourNextSteps: TransLineProps[]
-  eddNextSteps: TransLineProps[]
+  summary: TransLineContent
+  yourNextSteps: TransLineContent[]
+  eddNextSteps: TransLineContent[]
 }
 
 export interface ClaimDetailsContent {

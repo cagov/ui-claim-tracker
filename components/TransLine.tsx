@@ -2,10 +2,20 @@ import { Trans, useTranslation } from 'react-i18next'
 import React from 'react'
 import { Shimmer } from './Shimmer'
 import { useRouter } from 'next/router'
-import { TransLineProps } from '../types/common'
+import { TransLineContent } from '../types/common'
 import getUrl from '../utils/getUrl'
 
-export const TransLine: React.FC<TransLineProps> = ({ loading, i18nKey, links = [] }) => {
+export interface TransLineProps extends TransLineContent {
+  loading: boolean
+  userArrivedFromUioMobile: boolean
+}
+
+export const TransLine: React.FC<TransLineProps> = ({
+  loading = false,
+  userArrivedFromUioMobile = false,
+  i18nKey,
+  links = [],
+}) => {
   if (loading) {
     return <Shimmer width={120} height={15} baseColor="#B6B2B2" shimColor="#656565" borderRadius={3} />
   }
