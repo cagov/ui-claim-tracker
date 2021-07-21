@@ -39,11 +39,16 @@ export function buildClaimStatusHeading(scenarioType: ScenarioType): I18nString 
 /**
  * Build props to pass to the TransLine react component.
  */
-export function buildTransLineProps(json: TextOptionalLink, i18nKey: I18nString): TransLineProps {
-  return {
+export function buildTransLineContent(json: TextOptionalLink, i18nKey: I18nString): TransLineContent {
+  const props: TransLineContent = {
     i18nKey: i18nKey,
-    links: json.links,
   }
+
+  if (json.links) {
+    props.links = json.links
+  }
+
+  return props
 }
 
 /**
