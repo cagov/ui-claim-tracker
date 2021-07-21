@@ -23,22 +23,25 @@ export const TransLine: React.FC<TransLineProps> = ({
 
   const linkComponents: JSX.Element[] = []
   if (links && links.length > 0) {
-    for (let link of links) {
+    for (const link of links) {
       // Special case for UIO homepage links.
+      let href = ''
       if (link === 'uio-home') {
-        const router = useRouter()
-        const userArrivedFromUioMobile = router.query?.from === 'uiom'
         const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
         if (uioHomeLink) {
-          link = uioHomeLink
+          // If the link is for UIO homepage, do a direct getUrl() lookup.
+          href = uioHomeLink
         }
       }
-
+      // Otherwise, use t() to lookup the correct language-dependent url.
+      else {
+        href = t(link)
+      }
       // Disabling some linting rules for this line. The anchor <a> element will
       // be interporlated by <Trans>.
       /* eslint-disable jsx-a11y/anchor-has-content */
       /* eslint-disable react/self-closing-comp */
-      linkComponents.push(<a href={t(link)} key={link}></a>)
+      linkComponents.push(<a href={href} key={link}></a>)
       /* eslint-enable jsx-a11y/anchor-has-content */
       /* eslint-enable react/self-closing-comp */
     }
