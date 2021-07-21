@@ -49,7 +49,7 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
         >
           Confirm we have your current phone number and mailing address. Go to the 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -145,7 +145,7 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
         >
           Confirm we have your current phone number and mailing address. Go to the 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -230,7 +230,7 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
         >
           Confirm we have your current phone number and mailing address. Go to the 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -277,7 +277,7 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
 </div>
 `;
 
-exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 2`] = `
+exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = `
 <div
   className="claim-status claim-section"
 >
@@ -315,7 +315,7 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 2`] =
         >
           Confirm we have your current phone number and mailing address. Go to the 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -411,7 +411,7 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
         >
           Check your 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -519,7 +519,7 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
         >
           Check your 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -616,7 +616,7 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
         >
           Check your 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -713,7 +713,7 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
         >
           Check your 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -810,7 +810,7 @@ exports[`Scenario 5 matches, on desktop 1`] = `
         >
           Check your 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -902,7 +902,7 @@ exports[`Scenario 5 matches, on mobile 1`] = `
         >
           Check your 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -1004,7 +1004,7 @@ exports[`Scenario 6 matches, on desktop 1`] = `
           </strong>
            in the Notification section on your 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -1030,7 +1030,7 @@ exports[`Scenario 6 matches, on desktop 1`] = `
         >
           When we process your certification, we will update the payment status. Go to the 
           <a
-            href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -1094,7 +1094,7 @@ exports[`Scenario 6 matches, on mobile 1`] = `
           </strong>
            in the Notification section on your 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>
@@ -1120,7 +1120,7 @@ exports[`Scenario 6 matches, on mobile 1`] = `
         >
           When we process your certification, we will update the payment status. Go to the 
           <a
-            href="//uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             UI Online homepage
           </a>

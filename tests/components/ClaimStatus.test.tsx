@@ -4,30 +4,12 @@ import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import { ClaimStatusContent } from '../../types/common'
 
-import { useRouter } from 'next/router'
-
-jest.mock('next/router', () => ({
-  __esModule: true,
-  useRouter: jest.fn(),
-}))
-
-function mockTheRouter(fromUiom: false) {
-  const mockRouter = {
-    locale: 'en',
-  }
-  if (fromUiom) {
-    mockRouter.query = {
-      from: 'uiom',
-    }
-  }
-  ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
-}
-
-function renderClaimStatusComponent(statusContent: ClaimStatusContent): string {
+function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArrivedFromUioMobile: boolean): string {
   return renderer
     .create(
       <ClaimStatus
         loading={false}
+        userArrivedFromUioMobile={userArrivedFromUioMobile}
         heading={statusContent.heading}
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
@@ -40,11 +22,10 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent): string {
 function testClaimStatus(
   scenarioType: ScenarioType,
   hasCertificationWeeksAvailable: boolean,
-  fromUiom: boolean,
+  userArrivedFromUioMobile: boolean,
 ): string {
-  mockTheRouter(fromUiom)
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType, hasCertificationWeeksAvailable))
-  return renderClaimStatusComponent(scenarioContent.statusContent)
+  return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)
 }
 
 describe('Scenario 1', () => {

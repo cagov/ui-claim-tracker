@@ -203,7 +203,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                 >
                   Confirm we have your current phone number and mailing address. Go to the 
                   <a
-                    href="//uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+                    href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
                   >
                     UI Online homepage
                   </a>
