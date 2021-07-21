@@ -1,7 +1,6 @@
 import getClaimDetails, {
   buildBenefitYear,
   formatCurrency,
-  formatDate,
   getProgramExtensionPair,
   programExtensionPairs,
   programExtensionPairType,
@@ -22,15 +21,6 @@ describe('Converting ProgramType to user-facing strings', () => {
     expect(() => {
       getProgramExtensionPair('unknown')
     }).toThrowError('Unknown Program Type')
-  })
-})
-
-// Test formatDate()
-describe('Formatting dates', () => {
-  it('displays the expected date string', () => {
-    const notFormatted = '2013-09-27T00:00:00'
-    const formatted = formatDate(notFormatted)
-    expect(formatted).toEqual('9/27/2013')
   })
 })
 
