@@ -1,4 +1,10 @@
-import { getScenario, ScenarioType } from '../../utils/getScenarioContent'
+import { PendingDetermination } from '../../types/common'
+import {
+  getScenario,
+  isDeterminationStatusPending,
+  NonPendingDeterminationValues,
+  ScenarioType,
+} from '../../utils/getScenarioContent'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 
 /**
@@ -58,6 +64,52 @@ describe('The Base State scenarios', () => {
     const baseScenarios = [ScenarioType.Scenario5, ScenarioType.Scenario6]
     for (const scenarioType of baseScenarios) {
       expect(getScenario(apiGatewayStub(scenarioType))).toBe(scenarioType)
+    }
+  })
+})
+
+// Test isDeterminationStatusPending()
+describe('Determination Status', () => {
+  // Shared mock data.
+  const pendingDetermination: PendingDetermination = {
+    pendingDate: '',
+    scheduleDate: '',
+    timeSlotDesc: '',
+    requestDate: '',
+    determinationStatus: '',
+    willCallIndicator: false,
+    spokenLanguageCode: '',
+    spokenLanguageDesc: '',
+  }
+
+  it('is pending if it is an empty string', () => {
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+  })
+
+  it('is pending if it is null', () => {
+    pendingDetermination.determinationStatus = null
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+  })
+
+  it('is pending if it is undefined', () => {
+    pendingDetermination.determinationStatus = undefined
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+  })
+
+  it('is pending if is missing', () => {
+    delete pendingDetermination.determinationStatus
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+  })
+
+  it('is pending if it is not one of the non-pending values', () => {
+    pendingDetermination.determinationStatus = 'foo'
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+  })
+
+  it('is not pending if it is one of the non-pending values', () => {
+    for (const value of NonPendingDeterminationValues) {
+      pendingDetermination.determinationStatus = value
+      expect(isDeterminationStatusPending(pendingDetermination)).toBe(false)
     }
   })
 })

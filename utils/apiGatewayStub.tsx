@@ -5,7 +5,7 @@
  */
 
 import { ScenarioType } from '../utils/getScenarioContent'
-import { Claim } from '../types/common'
+import { Claim, PendingDetermination } from '../types/common'
 
 /**
  * Stub the API gateway response for a given scenario.
@@ -24,6 +24,17 @@ export default function apiGatewayStub(
     pendingDetermination: null,
   }
 
+  const pendingDetermination: PendingDetermination = {
+    pendingDate: '',
+    scheduleDate: '',
+    timeSlotDesc: '',
+    requestDate: '',
+    determinationStatus: '',
+    willCallIndicator: false,
+    spokenLanguageCode: '',
+    spokenLanguageDesc: '',
+  }
+
   // If this is a known scenarioType, set a uniqueNumber.
   if (scenarioType in ScenarioType) {
     claim.uniqueNumber = '12345'
@@ -31,7 +42,8 @@ export default function apiGatewayStub(
 
   switch (scenarioType) {
     case ScenarioType.Scenario1:
-      claim.pendingDetermination = [{ determinationStatus: null }]
+      pendingDetermination.determinationStatus = null
+      claim.pendingDetermination = [pendingDetermination]
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break
 

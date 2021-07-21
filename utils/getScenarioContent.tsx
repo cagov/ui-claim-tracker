@@ -7,7 +7,7 @@
  * description in ScenarioTypeNames for easy(ish) reference.
  */
 
-import { Claim, ClaimDetailsContent, ScenarioContent } from '../types/common'
+import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
 
@@ -23,6 +23,23 @@ export const ScenarioTypeNames = {
   [ScenarioType.Scenario4]: 'Generic pending state: pending weeks',
   [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
   [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
+}
+
+export const NonPendingDeterminationValues = ['Canceled', 'Complete', 'TRAN', 'INVL', 'IDNC', '1277', 'OTHR', 'ClmCX']
+
+/**
+ * Determine whether the Determination Status is pending.
+ *
+ * Determination Status is considered pending if:
+ * either DeterminationStatus is blank (NULL)
+ * OR DeterminationStatus is neither "Canceled" nor "Complete" nor "TRAN" nor
+ *   "INVL" nor "IDNC" nor "1277" nor "OTHR" nor "ClmCX"
+ */
+export function isDeterminationStatusPending(pendingDetermination: PendingDetermination): boolean {
+  return (
+    !pendingDetermination.determinationStatus ||
+    !NonPendingDeterminationValues.includes(pendingDetermination.determinationStatus)
+  )
 }
 
 /**

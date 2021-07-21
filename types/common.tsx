@@ -15,7 +15,14 @@ export interface TextOptionalLink {
 
 // Types for API gateway result
 export interface PendingDetermination {
-  determinationStatus?: null | undefined | string
+  pendingDate: string
+  scheduleDate: string
+  timeSlotDesc: string
+  requestDate: string
+  determinationStatus?: string | null | undefined
+  willCallIndicator: boolean
+  spokenLanguageCode: string
+  spokenLanguageDesc: string
 }
 
 export interface ClaimDetailsResult {
@@ -35,7 +42,7 @@ export interface Claim {
   claimDetails?: null | ClaimDetailsResult
   hasPendingWeeks?: null | undefined | boolean
   hasCertificationWeeksAvailable?: null | undefined | boolean
-  pendingDetermination?: null | [PendingDetermination]
+  pendingDetermination?: null | PendingDetermination[]
 }
 
 // Types for Claim Status and Claim Details
