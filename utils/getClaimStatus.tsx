@@ -5,7 +5,6 @@
 import claimStatusJson from '../public/locales/en/claim-status.json'
 import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineProps } from '../types/common'
 import { ScenarioType } from './getScenarioContent'
-import getUrl from './getUrl'
 
 type StepType = 'your-next-steps' | 'edd-next-steps'
 
@@ -35,24 +34,6 @@ function buildTranslationPrefix(scenarioType: ScenarioType): I18nString {
  */
 export function buildClaimStatusHeading(scenarioType: ScenarioType): I18nString {
   return buildTranslationPrefix(scenarioType) + '.heading'
-}
-
-/**
- * Build a list of urls from keys in the json translation files.
- */
-export function buildTransLineLinks(linkKeys: string[] | undefined): string[] {
-  const links: string[] = []
-  if (linkKeys) {
-    for (const linkKey of linkKeys) {
-      const url = getUrl(linkKey)
-      if (url) {
-        links.push(url)
-      }
-      // @TODO: else log that we attempted to get a url using a key that
-      // doesn't exist.
-    }
-  }
-  return links
 }
 
 /**

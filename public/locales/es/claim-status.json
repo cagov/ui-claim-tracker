@@ -87,12 +87,5 @@
     "continue-certifying": {
       "text": "Continúe <0>certificando los beneficios</0> mientras determinamos su elegibilidad."
     }
-  },
-  "urls": {
-    "edd": {
-      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status-espanol.htm",
-      "ui-certify": "https://edd.ca.gov/Unemployment/certify-espanol.htm",
-      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm"
-    }
   }
 }
