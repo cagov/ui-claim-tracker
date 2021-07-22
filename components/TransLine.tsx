@@ -30,6 +30,7 @@ export const TransLine: React.FC<TransLineProps> = ({
         const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
         if (uioHomeLink) {
           // If the link is for UIO homepage, do a direct getUrl() lookup.
+          // Do not pass the looked up url through t() because t() will mangle the url.
           href = uioHomeLink
         }
       }
@@ -38,7 +39,7 @@ export const TransLine: React.FC<TransLineProps> = ({
         href = t(link)
       }
       // Disabling some linting rules for this line. The anchor <a> element will
-      // be interporlated by <Trans>.
+      // be interpolated by <Trans>.
       /* eslint-disable jsx-a11y/anchor-has-content */
       /* eslint-disable react/self-closing-comp */
       linkComponents.push(<a href={href} key={link}></a>)
