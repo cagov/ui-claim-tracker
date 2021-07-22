@@ -4,7 +4,7 @@
  * Because this is a State of California application, we assume all times are
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
-import { format, isValid, parse } from 'date-fns'
+import { format, isValid } from 'date-fns'
 import { zonedTimeToUtc } from 'date-fns-tz'
 
 const pacificTimeZone = 'America/Los_Angeles'
@@ -42,6 +42,14 @@ export function isValidDate(dateString: string): boolean {
 
 // @TODO: add a function to check and log any dates that are earlier
 // than 2020 as these are anomolous dates that could indicate an error.
+
+/**
+ * Determine if the date is in the past.
+ */
+export function isDatePast(date: Date): boolean {
+  const today = datetimeInUtc(new Date())
+  return date < today
+}
 
 /**
  * Format dates for user-facing display.
