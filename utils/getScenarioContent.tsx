@@ -63,10 +63,8 @@ export function continueCertifying(scenarioType: ScenarioType, claimData: Claim)
   // If the Scenario is not scenario 5 or 6
   // AND hasCertificationWeeksAvailable is true
   // Then we should display the "continue certifying" content.
-  if (
-    ![ScenarioType.Scenario5, ScenarioType.Scenario6].includes(scenarioType) &&
-    claimData.hasCertificationWeeksAvailable
-  ) {
+  const isIgnoredScenario = [ScenarioType.Scenario5, ScenarioType.Scenario6].includes(scenarioType)
+  if (!isIgnoredScenario && claimData.hasCertificationWeeksAvailable) {
     return true
   }
   // Otherwise, we should not display the "continue certifying" content.
