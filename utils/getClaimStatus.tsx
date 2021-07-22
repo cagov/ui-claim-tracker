@@ -101,16 +101,18 @@ export function buildNextSteps(
   continueCertifying = false,
 ): TransLineProps[] {
   const steps: TransLineProps[] = []
+
+  // If we should display the "continue certifying" next step, then display it as the first step.
+  if (continueCertifying) {
+    steps.push(displayContinueCertifying())
+  }
+
   const json = scenarioObject[whichSteps]
   for (const [index, value] of json.entries()) {
     const keys = ['scenarios', scenarioString, whichSteps, index.toString()]
     steps.push(buildTransLineProps(value, buildI18nKey(keys)))
   }
 
-  // If we should display the "continue certifying" next step, then display it as the first step.
-  if (continueCertifying) {
-    steps.unshift(displayContinueCertifying())
-  }
   return steps
 }
 
