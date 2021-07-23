@@ -46,6 +46,11 @@ export interface Claim {
 }
 
 // Types for Claim Status and Claim Details
+export interface TimeSlot {
+  rangeStart: number
+  rangeEnd: number
+}
+
 export interface ClaimStatusContent {
   heading: I18nString
   summary: TransLineContent
