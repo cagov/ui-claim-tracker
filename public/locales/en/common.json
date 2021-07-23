@@ -36,7 +36,8 @@
   },
   "timeout-modal": {
     "header": "Your Session Will End Soon",
-    "warning": "To protect your information, you will be logged out in {{numberOfMinutes}} minutes if you do not continue.",
-    "button": "Stay Logged In"
+    "warning": "To protect your information, you will be logged out in {{count}} minute if you do not continue",
+    "warning_plural": "To protect your information, you will be logged out in {{count}} minutes if you do not continue",
+    "button": "Return to UI Home"
   }
 }

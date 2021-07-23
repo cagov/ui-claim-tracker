@@ -8,20 +8,20 @@ import getUrl from '../utils/getUrl'
 let warningTimerId: NodeJS.Timeout | null = null
 
 export interface TimeoutModalProps {
-  action: string
+  userArrivedFromUioMobile: boolean
   timedOut: boolean
 }
 
 export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
   const { t } = useTranslation()
-  const { timedOut } = props
+  const { timedOut, userArrivedFromUioMobile } = props
 
   // handy converter for Minutes -> Milliseconds
   const ONE_MINUTE_MS = 60 * 1000
 
   // keep times in human readable minutes
-  const REDIRECT_TIMER = 3
-  const WARNING_DURATION = 2
+  const REDIRECT_TIMER = 30
+  const WARNING_DURATION = 5
   const WARNING_TIMER = REDIRECT_TIMER - WARNING_DURATION
 
   const [numberOfMinutes, setNumberOfMinutes] = useState(WARNING_DURATION)
@@ -62,6 +62,11 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     }
   }
 
+  function redirectToUIHome() {
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
+    window.location.href = uioHomeLink || ''
+  }
+
   // If the warning modal hasn't shown, kickoff!
   if (!warned) {
     startTimer()
@@ -74,9 +79,9 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
           <strong>{t('timeout-modal.header')}</strong>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>{t('timeout-modal.warning', { numberOfMinutes })}</Modal.Body>
+      <Modal.Body>{t('timeout-modal.warning', { count: numberOfMinutes })}</Modal.Body>
       <Modal.Footer className="border-0">
-        <Button onClick={closeWarningModal} label={t('timeout-modal.button')} />
+        <Button onClick={redirectToUIHome} label={t('timeout-modal.button')} />
       </Modal.Footer>
     </Modal>
   )
