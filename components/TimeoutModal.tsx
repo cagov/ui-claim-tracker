@@ -5,7 +5,6 @@ import Modal from 'react-bootstrap/Modal'
 import { Button } from './Button'
 import getUrl from '../utils/getUrl'
 
-let timeOutTimerId: NodeJS.Timeout | null = null
 let warningTimerId: NodeJS.Timeout | null = null
 
 export interface TimeoutModalProps {
@@ -15,66 +14,57 @@ export interface TimeoutModalProps {
 
 export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
   const { t } = useTranslation()
-  const { action, timedOut } = props
-  const TIMEOUT_MS = 30 * 60 * 1000
-  const TIMEOUT_DISPLAY_TIME_IN_MINUTES = 5
-  const TIMEOUT_WARNING_MS = TIMEOUT_MS - TIMEOUT_DISPLAY_TIME_IN_MINUTES * 60 * 1000
-  const [numberOfMinutes, setNumberOfMinutes] = useState(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
+  const { timedOut } = props
+
+  // handy converter for Minutes -> Milliseconds
+  const ONE_MINUTE_MS = 60 * 1000
+
+  // keep times in human readable minutes
+  const REDIRECT_TIMER = 3
+  const WARNING_DURATION = 2
+  const WARNING_TIMER = REDIRECT_TIMER - WARNING_DURATION
+
+  const [numberOfMinutes, setNumberOfMinutes] = useState(WARNING_DURATION)
   const [showWarningModal, setShowWarningModal] = useState<boolean | null>(timedOut)
+  const [warned, setWarned] = useState<boolean | null>(timedOut)
 
   useEffect(() => {
     if (showWarningModal) {
       const timer = setTimeout(() => {
         setNumberOfMinutes(numberOfMinutes - 1)
-      }, 60 * 1000)
+      }, ONE_MINUTE_MS)
       return () => clearTimeout(timer)
     }
   })
 
-  useEffect(() => {
-    if (showWarningModal) {
-      const timer = setTimeout(() => {
-        setNumberOfMinutes(numberOfMinutes - 1)
-      }, 60 * 1000)
-      return () => clearTimeout(timer)
-    }
-  })
+  function startTimer() {
+    // Show the warning modal for a bit before navigating
+    warningTimerId = setTimeout(() => {
+      setShowWarningModal(true)
+      setWarned(true)
+      setNumberOfMinutes(WARNING_DURATION)
+    }, WARNING_TIMER * ONE_MINUTE_MS)
+    // And at the end, send back to EDD
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        const eddLocation = getUrl('edd-log-in')?.concat(encodeURIComponent(window.location.toString()))
+        window.location.href = eddLocation || ''
+      }
+    }, REDIRECT_TIMER * ONE_MINUTE_MS)
+  }
 
-  function clear() {
-    if (timeOutTimerId) {
-      clearTimeout(timeOutTimerId)
-      timeOutTimerId = null
-    }
+  function closeWarningModal() {
+    setShowWarningModal(false)
+
     if (warningTimerId) {
       clearTimeout(warningTimerId)
       warningTimerId = null
     }
   }
 
-  function startOrUpdate() {
-    clear()
-    warningTimerId = setTimeout(() => {
-      setShowWarningModal(true)
-      setNumberOfMinutes(TIMEOUT_DISPLAY_TIME_IN_MINUTES)
-    }, TIMEOUT_WARNING_MS)
-    timeOutTimerId = setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        const eddLocation = getUrl('edd-log-in')?.concat(encodeURIComponent(window.location.toString()))
-        window.location.href = eddLocation || ''
-      }
-    }, TIMEOUT_MS)
-  }
-
-  function closeWarningModal() {
-    setShowWarningModal(false)
-    startOrUpdate()
-  }
-
-  // If the modal is showing, we don't want to restart the timer.
-  if (action === 'startOrUpdate' && !showWarningModal) {
-    startOrUpdate()
-  } else if (action === 'clear') {
-    clear()
+  // If the warning modal hasn't shown, kickoff!
+  if (!warned) {
+    startTimer()
   }
 
   return (
