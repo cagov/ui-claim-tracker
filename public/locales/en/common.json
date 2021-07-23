@@ -39,5 +39,12 @@
     "warning": "To protect your information, you will be logged out in {{count}} minute if you do not continue",
     "warning_plural": "To protect your information, you will be logged out in {{count}} minutes if you do not continue",
     "button": "Return to UI Home"
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm"
+    }
   }
 }

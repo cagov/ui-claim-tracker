@@ -39,5 +39,12 @@
     "warning": "Para proteger su información, se cerrará la sesión en {{count}} minuto si no continúa",
     "warning_plural": "Para proteger su información, se cerrará la sesión en {{count}} minutos si no continúa",
     "button": "Volver a UI Casa"
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify-espanol.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status-espanol.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm"
+    }
   }
 }
