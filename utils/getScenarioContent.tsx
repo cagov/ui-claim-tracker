@@ -11,6 +11,7 @@ import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } fro
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
 import { datetimeInUtc, isDatePast } from './formatDate'
+import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
   Scenario1,
@@ -52,8 +53,38 @@ export function isDeterminationStatusPending(pendingDetermination: PendingDeterm
   )
 }
 
-export function isStrictlyBefore(first: PendingDetermination, second: PendingDetermination): boolean {
-  return true
+/**
+ * Identify whether the first pendingDetermination object is scheduled before the second object.
+ *
+ * If both arguments are scheduled at the same time, this will return false.
+ */
+export function isScheduledStrictlyBefore(first: PendingDetermination, second: PendingDetermination): boolean {
+  const firstScheduleDate = datetimeInUtc(first.scheduleDate)
+  const secondScheduleDate = datetimeInUtc(second.scheduleDate)
+
+  // If the first appointment is scheduled before the second.
+  if (firstScheduleDate < secondScheduleDate) {
+    return true
+  }
+  // If the first appointment is scheduled after the second.
+  else if (firstScheduleDate > secondScheduleDate) {
+    return false
+  }
+  // If both appointments are on the same date...
+  else {
+    // ...then compare the time slots.
+    const isEarlier = isFirstTimeSlotEarlier(first.timeSlotDesc, second.timeSlotDesc)
+
+    // It's possible for both time slots to be improperly formatted, in which case it doesn't
+    // matter which appointment is said to be first, since they are on the same date.
+    if (!isEarlier) {
+      return true
+    }
+    // Otherwise, return the appointment with the earlier time slot start time.
+    else {
+      return isEarlier
+    }
+  }
 }
 
 /**
@@ -61,8 +92,8 @@ export function isStrictlyBefore(first: PendingDetermination, second: PendingDet
  */
 export function identifyPendingDeterminationScenario(
   pendingDeterminations: PendingDetermination[],
-): PendingDeterminationScenario | undefined {
-  let earliestScheduled: PendingDetermination | undefined
+): PendingDeterminationScenario | null {
+  let earliestScheduled: PendingDetermination | null = null
 
   // Track whether any of the pendingDetermination objects meet the other scenario criteria.
   let hasAwaitingDecision = false
@@ -78,7 +109,7 @@ export function identifyPendingDeterminationScenario(
         // If we haven't found a pendingDetermination object that is scheduled yet
         // OR the current pendingDetermination object is earlier than the previous one found
         // Then update the earliest found scheduled pendingDetermination object
-        if (!earliestScheduled || isStrictlyBefore(pendingDetermination, earliestScheduled)) {
+        if (!earliestScheduled || isScheduledStrictlyBefore(pendingDetermination, earliestScheduled)) {
           earliestScheduled = pendingDetermination
         }
       }
@@ -116,9 +147,9 @@ export function identifyPendingDeterminationScenario(
     } else if (hasNotYetScheduled) {
       return { scenarioType: ScenarioType.Scenario1 }
     }
-    // Otherwise, no valid pendingDetermination objects; return undefined.
+    // Otherwise, no valid pendingDetermination objects; return null.
     else {
-      return undefined
+      return null
     }
   }
 }
@@ -135,7 +166,7 @@ export function getScenario(claimData: Claim): ScenarioType {
     const pendingDeterminationScenario = identifyPendingDeterminationScenario(claimData.pendingDetermination)
 
     // It's possible to have pending determination objects, but still not be a valid
-    // pending determination scenario, so check to see if the returned object is undefined.
+    // pending determination scenario, so check to see if the returned object is null.
     if (pendingDeterminationScenario) {
       return pendingDeterminationScenario.scenarioType
     }
