@@ -2,6 +2,7 @@ import { PendingDetermination } from '../../types/common'
 import {
   getScenario,
   isDeterminationStatusPending,
+  isScheduledStrictlyBefore,
   NonPendingDeterminationValues,
   ScenarioType,
 } from '../../utils/getScenarioContent'
@@ -115,4 +116,52 @@ describe('Determination Status', () => {
 })
 
 // Test isScheduledStrictlyBefore()
+describe('Comparing pending determination objects', () => {
+  const earlier: PendingDetermination = {
+    pendingDate: '',
+    scheduleDate: '2021-01-01T00:00:00',
+    timeSlotDesc: '',
+    requestDate: '',
+    determinationStatus: '',
+    willCallIndicator: true,
+    spokenLanguageCode: '',
+    spokenLanguageDesc: '',
+  }
+  const laterTime: PendingDetermination = {
+    pendingDate: '',
+    scheduleDate: '2021-01-01T00:00:00',
+    timeSlotDesc: '',
+    requestDate: '',
+    determinationStatus: '',
+    willCallIndicator: true,
+    spokenLanguageCode: '',
+    spokenLanguageDesc: '',
+  }
+  const laterDate: PendingDetermination = {
+    pendingDate: '',
+    scheduleDate: '2021-01-02T00:00:00',
+    timeSlotDesc: '',
+    requestDate: '',
+    determinationStatus: '',
+    willCallIndicator: true,
+    spokenLanguageCode: '',
+    spokenLanguageDesc: '',
+  }
+
+  it('returns true if the first object has an earlier appointment date', () => {
+    const result = isScheduledStrictlyBefore(earlier, laterDate)
+    expect(result).toBe(true)
+  })
+
+  it('returns false if the second object has an earlier appointment date', () => {
+    const result = isScheduledStrictlyBefore(laterDate, earlier)
+    expect(result).toBe(false)
+  })
+
+  it('returns false if the both appointments are scheduled on the same date and neither have a valid time slot', () => {
+    const result = isScheduledStrictlyBefore(earlier, laterTime)
+    expect(result).toBe(false)
+  })
+})
+
 // Test identifyPendingDeterminationScenario()
