@@ -35,7 +35,7 @@ body {
       flex-grow: 0;
     }
 
-    // override bootstrap so we don't wrap the hamburger
+    // override bootstrap so the hamburger menu stays next to EDD logo instead of overflowing to next line
     @media (max-width: 340px) {
       .edd-logo {
         margin-right: 0 !important;
