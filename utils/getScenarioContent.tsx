@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { datetimeInUtc, isDatePast } from './formatDate'
+import { datetimeInUtc, isDatePast, isValidDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -101,7 +101,7 @@ export function identifyPendingDeterminationScenario(
 
   // Loop through all the pendingDetermination objects.
   for (const pendingDetermination of pendingDeterminations) {
-    if (isDeterminationStatusPending(pendingDetermination)) {
+    if (isDeterminationStatusPending(pendingDetermination) && isValidDate(pendingDetermination.scheduleDate)) {
       // Scenario 2:
       // If Determination Status is Pending
       // AND Schedule Date is today or in the future

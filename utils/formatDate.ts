@@ -12,15 +12,22 @@ const pacificTimeZone = 'America/Los_Angeles'
 /**
  * Assume input is in Pacific Time and convert to UTC.
  */
-export function datetimeInUtc(date: string | Date): Date {
+export function datetimeInUtc(date: Date | number | string): Date {
   return zonedTimeToUtc(date, pacificTimeZone)
 }
 
 /**
  * Determine if the date string is valid.
  */
-export function isValidDate(dateString: string): boolean {
-  const date = datetimeInUtc(dateString)
+export function isValidDate(dateOrString: string | Date): boolean {
+  let date: Date
+
+  if (typeof dateOrString === 'string') {
+    date = datetimeInUtc(dateOrString)
+  } else {
+    date = dateOrString
+  }
+
   if (isValid(date)) {
     // Set a min date because it's possible for the date
     // to be '0001-01-01'.
@@ -47,8 +54,12 @@ export function isValidDate(dateString: string): boolean {
  * Determine if the date is in the past.
  */
 export function isDatePast(date: Date): boolean {
-  const today = datetimeInUtc(new Date())
-  return date < today
+  const today = datetimeInUtc(Date.now())
+  if (isValidDate(today) && isValidDate(date)) {
+    return date < today
+  } else {
+    throw new Error('Invalid date')
+  }
 }
 
 /**
