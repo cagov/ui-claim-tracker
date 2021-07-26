@@ -63,7 +63,8 @@ describe('Scenarios 1, 2, 3', () => {
 describe('The Generic Pending scenario (scenario 4)', () => {
   it('is returned as expected', () => {
     const scenarioType = ScenarioType.Scenario4
-    expect(getScenario(apiGatewayStub(scenarioType))).toBe(scenarioType)
+    const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+    expect(scenarioObject.scenarioType).toBe(scenarioType)
   })
 })
 
@@ -72,7 +73,8 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
   it('are returned as expected', () => {
     const baseScenarios = [ScenarioType.Scenario5, ScenarioType.Scenario6]
     for (const scenarioType of baseScenarios) {
-      expect(getScenario(apiGatewayStub(scenarioType))).toBe(scenarioType)
+      const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+      expect(scenarioObject.scenarioType).toBe(scenarioType)
     }
   })
 })

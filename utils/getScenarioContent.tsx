@@ -159,7 +159,7 @@ export function identifyPendingDeterminationScenario(
  *
  * @TODO: Validating the API gateway response #150
  */
-export function getScenario(claimData: Claim): ScenarioType {
+export function getScenario(claimData: Claim): PendingDeterminationScenario {
   // If there are any pendingDetermination objects, the scenario MIGHT be one of the
   // pending determination scenarios.
   if (claimData.pendingDetermination && claimData.pendingDetermination.length > 0) {
@@ -168,7 +168,7 @@ export function getScenario(claimData: Claim): ScenarioType {
     // It's possible to have pending determination objects, but still not be a valid
     // pending determination scenario, so check to see if the returned object is null.
     if (pendingDeterminationScenario) {
-      return pendingDeterminationScenario.scenarioType
+      return pendingDeterminationScenario
     }
   }
 
@@ -178,14 +178,14 @@ export function getScenario(claimData: Claim): ScenarioType {
   // @TODO: Validate that hasPendingWeeks is a boolean
   if (claimData.hasPendingWeeks === true) {
     // @TODO: Validate that hasCertificationWeeks is a boolean
-    return ScenarioType.Scenario4
+    return { scenarioType: ScenarioType.Scenario4 }
   }
   // hasPendingWeeks === false
   else {
     if (claimData.hasCertificationWeeksAvailable === false) {
-      return ScenarioType.Scenario5
+      return { scenarioType: ScenarioType.Scenario5 }
     } else {
-      return ScenarioType.Scenario6
+      return { scenarioType: ScenarioType.Scenario6 }
     }
   }
 }
@@ -212,7 +212,8 @@ export function continueCertifying(scenarioType: ScenarioType, claimData: Claim)
  */
 export default function getScenarioContent(claimData: Claim): ScenarioContent {
   // Get the scenario type.
-  const scenarioType = getScenario(claimData)
+  const scenarioTypeObject = getScenario(claimData)
+  const scenarioType = scenarioTypeObject.scenarioType
 
   // Construct claim status content.
   const statusContent = getClaimStatus(scenarioType, continueCertifying(scenarioType, claimData))
