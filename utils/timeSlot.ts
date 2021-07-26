@@ -27,6 +27,10 @@ export function parseTimeSlot(timeSlot: string): TimeSlot | null {
  * Convert 12 hour time into 24 hour time.
  *
  * Assume that any time earlier than 8 is actually PM.
+ * Time slots are expected to be in this format:
+ * - "10-12"
+ * - "1-3"
+ * - etc
  */
 function convertTo24H(time: number): number {
   if (time < 8) {

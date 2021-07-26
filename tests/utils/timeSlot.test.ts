@@ -14,7 +14,7 @@ describe('A time slot string is', () => {
 
   it('handled if it is improperly formatted', () => {
     const badTimeSlot = parseTimeSlot('not a time slot')
-    expect(badTimeSlot).toBe(undefined)
+    expect(badTimeSlot).toBe(null)
   })
 
   it('handled if the separator is an ndash', () => {
@@ -36,9 +36,9 @@ describe('Comparing time slots results in', () => {
   const earlier = '10-12'
   const later = '1-3'
 
-  it('undefined if both time slots are improperly formatted', () => {
+  it('null if both time slots are improperly formatted', () => {
     const result = isFirstTimeSlotEarlier(bad, bad)
-    expect(result).toBe(undefined)
+    expect(result).toBe(null)
   })
 
   it('the first time slot if only the second time slot is improperly formatted', () => {
