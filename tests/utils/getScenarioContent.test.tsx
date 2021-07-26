@@ -19,8 +19,8 @@ function formatFromApiGateway(date: Date): string {
   return format(date, "yyyy-MM-dd'T'HH:mm:ss")
 }
 
+// Shared mock data.
 function getMockPendingDetermination(): PendingDetermination {
-  // Shared mock data.
   const pendingDetermination: PendingDetermination = {
     pendingDate: '',
     scheduleDate: '',
@@ -31,6 +31,22 @@ function getMockPendingDetermination(): PendingDetermination {
     spokenLanguageCode: '',
     spokenLanguageDesc: '',
   }
+  return pendingDetermination
+}
+
+function getPendingDeterminationWithScheduleDate(offset = 1): PendingDetermination {
+  const pendingDetermination = getMockPendingDetermination()
+  pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
+
+  const today = new Date()
+
+  // By default, this will mock a scheduled pendingDetermination object that has a
+  // schedule date that is tomorrow. Pass in an alternate offset to create different
+  // schedule dates
+  const sometime = today.setDate(today.getDate() + offset)
+  const sometimeUtc = datetimeInUtc(sometime)
+
+  pendingDetermination.scheduleDate = formatFromApiGateway(sometimeUtc)
   return pendingDetermination
 }
 
@@ -184,29 +200,20 @@ describe('The determination interview is invalid if all other Scenario 1 critera
 // Scenario 2
 describe('The determination interview is scheduled (scenario 2)', () => {
   it('when the determination status is pending and there is one pending determination object with a schedule date in the future', () => {
-    const pendingDetermination = getMockPendingDetermination()
-    pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-
-    const today = new Date()
-    const tomorrow = today.setDate(today.getDate() + 1)
-    const tomorrowUtc = datetimeInUtc(tomorrow)
-
-    pendingDetermination.scheduleDate = formatFromApiGateway(tomorrowUtc)
+    // Mock a pending determination object with a schedule date that is tomorrow
+    const pendingDetermination = getPendingDeterminationWithScheduleDate(1)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario2)
   })
 
   it('scheduled (scenario 2) when the determination status is pending and there is one pending determination object with a schedule date of today', () => {
-    const pendingDetermination = getMockPendingDetermination()
-    pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-
-    const today = new Date()
-    const todayUtc = datetimeInUtc(today)
+    // Mock a pending determination object with a schedule date that is now
+    const pendingDetermination = getPendingDeterminationWithScheduleDate(0)
 
     // Mock the result of Date.now() to today at midnight
+    const today = new Date()
     Date.now = jest.fn(() => today.setUTCHours(0, 0, 0, 0))
 
-    pendingDetermination.scheduleDate = formatFromApiGateway(todayUtc)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario2)
   })
@@ -215,14 +222,8 @@ describe('The determination interview is scheduled (scenario 2)', () => {
 // Scenario 3
 describe('The determination interview is awating decision (scenario 3)', () => {
   it('when the determination status is pending and there is one pending determination object with a schedule date in the past', () => {
-    const pendingDetermination = getMockPendingDetermination()
-    pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-
-    const today = new Date()
-    const yesterday = today.setDate(today.getDate() - 1)
-    const yesterdayUtc = datetimeInUtc(yesterday)
-
-    pendingDetermination.scheduleDate = formatFromApiGateway(yesterdayUtc)
+    // Mock a pending determination object with a schedule date that is yesterday
+    const pendingDetermination = getPendingDeterminationWithScheduleDate(-1)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario3)
   })
@@ -250,19 +251,11 @@ describe('When there are multiple pendingDetermination objects, the determinatio
   // Multiple "scheduled" pendingDetermination objects that evaluate
   // to Scenario 2, returns the object with the earliest schedule date
   it('scheduled (scenario 2) if all are scheduled', () => {
-    const appt1 = getMockPendingDetermination()
-    appt1.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const now1 = new Date()
-    const tomorrow = now1.setDate(now1.getDate() + 1)
-    const tomorrowUtc = datetimeInUtc(tomorrow)
-    appt1.scheduleDate = formatFromApiGateway(tomorrowUtc)
+    // Mock a pending determination object with a schedule date that is tomorrow
+    const appt1 = getPendingDeterminationWithScheduleDate(1)
 
-    const appt2 = getMockPendingDetermination()
-    appt2.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const now2 = new Date()
-    const aWeekFromNow = now2.setDate(now2.getDate() + 7)
-    const aWeekFromNowUtc = datetimeInUtc(aWeekFromNow)
-    appt2.scheduleDate = formatFromApiGateway(aWeekFromNowUtc)
+    // Mock a pending determination object with a schedule date that is a week from now
+    const appt2 = getPendingDeterminationWithScheduleDate(7)
 
     const result = identifyPendingDeterminationScenario([appt1, appt2])
     expect(result.scenarioType).toBe(ScenarioType.Scenario2)
@@ -272,19 +265,11 @@ describe('When there are multiple pendingDetermination objects, the determinatio
   // Multiple "awaiting decision" pendingDetermination objects that evaluate
   // to Scenario 3, return Scenario 3.
   it('awaiting decision (scenario 3) if all are awaiting decision', () => {
-    const appt1 = getMockPendingDetermination()
-    appt1.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const now1 = new Date()
-    const yesterday = now1.setDate(now1.getDate() - 1)
-    const yesterdayUtc = datetimeInUtc(yesterday)
-    appt1.scheduleDate = formatFromApiGateway(yesterdayUtc)
+    // Mock a pending determination object with a schedule date that is yesterday
+    const appt1 = getPendingDeterminationWithScheduleDate(-1)
 
-    const appt2 = getMockPendingDetermination()
-    appt2.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const now2 = new Date()
-    const aWeekAgo = now2.setDate(now2.getDate() - 7)
-    const aWeekAgoUtc = datetimeInUtc(aWeekAgo)
-    appt2.scheduleDate = formatFromApiGateway(aWeekAgoUtc)
+    // Mock a pending determination object with a schedule date that is a week ago
+    const appt2 = getPendingDeterminationWithScheduleDate(-7)
 
     const result = identifyPendingDeterminationScenario([appt1, appt2])
     expect(result.scenarioType).toBe(ScenarioType.Scenario3)
@@ -292,19 +277,11 @@ describe('When there are multiple pendingDetermination objects, the determinatio
 
   // If all three types of scenarios are present, then scenario 2 takes priority.
   it('scheduled (scenario 2) if there is a scheduled scenario, awaiting decision scenario, and not yet scheduled scenario', () => {
-    const scheduled = getMockPendingDetermination()
-    scheduled.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const now1 = new Date()
-    const aWeekFromNow = now1.setDate(now1.getDate() + 7)
-    const aWeekFromNowUtc = datetimeInUtc(aWeekFromNow)
-    scheduled.scheduleDate = formatFromApiGateway(aWeekFromNowUtc)
+    // Mock a pending determination object with a schedule date that is a week from now
+    const scheduled = getPendingDeterminationWithScheduleDate(7)
 
-    const awaitingDecision = getMockPendingDetermination()
-    awaitingDecision.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const now2 = new Date()
-    const aWeekAgo = now2.setDate(now2.getDate() - 7)
-    const aWeekAgoUtc = datetimeInUtc(aWeekAgo)
-    awaitingDecision.scheduleDate = formatFromApiGateway(aWeekAgoUtc)
+    // Mock a pending determination object with a schedule date that is a week ago
+    const awaitingDecision = getPendingDeterminationWithScheduleDate(-7)
 
     const notYetScheduled = getMockPendingDetermination()
     notYetScheduled.determinationStatus = ''
@@ -318,12 +295,8 @@ describe('When there are multiple pendingDetermination objects, the determinatio
 
   // If scenarios 1 & 3 are present, then scenario 3 takes priority.
   it('awaiting decision (scenario 3) if there is an awaiting decision scenario and not yet scheduled scenario', () => {
-    const awaitingDecision = getMockPendingDetermination()
-    awaitingDecision.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-    const today = new Date()
-    const aWeekAgo = today.setDate(today.getDate() - 7)
-    const aWeekAgoUtc = datetimeInUtc(aWeekAgo)
-    awaitingDecision.scheduleDate = formatFromApiGateway(aWeekAgoUtc)
+    // Mock a pending determination object with a schedule date that is a week ago
+    const awaitingDecision = getPendingDeterminationWithScheduleDate(-7)
 
     const notYetScheduled = getMockPendingDetermination()
     notYetScheduled.determinationStatus = ''
