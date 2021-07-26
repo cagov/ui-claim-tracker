@@ -17,6 +17,23 @@ export function datetimeInUtc(date: Date | number | string): Date {
 }
 
 /**
+ * Return a string that matches the API gateway format for datetimes.
+ */
+export function formatFromApiGateway(date: Date): string {
+  return format(date, "yyyy-MM-dd'T'HH:mm:ss")
+}
+
+/**
+ * Create a Date object that is offset from today.
+ */
+export function getDateWithOffset(offset = 1): Date {
+  const today = new Date()
+  const sometime = today.setDate(today.getDate() + offset)
+  const sometimeUtc = datetimeInUtc(sometime)
+  return sometimeUtc
+}
+
+/**
  * Determine if the date string is valid.
  */
 export function isValidDate(dateOrString: string | Date): boolean {

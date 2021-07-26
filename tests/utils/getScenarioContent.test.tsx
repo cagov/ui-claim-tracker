@@ -1,5 +1,3 @@
-import { format } from 'date-fns'
-
 import { PendingDetermination } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import {
@@ -10,16 +8,11 @@ import {
   NonPendingDeterminationValues,
   ScenarioType,
 } from '../../utils/getScenarioContent'
-import { datetimeInUtc } from '../../utils/formatDate'
+import { formatFromApiGateway, getDateWithOffset } from '../../utils/formatDate'
 
 /**
- * Test helpers.
+ * Test helpers to create shared mock data.
  */
-function formatFromApiGateway(date: Date): string {
-  return format(date, "yyyy-MM-dd'T'HH:mm:ss")
-}
-
-// Shared mock data.
 function getMockPendingDetermination(): PendingDetermination {
   const pendingDetermination: PendingDetermination = {
     pendingDate: '',
@@ -37,16 +30,7 @@ function getMockPendingDetermination(): PendingDetermination {
 function getPendingDeterminationWithScheduleDate(offset = 1): PendingDetermination {
   const pendingDetermination = getMockPendingDetermination()
   pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-
-  const today = new Date()
-
-  // By default, this will mock a scheduled pendingDetermination object that has a
-  // schedule date that is tomorrow. Pass in an alternate offset to create different
-  // schedule dates
-  const sometime = today.setDate(today.getDate() + offset)
-  const sometimeUtc = datetimeInUtc(sometime)
-
-  pendingDetermination.scheduleDate = formatFromApiGateway(sometimeUtc)
+  pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(offset))
   return pendingDetermination
 }
 
