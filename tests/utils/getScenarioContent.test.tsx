@@ -49,7 +49,7 @@ beforeAll(() => {
  * Refer to ScenarioType and ScenarioTypeNames for which scenario has which number.
  */
 
-// Scenarios 1, 2, 3
+// Scenarios 1, 2, 3 negative identification tests
 describe('Scenarios 1, 2, 3', () => {
   it('are not returned if pendingDetermination is null', () => {
     const pendingDeterminationScenarioNull = { pendingDetermination: null }
@@ -89,7 +89,7 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
 })
 
 /**
- * Test Test identifyPendingDeterminationScenario()
+ * Test identifyPendingDeterminationScenario()
  */
 
 // Scenario 1: Test various values of pendingDetermination.determinationStatus
