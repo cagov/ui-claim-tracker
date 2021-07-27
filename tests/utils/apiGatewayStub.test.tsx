@@ -1,10 +1,41 @@
+import { isDatePast, isValidDate, parseConvertDate } from '../../utils/formatDate'
 import apiGatewayStub from '../../utils/apiGatewayStub'
-import { ScenarioType } from '../../utils/getScenarioContent'
+import { isDeterminationStatusPending, ScenarioType } from '../../utils/getScenarioContent'
 
-describe('The API gateway stub response for the Pending Determination scenario', () => {
-  it('is correct', () => {
+describe('The API gateway stub response for the Determination Interview scenarios', () => {
+  it('is correct for Scenario 1', () => {
     const response = apiGatewayStub(ScenarioType.Scenario1)
-    expect(response.pendingDetermination.length).toBeGreaterThan(0)
+    expect(response.pendingDetermination.length).toBe(1)
+    const pendingDetermination = response.pendingDetermination
+    expect([null, false, undefined, '']).toContain(pendingDetermination.determinationStatus)
+    expect([null, false, undefined, '']).toContain(pendingDetermination.scheduleDate)
+    expect(pendingDetermination.requestDate).not.toBe('')
+  })
+
+  it('is correct for Scenario 2', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario2)
+    expect(response.pendingDetermination.length).toBe(1)
+
+    const pendingDetermination = response.pendingDetermination[0]
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+
+    expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
+
+    const convertedDate = parseConvertDate(pendingDetermination.scheduleDate)
+    expect(isDatePast(convertedDate)).toBe(false)
+  })
+
+  it('is correct for Scenario 3', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario3)
+    expect(response.pendingDetermination.length).toBe(1)
+
+    const pendingDetermination = response.pendingDetermination[0]
+    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+
+    expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
+
+    const convertedDate = parseConvertDate(pendingDetermination.scheduleDate)
+    expect(isDatePast(convertedDate)).toBe(true)
   })
 })
 

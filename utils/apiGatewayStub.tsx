@@ -4,8 +4,9 @@
  * Provides stub responses for API gateway queries for Storybook and Jest testing.
  */
 
-import { ScenarioType } from '../utils/getScenarioContent'
 import { Claim, PendingDetermination } from '../types/common'
+import { ScenarioType } from '../utils/getScenarioContent'
+import { formatFromApiGateway, getDateWithOffset } from '../utils/formatDate'
 
 /**
  * Stub the API gateway response for a given scenario.
@@ -42,7 +43,23 @@ export default function apiGatewayStub(
 
   switch (scenarioType) {
     case ScenarioType.Scenario1:
-      pendingDetermination.determinationStatus = null
+      pendingDetermination.determinationStatus = ''
+      pendingDetermination.scheduleDate = ''
+      pendingDetermination.requestDate = 'not empty'
+      claim.pendingDetermination = [pendingDetermination]
+      claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
+      break
+
+    case ScenarioType.Scenario2:
+      pendingDetermination.determinationStatus = ''
+      pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(7))
+      claim.pendingDetermination = [pendingDetermination]
+      claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
+      break
+
+    case ScenarioType.Scenario3:
+      pendingDetermination.determinationStatus = ''
+      pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(-7))
       claim.pendingDetermination = [pendingDetermination]
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break
