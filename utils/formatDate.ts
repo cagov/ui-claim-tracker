@@ -43,14 +43,6 @@ export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
 }
 
 /**
- * Parse and convert an API gateway string to UTC.
- * @TODO: Delete
- */
-export function parseConvertDate(dateString: ApiGatewayDateString): Date {
-  return parseApiGatewayDate(dateString)
-}
-
-/**
  * Return a string that matches the API gateway format for datetimes.
  */
 export function formatFromApiGateway(date: Date): string {
@@ -75,7 +67,7 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
 
   // If the date format is such that it can't be parsed, then it is definitely invalid.
   try {
-    date = parseConvertDate(dateString)
+    date = parseApiGatewayDate(dateString)
   } catch (error) {
     return false
   }
@@ -117,6 +109,6 @@ export function isDatePast(date: Date): boolean {
  * Does not care if the given dateString is a valid date.
  */
 export default function formatDate(dateString: ApiGatewayDateString): string {
-  const date = parseConvertDate(dateString)
+  const date = parseApiGatewayDate(dateString)
   return format(date, 'M/d/yyyy')
 }

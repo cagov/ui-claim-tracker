@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { isDatePast, isValidDate, parseConvertDate } from './formatDate'
+import { isDatePast, isValidDate, parseApiGatewayDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -60,8 +60,8 @@ export function isDeterminationStatusPending(pendingDetermination: PendingDeterm
  * Assumes that dates have already been checked for validity.
  */
 export function isScheduledStrictlyBefore(first: PendingDetermination, second: PendingDetermination): boolean {
-  const firstScheduleDate = parseConvertDate(first.scheduleDate)
-  const secondScheduleDate = parseConvertDate(second.scheduleDate)
+  const firstScheduleDate = parseApiGatewayDate(first.scheduleDate)
+  const secondScheduleDate = parseApiGatewayDate(second.scheduleDate)
 
   // If the first appointment is scheduled before the second.
   if (firstScheduleDate < secondScheduleDate) {
@@ -106,7 +106,7 @@ export function identifyPendingDeterminationScenario(
       // Scenario 2:
       // If Determination Status is Pending
       // AND Schedule Date is today or in the future
-      if (!isDatePast(parseConvertDate(pendingDetermination.scheduleDate))) {
+      if (!isDatePast(parseApiGatewayDate(pendingDetermination.scheduleDate))) {
         // If we haven't found a pendingDetermination object that is scheduled yet
         // OR the current pendingDetermination object is earlier than the previous one found
         // Then update the earliest found scheduled pendingDetermination object

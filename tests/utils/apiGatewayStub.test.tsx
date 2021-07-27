@@ -1,4 +1,4 @@
-import { isDatePast, isValidDate, parseConvertDate } from '../../utils/formatDate'
+import { isDatePast, isValidDate, parseApiGatewayDate } from '../../utils/formatDate'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import { isDeterminationStatusPending, ScenarioType } from '../../utils/getScenarioContent'
 
@@ -21,7 +21,7 @@ describe('The API gateway stub response for the Determination Interview scenario
 
     expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
 
-    const convertedDate = parseConvertDate(pendingDetermination.scheduleDate)
+    const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
     expect(isDatePast(convertedDate)).toBe(false)
   })
 
@@ -34,7 +34,7 @@ describe('The API gateway stub response for the Determination Interview scenario
 
     expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
 
-    const convertedDate = parseConvertDate(pendingDetermination.scheduleDate)
+    const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
     expect(isDatePast(convertedDate)).toBe(true)
   })
 })
