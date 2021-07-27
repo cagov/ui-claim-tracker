@@ -37,7 +37,7 @@
   "timeout-modal": {
     "header": "Tu sesión terminará pronto",
     "warning": "Para proteger su información, se cerrará la sesión en {{count}} minuto si no continúa",
-    "warning_plural": "Para proteger su información, se cerrará la sesión en {{count}} minutos si no continúa",
+    "warning_plural": "Para proteger su información, se cerrará la sesión en {{count}} minutos si no continúa.",
     "button": "Volver a UI Casa"
   },
   "urls": {

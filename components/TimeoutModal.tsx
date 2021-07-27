@@ -1,3 +1,12 @@
+/**
+ * Component to match EDD's session behavior
+ *
+ * In order to match EDD's session expiration policy, we redirect users back to EDD
+ * login page after REDIRECT_TIMER minutes. We also show this timeout modal
+ * WARNING_DURATION minutes prior to the redirect. X'ing out the modal or clicking
+ * outside it lets the user stay on the page until the redirect.
+ */
+
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import Modal from 'react-bootstrap/Modal'
@@ -12,9 +21,8 @@ export interface TimeoutModalProps {
   timedOut: boolean
 }
 
-export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
+export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrivedFromUioMobile }) => {
   const { t } = useTranslation()
-  const { timedOut, userArrivedFromUioMobile } = props
 
   // handy converter for Minutes -> Milliseconds
   const ONE_MINUTE_MS = 60 * 1000
@@ -37,7 +45,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     }
   })
 
-  function startTimer() {
+  function startTimers() {
     // Show the warning modal for a bit before navigating
     warningTimerId = setTimeout(() => {
       setShowWarningModal(true)
@@ -47,8 +55,8 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
     // And at the end, send back to EDD
     setTimeout(() => {
       if (typeof window !== 'undefined') {
-        const eddLocation = getUrl('edd-log-in')?.concat(encodeURIComponent(window.location.toString()))
-        window.location.href = eddLocation || ''
+        const eddLoginLink = getUrl('edd-log-in')?.concat(encodeURIComponent(window.location.toString()))
+        window.location.href = eddLoginLink || ''
       }
     }, REDIRECT_TIMER * ONE_MINUTE_MS)
   }
@@ -69,7 +77,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = (props) => {
 
   // If the warning modal hasn't shown, kickoff!
   if (!warned) {
-    startTimer()
+    startTimers()
   }
 
   return (
