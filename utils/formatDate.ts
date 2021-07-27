@@ -100,6 +100,7 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
  */
 export function isDatePast(date: Date): boolean {
   const today = new Date()
+  today.setHours(0, 0, 0, 0)
   return date < today
 }
 

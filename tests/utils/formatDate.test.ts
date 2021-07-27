@@ -1,3 +1,5 @@
+import MockDate from 'mockdate'
+
 import formatDate, { isDatePast, isValidDate } from '../../utils/formatDate'
 
 // Test isValidDate()
@@ -17,10 +19,14 @@ describe('Valid dates: A date is', () => {
 
 // Test isDatePast()
 describe('Past dates: A date is', () => {
+  beforeAll(() => {
+    MockDate.set('2020-05-05T00:00:00')
+  })
+
   it('correctly identified as being in the past', () => {
-    const today = new Date()
-    const yesterday = today.setDate(today.getDate() - 1)
-    expect(isDatePast(yesterday)).toBe(true)
+    const date = new Date()
+    date.setDate(date.getDate() - 1)
+    expect(isDatePast(date)).toBe(true)
   })
 
   it('correctly identified as not past if it is today', () => {
@@ -29,9 +35,9 @@ describe('Past dates: A date is', () => {
   })
 
   it('correctly identified as not past if it is in the future', () => {
-    const today = new Date()
-    const tomorrow = today.setDate(today.getDate() + 1)
-    expect(isDatePast(tomorrow)).toBe(false)
+    const date = new Date()
+    date.setDate(date.getDate() + 1)
+    expect(isDatePast(date)).toBe(false)
   })
 })
 

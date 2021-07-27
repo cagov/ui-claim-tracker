@@ -1,3 +1,5 @@
+import MockDate from 'mockdate'
+
 import { PendingDetermination } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import {
@@ -33,6 +35,13 @@ function getPendingDeterminationWithScheduleDate(offset = 1): PendingDeterminati
   pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(offset))
   return pendingDetermination
 }
+
+/**
+ * Setup before all tests.
+ */
+beforeAll(() => {
+  MockDate.set('2020-05-05T00:00:00')
+})
 
 /**
  * Test getScenario()
@@ -195,11 +204,6 @@ describe('The determination interview is scheduled (scenario 2)', () => {
   it('scheduled (scenario 2) when the determination status is pending and there is one pending determination object with a schedule date of today', () => {
     // Mock a pending determination object with a schedule date that is now
     const pendingDetermination = getPendingDeterminationWithScheduleDate(0)
-
-    // Mock the result of Date.now() to today at midnight
-    const today = new Date()
-    Date.now = jest.fn(() => today.setUTCHours(0, 0, 0, 0))
-
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario2)
   })
