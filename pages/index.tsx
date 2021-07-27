@@ -74,7 +74,7 @@ export default function Home({
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
-      <TimeoutModal action="startOrUpdate" timedOut={timedOut} />
+      <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} />
       <Footer />
       {console.dir({ scenarioContent })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
