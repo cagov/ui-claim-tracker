@@ -1,4 +1,4 @@
-import { isFirstTimeSlotEarlier, parseTimeSlot } from '../../utils/timeSlot'
+import { isFirstTimeSlotEarlier, parseTimeSlot, samePeriod } from '../../utils/timeSlot'
 
 // Test parseTimeSlot()
 describe('A time slot string is', () => {
@@ -64,5 +64,26 @@ describe('Comparing time slots results in', () => {
   it('the second time slot if both start at the same time', () => {
     const result = isFirstTimeSlotEarlier(earlier, earlier)
     expect(result).toBe(false)
+  })
+})
+
+// Test samePeriod()
+describe('Two times are', () => {
+  // Shared test values.
+  const eightAm = 8
+  const tenAm = 10
+  const onePm = 1
+  const threePm = 3
+
+  it('the same period if they are both AM', () => {
+    expect(samePeriod(eightAm, tenAm)).toBe(true)
+  })
+
+  it('the same period if they are both PM', () => {
+    expect(samePeriod(onePm, threePm)).toBe(true)
+  })
+
+  it('not the same period if one is AM and one is PM', () => {
+    expect(samePeriod(eightAm, threePm)).toBe(false)
   })
 })

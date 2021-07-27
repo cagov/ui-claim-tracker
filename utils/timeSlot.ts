@@ -30,12 +30,31 @@ export function parseTimeSlot(timeSlot: string): TimeSlot | null {
 }
 
 /**
- * Convert 12 hour time into 24 hour time.
+ * Identify whether a time is AM or PM.
  *
  * Assume that any time earlier than 8 is actually PM.
  */
-function convertTo24H(time: number): number {
-  if (time < 8) {
+export function isAm(time: number): boolean {
+  return time < 8
+}
+
+/**
+ * Identify whether two times are both am, pm, or different.
+ *
+ * Note: "period" is what Unicode calls AM/PM.
+ * See https://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns
+ */
+export function samePeriod(first: number, second: number): boolean {
+  const bothAm = isAm(first) && isAm(second)
+  const bothPm = !isAm(first) && !isAm(second)
+  return bothAm || bothPm
+}
+
+/**
+ * Convert 12 hour time into 24 hour time.
+ */
+export function convertTo24H(time: number): number {
+  if (isAm(time)) {
     return time + 12
   } else {
     return time
