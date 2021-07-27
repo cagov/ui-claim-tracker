@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
               alt={t('header.alt-image-edd')}
               height="60"
               width="171"
-              className="d-inline-block align-top mr-5"
+              className="edd-logo d-inline-block align-top mr-5"
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
