@@ -1,5 +1,10 @@
 /**
  * Utility file to handle time slots for scheduled appointments.
+ *
+ * Time slots are expected to be in this format:
+ * - "10-12"
+ * - "1-3"
+ * - etc
  */
 
 import { TimeSlot } from '../types/common'
@@ -8,7 +13,8 @@ import { TimeSlot } from '../types/common'
  * Parse a time slot from the API gateway.
  */
 export function parseTimeSlot(timeSlot: string): TimeSlot | null {
-  // Time slots are expected to be in the format 10-12.
+  // Time slots are expected to be in the format 10-12,
+  // where the dash can either be a hyphen (-) or an ndash (–) or an mdash (—).
   const match = /(\d+)[-–—](\d+)/.exec(timeSlot)
   if (match) {
     const formattedTimeSlot: TimeSlot = {
@@ -27,10 +33,6 @@ export function parseTimeSlot(timeSlot: string): TimeSlot | null {
  * Convert 12 hour time into 24 hour time.
  *
  * Assume that any time earlier than 8 is actually PM.
- * Time slots are expected to be in this format:
- * - "10-12"
- * - "1-3"
- * - etc
  */
 function convertTo24H(time: number): number {
   if (time < 8) {

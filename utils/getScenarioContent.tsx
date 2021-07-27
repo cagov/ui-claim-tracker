@@ -78,13 +78,8 @@ export function isScheduledStrictlyBefore(first: PendingDetermination, second: P
 
     // It's possible for both time slots to be improperly formatted, in which case it doesn't
     // matter which appointment is said to be first, since they are on the same date.
-    if (!isEarlier) {
-      return false
-    }
     // Otherwise, return the appointment with the earlier time slot start time.
-    else {
-      return isEarlier
-    }
+    return !!isEarlier
   }
 }
 
