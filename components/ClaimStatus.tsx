@@ -27,12 +27,16 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
         <TextLine loading={loading} header text={t(heading)} />
       </div>
       <div className="summary">
-        <TransLine
-          loading={loading}
-          userArrivedFromUioMobile={userArrivedFromUioMobile}
-          i18nKey={summary.i18nKey}
-          links={summary.links}
-        />
+        {summary.map((paragraph, index) => (
+          <div key={index} className="">
+            <TransLine
+              loading={loading}
+              userArrivedFromUioMobile={userArrivedFromUioMobile}
+              i18nKey={paragraph.i18nKey}
+              links={paragraph.links}
+            />
+          </div>
+        ))}
       </div>
       <NextSteps
         loading={loading}

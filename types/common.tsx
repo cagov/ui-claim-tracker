@@ -54,7 +54,7 @@ export interface TimeSlot {
 
 export interface ClaimStatusContent {
   heading: I18nString
-  summary: TransLineContent
+  summary: TransLineContent[]
   yourNextSteps: TransLineContent[]
   eddNextSteps: TransLineContent[]
 }

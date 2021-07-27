@@ -10,7 +10,7 @@ type StepType = 'your-next-steps' | 'edd-next-steps'
 
 interface ClaimStatusScenarioJson {
   heading: string
-  summary: TextOptionalLink
+  summary: TextOptionalLink[]
   'your-next-steps': TextOptionalLink[]
   'edd-next-steps': TextOptionalLink[]
 }
@@ -64,9 +64,14 @@ function buildI18nKey(keys: string[]): I18nString {
 export function buildClaimStatusSummary(
   scenarioObject: ClaimStatusScenarioJson,
   scenarioString: string,
-): TransLineContent {
-  const keys = ['scenarios', scenarioString, 'summary']
-  return buildTransLineContent(scenarioObject.summary, buildI18nKey(keys))
+): TransLineContent[] {
+  const summaryParagraphs: TransLineContent[] = []
+  const json = scenarioObject.summary
+  for (const [index, value] of json.entries()) {
+    const keys = ['scenarios', scenarioString, 'summary', index.toString()]
+    summaryParagraphs.push(buildTransLineContent(value, buildI18nKey(keys)))
+  }
+  return summaryParagraphs
 }
 
 /**
