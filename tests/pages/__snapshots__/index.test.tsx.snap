@@ -96,7 +96,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
         >
           <img
             alt="EDD Employment Development Department State of California Home"
-            className="d-inline-block align-top mr-5"
+            className="edd-logo d-inline-block align-top mr-5"
             height="60"
             src="/claimstatus/images/edd-logo-2-Color.svg"
             width="171"
