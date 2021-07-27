@@ -4,10 +4,19 @@
  * Because this is a State of California application, we assume all times are
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
-import { format, isValid } from 'date-fns'
+import { format, isValid, parse } from 'date-fns'
 import { zonedTimeToUtc } from 'date-fns-tz'
+import { ApiGatewayDateString } from '../types/common'
 
 const pacificTimeZone = 'America/Los_Angeles'
+const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+/**
+ * Parse a date string from the API gateway.
+ */
+export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
+  return parse(dateString, apiGatewayFormat, new Date())
+}
 
 /**
  * Assume input is in Pacific Time and convert to UTC.
@@ -17,10 +26,18 @@ export function datetimeInUtc(date: Date | number | string): Date {
 }
 
 /**
+ * Parse and convert an API gateway string to UTC.
+ */
+export function parseConvertDate(dateString: ApiGatewayDateString): Date {
+  const parsedDate = parseApiGatewayDate(dateString)
+  return datetimeInUtc(parsedDate)
+}
+
+/**
  * Return a string that matches the API gateway format for datetimes.
  */
 export function formatFromApiGateway(date: Date): string {
-  return format(date, "yyyy-MM-dd'T'HH:mm:ss")
+  return format(date, apiGatewayFormat)
 }
 
 /**
@@ -36,13 +53,15 @@ export function getDateWithOffset(offset = 1): Date {
 /**
  * Determine if the date string is valid.
  */
-export function isValidDate(dateOrString: string | Date): boolean {
+export function isValidDate(dateString: ApiGatewayDateString): boolean {
   let date: Date
 
-  if (typeof dateOrString === 'string') {
-    date = datetimeInUtc(dateOrString)
-  } else {
-    date = dateOrString
+  // If the date format is such that it can't be parsed and converted to UTC,
+  // then it is definitely invalid.
+  try {
+    date = parseConvertDate(dateString)
+  } catch (error) {
+    return false
   }
 
   if (isValid(date)) {
@@ -69,20 +88,20 @@ export function isValidDate(dateOrString: string | Date): boolean {
 
 /**
  * Determine if the date is in the past.
+ *
+ * Assumes that the given date is a valid date.
  */
 export function isDatePast(date: Date): boolean {
   const today = datetimeInUtc(Date.now())
-  if (isValidDate(today) && isValidDate(date)) {
-    return date < today
-  } else {
-    throw new Error('Invalid date')
-  }
+  return date < today
 }
 
 /**
  * Format dates for user-facing display.
+ *
+ * Does not care if the given dateString is a valid date.
  */
-export default function formatDate(dateString: string): string {
-  const parsedDate = datetimeInUtc(dateString)
-  return format(parsedDate, 'M/d/yyyy')
+export default function formatDate(dateString: ApiGatewayDateString): string {
+  const date = parseConvertDate(dateString)
+  return format(date, 'M/d/yyyy')
 }

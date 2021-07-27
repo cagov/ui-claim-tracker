@@ -1,5 +1,6 @@
 // Type aliases
 export type I18nString = string
+export type ApiGatewayDateString = string
 
 // Types for TransLine component
 export interface TransLineContent {

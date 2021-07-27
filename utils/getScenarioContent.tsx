@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { datetimeInUtc, isDatePast, isValidDate } from './formatDate'
+import { isDatePast, isValidDate, parseConvertDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -57,10 +57,11 @@ export function isDeterminationStatusPending(pendingDetermination: PendingDeterm
  * Identify whether the first pendingDetermination object is scheduled before the second object.
  *
  * If both arguments are scheduled at the same time, this will return false.
+ * Assumes that dates have already been checked for validity.
  */
 export function isScheduledStrictlyBefore(first: PendingDetermination, second: PendingDetermination): boolean {
-  const firstScheduleDate = datetimeInUtc(first.scheduleDate)
-  const secondScheduleDate = datetimeInUtc(second.scheduleDate)
+  const firstScheduleDate = parseConvertDate(first.scheduleDate)
+  const secondScheduleDate = parseConvertDate(second.scheduleDate)
 
   // If the first appointment is scheduled before the second.
   if (firstScheduleDate < secondScheduleDate) {
@@ -105,7 +106,7 @@ export function identifyPendingDeterminationScenario(
       // Scenario 2:
       // If Determination Status is Pending
       // AND Schedule Date is today or in the future
-      if (!isDatePast(datetimeInUtc(pendingDetermination.scheduleDate))) {
+      if (!isDatePast(parseConvertDate(pendingDetermination.scheduleDate))) {
         // If we haven't found a pendingDetermination object that is scheduled yet
         // OR the current pendingDetermination object is earlier than the previous one found
         // Then update the earliest found scheduled pendingDetermination object
