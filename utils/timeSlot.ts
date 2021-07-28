@@ -7,7 +7,7 @@
  * - etc
  */
 
-import { TimeSlot } from '../types/common'
+import { I18nString, TimeSlot } from '../types/common'
 
 /**
  * Parse a time slot from the API gateway.
@@ -32,10 +32,21 @@ export function parseTimeSlot(timeSlot: string): TimeSlot | null {
 /**
  * Identify whether a time is AM or PM.
  *
- * Assume that any time earlier than 8 is actually PM.
+ * AM = 8 (inclusive) up to 12 (not inclusive)
  */
 export function isAm(time: number): boolean {
-  return time < 8
+  return time < 12 && time >= 8
+}
+
+/**
+ * Return the I18nString for AM/PM.
+ */
+export function identifyI18nPeriod(time: number): I18nString {
+  if (isAm(time)) {
+    return 'time.am'
+  } else {
+    return 'time.pm'
+  }
 }
 
 /**
@@ -54,10 +65,10 @@ export function samePeriod(first: number, second: number): boolean {
  * Convert 12 hour time into 24 hour time.
  */
 export function convertTo24H(time: number): number {
-  if (isAm(time)) {
-    return time + 12
-  } else {
+  if (isAm(time) || time === 12) {
     return time
+  } else {
+    return time + 12
   }
 }
 
