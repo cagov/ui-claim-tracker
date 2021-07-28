@@ -3,8 +3,9 @@
  * for global code (such as CSS imports or JavaScript mocks) that applies to all stories.
  */
 import '../styles/globals.scss'
-import { I18nextProvider, initReactI18next } from 'react-i18next'
 import i18n from 'i18next'
+import { I18nextProvider, initReactI18next } from 'react-i18next'
+import { withI18next } from 'storybook-addon-i18next'
 
 import enCommon from '../public/locales/en/common.json'
 import enClaimDetails from '../public/locales/en/claim-details.json'
@@ -55,4 +56,6 @@ export const decorators = [
 
     return <Story />
   },
+  // Enable language support in Storybook using storybook-addon-i18n.
+  withI18next({ i18n, languages: { en: 'English', es: 'Español' } }),
 ]
