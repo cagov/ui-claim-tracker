@@ -53,6 +53,7 @@ export default function apiGatewayStub(
     case ScenarioType.Scenario2:
       pendingDetermination.determinationStatus = ''
       pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(7))
+      pendingDetermination.timeSlotDesc = '1-3'
       claim.pendingDetermination = [pendingDetermination]
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break

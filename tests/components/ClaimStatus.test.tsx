@@ -1,11 +1,27 @@
+import MockDate from 'mockdate'
 import renderer from 'react-test-renderer'
 
 import { ClaimStatus } from '../../components/ClaimStatus'
-import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
+import { Appointment, ClaimStatusContent } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
-import { ClaimStatusContent } from '../../types/common'
+import { getDateWithOffset } from '../../utils/formatDate'
+import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 
-function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArrivedFromUioMobile: boolean): string {
+/**
+ * Helper functions.
+ */
+
+function renderClaimStatusComponent(
+  statusContent: ClaimStatusContent,
+  userArrivedFromUioMobile: boolean,
+  appointment: Appointment | null = null,
+): string {
+  // Optionally override the appointment.
+  let appointmentToRender = statusContent.appointment
+  if (appointment) {
+    appointmentToRender = appointment
+  }
+
   return renderer
     .create(
       <ClaimStatus
@@ -15,6 +31,7 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArriv
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
         eddNextSteps={statusContent.eddNextSteps}
+        appointment={appointmentToRender}
       />,
     )
     .toJSON()
@@ -22,11 +39,12 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArriv
 
 function testClaimStatus(
   scenarioType: ScenarioType,
-  hasCertificationWeeksAvailable: boolean,
-  userArrivedFromUioMobile: boolean,
+  hasCertificationWeeksAvailable = false,
+  userArrivedFromUioMobile = false,
+  appointment: Appointment | null = null,
 ): string {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType, hasCertificationWeeksAvailable))
-  return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)
+  return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile, appointment)
 }
 
 /**
@@ -114,5 +132,65 @@ describe('Scenario 6', () => {
   })
   it('matches, on mobile', () => {
     expect(testClaimStatus(ScenarioType.Scenario6, true, true)).toMatchSnapshot()
+  })
+})
+
+/**
+ * Appointment snapshot tests.
+ */
+describe('If given an appointment', () => {
+  beforeAll(() => {
+    MockDate.set('2021-05-05')
+  })
+
+  it('with no time slot, then match the snapshot', () => {
+    const appointment = {
+      date: getDateWithOffset(0),
+    }
+    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
+  })
+
+  it('with a morning time slot, then match the snapshot', () => {
+    const appointment = {
+      date: getDateWithOffset(0),
+      timeSlot: {
+        rangeStart: 8,
+        rangeEnd: 10,
+      },
+    }
+    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
+  })
+
+  it('with an afternoon time slot, then match the snapshot', () => {
+    const appointment = {
+      date: getDateWithOffset(0),
+      timeSlot: {
+        rangeStart: 1,
+        rangeEnd: 3,
+      },
+    }
+    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
+  })
+
+  it('with a time slot that starts in the morning and ends in the afternoon, then match the snapshot', () => {
+    const appointment = {
+      date: getDateWithOffset(0),
+      timeSlot: {
+        rangeStart: 8,
+        rangeEnd: 3,
+      },
+    }
+    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
+  })
+
+  it('with a time slot that has a nonsense time range, then match the snapshot', () => {
+    const appointment = {
+      date: getDateWithOffset(0),
+      timeSlot: {
+        rangeStart: 3,
+        rangeEnd: 9,
+      },
+    }
+    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
   })
 })

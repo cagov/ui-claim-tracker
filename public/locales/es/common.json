@@ -40,6 +40,14 @@
     "warning_plural": "Para proteger su información, se cerrará la sesión en {{count}} minutos si no continúa.",
     "button": "Volver a UI Casa"
   },
+  "time": {
+    "between": "entre",
+    "from-mixed-times": "de",
+    "and": "a",
+    "am": "a.m.",
+    "pm": "p.m.",
+    "pacific-time": "hora del Pacífico"
+  },
   "urls": {
     "edd": {
       "ui-certify": "https://edd.ca.gov/Unemployment/certify-espanol.htm",

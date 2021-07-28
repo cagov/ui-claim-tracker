@@ -15,8 +15,7 @@
 import { isValid } from 'date-fns'
 import { format, toDate, utcToZonedTime } from 'date-fns-tz'
 import enUS from 'date-fns/locale/en-US'
-import { ApiGatewayDateString, LocaleString } from '../types/common'
-import { samePeriod } from './timeSlot'
+import { ApiGatewayDateString } from '../types/common'
 
 const pacificTimeZone = 'America/Los_Angeles'
 const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
