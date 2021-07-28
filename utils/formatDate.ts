@@ -12,9 +12,11 @@
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
 
-import { format, isValid } from 'date-fns'
-import { toDate } from 'date-fns-tz'
-import { ApiGatewayDateString } from '../types/common'
+import { isValid } from 'date-fns'
+import { format, toDate, utcToZonedTime } from 'date-fns-tz'
+import enUS from 'date-fns/locale/en-US'
+import { ApiGatewayDateString, LocaleString } from '../types/common'
+import { samePeriod } from './timeSlot'
 
 const pacificTimeZone = 'America/Los_Angeles'
 const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -102,6 +104,16 @@ export function isDatePast(date: Date): boolean {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
   return date < today
+}
+
+/**
+ * Format appointment.
+ */
+export function formatAppointmentDate(date: Date): string {
+  const dateFormat = 'EEEE, LLLL d, yyyy'
+  const convertedDate = utcToZonedTime(date, pacificTimeZone)
+  const formattedDate = format(convertedDate, dateFormat, { locale: enUS, timeZone: pacificTimeZone })
+  return formattedDate
 }
 
 /**
