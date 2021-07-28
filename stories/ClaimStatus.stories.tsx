@@ -12,9 +12,7 @@ const Template: Story<ClaimStatusProps> = (args) => <ClaimStatusComponent {...ar
 export const ClaimStatus = Template.bind({})
 ClaimStatus.args = {
   heading: 'claim-status:scenarios.scenario4.heading',
-  summary: {
-    i18nKey: 'claim-status:scenarios.scenario4.summary.text',
-  },
+  summary: [{ i18nKey: 'claim-status:scenarios.scenario4.summary.text' }],
   yourNextSteps: [{ i18nKey: 'claim-status:scenarios.scenario4.your-next-steps.0.text' }],
   eddNextSteps: [{ i18nKey: 'claim-status:scenarios.scenario4.edd-next-steps.0.text' }],
 }

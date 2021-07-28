@@ -5,8 +5,8 @@
  * shown in the Claim Tracker to the user.
  */
 
-import { format, parse } from 'date-fns'
 import { ClaimDetailsContent, ClaimDetailsResult, I18nString } from '../types/common'
+import formatDate from './formatDate'
 
 export interface ProgramType {
   [key: string]: string
@@ -86,14 +86,6 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
   }
   // If no known mapping is found, throw an error.
   throw new Error('Unknown Program Type')
-}
-
-/**
- * Format dates.
- */
-export function formatDate(dateString: string): string {
-  const parsedDate = parse(dateString, "yyyy-MM-dd'T'HH:mm:ss", new Date())
-  return format(parsedDate, 'M/d/yyyy')
 }
 
 /**

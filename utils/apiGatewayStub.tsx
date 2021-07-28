@@ -4,8 +4,9 @@
  * Provides stub responses for API gateway queries for Storybook and Jest testing.
  */
 
+import { Claim, PendingDetermination } from '../types/common'
 import { ScenarioType } from '../utils/getScenarioContent'
-import { Claim } from '../types/common'
+import { formatFromApiGateway, getDateWithOffset } from '../utils/formatDate'
 
 /**
  * Stub the API gateway response for a given scenario.
@@ -24,6 +25,17 @@ export default function apiGatewayStub(
     pendingDetermination: null,
   }
 
+  const pendingDetermination: PendingDetermination = {
+    pendingDate: '',
+    scheduleDate: '',
+    timeSlotDesc: '',
+    requestDate: '',
+    determinationStatus: '',
+    willCallIndicator: false,
+    spokenLanguageCode: '',
+    spokenLanguageDesc: '',
+  }
+
   // If this is a known scenarioType, set a uniqueNumber.
   if (scenarioType in ScenarioType) {
     claim.uniqueNumber = '12345'
@@ -31,7 +43,24 @@ export default function apiGatewayStub(
 
   switch (scenarioType) {
     case ScenarioType.Scenario1:
-      claim.pendingDetermination = [{ determinationStatus: null }]
+      pendingDetermination.determinationStatus = ''
+      pendingDetermination.scheduleDate = ''
+      pendingDetermination.requestDate = 'not empty'
+      claim.pendingDetermination = [pendingDetermination]
+      claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
+      break
+
+    case ScenarioType.Scenario2:
+      pendingDetermination.determinationStatus = ''
+      pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(7))
+      claim.pendingDetermination = [pendingDetermination]
+      claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
+      break
+
+    case ScenarioType.Scenario3:
+      pendingDetermination.determinationStatus = ''
+      pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(-7))
+      claim.pendingDetermination = [pendingDetermination]
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break
 

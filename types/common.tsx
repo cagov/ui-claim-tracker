@@ -1,5 +1,6 @@
 // Type aliases
 export type I18nString = string
+export type ApiGatewayDateString = string
 
 // Types for TransLine component
 export interface TransLineContent {
@@ -15,7 +16,14 @@ export interface TextOptionalLink {
 
 // Types for API gateway result
 export interface PendingDetermination {
-  determinationStatus?: null | undefined | string
+  pendingDate: string
+  scheduleDate: string
+  timeSlotDesc: string
+  requestDate: string
+  determinationStatus?: string | null | undefined
+  willCallIndicator: boolean
+  spokenLanguageCode: string
+  spokenLanguageDesc: string
 }
 
 export interface ClaimDetailsResult {
@@ -35,13 +43,18 @@ export interface Claim {
   claimDetails?: null | ClaimDetailsResult
   hasPendingWeeks?: null | undefined | boolean
   hasCertificationWeeksAvailable?: null | undefined | boolean
-  pendingDetermination?: null | [PendingDetermination]
+  pendingDetermination?: null | PendingDetermination[]
 }
 
 // Types for Claim Status and Claim Details
+export interface TimeSlot {
+  rangeStart: number
+  rangeEnd: number
+}
+
 export interface ClaimStatusContent {
   heading: I18nString
-  summary: TransLineContent
+  summary: TransLineContent[]
   yourNextSteps: TransLineContent[]
   eddNextSteps: TransLineContent[]
 }

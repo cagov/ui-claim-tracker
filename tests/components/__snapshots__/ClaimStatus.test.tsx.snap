@@ -19,7 +19,11 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
   <div
     className="summary"
   >
-    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    <div
+      className=""
+    >
+      We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -115,7 +119,11 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
   <div
     className="summary"
   >
-    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    <div
+      className=""
+    >
+      We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -211,7 +219,11 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
   <div
     className="summary"
   >
-    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    <div
+      className=""
+    >
+      We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -296,7 +308,11 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = 
   <div
     className="summary"
   >
-    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    <div
+      className=""
+    >
+      We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -381,7 +397,11 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
   <div
     className="summary"
   >
-    We identified an issue and may need to determine your eligibility or verify your information.
+    <div
+      className=""
+    >
+      We identified an issue and may need to determine your eligibility or verify your information.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -489,7 +509,11 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
   <div
     className="summary"
   >
-    We identified an issue and may need to determine your eligibility or verify your information.
+    <div
+      className=""
+    >
+      We identified an issue and may need to determine your eligibility or verify your information.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -597,7 +621,11 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
   <div
     className="summary"
   >
-    We identified an issue and may need to determine your eligibility or verify your information.
+    <div
+      className=""
+    >
+      We identified an issue and may need to determine your eligibility or verify your information.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -694,7 +722,11 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
   <div
     className="summary"
   >
-    We identified an issue and may need to determine your eligibility or verify your information.
+    <div
+      className=""
+    >
+      We identified an issue and may need to determine your eligibility or verify your information.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -791,7 +823,11 @@ exports[`Scenario 5 matches, on desktop 1`] = `
   <div
     className="summary"
   >
-    You currently have no weeks available to certify for benefits.
+    <div
+      className=""
+    >
+      You currently have no weeks available to certify for benefits.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -883,7 +919,11 @@ exports[`Scenario 5 matches, on mobile 1`] = `
   <div
     className="summary"
   >
-    You currently have no weeks available to certify for benefits.
+    <div
+      className=""
+    >
+      You currently have no weeks available to certify for benefits.
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -975,13 +1015,17 @@ exports[`Scenario 6 matches, on desktop 1`] = `
   <div
     className="summary"
   >
-    You have weeks available to 
-    <a
-      href="https://edd.ca.gov/Unemployment/certify.htm"
+    <div
+      className=""
     >
-      certify for benefits
-    </a>
-    .
+      You have weeks available to 
+      <a
+        href="https://edd.ca.gov/Unemployment/certify.htm"
+      >
+        certify for benefits
+      </a>
+      .
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
@@ -1065,13 +1109,17 @@ exports[`Scenario 6 matches, on mobile 1`] = `
   <div
     className="summary"
   >
-    You have weeks available to 
-    <a
-      href="https://edd.ca.gov/Unemployment/certify.htm"
+    <div
+      className=""
     >
-      certify for benefits
-    </a>
-    .
+      You have weeks available to 
+      <a
+        href="https://edd.ca.gov/Unemployment/certify.htm"
+      >
+        certify for benefits
+      </a>
+      .
+    </div>
   </div>
   <div
     className="next-steps claim-subsection"
