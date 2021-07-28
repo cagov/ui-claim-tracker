@@ -149,7 +149,11 @@ export function buildNextSteps(
 /**
  * Get combined Claim Status content.
  */
-export default function getClaimStatus(scenarioType: ScenarioType, continueCertifying: boolean): ClaimStatusContent {
+export default function getClaimStatus(
+  scenarioType: ScenarioType,
+  continueCertifying: boolean,
+  pendingDetermination: PendingDetermination | undefined,
+): ClaimStatusContent {
   // Explicitly cast the scenario string (e.g. scenario1, scenario2) into the union of literal types
   // expected by Typescript. scenarioString must be one of the key names in claimStatusJson.scenarios
   // or this won't compile. For a very good explanation of `keyof typeof` Typescript's and union of
@@ -164,5 +168,6 @@ export default function getClaimStatus(scenarioType: ScenarioType, continueCerti
     summary: buildClaimStatusSummary(scenarioObject, scenarioString),
     yourNextSteps: buildNextSteps(scenarioObject, scenarioString, 'your-next-steps', continueCertifying),
     eddNextSteps: buildNextSteps(scenarioObject, scenarioString, 'edd-next-steps'),
+    appointment: buildAppointment(scenarioType, pendingDetermination),
   }
 }

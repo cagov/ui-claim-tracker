@@ -62,6 +62,7 @@ export interface ClaimStatusContent {
   summary: TransLineContent[]
   yourNextSteps: TransLineContent[]
   eddNextSteps: TransLineContent[]
+  appointment: null | Appointment
 }
 
 export interface ClaimDetailsContent {

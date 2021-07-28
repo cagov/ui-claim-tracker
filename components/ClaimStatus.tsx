@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import { NextSteps } from './NextSteps'
 import { TextLine } from './TextLine'
 import { TransLine } from './TransLine'
-import { ClaimStatusContent } from '../types/common'
+import { Appointment, ClaimStatusContent } from '../types/common'
 
 export interface ClaimStatusProps extends ClaimStatusContent {
   loading: boolean
@@ -17,6 +17,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
   summary,
   yourNextSteps,
   eddNextSteps,
+  appointment,
 }) => {
   const { t } = useTranslation(['common', 'claim-status'])
 

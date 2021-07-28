@@ -212,7 +212,11 @@ export default function getScenarioContent(claimData: Claim): ScenarioContent {
   const scenarioType = scenarioTypeObject.scenarioType
 
   // Construct claim status content.
-  const statusContent = getClaimStatus(scenarioType, continueCertifying(scenarioType, claimData))
+  const statusContent = getClaimStatus(
+    scenarioType,
+    continueCertifying(scenarioType, claimData),
+    scenarioTypeObject.pendingDetermination,
+  )
 
   // Construct claim details content.
   if (!claimData.claimDetails) {
