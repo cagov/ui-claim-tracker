@@ -52,6 +52,11 @@ export interface TimeSlot {
   rangeEnd: number
 }
 
+export interface Appointment {
+  date: Date
+  timeSlot?: TimeSlot
+}
+
 export interface ClaimStatusContent {
   heading: I18nString
   summary: TransLineContent[]

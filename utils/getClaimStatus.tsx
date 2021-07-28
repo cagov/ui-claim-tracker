@@ -2,9 +2,18 @@
  * Utility file to get content for the Claim Status section.
  */
 
-import claimStatusJson from '../public/locales/en/claim-status.json'
-import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineContent } from '../types/common'
+import { parseApiGatewayDate } from './formatDate'
 import { ScenarioType } from './getScenarioContent'
+import { parseTimeSlot } from './timeSlot'
+import claimStatusJson from '../public/locales/en/claim-status.json'
+import {
+  Appointment,
+  ClaimStatusContent,
+  I18nString,
+  PendingDetermination,
+  TextOptionalLink,
+  TransLineContent,
+} from '../types/common'
 
 type StepType = 'your-next-steps' | 'edd-next-steps'
 
@@ -56,6 +65,36 @@ export function buildTransLineContent(json: TextOptionalLink, i18nKey: I18nStrin
  */
 function buildI18nKey(keys: string[]): I18nString {
   return 'claim-status:' + keys.join('.') + '.text'
+}
+
+/**
+ * Construct Scenario 2 appointment date & time.
+ *
+ * Expects a valid pendingDetermination.scheduleDate.
+ * Will validate the pendingDetermination.timeSlotDesc.
+ */
+export function buildAppointment(
+  scenarioType: ScenarioType,
+  pendingDetermination: PendingDetermination | undefined,
+): Appointment | null {
+  // Return an appointment only if:
+  // - this is scenario 2
+  // - AND there is a pendingDetermination object
+  if (scenarioType === ScenarioType.Scenario2 && pendingDetermination) {
+    const parsedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
+    const appointment: Appointment = {
+      date: parsedDate,
+    }
+
+    const timeSlot = parseTimeSlot(pendingDetermination.timeSlotDesc)
+    if (timeSlot) {
+      appointment.timeSlot = timeSlot
+    }
+
+    return appointment
+  } else {
+    return null
+  }
 }
 
 /**

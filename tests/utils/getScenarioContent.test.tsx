@@ -1,5 +1,6 @@
 import MockDate from 'mockdate'
 
+import { getMockPendingDetermination, getPendingDeterminationWithScheduleDate } from '../testHelpers'
 import { PendingDetermination } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import {
@@ -10,31 +11,6 @@ import {
   NonPendingDeterminationValues,
   ScenarioType,
 } from '../../utils/getScenarioContent'
-import { formatFromApiGateway, getDateWithOffset } from '../../utils/formatDate'
-
-/**
- * Test helpers to create shared mock data.
- */
-function getMockPendingDetermination(): PendingDetermination {
-  const pendingDetermination: PendingDetermination = {
-    pendingDate: '',
-    scheduleDate: '',
-    timeSlotDesc: '',
-    requestDate: '',
-    determinationStatus: '',
-    willCallIndicator: false,
-    spokenLanguageCode: '',
-    spokenLanguageDesc: '',
-  }
-  return pendingDetermination
-}
-
-function getPendingDeterminationWithScheduleDate(offset = 1): PendingDetermination {
-  const pendingDetermination = getMockPendingDetermination()
-  pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-  pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(offset))
-  return pendingDetermination
-}
 
 /**
  * Setup before all tests.
