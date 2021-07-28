@@ -1,4 +1,5 @@
 import renderer from 'react-test-renderer'
+
 import { ClaimStatus } from '../../components/ClaimStatus'
 import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 import apiGatewayStub from '../../utils/apiGatewayStub'
@@ -28,6 +29,10 @@ function testClaimStatus(
   return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)
 }
 
+/**
+ * Scenario snapshot tests.
+ */
+
 describe('Scenario 1', () => {
   it('matches when there are weeks to certify, on desktop', () => {
     expect(testClaimStatus(ScenarioType.Scenario1, true)).toMatchSnapshot()
@@ -41,6 +46,38 @@ describe('Scenario 1', () => {
   })
   it("matches when there aren't weeks to certify, on mobile", () => {
     expect(testClaimStatus(ScenarioType.Scenario1, false, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 2', () => {
+  it('matches when there are weeks to certify, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario2, true)).toMatchSnapshot()
+  })
+  it('matches when there are weeks to certify, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario2, true, true)).toMatchSnapshot()
+  })
+
+  it("matches when there aren't weeks to certify, on desktop", () => {
+    expect(testClaimStatus(ScenarioType.Scenario2, false)).toMatchSnapshot()
+  })
+  it("matches when there aren't weeks to certify, on mobile", () => {
+    expect(testClaimStatus(ScenarioType.Scenario2, false, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 3', () => {
+  it('matches when there are weeks to certify, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario3, true)).toMatchSnapshot()
+  })
+  it('matches when there are weeks to certify, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario3, true, true)).toMatchSnapshot()
+  })
+
+  it("matches when there aren't weeks to certify, on desktop", () => {
+    expect(testClaimStatus(ScenarioType.Scenario3, false)).toMatchSnapshot()
+  })
+  it("matches when there aren't weeks to certify, on mobile", () => {
+    expect(testClaimStatus(ScenarioType.Scenario3, false, true)).toMatchSnapshot()
   })
 })
 

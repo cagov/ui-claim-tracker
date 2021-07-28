@@ -378,6 +378,838 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = 
 </div>
 `;
 
+exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Phone Interview Scheduled
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
+    </div>
+    <div
+      className="appointment"
+    >
+      <span
+        className="text-line"
+      >
+        Tuesday, August 3, 2021, between 1–3 p.m. Pacific time
+      </span>
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you miss your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Continue to 
+          <a
+            href="https://edd.ca.gov/Unemployment/certify.htm"
+          >
+            certify for benefits
+          </a>
+           while we determine your eligibility.
+        </li>
+        <li
+          className="next-step"
+        >
+          Confirm we have your current phone number. Go to the 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          , select 
+          <strong>
+            Profile
+          </strong>
+           from the main menu, then select 
+          <strong>
+            Contact Information
+          </strong>
+          .
+        </li>
+        <li
+          className="next-step"
+        >
+          Prepare for the interview. The 
+          &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+           (DE 4800) includes the questions the interviewer is most likely to ask.
+        </li>
+        <li
+          className="next-step"
+        >
+          If you need to reschedule your interview, select 
+          <strong>
+            Reschedule
+          </strong>
+           in the Appointments section on your 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          . You must reschedule at least one day before the interview.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Phone Interview Scheduled
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
+    </div>
+    <div
+      className="appointment"
+    >
+      <span
+        className="text-line"
+      >
+        Tuesday, August 3, 2021, between 1–3 p.m. Pacific time
+      </span>
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you miss your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Continue to 
+          <a
+            href="https://edd.ca.gov/Unemployment/certify.htm"
+          >
+            certify for benefits
+          </a>
+           while we determine your eligibility.
+        </li>
+        <li
+          className="next-step"
+        >
+          Confirm we have your current phone number. Go to the 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          , select 
+          <strong>
+            Profile
+          </strong>
+           from the main menu, then select 
+          <strong>
+            Contact Information
+          </strong>
+          .
+        </li>
+        <li
+          className="next-step"
+        >
+          Prepare for the interview. The 
+          &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+           (DE 4800) includes the questions the interviewer is most likely to ask.
+        </li>
+        <li
+          className="next-step"
+        >
+          If you need to reschedule your interview, select 
+          <strong>
+            Reschedule
+          </strong>
+           in the Appointments section on your 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          . You must reschedule at least one day before the interview.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Phone Interview Scheduled
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
+    </div>
+    <div
+      className="appointment"
+    >
+      <span
+        className="text-line"
+      >
+        Tuesday, August 3, 2021, between 1–3 p.m. Pacific time
+      </span>
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you miss your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Confirm we have your current phone number. Go to the 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          , select 
+          <strong>
+            Profile
+          </strong>
+           from the main menu, then select 
+          <strong>
+            Contact Information
+          </strong>
+          .
+        </li>
+        <li
+          className="next-step"
+        >
+          Prepare for the interview. The 
+          &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+           (DE 4800) includes the questions the interviewer is most likely to ask.
+        </li>
+        <li
+          className="next-step"
+        >
+          If you need to reschedule your interview, select 
+          <strong>
+            Reschedule
+          </strong>
+           in the Appointments section on your 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          . You must reschedule at least one day before the interview.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 2 matches when there aren't weeks to certify, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Phone Interview Scheduled
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
+    </div>
+    <div
+      className="appointment"
+    >
+      <span
+        className="text-line"
+      >
+        Tuesday, August 3, 2021, between 1–3 p.m. Pacific time
+      </span>
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you miss your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Confirm we have your current phone number. Go to the 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          , select 
+          <strong>
+            Profile
+          </strong>
+           from the main menu, then select 
+          <strong>
+            Contact Information
+          </strong>
+          .
+        </li>
+        <li
+          className="next-step"
+        >
+          Prepare for the interview. The 
+          &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+           (DE 4800) includes the questions the interviewer is most likely to ask.
+        </li>
+        <li
+          className="next-step"
+        >
+          If you need to reschedule your interview, select 
+          <strong>
+            Reschedule
+          </strong>
+           in the Appointments section on your 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            UI Online homepage
+          </a>
+          . You must reschedule at least one day before the interview.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Under Review
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      Your phone interview time has passed and your eligibility for benefits is under review.
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you missed your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Continue to 
+          <a
+            href="https://edd.ca.gov/Unemployment/certify.htm"
+          >
+            certify for benefits
+          </a>
+           while we determine your eligibility.
+        </li>
+        <li
+          className="next-step"
+        >
+          Allow up to 10 days for the EDD to make a decision.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will determine your eligibility.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Under Review
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      Your phone interview time has passed and your eligibility for benefits is under review.
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you missed your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Continue to 
+          <a
+            href="https://edd.ca.gov/Unemployment/certify.htm"
+          >
+            certify for benefits
+          </a>
+           while we determine your eligibility.
+        </li>
+        <li
+          className="next-step"
+        >
+          Allow up to 10 days for the EDD to make a decision.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will determine your eligibility.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 3 matches when there aren't weeks to certify, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Under Review
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      Your phone interview time has passed and your eligibility for benefits is under review.
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you missed your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Allow up to 10 days for the EDD to make a decision.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will determine your eligibility.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 3 matches when there aren't weeks to certify, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pending Eligibility — Under Review
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className=""
+    >
+      Your phone interview time has passed and your eligibility for benefits is under review.
+    </div>
+    <div
+      className=""
+    >
+      <strong>
+        Important
+      </strong>
+      : If you missed your phone interview, a decision will be made based on the available facts, which could result in your unemployment benefits being delayed or denied.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          Allow up to 10 days for the EDD to make a decision.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          We will determine your eligibility.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
 <div
   className="claim-status claim-section"
