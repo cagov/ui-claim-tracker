@@ -1,3 +1,5 @@
+import MockDate from 'mockdate'
+
 import { getPendingDeterminationWithScheduleDate } from '../testHelpers'
 import { getDateWithOffset } from '../../utils/formatDate'
 import { buildAppointment, buildClaimStatusHeading } from '../../utils/getClaimStatus'
@@ -17,6 +19,10 @@ describe('The Claim Status heading', () => {
 
 // Test buildAppointment()
 describe('An appointment is', () => {
+  beforeAll(() => {
+    MockDate.set('2020-01-05')
+  })
+
   it('returned with a time slot if there is a time slot value', () => {
     const pendingDetermination = getPendingDeterminationWithScheduleDate(0)
     const expectedDate = getDateWithOffset(0)
