@@ -42,8 +42,7 @@
   },
   "time": {
     "between": "entre",
-    "from-mixed-times": "de",
-    "and": "a",
+    "and": "y",
     "am": "a.m.",
     "pm": "p.m.",
     "pacific-time": "hora del Pacífico"

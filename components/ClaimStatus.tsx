@@ -5,6 +5,7 @@ import { TextLine } from './TextLine'
 import { TransLine } from './TransLine'
 import { Appointment, ClaimStatusContent, TransLineContent } from '../types/common'
 import { formatAppointmentDate } from '../utils/formatDate'
+import { capitalizeFirstLetter } from '../utils/strings'
 import { identifyI18nPeriod, samePeriod } from '../utils/timeSlot'
 
 export interface ClaimStatusProps extends ClaimStatusContent {
@@ -31,7 +32,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
 
     if (appointment) {
       // Format the date portion.
-      formattedAppointment = formatAppointmentDate(appointment.date, i18n.language)
+      formattedAppointment = capitalizeFirstLetter(formatAppointmentDate(appointment.date, i18n.language))
 
       // Format the time portion.
       if (appointment.timeSlot) {
@@ -49,7 +50,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
         else {
           words = [
             ',',
-            t('time.from-mixed-times'),
+            t('time.between'),
             start.toString(),
             t(identifyI18nPeriod(start)),
             t('time.and'),

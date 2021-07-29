@@ -42,7 +42,6 @@
   },
   "time": {
     "between": "between",
-    "from-mixed-times": "between",
     "and": "and",
     "am": "a.m.",
     "pm": "p.m.",
