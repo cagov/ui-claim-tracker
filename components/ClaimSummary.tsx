@@ -30,7 +30,9 @@ export const ClaimSummary: React.FC<ClaimSummaryProps> = ({
   // Insert appointment as second element.
   // Currently only needed for Scenario 2.
   if (appointment) {
-    const formattedAppointment = <Appointment loading={loading} appointment={appointment} />
+    const formattedAppointment = (
+      <Appointment loading={loading} date={appointment.date} timeSlot={appointment.timeSlot} />
+    )
     // Splice it in as the second element.
     elements.splice(1, 0, formattedAppointment)
   }

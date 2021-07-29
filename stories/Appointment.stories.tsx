@@ -11,7 +11,5 @@ const Template: Story<AppointmentProps> = (args) => <AppointmentComponent {...ar
 
 export const Appointment = Template.bind({})
 Appointment.args = {
-  appointment: {
-    date: new Date(),
-  },
+  date: new Date(),
 }

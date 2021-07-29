@@ -6,23 +6,22 @@ import { formatAppointmentDate } from '../utils/formatDate'
 import { capitalizeFirstLetter } from '../utils/strings'
 import { identifyI18nPeriod, samePeriod } from '../utils/timeSlot'
 
-export interface AppointmentProps {
+export interface AppointmentProps extends AppointmentContent {
   loading: boolean
-  appointment: AppointmentContent
 }
 
-export const Appointment: React.FC<AppointmentProps> = ({ loading = false, appointment }) => {
+export const Appointment: React.FC<AppointmentProps> = ({ loading = false, date, timeSlot }) => {
   const { t, i18n } = useTranslation('common')
 
   let formattedAppointment = ''
 
   // Format the date portion.
-  formattedAppointment = capitalizeFirstLetter(formatAppointmentDate(appointment.date, i18n.language))
+  formattedAppointment = capitalizeFirstLetter(formatAppointmentDate(date, i18n.language))
 
   // Format the time portion.
-  if (appointment.timeSlot) {
-    const start = appointment.timeSlot.rangeStart
-    const end = appointment.timeSlot.rangeEnd
+  if (timeSlot) {
+    const start = timeSlot.rangeStart
+    const end = timeSlot.rangeEnd
 
     // Appointment time slots are formatted using i18n's interpolation feature.
     // See https://www.i18next.com/translation-function/interpolation
