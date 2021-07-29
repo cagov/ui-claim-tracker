@@ -1,12 +1,10 @@
 import { useTranslation } from 'next-i18next'
 
+import { Appointment } from './Appointment'
 import { NextSteps } from './NextSteps'
 import { TextLine } from './TextLine'
 import { TransLine } from './TransLine'
-import { Appointment, ClaimStatusContent, TransLineContent } from '../types/common'
-import { formatAppointmentDate } from '../utils/formatDate'
-import { capitalizeFirstLetter } from '../utils/strings'
-import { identifyI18nPeriod, samePeriod } from '../utils/timeSlot'
+import { AppointmentContent, ClaimStatusContent, TransLineContent } from '../types/common'
 
 export interface ClaimStatusProps extends ClaimStatusContent {
   loading: boolean
@@ -22,51 +20,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
   eddNextSteps,
   appointment,
 }) => {
-  const { t, i18n } = useTranslation(['common', 'claim-status'])
-
-  /**
-   * Nested function to format appointment dates and times.
-   */
-  function formatAppointment(appointment: Appointment): string {
-    let formattedAppointment = ''
-
-    if (appointment) {
-      // Format the date portion.
-      formattedAppointment = capitalizeFirstLetter(formatAppointmentDate(appointment.date, i18n.language))
-
-      // Format the time portion.
-      if (appointment.timeSlot) {
-        const start = appointment.timeSlot.rangeStart
-        const end = appointment.timeSlot.rangeEnd
-        let words: string[] = []
-
-        // If the times are both am or both pm, the string should look something like:
-        // ", between 1–3 p.m. Pacific time"
-        if (samePeriod(start, end)) {
-          words = [',', t('time.between'), `${start}–${end}`, t(identifyI18nPeriod(end)), t('time.pacific-time')]
-        }
-        // If one time is am and one time is pm, the string should look something like:
-        // ", between 10 a.m. and 12 p.m. Pacific time"
-        else {
-          words = [
-            ',',
-            t('time.between'),
-            start.toString(),
-            t(identifyI18nPeriod(start)),
-            t('time.and'),
-            end.toString(),
-            t(identifyI18nPeriod(end)),
-            t('time.pacific-time'),
-          ]
-        }
-
-        // Join word arrays.
-        formattedAppointment += words.join(' ')
-      }
-    }
-
-    return formattedAppointment
-  }
+  const { t } = useTranslation(['common', 'claim-status'])
 
   /**
    * Nested function to construct the summary containing multiple paragraphs.
@@ -75,7 +29,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
     loading: boolean,
     userArrivedFromUioMobile: boolean,
     summary: TransLineContent[],
-    appointment: Appointment | null,
+    appointment: AppointmentContent | null,
   ): JSX.Element[] {
     let elements: JSX.Element[] = []
 
@@ -93,14 +47,9 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
 
     // Build scenario 2 appointment.
     if (appointment) {
-      const formattedAppointment: string = formatAppointment(appointment)
-      const wrappedAppointment = (
-        <div key="appointment" className="appointment">
-          <TextLine loading={loading} text={formattedAppointment} />
-        </div>
-      )
+      const formattedAppointment = <Appointment loading={loading} appointment={appointment} />
       // Splice it in as the second element.
-      elements.splice(1, 0, wrappedAppointment)
+      elements.splice(1, 0, formattedAppointment)
     }
 
     return elements

@@ -1,28 +1,16 @@
 import MockDate from 'mockdate'
-import renderer, { act } from 'react-test-renderer'
+import renderer from 'react-test-renderer'
 
-import i18n from '../jest-i18n'
 import { ClaimStatus } from '../../components/ClaimStatus'
-import { Appointment, ClaimStatusContent } from '../../types/common'
+import { ClaimStatusContent } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
-import { getDateWithOffset } from '../../utils/formatDate'
 import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 
 /**
  * Helper functions.
  */
 
-function renderClaimStatusComponent(
-  statusContent: ClaimStatusContent,
-  userArrivedFromUioMobile: boolean,
-  appointment: Appointment | null = null,
-): string {
-  // Optionally override the appointment.
-  let appointmentToRender = statusContent.appointment
-  if (appointment) {
-    appointmentToRender = appointment
-  }
-
+function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArrivedFromUioMobile: boolean): string {
   return renderer
     .create(
       <ClaimStatus
@@ -32,7 +20,7 @@ function renderClaimStatusComponent(
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
         eddNextSteps={statusContent.eddNextSteps}
-        appointment={appointmentToRender}
+        appointment={statusContent.appointment}
       />,
     )
     .toJSON()
@@ -42,10 +30,9 @@ function testClaimStatus(
   scenarioType: ScenarioType,
   hasCertificationWeeksAvailable = false,
   userArrivedFromUioMobile = false,
-  appointment: Appointment | null = null,
 ): string {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType, hasCertificationWeeksAvailable))
-  return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile, appointment)
+  return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)
 }
 
 /**
@@ -139,146 +126,3 @@ describe('Scenario 6', () => {
     expect(testClaimStatus(ScenarioType.Scenario6, true, true)).toMatchSnapshot()
   })
 })
-
-/**
- * Appointment snapshot tests.
- */
-/* eslint-disable @typescript-eslint/no-floating-promises */
-describe('If given an appointment', () => {
-  beforeAll(() => {
-    MockDate.set('2021-05-05')
-  })
-
-  it('with no time slot, then match the snapshot', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-    }
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-  })
-
-  it('with no time slot, then match the snapshot, in Spanish', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-    }
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with a morning time slot, then match the snapshot', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 8,
-        rangeEnd: 10,
-      },
-    }
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-  })
-
-  it('with a morning time slot, then match the snapshot, in Spanish', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 8,
-        rangeEnd: 10,
-      },
-    }
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with an afternoon time slot, then match the snapshot', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 1,
-        rangeEnd: 3,
-      },
-    }
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-  })
-
-  it('with an afternoon time slot, then match the snapshot, in Spanish', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 1,
-        rangeEnd: 3,
-      },
-    }
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with a time slot that starts in the morning and ends in the afternoon, then match the snapshot', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 8,
-        rangeEnd: 3,
-      },
-    }
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-  })
-
-  it('with a time slot that starts in the morning and ends in the afternoon, then match the snapshot, in Spanish', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 8,
-        rangeEnd: 3,
-      },
-    }
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with a time slot that has a nonsense time range, then match the snapshot', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 3,
-        rangeEnd: 9,
-      },
-    }
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-  })
-
-  it('with a time slot that has a nonsense time range, then match the snapshot, in Spanish', () => {
-    const appointment = {
-      date: getDateWithOffset(0),
-      timeSlot: {
-        rangeStart: 3,
-        rangeEnd: 9,
-      },
-    }
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    expect(testClaimStatus(ScenarioType.Scenario2, false, false, appointment)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-})
-/* eslint-enable @typescript-eslint/no-floating-promises */

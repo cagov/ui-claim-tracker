@@ -7,7 +7,7 @@ import { ScenarioType } from './getScenarioContent'
 import { parseTimeSlot } from './timeSlot'
 import claimStatusJson from '../public/locales/en/claim-status.json'
 import {
-  Appointment,
+  AppointmentContent,
   ClaimStatusContent,
   I18nString,
   PendingDetermination,
@@ -76,13 +76,13 @@ function buildI18nKey(keys: string[]): I18nString {
 export function buildAppointment(
   scenarioType: ScenarioType,
   pendingDetermination: PendingDetermination | undefined,
-): Appointment | null {
+): AppointmentContent | null {
   // Return an appointment only if:
   // - this is scenario 2
   // - AND there is a pendingDetermination object
   if (scenarioType === ScenarioType.Scenario2 && pendingDetermination) {
     const parsedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
-    const appointment: Appointment = {
+    const appointment: AppointmentContent = {
       date: parsedDate,
     }
 

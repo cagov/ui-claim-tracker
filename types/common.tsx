@@ -52,7 +52,7 @@ export interface TimeSlot {
   rangeEnd: number
 }
 
-export interface Appointment {
+export interface AppointmentContent {
   date: Date
   timeSlot?: TimeSlot
 }
@@ -62,7 +62,7 @@ export interface ClaimStatusContent {
   summary: TransLineContent[]
   yourNextSteps: TransLineContent[]
   eddNextSteps: TransLineContent[]
-  appointment: null | Appointment
+  appointment: null | AppointmentContent
 }
 
 export interface ClaimDetailsContent {
