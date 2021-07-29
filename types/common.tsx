@@ -57,6 +57,11 @@ export interface AppointmentContent {
   timeSlot?: TimeSlot
 }
 
+export interface ClaimSummaryContent {
+  summary: TransLineContent[]
+  appointment: null | AppointmentContent
+}
+
 export interface ClaimStatusContent {
   heading: I18nString
   summary: TransLineContent[]
