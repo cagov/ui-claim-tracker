@@ -1,19 +1,20 @@
-import '@testing-library/jest-dom/extend-expect'
-
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import enCommon from './public/locales/en/common.json'
-import enClaimDetails from './public/locales/en/claim-details.json'
-import enClaimStatus from './public/locales/en/claim-status.json'
+import enCommon from '../public/locales/en/common.json'
+import enClaimDetails from '../public/locales/en/claim-details.json'
+import enClaimStatus from '../public/locales/en/claim-status.json'
+
+import esCommon from '../public/locales/es/common.json'
+import esClaimDetails from '../public/locales/es/claim-details.json'
+import esClaimStatus from '../public/locales/es/claim-status.json'
 
 /* eslint-disable @typescript-eslint/no-floating-promises */
 // Disabling this rule due to hitting a half hour of debugging,
 // and considering this is a specialized file used only for tests
 
-// Mock react-i18next for tests
+// Setup react-i18next for tests. Load actual content along with some mocked content.
 i18n.use(initReactI18next).init({
-  lng: 'en',
   fallbackLng: 'en',
   ns: ['common', 'claim-details', 'claim-status', 'test'],
   defaultNS: 'common',
@@ -38,6 +39,12 @@ i18n.use(initReactI18next).init({
         },
       },
     },
+    es: { common: esCommon, 'claim-details': esClaimDetails, 'claim-status': esClaimStatus },
   },
 })
+
 /* eslint-enable @typescript-eslint/no-floating-promises */
+
+// Export i18n so tests can manually set the lanuage with:
+// i18n.changeLanguage('es')
+export default i18n
