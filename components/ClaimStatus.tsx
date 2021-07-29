@@ -21,7 +21,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
   eddNextSteps,
   appointment,
 }) => {
-  const { t } = useTranslation(['common', 'claim-status'])
+  const { t, i18n } = useTranslation(['common', 'claim-status'])
 
   /**
    * Nested function to format appointment dates and times.
@@ -31,7 +31,7 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
 
     if (appointment) {
       // Format the date portion.
-      formattedAppointment = formatAppointmentDate(appointment.date)
+      formattedAppointment = formatAppointmentDate(appointment.date, i18n.language)
 
       // Format the time portion.
       if (appointment.timeSlot) {

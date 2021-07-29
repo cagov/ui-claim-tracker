@@ -15,6 +15,8 @@
 import { isValid } from 'date-fns'
 import { format, toDate, utcToZonedTime } from 'date-fns-tz'
 import enUS from 'date-fns/locale/en-US'
+import es from 'date-fns/locale/es'
+
 import { ApiGatewayDateString } from '../types/common'
 
 const pacificTimeZone = 'America/Los_Angeles'
@@ -106,12 +108,24 @@ export function isDatePast(date: Date): boolean {
 }
 
 /**
+ * Convert date locale from string.
+ *
+ * Falls back to English if an unexpected value is given.
+ */
+export function convertStringToLocale(localeString: string): Locale {
+  return localeString === 'es' ? es : enUS
+}
+
+/**
  * Format appointment.
  */
-export function formatAppointmentDate(date: Date): string {
+export function formatAppointmentDate(date: Date, localeString: string): string {
   const dateFormat = 'EEEE, LLLL d, yyyy'
   const convertedDate = utcToZonedTime(date, pacificTimeZone)
-  const formattedDate = format(convertedDate, dateFormat, { locale: enUS, timeZone: pacificTimeZone })
+  const formattedDate = format(convertedDate, dateFormat, {
+    locale: convertStringToLocale(localeString),
+    timeZone: pacificTimeZone,
+  })
   return formattedDate
 }
 
