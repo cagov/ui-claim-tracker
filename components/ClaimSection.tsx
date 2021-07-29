@@ -22,7 +22,6 @@ export const ClaimSection: React.FC<ClaimSectionProps> = ({
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
         eddNextSteps={statusContent.eddNextSteps}
-        appointment={statusContent.appointment}
       />
       <ClaimDetails
         loading={loading}

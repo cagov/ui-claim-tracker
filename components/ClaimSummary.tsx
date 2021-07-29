@@ -10,13 +10,13 @@ export interface ClaimSummaryProps extends ClaimSummaryContent {
 export const ClaimSummary: React.FC<ClaimSummaryProps> = ({
   loading = false,
   userArrivedFromUioMobile = false,
-  summary,
+  paragraphs,
   appointment,
 }) => {
   let elements: JSX.Element[] = []
 
-  // Build generic summary paragraphs.
-  elements = summary.map((paragraph, index) => (
+  // Build generic paragraphs.
+  elements = paragraphs.map((paragraph, index) => (
     <div key={index} className="">
       <TransLine
         loading={loading}
@@ -34,7 +34,6 @@ export const ClaimSummary: React.FC<ClaimSummaryProps> = ({
     // Splice it in as the second element.
     elements.splice(1, 0, formattedAppointment)
   }
-  console.log(elements)
 
   return <div className="summary">{elements}</div>
 }

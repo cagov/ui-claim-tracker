@@ -17,7 +17,6 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
   summary,
   yourNextSteps,
   eddNextSteps,
-  appointment,
 }) => {
   const { t } = useTranslation(['common', 'claim-status'])
 
@@ -30,8 +29,8 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
       <ClaimSummary
         loading={loading}
         userArrivedFromUioMobile={userArrivedFromUioMobile}
-        summary={summary}
-        appointment={appointment}
+        paragraphs={summary.paragraphs}
+        appointment={summary.appointment}
       />
       <NextSteps
         loading={loading}

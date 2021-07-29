@@ -11,7 +11,7 @@ const Template: Story<ClaimSummaryProps> = (args) => <ClaimSummaryComponent {...
 
 export const ClaimSummary = Template.bind({})
 ClaimSummary.args = {
-  summary: [
+  paragraphs: [
     {
       i18nKey: 'claim-status:scenarios.scenario2.summary.0.text',
     },

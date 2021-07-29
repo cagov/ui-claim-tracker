@@ -100,7 +100,7 @@ export function buildAppointment(
 /**
  * Get Claim Status summary.
  */
-export function buildClaimStatusSummary(
+export function buildSummaryParagraphs(
   scenarioObject: ClaimStatusScenarioJson,
   scenarioString: string,
 ): TransLineContent[] {
@@ -165,9 +165,11 @@ export default function getClaimStatus(
 
   return {
     heading: buildClaimStatusHeading(scenarioType),
-    summary: buildClaimStatusSummary(scenarioObject, scenarioString),
+    summary: {
+      paragraphs: buildSummaryParagraphs(scenarioObject, scenarioString),
+      appointment: buildAppointment(scenarioType, pendingDetermination),
+    },
     yourNextSteps: buildNextSteps(scenarioObject, scenarioString, 'your-next-steps', continueCertifying),
     eddNextSteps: buildNextSteps(scenarioObject, scenarioString, 'edd-next-steps'),
-    appointment: buildAppointment(scenarioType, pendingDetermination),
   }
 }

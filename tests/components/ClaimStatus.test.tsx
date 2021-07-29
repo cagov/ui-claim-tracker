@@ -20,7 +20,6 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArriv
         summary={statusContent.summary}
         yourNextSteps={statusContent.yourNextSteps}
         eddNextSteps={statusContent.eddNextSteps}
-        appointment={statusContent.appointment}
       />,
     )
     .toJSON()

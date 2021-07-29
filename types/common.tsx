@@ -58,16 +58,15 @@ export interface AppointmentContent {
 }
 
 export interface ClaimSummaryContent {
-  summary: TransLineContent[]
+  paragraphs: TransLineContent[]
   appointment: null | AppointmentContent
 }
 
 export interface ClaimStatusContent {
   heading: I18nString
-  summary: TransLineContent[]
+  summary: ClaimSummaryContent
   yourNextSteps: TransLineContent[]
   eddNextSteps: TransLineContent[]
-  appointment: null | AppointmentContent
 }
 
 export interface ClaimDetailsContent {
