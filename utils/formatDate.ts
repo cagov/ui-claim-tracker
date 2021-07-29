@@ -54,11 +54,14 @@ export function formatFromApiGateway(date: Date): string {
 
 /**
  * Create a Date object that is offset from today.
+ *
+ * Note: This returns a date at either midnight or 1am, depending on whether it is
+ * currently PST (-8) or PDT (-7).
  */
 export function getDateWithOffset(daysOffset = 1): Date {
   const today = new Date()
   today.setDate(today.getDate() + daysOffset)
-  today.setHours(0, 0, 0, 0)
+  today.setUTCHours(8, 0, 0, 0)
   return today
 }
 

@@ -68,6 +68,10 @@ describe('Scenario 1', () => {
 })
 
 describe('Scenario 2', () => {
+  beforeAll(() => {
+    MockDate.set('2021-05-05')
+  })
+
   it('matches when there are weeks to certify, on desktop', () => {
     expect(testClaimStatus(ScenarioType.Scenario2, true)).toMatchSnapshot()
   })
