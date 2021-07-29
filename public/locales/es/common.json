@@ -41,11 +41,10 @@
     "button": "Volver a UI Casa"
   },
   "time": {
-    "between": "entre",
-    "and": "y",
+    "between-range": ", entre {{range}} {{ampm}} hora del Pacífico",
+    "between-start-end": ", entre {{start.time}} {{start.ampm}} y {{end.time}} {{end.ampm}} hora del Pacífico",
     "am": "a.m.",
-    "pm": "p.m.",
-    "pacific-time": "hora del Pacífico"
+    "pm": "p.m."
   },
   "urls": {
     "edd": {

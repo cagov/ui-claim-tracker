@@ -23,30 +23,23 @@ export const Appointment: React.FC<AppointmentProps> = ({ loading = false, appoi
   if (appointment.timeSlot) {
     const start = appointment.timeSlot.rangeStart
     const end = appointment.timeSlot.rangeEnd
-    let words: string[] = []
+
+    // Appointment time slots are formatted using i18n's interpolation feature.
+    // See https://www.i18next.com/translation-function/interpolation
 
     // If the times are both am or both pm, the string should look something like:
     // ", between 1–3 p.m. Pacific time"
     if (samePeriod(start, end)) {
-      words = [',', t('time.between'), `${start}–${end}`, t(identifyI18nPeriod(end)), t('time.pacific-time')]
+      formattedAppointment += t('time.between-range', { range: `${start}–${end}`, ampm: t(identifyI18nPeriod(end)) })
     }
     // If one time is am and one time is pm, the string should look something like:
     // ", between 10 a.m. and 12 p.m. Pacific time"
     else {
-      words = [
-        ',',
-        t('time.between'),
-        start.toString(),
-        t(identifyI18nPeriod(start)),
-        t('time.and'),
-        end.toString(),
-        t(identifyI18nPeriod(end)),
-        t('time.pacific-time'),
-      ]
+      formattedAppointment += t('time.between-start-end', {
+        start: { time: start, ampm: t(identifyI18nPeriod(start)) },
+        end: { time: end, ampm: t(identifyI18nPeriod(end)) },
+      })
     }
-
-    // Join word arrays.
-    formattedAppointment += words.join(' ')
   }
 
   return (
