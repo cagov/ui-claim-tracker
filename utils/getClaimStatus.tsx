@@ -129,8 +129,8 @@ export function buildNextSteps(
   scenarioString: string,
   whichSteps: StepType,
   continueCertifying = false,
-): TransLineContent[] {
-  const steps: TransLineContent[] = []
+): Array<TransLineContent | TransLineContent[]> {
+  const steps: Array<TransLineContent | TransLineContent[]> = []
 
   // If we should display the "continue certifying" next step, then display it as the first step.
   if (continueCertifying) {
@@ -140,9 +140,18 @@ export function buildNextSteps(
   const json = scenarioObject[whichSteps]
   for (const [index, value] of json.entries()) {
     const keys = ['scenarios', scenarioString, whichSteps, index.toString()]
-    steps.push(buildTransLineContent(value, buildI18nKey(keys)))
+    if (Array.isArray(value.subBullets)) {
+      const nestedSteps = []
+      nestedSteps.push(buildTransLineContent(value, buildI18nKey(keys)))
+      for (const [index2, subBullet] of value.subBullets.entries()) {
+        const keys = ['scenarios', scenarioString, whichSteps, index.toString(), 'subBullets', index2.toString()]
+        nestedSteps.push(buildTransLineContent(subBullet, buildI18nKey(keys)))
+      }
+      steps.push(nestedSteps)
+    } else {
+      steps.push(buildTransLineContent(value, buildI18nKey(keys)))
+    }
   }
-
   return steps
 }
 

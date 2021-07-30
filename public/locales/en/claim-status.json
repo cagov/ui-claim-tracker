@@ -48,7 +48,7 @@
       "edd-next-steps": [
         {
           "text": "We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.",
-          "sub-bullets": [
+          "subBullets": [
             {
               "text": "If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview."
             },
@@ -77,7 +77,7 @@
       "edd-next-steps": [
         {
           "text": "We will determine your eligibility.",
-          "sub-bullets": [
+          "subBullets": [
             {
               "text": "If you are found eligible and no other issues are identified, we will pay you for all pending weeks."
             },
