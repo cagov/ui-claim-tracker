@@ -85,12 +85,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
   const isAzureEnv = process.env.NODE_ENV === 'production'
 
   // Pino: use pretty print and log to STDOUT for local environments.
-  const logger = pino({ prettyPrint: true })
+  let logger = pino({ prettyPrint: true })
 
   // Pino: otherwise, log to Azure Application Insights.
   if (isAzureEnv) {
-    // const appInsightsStream = await appInsights.createWriteStream()
-    // logger = pino(appInsightsStream)
+    const appInsightsStream = await appInsights.createWriteStream()
+    logger = pino(appInsightsStream)
   }
 
   logger.info(req)
