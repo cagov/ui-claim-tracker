@@ -133,7 +133,14 @@ body {
     padding-left: 1rem;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
+    list-style: none
   }
+
+  //this styles our bullets into fancy small dots with a consistent color
+  //pulled from https://www.w3.org/Style/Examples/007/color-bullets.en.html
+  li::before {content: "•"; color: black;
+      display: inline-block; width: 1em;
+        margin-left: -1em}
 
   li {
     margin-bottom:0.5rem;
