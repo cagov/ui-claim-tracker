@@ -2,13 +2,18 @@
   "program-type": {
     "ui": "Unemployment Insurance (UI)",
     "dua": "Disaster Unemployment Assistance (DUA)",
-    "pua": "Pandemic Unemployment Assistance (PUA)"
+    "pua": "Pandemic Unemployment Assistance (PUA)",
+    "interstate": "Interstate Unemployment Insurance",
+    "nafta": "NAFTA Transitional Assistance"
   },
   "extension-type": {
-    "peuc": "Pandemic Emergency Unemployment Compensation (PEUC) — Tier 1 Extension",
-    "peux": "Pandemic Emergency Unemployment Compensation (PEUC) — Tier 2 Extension",
-    "peuy": "Pandemic Emergency Unemployment Compensation (PEUC) — Tier 2 Augmentation",
+    "euc": "Emergency Unemployment Compensation (EUC) - Tier 1 Extension",
+    "eux": "Emergency Unemployment Compensation (EUC) - Tier 2 Extension",
+    "euy": "Emergency Unemployment Compensation (EUC) - Tier 2 Augmentation",
+    "euw": "Emergency Unemployment Compensation (EUC) - Tier 3 Extension",
+    "euz": "Emergency Unemployment Compensation (EUC) - Tier 4 Extension",
     "fed-ed": "Federal-State Extended Duration (FED-ED)",
+    "cal-ed": "California Extended Duration (CAL-ED)",
     "tra": "Trade Readjustment Allowance Basic Extension",
     "tra-additional": "Trade Readjustment Allowance Additional Extension",
     "te": "Training Extension (TE)"
