@@ -10,7 +10,7 @@ import { getDateWithOffset } from '../../utils/formatDate'
  * Helper functions.
  */
 
-function renderAppointmentComponent(timeSlot?: TimeSlot): string {
+function renderAppointmentComponent(timeSlot: TimeSlot | undefined): string {
   const date = getDateWithOffset(0)
   return renderer.create(<Appointment loading={false} date={date} timeSlot={timeSlot} />).toJSON()
 }
@@ -19,112 +19,60 @@ function renderAppointmentComponent(timeSlot?: TimeSlot): string {
  * Appointment snapshot tests.
  */
 
-/* eslint-disable @typescript-eslint/no-floating-promises */
-describe('If given an appointment', () => {
-  beforeAll(() => {
-    MockDate.set('2021-05-05')
+beforeAll(() => {
+  MockDate.set('2021-05-05')
+})
+
+// Each test case should be:
+// [test description, timeSlot.rangeStart, timeSlot.rangeEnd]
+const testCases = [
+  ['with no time slot, then match the snapshot', null, null],
+  ['with a morning time slot, then match the snapshot', 8, 10],
+  ['with an afternoon time slot, then match the snapshot', 1, 3],
+  ['with a time slot that starts in the morning and ends in the afternoon, then match the snapshot', 8, 3],
+  ['with a time slot that has a nonsense time range, then match the snapshot', 3, 9],
+]
+
+// Use describe.each() to DRY up the tests.
+// See https://jestjs.io/docs/api#describeeachtablename-fn-timeout
+describe.each(testCases)('If given an appointment', (description: string, start: number | null, end: number | null) => {
+  // Construct the timeslot argument.
+  let timeSlot: TimeSlot | undefined
+  if (start && end) {
+    timeSlot = {
+      rangeStart: start,
+      rangeEnd: end,
+    }
+  }
+
+  // Run through the test cases first in English.
+  it(`${description}`, () => {
+    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
   })
 
-  it('with no time slot, then match the snapshot', () => {
-    expect(renderAppointmentComponent()).toMatchSnapshot()
-  })
+  // Run through the test cases again in Spanish.
+  it(`${description}, in Spanish`, () => {
+    // Change the language to Spanish.
 
-  it('with no time slot, then match the snapshot, in Spanish', () => {
+    //  The call to changeLanguage() must be wrapped in act(), otherwise Jest/react
+    // complains.
+    // See https://reactjs.org/link/wrap-tests-with-act
+
+    // Disable floating promises lint check. eslint really wants us to handle the Promise
+    // returned by changeLanguage(), but it doesn't appear necessary to this test.
+    // This can be revisited and refactored in the future if necessary.
+    /* eslint-disable @typescript-eslint/no-floating-promises */
     act(() => {
       i18n.changeLanguage('es')
     })
-    expect(renderAppointmentComponent()).toMatchSnapshot()
+
+    // Run the actual test.
+    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
+
+    // Change the language back to Spanish so the first it() renders correctly in English.
     act(() => {
       i18n.changeLanguage('en')
     })
-  })
-
-  it('with a morning time slot, then match the snapshot', () => {
-    const timeSlot = {
-      rangeStart: 8,
-      rangeEnd: 10,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-  })
-
-  it('with a morning time slot, then match the snapshot, in Spanish', () => {
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    const timeSlot = {
-      rangeStart: 8,
-      rangeEnd: 10,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with an afternoon time slot, then match the snapshot', () => {
-    const timeSlot = {
-      rangeStart: 1,
-      rangeEnd: 3,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-  })
-
-  it('with an afternoon time slot, then match the snapshot, in Spanish', () => {
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    const timeSlot = {
-      rangeStart: 1,
-      rangeEnd: 3,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with a time slot that starts in the morning and ends in the afternoon, then match the snapshot', () => {
-    const timeSlot = {
-      rangeStart: 8,
-      rangeEnd: 3,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-  })
-
-  it('with a time slot that starts in the morning and ends in the afternoon, then match the snapshot, in Spanish', () => {
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    const timeSlot = {
-      rangeStart: 8,
-      rangeEnd: 3,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
-  })
-
-  it('with a time slot that has a nonsense time range, then match the snapshot', () => {
-    const timeSlot = {
-      rangeStart: 3,
-      rangeEnd: 9,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-  })
-
-  it('with a time slot that has a nonsense time range, then match the snapshot, in Spanish', () => {
-    act(() => {
-      i18n.changeLanguage('es')
-    })
-    const timeSlot = {
-      rangeStart: 3,
-      rangeEnd: 9,
-    }
-    expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
-    act(() => {
-      i18n.changeLanguage('en')
-    })
+    /* eslint-enable @typescript-eslint/no-floating-promises */
   })
 })
-/* eslint-enable @typescript-eslint/no-floating-promises */
