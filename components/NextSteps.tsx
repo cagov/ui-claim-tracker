@@ -1,12 +1,12 @@
+import { NextStepsList } from './NextStepsList'
 import { Shimmer } from './Shimmer'
-import { TransLine } from './TransLine'
 import { TransLineContent } from '../types/common'
 
 export interface NextStepsProps {
   loading: boolean
   userArrivedFromUioMobile: boolean
   header: string[]
-  nextSteps: TransLineContent[]
+  nextSteps: Array<TransLineContent | TransLineContent[]>
 }
 
 export const NextSteps: React.FC<NextStepsProps> = ({
@@ -21,18 +21,7 @@ export const NextSteps: React.FC<NextStepsProps> = ({
   } else {
     loadableContent = (
       <div className="next-step-explanation">
-        <ul>
-          {nextSteps.map((nextStep, index) => (
-            <li key={index} className="next-step">
-              <TransLine
-                loading={loading}
-                userArrivedFromUioMobile={userArrivedFromUioMobile}
-                i18nKey={nextStep.i18nKey}
-                links={nextStep.links}
-              />
-            </li>
-          ))}
-        </ul>
+        <NextStepsList loading={loading} userArrivedFromUioMobile={userArrivedFromUioMobile} nextSteps={nextSteps} />
       </div>
     )
   }
