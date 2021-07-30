@@ -131,11 +131,16 @@ body {
   //override bootstrap for our NextSteps component layout
   ul {
     padding-left: 1rem;
+    margin-top: 0.5rem;
     margin-left: 0.5rem;
   }
 
   li {
     margin-bottom:0.5rem;
+  }
+
+  .sub-bullets {
+    margin-left: 0.5rem;
   }
 
   .main {
