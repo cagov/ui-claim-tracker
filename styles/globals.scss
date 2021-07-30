@@ -101,6 +101,7 @@ body {
     margin-top: 1.5rem;
   }
 
+  .claim-details {
     padding: 0;
 
     .claim-details-title {
@@ -138,9 +139,13 @@ body {
 
   //this styles our bullets into fancy small dots with a consistent color
   //pulled from https://www.w3.org/Style/Examples/007/color-bullets.en.html
-  li::before {content: "•"; color: black;
-      display: inline-block; width: 1em;
-        margin-left: -1em}
+  li::before {
+    content: "•";
+    color: black;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em
+  }
 
   li {
     margin-bottom:0.5rem;
@@ -179,6 +184,7 @@ body {
       }
 
     }
+  }
 
   .shimmer {
     display: inline-block;
