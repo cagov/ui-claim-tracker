@@ -57,6 +57,7 @@ describe.each(testCases)('If given an appointment', (description: string, start:
     //  The call to changeLanguage() must be wrapped in act(), otherwise Jest/react
     // complains.
     // See https://reactjs.org/link/wrap-tests-with-act
+    // and https://reactjs.org/docs/test-renderer.html#testrendereract
 
     // Disable floating promises lint check. eslint really wants us to handle the Promise
     // returned by changeLanguage(), but it doesn't appear necessary to this test.
