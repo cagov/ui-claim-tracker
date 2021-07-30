@@ -2,43 +2,41 @@
   "header": {
     "alt-image-cagov": "CA.gov",
     "alt-image-edd": "Página principal del Departamento de Desarrollo de Empleo del EDD",
-    "edd-home": "EDD Casa",
+    "edd-home": "Página principal de EDD",
     "help": "Ayuda",
-    "welcome": "Bienvenidas, nombre",
-    "logout": "Cerrar Sesión",
-    "uio-home": "UI Online Casa"
+    "logout": "Cerrar sesión",
+    "uio-home": "Página principal de UI"
   },
-  "title": "Claim Tracker",
-  "welcome": "Claim Tracker",
+  "title": "Buscador de solicitud",
+  "welcome": "Buscador de solicitud",
   "change-locale": "In English",
   "claim-status": {
-    "title": "Claim Status",
-    "your-next-steps": "Tus Siguientes Pasos",
+    "title": "Estatus de solicitud",
+    "your-next-steps": "Próximos pasos del usted",
     "edd-next-steps": "Próximos pasos del EDD"
   },
   "claim-details": {
-    "title": "Claim Details",
-    "benefit-year": "Año de beneficio",
-    "program-type": "Tipo de Programa",
-    "claim-balance": "Balance de Reclamación",
-    "weekly-benefit-amount": "Monto de Beneficio Semanal",
-    "last-payment-issued": "Último Pago Emitido",
-    "extension-type": "Tipo de Extensión",
-    "extension-end-date": "Fecha de Finalización de la Extensión"
+    "title": "Detalles de la solicitud",
+    "benefit-year": "Año reglamentario",
+    "program-type": "Tipo de programa",
+    "claim-balance": "Balance de la solicitud",
+    "weekly-benefit-amount": "Cantidad de beneficios semanal",
+    "last-payment-issued": "Último pago emitido",
+    "extension-type": "Tipo de extensión"
   },
   "footer": {
-    "toTop": "Volver Arriba",
-    "contact": "Contacta con EDD",
-    "conditionsOfUse": "Condiciones de Uso",
-    "privacyPolicy": "Política de Privacidad",
+    "toTop": "Regresar arriba",
+    "contact": "Comuníquese con el EDD",
+    "conditionsOfUse": "Condiciones de uso",
+    "privacyPolicy": "Política de privacidad",
     "accessibility": "Accesibilidad",
     "copyright": "Copyright © 2021 Estado de California"
   },
   "timeout-modal": {
-    "header": "Tu sesión terminará pronto",
-    "warning": "Para proteger su información, se cerrará la sesión en {{count}} minuto si no continúa",
+    "header": "Su sesión terminará pronto",
+    "warning": "Para proteger su información, se cerrará la sesión en {{count}} minuto si no continúa.",
     "warning_plural": "Para proteger su información, se cerrará la sesión en {{count}} minutos si no continúa.",
-    "button": "Volver a UI Casa"
+    "button": "Regresar a la página principal de UI"
   },
   "time": {
     "between-range": ", entre {{range}} {{ampm}} hora del Pacífico",
