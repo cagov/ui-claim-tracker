@@ -1,27 +1,22 @@
-import MockDate from 'mockdate'
 import renderer, { act } from 'react-test-renderer'
 
 import i18n from '../jest-i18n'
 import { Appointment } from '../../components/Appointment'
 import { TimeSlot } from '../../types/common'
-import { getDateWithOffset } from '../../utils/formatDate'
 
 /**
  * Helper functions.
  */
 
 function renderAppointmentComponent(timeSlot: TimeSlot | undefined): string {
-  const date = getDateWithOffset(0)
+  // Set a random date in PT time.
+  const date = new Date('2021-05-05T00:00:00.000-0800')
   return renderer.create(<Appointment loading={false} date={date} timeSlot={timeSlot} />).toJSON()
 }
 
 /**
  * Appointment snapshot tests.
  */
-
-beforeAll(() => {
-  MockDate.set('2021-05-05')
-})
 
 // Each test case should be:
 // [test description, timeSlot.rangeStart, timeSlot.rangeEnd]
