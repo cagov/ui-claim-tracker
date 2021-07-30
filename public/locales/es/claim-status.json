@@ -45,7 +45,7 @@
       "edd-next-steps": [
         {
           "text": "Lo llamaremos durante la hora programada para la entrevista. Su identificador de llamadas puede mostrar “St of CA EDD” o el número de Servicio al Cliente de UI 1-800-300-5616.",
-          "sub-bullets": [
+          "subBullets": [
             {
               "text": "Si no recibe una llamada del EDD a la hora programada para su cita, es posible que hayamos cancelado su cita porque confirmamos su elegibilidad o resolvimos el problema antes de su entrevista."
             },
@@ -74,7 +74,7 @@
       "edd-next-steps": [
         {
           "text": "Determinaremos su elegibilidad.",
-          "sub-bullets": [
+          "subBullets": [
             {
               "text": "Si se determina que es elegible y no se identifican otros problemas, le pagaremos todas las semanas pendientes."
             },
