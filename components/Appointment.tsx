@@ -43,7 +43,9 @@ export const Appointment: React.FC<AppointmentProps> = ({ loading = false, date,
 
   return (
     <div key="appointment" className="appointment">
-      <TextLine loading={loading} text={formattedAppointment} />
+      <strong>
+        <TextLine loading={loading} text={formattedAppointment} />
+      </strong>
     </div>
   )
 }
