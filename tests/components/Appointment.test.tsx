@@ -65,7 +65,7 @@ describe.each(testCases)('If given an appointment', (description: string, start:
     // Run the actual test.
     expect(renderAppointmentComponent(timeSlot)).toMatchSnapshot()
 
-    // Change the language back to Spanish so the first it() renders correctly in English.
+    // Change the language back to English so the first it() renders correctly in English.
     act(() => {
       i18n.changeLanguage('en')
     })
