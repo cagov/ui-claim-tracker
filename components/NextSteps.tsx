@@ -6,7 +6,7 @@ export interface NextStepsProps {
   loading: boolean
   userArrivedFromUioMobile: boolean
   header: string[]
-  nextSteps: TransLineContent[]
+  nextSteps: Array<TransLineContent | TransLineContent[]>
 }
 
 export const NextSteps: React.FC<NextStepsProps> = ({
@@ -22,16 +22,39 @@ export const NextSteps: React.FC<NextStepsProps> = ({
     loadableContent = (
       <div className="next-step-explanation">
         <ul>
-          {nextSteps.map((nextStep, index) => (
-            <li key={index} className="next-step">
-              <TransLine
-                loading={loading}
-                userArrivedFromUioMobile={userArrivedFromUioMobile}
-                i18nKey={nextStep.i18nKey}
-                links={nextStep.links}
-              />
-            </li>
-          ))}
+          {nextSteps.map((nextStep, index) => {
+            // Use the only element, or the first element if an array, as the main bullet
+            // Include remaining elements in an array as sub-bullets
+            const thisStep = Array.isArray(nextStep) ? nextStep[0] : nextStep
+
+            return (
+              <li key={index} className="next-step">
+                <TransLine
+                  loading={loading}
+                  userArrivedFromUioMobile={userArrivedFromUioMobile}
+                  i18nKey={thisStep.i18nKey}
+                  links={thisStep.links}
+                />
+                {Array.isArray(nextStep) ? (
+                  <ul>
+                    {
+                      // Include sub-bullets; ignore first element since it was already included as a main bullet above
+                      nextStep.slice(1).map((subStep, index2) => (
+                        <li key={index2} className="next-step">
+                          <TransLine
+                            loading={loading}
+                            userArrivedFromUioMobile={userArrivedFromUioMobile}
+                            i18nKey={subStep.i18nKey}
+                            links={subStep.links}
+                          />
+                        </li>
+                      ))
+                    }
+                  </ul>
+                ) : null}
+              </li>
+            )
+          })}
         </ul>
       </div>
     )

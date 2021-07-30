@@ -21,8 +21,8 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArriv
 
 function testClaimStatus(
   scenarioType: ScenarioType,
-  hasCertificationWeeksAvailable: boolean,
-  userArrivedFromUioMobile: boolean,
+  hasCertificationWeeksAvailable = false,
+  userArrivedFromUioMobile = false,
 ): string {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType, hasCertificationWeeksAvailable))
   return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)

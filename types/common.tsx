@@ -12,6 +12,7 @@ export interface TransLineContent {
 export interface TextOptionalLink {
   text: string
   links?: string[]
+  subBullets?: TextOptionalLink[]
 }
 
 // Types for API gateway result
@@ -55,8 +56,8 @@ export interface TimeSlot {
 export interface ClaimStatusContent {
   heading: I18nString
   summary: TransLineContent[]
-  yourNextSteps: TransLineContent[]
-  eddNextSteps: TransLineContent[]
+  yourNextSteps: Array<TransLineContent | TransLineContent[]>
+  eddNextSteps: Array<TransLineContent | TransLineContent[]>
 }
 
 export interface ClaimDetailsContent {
