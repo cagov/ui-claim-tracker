@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import { ClaimSummary as ClaimSummaryComponent, ClaimSummaryProps } from '../components/ClaimSummary'
 
 export default {
-  title: 'Component/Atoms/ClaimSummary',
+  title: 'Component/Atoms/Claim Summary',
   component: ClaimSummaryComponent,
 } as Meta
 
