@@ -6,7 +6,7 @@
 
 import { Claim, PendingDetermination } from '../types/common'
 import { ScenarioType } from '../utils/getScenarioContent'
-import { formatFromApiGateway, getDateWithOffset } from '../utils/formatDate'
+import { formatFromApiGateway } from '../utils/formatDate'
 
 /**
  * Stub the API gateway response for a given scenario.
@@ -52,7 +52,7 @@ export default function apiGatewayStub(
 
     case ScenarioType.Scenario2:
       pendingDetermination.determinationStatus = ''
-      pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(7))
+      pendingDetermination.scheduleDate = formatFromApiGateway(7)
       pendingDetermination.timeSlotDesc = '1-3'
       claim.pendingDetermination = [pendingDetermination]
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
@@ -60,7 +60,7 @@ export default function apiGatewayStub(
 
     case ScenarioType.Scenario3:
       pendingDetermination.determinationStatus = ''
-      pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(-7))
+      pendingDetermination.scheduleDate = formatFromApiGateway(-7)
       claim.pendingDetermination = [pendingDetermination]
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break

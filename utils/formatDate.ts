@@ -47,22 +47,17 @@ export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
 
 /**
  * Return a string that matches the API gateway format for datetimes.
- */
-export function formatFromApiGateway(date: Date): string {
-  return format(date, apiGatewayFormat)
-}
-
-/**
+ *
  * Create a Date object that is offset from today.
  *
  * Note: This returns a date at either midnight or 1am, depending on whether it is
  * currently PST (-8) or PDT (-7).
  */
-export function getDateWithOffset(daysOffset = 1): Date {
+export function formatFromApiGateway(daysOffset = 1): string {
   const today = new Date()
   today.setDate(today.getDate() + daysOffset)
   today.setUTCHours(8, 0, 0, 0)
-  return today
+  return format(today, apiGatewayFormat)
 }
 
 /**

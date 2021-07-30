@@ -3,7 +3,7 @@
  */
 
 import { PendingDetermination } from '../types/common'
-import { formatFromApiGateway, getDateWithOffset } from '../utils/formatDate'
+import { formatFromApiGateway } from '../utils/formatDate'
 
 export function getMockPendingDetermination(): PendingDetermination {
   const pendingDetermination: PendingDetermination = {
@@ -22,6 +22,6 @@ export function getMockPendingDetermination(): PendingDetermination {
 export function getPendingDeterminationWithScheduleDate(offset = 1): PendingDetermination {
   const pendingDetermination = getMockPendingDetermination()
   pendingDetermination.determinationStatus = 'Random string' // Can be anything other than one of NonPendingDeterminationValues
-  pendingDetermination.scheduleDate = formatFromApiGateway(getDateWithOffset(offset))
+  pendingDetermination.scheduleDate = formatFromApiGateway(offset)
   return pendingDetermination
 }
