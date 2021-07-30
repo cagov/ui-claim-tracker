@@ -4,11 +4,13 @@ exports[`If given an appointment with a morning time slot, then match the snapsh
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Wednesday, May 5, 2021, between 8–10 a.m. Pacific time
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Wednesday, May 5, 2021, between 8–10 a.m. Pacific time
+    </span>
+  </strong>
 </div>
 `;
 
@@ -16,11 +18,13 @@ exports[`If given an appointment with a morning time slot, then match the snapsh
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Miércoles, mayo 5, 2021, entre 8–10 a.m. hora del Pacífico
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Miércoles, mayo 5, 2021, entre 8–10 a.m. hora del Pacífico
+    </span>
+  </strong>
 </div>
 `;
 
@@ -28,11 +32,13 @@ exports[`If given an appointment with a time slot that has a nonsense time range
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Wednesday, May 5, 2021, between 3 p.m. and 9 a.m. Pacific time
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Wednesday, May 5, 2021, between 3 p.m. and 9 a.m. Pacific time
+    </span>
+  </strong>
 </div>
 `;
 
@@ -40,11 +46,13 @@ exports[`If given an appointment with a time slot that has a nonsense time range
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Miércoles, mayo 5, 2021, entre 3 p.m. y 9 a.m. hora del Pacífico
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Miércoles, mayo 5, 2021, entre 3 p.m. y 9 a.m. hora del Pacífico
+    </span>
+  </strong>
 </div>
 `;
 
@@ -52,11 +60,13 @@ exports[`If given an appointment with a time slot that starts in the morning and
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Wednesday, May 5, 2021, between 8 a.m. and 3 p.m. Pacific time
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Wednesday, May 5, 2021, between 8 a.m. and 3 p.m. Pacific time
+    </span>
+  </strong>
 </div>
 `;
 
@@ -64,11 +74,13 @@ exports[`If given an appointment with a time slot that starts in the morning and
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Miércoles, mayo 5, 2021, entre 8 a.m. y 3 p.m. hora del Pacífico
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Miércoles, mayo 5, 2021, entre 8 a.m. y 3 p.m. hora del Pacífico
+    </span>
+  </strong>
 </div>
 `;
 
@@ -76,11 +88,13 @@ exports[`If given an appointment with an afternoon time slot, then match the sna
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Wednesday, May 5, 2021, between 1–3 p.m. Pacific time
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Wednesday, May 5, 2021, between 1–3 p.m. Pacific time
+    </span>
+  </strong>
 </div>
 `;
 
@@ -88,11 +102,13 @@ exports[`If given an appointment with an afternoon time slot, then match the sna
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Miércoles, mayo 5, 2021, entre 1–3 p.m. hora del Pacífico
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Miércoles, mayo 5, 2021, entre 1–3 p.m. hora del Pacífico
+    </span>
+  </strong>
 </div>
 `;
 
@@ -100,11 +116,13 @@ exports[`If given an appointment with no time slot, then match the snapshot 1`] 
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Wednesday, May 5, 2021
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Wednesday, May 5, 2021
+    </span>
+  </strong>
 </div>
 `;
 
@@ -112,10 +130,12 @@ exports[`If given an appointment with no time slot, then match the snapshot, in 
 <div
   className="appointment"
 >
-  <span
-    className="text-line"
-  >
-    Miércoles, mayo 5, 2021
-  </span>
+  <strong>
+    <span
+      className="text-line"
+    >
+      Miércoles, mayo 5, 2021
+    </span>
+  </strong>
 </div>
 `;

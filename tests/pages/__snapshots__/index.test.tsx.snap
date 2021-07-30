@@ -185,7 +185,7 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
             className="summary"
           >
             <div
-              className=""
+              className="summary-section"
             >
               We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
             </div>
@@ -220,6 +220,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                     Contact Information
                   </strong>
                   .
+                  <div
+                    className="sub-bullets"
+                  />
                 </li>
                 <li
                   className="next-step"
@@ -227,6 +230,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   Check your mail for the 
                   &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
                    (DE 4800). It will explain the issue and help you prepare for the interview.
+                  <div
+                    className="sub-bullets"
+                  />
                 </li>
               </ul>
             </div>
@@ -247,6 +253,9 @@ exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1
                   className="next-step"
                 >
                   We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
+                  <div
+                    className="sub-bullets"
+                  />
                 </li>
               </ul>
             </div>
