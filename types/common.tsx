@@ -53,9 +53,19 @@ export interface TimeSlot {
   rangeEnd: number
 }
 
+export interface AppointmentContent {
+  date: Date
+  timeSlot?: TimeSlot
+}
+
+export interface ClaimSummaryContent {
+  paragraphs: TransLineContent[]
+  appointment: null | AppointmentContent
+}
+
 export interface ClaimStatusContent {
   heading: I18nString
-  summary: TransLineContent[]
+  summary: ClaimSummaryContent
   yourNextSteps: Array<TransLineContent | TransLineContent[]>
   eddNextSteps: Array<TransLineContent | TransLineContent[]>
 }

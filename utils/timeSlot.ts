@@ -7,7 +7,16 @@
  * - etc
  */
 
-import { TimeSlot } from '../types/common'
+import { I18nString, TimeSlot } from '../types/common'
+
+/**
+ * Validate times.
+ *
+ * @TODO: Log if we receive a time that is outside this range.
+ */
+export function validTime(time: number): boolean {
+  return time >= 1 && time <= 12
+}
 
 /**
  * Parse a time slot from the API gateway.
@@ -15,30 +24,64 @@ import { TimeSlot } from '../types/common'
 export function parseTimeSlot(timeSlot: string): TimeSlot | null {
   // Time slots are expected to be in the format 10-12,
   // where the dash can either be a hyphen (-) or an ndash (–) or an mdash (—).
+  let result: TimeSlot | null = null
+
   const match = /(\d+)[-–—](\d+)/.exec(timeSlot)
   if (match) {
-    const formattedTimeSlot: TimeSlot = {
-      rangeStart: parseInt(match[1]),
-      rangeEnd: parseInt(match[2]),
+    const start = parseInt(match[1])
+    const end = parseInt(match[2])
+
+    if (validTime(start) && validTime(end)) {
+      result = {
+        rangeStart: start,
+        rangeEnd: end,
+      }
     }
-    return formattedTimeSlot
   }
   // If the arg does not match the regex, return null.
-  else {
-    return null
+  return result
+}
+
+/**
+ * Identify whether a time is AM or PM.
+ *
+ * AM = 8 (inclusive) up to 12 (not inclusive)
+ */
+export function isAm(time: number): boolean {
+  return time < 12 && time >= 8
+}
+
+/**
+ * Return the I18nString for AM/PM.
+ */
+export function identifyI18nPeriod(time: number): I18nString {
+  if (isAm(time)) {
+    return 'time.am'
+  } else {
+    return 'time.pm'
   }
 }
 
 /**
- * Convert 12 hour time into 24 hour time.
+ * Identify whether two times are both am, pm, or different.
  *
- * Assume that any time earlier than 8 is actually PM.
+ * Note: "period" is what Unicode calls AM/PM.
+ * See https://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns
  */
-function convertTo24H(time: number): number {
-  if (time < 8) {
-    return time + 12
-  } else {
+export function samePeriod(first: number, second: number): boolean {
+  const bothAm = isAm(first) && isAm(second)
+  const bothPm = !isAm(first) && !isAm(second)
+  return bothAm || bothPm
+}
+
+/**
+ * Convert 12 hour time into 24 hour time.
+ */
+export function convertTo24H(time: number): number {
+  if (isAm(time) || time === 12) {
     return time
+  } else {
+    return time + 12
   }
 }
 

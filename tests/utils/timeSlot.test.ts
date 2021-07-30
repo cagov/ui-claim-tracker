@@ -1,4 +1,4 @@
-import { isFirstTimeSlotEarlier, parseTimeSlot } from '../../utils/timeSlot'
+import { convertTo24H, isAm, isFirstTimeSlotEarlier, parseTimeSlot, samePeriod } from '../../utils/timeSlot'
 
 // Test parseTimeSlot()
 describe('A time slot string is', () => {
@@ -14,6 +14,16 @@ describe('A time slot string is', () => {
 
   it('handled if it is improperly formatted', () => {
     const badTimeSlot = parseTimeSlot('not a time slot')
+    expect(badTimeSlot).toBe(null)
+  })
+
+  it('handled if it is a number less than 1', () => {
+    const badTimeSlot = parseTimeSlot('0-12')
+    expect(badTimeSlot).toBe(null)
+  })
+
+  it('handled if it is a greater than 12', () => {
+    const badTimeSlot = parseTimeSlot('3-16')
     expect(badTimeSlot).toBe(null)
   })
 
@@ -64,5 +74,48 @@ describe('Comparing time slots results in', () => {
   it('the second time slot if both start at the same time', () => {
     const result = isFirstTimeSlotEarlier(earlier, earlier)
     expect(result).toBe(false)
+  })
+})
+
+// Test samePeriod()
+describe('Two times are', () => {
+  it('the same period if they are both AM', () => {
+    expect(samePeriod(8, 10)).toBe(true)
+  })
+
+  it('the same period if they are both PM', () => {
+    expect(samePeriod(1, 3)).toBe(true)
+  })
+
+  it('not the same period if one is AM and one is PM', () => {
+    expect(samePeriod(8, 3)).toBe(false)
+  })
+})
+
+// Test isAm()
+describe('A time is in the period', () => {
+  it('am if it is equal to or after 8 and before 12', () => {
+    expect(isAm(8)).toBe(true)
+    expect(isAm(11)).toBe(true)
+  })
+
+  it('pm if it is before 8 and equal to or after 12', () => {
+    expect(isAm(7)).toBe(false)
+    expect(isAm(12)).toBe(false)
+    expect(isAm(1)).toBe(false)
+    expect(isAm(5)).toBe(false)
+  })
+})
+
+// Test convertTo24H()
+describe('Converting a time to 24h time', () => {
+  it('does not happen for times between 8–12 (inclusive)', () => {
+    expect(convertTo24H(8)).toBe(8)
+    expect(convertTo24H(12)).toBe(12)
+  })
+
+  it('happens for times between 1–7 and 13 and up', () => {
+    expect(convertTo24H(1)).toBe(13)
+    expect(convertTo24H(7)).toBe(19)
   })
 })

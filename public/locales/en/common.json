@@ -40,6 +40,12 @@
     "warning_plural": "To protect your information, you will be logged out in {{count}} minutes if you do not continue.",
     "button": "Return to UI Home"
   },
+  "time": {
+    "between-range": ", between {{range}} {{ampm}} Pacific time",
+    "between-start-end": ", between {{start.time}} {{start.ampm}} and {{end.time}} {{end.ampm}} Pacific time",
+    "am": "a.m.",
+    "pm": "p.m."
+  },
   "urls": {
     "edd": {
       "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",

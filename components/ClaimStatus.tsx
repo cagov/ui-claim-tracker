@@ -1,8 +1,8 @@
 import { useTranslation } from 'next-i18next'
 
+import { ClaimSummary } from './ClaimSummary'
 import { NextSteps } from './NextSteps'
 import { TextLine } from './TextLine'
-import { TransLine } from './TransLine'
 import { ClaimStatusContent } from '../types/common'
 
 export interface ClaimStatusProps extends ClaimStatusContent {
@@ -26,18 +26,12 @@ export const ClaimStatus: React.FC<ClaimStatusProps> = ({
       <div className="pending-status claim-subsection">
         <TextLine loading={loading} header text={t(heading)} />
       </div>
-      <div className="summary">
-        {summary.map((paragraph, index) => (
-          <div key={index} className="">
-            <TransLine
-              loading={loading}
-              userArrivedFromUioMobile={userArrivedFromUioMobile}
-              i18nKey={paragraph.i18nKey}
-              links={paragraph.links}
-            />
-          </div>
-        ))}
-      </div>
+      <ClaimSummary
+        loading={loading}
+        userArrivedFromUioMobile={userArrivedFromUioMobile}
+        paragraphs={summary.paragraphs}
+        appointment={summary.appointment}
+      />
       <NextSteps
         loading={loading}
         userArrivedFromUioMobile={userArrivedFromUioMobile}

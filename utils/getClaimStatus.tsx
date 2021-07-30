@@ -2,9 +2,18 @@
  * Utility file to get content for the Claim Status section.
  */
 
-import claimStatusJson from '../public/locales/en/claim-status.json'
-import { ClaimStatusContent, I18nString, TextOptionalLink, TransLineContent } from '../types/common'
+import { parseApiGatewayDate } from './formatDate'
 import { ScenarioType } from './getScenarioContent'
+import { parseTimeSlot } from './timeSlot'
+import claimStatusJson from '../public/locales/en/claim-status.json'
+import {
+  AppointmentContent,
+  ClaimStatusContent,
+  I18nString,
+  PendingDetermination,
+  TextOptionalLink,
+  TransLineContent,
+} from '../types/common'
 
 type StepType = 'your-next-steps' | 'edd-next-steps'
 
@@ -59,9 +68,39 @@ function buildI18nKey(keys: string[]): I18nString {
 }
 
 /**
+ * Construct Scenario 2 appointment date & time.
+ *
+ * Expects a valid pendingDetermination.scheduleDate.
+ * Will validate the pendingDetermination.timeSlotDesc.
+ */
+export function buildAppointment(
+  scenarioType: ScenarioType,
+  pendingDetermination: PendingDetermination | undefined,
+): AppointmentContent | null {
+  // Return an appointment only if:
+  // - this is scenario 2
+  // - AND there is a pendingDetermination object
+  if (scenarioType === ScenarioType.Scenario2 && pendingDetermination) {
+    const parsedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
+    const appointment: AppointmentContent = {
+      date: parsedDate,
+    }
+
+    const timeSlot = parseTimeSlot(pendingDetermination.timeSlotDesc)
+    if (timeSlot) {
+      appointment.timeSlot = timeSlot
+    }
+
+    return appointment
+  } else {
+    return null
+  }
+}
+
+/**
  * Get Claim Status summary.
  */
-export function buildClaimStatusSummary(
+export function buildSummaryParagraphs(
   scenarioObject: ClaimStatusScenarioJson,
   scenarioString: string,
 ): TransLineContent[] {
@@ -119,7 +158,11 @@ export function buildNextSteps(
 /**
  * Get combined Claim Status content.
  */
-export default function getClaimStatus(scenarioType: ScenarioType, continueCertifying: boolean): ClaimStatusContent {
+export default function getClaimStatus(
+  scenarioType: ScenarioType,
+  continueCertifying: boolean,
+  pendingDetermination: PendingDetermination | undefined,
+): ClaimStatusContent {
   // Explicitly cast the scenario string (e.g. scenario1, scenario2) into the union of literal types
   // expected by Typescript. scenarioString must be one of the key names in claimStatusJson.scenarios
   // or this won't compile. For a very good explanation of `keyof typeof` Typescript's and union of
@@ -131,7 +174,10 @@ export default function getClaimStatus(scenarioType: ScenarioType, continueCerti
 
   return {
     heading: buildClaimStatusHeading(scenarioType),
-    summary: buildClaimStatusSummary(scenarioObject, scenarioString),
+    summary: {
+      paragraphs: buildSummaryParagraphs(scenarioObject, scenarioString),
+      appointment: buildAppointment(scenarioType, pendingDetermination),
+    },
     yourNextSteps: buildNextSteps(scenarioObject, scenarioString, 'your-next-steps', continueCertifying),
     eddNextSteps: buildNextSteps(scenarioObject, scenarioString, 'edd-next-steps'),
   }

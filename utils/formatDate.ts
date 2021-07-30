@@ -12,8 +12,11 @@
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
 
-import { format, isValid } from 'date-fns'
-import { toDate } from 'date-fns-tz'
+import { isValid } from 'date-fns'
+import { format, toDate, utcToZonedTime } from 'date-fns-tz'
+import enUS from 'date-fns/locale/en-US'
+import es from 'date-fns/locale/es'
+
 import { ApiGatewayDateString } from '../types/common'
 
 const pacificTimeZone = 'America/Los_Angeles'
@@ -44,19 +47,17 @@ export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
 
 /**
  * Return a string that matches the API gateway format for datetimes.
- */
-export function formatFromApiGateway(date: Date): string {
-  return format(date, apiGatewayFormat)
-}
-
-/**
+ *
  * Create a Date object that is offset from today.
+ *
+ * Note: This returns a date at either midnight or 1am, depending on whether it is
+ * currently PST (-8) or PDT (-7).
  */
-export function getDateWithOffset(daysOffset = 1): Date {
+export function formatFromApiGateway(daysOffset = 1): string {
   const today = new Date()
   today.setDate(today.getDate() + daysOffset)
-  today.setHours(0, 0, 0, 0)
-  return today
+  today.setUTCHours(8, 0, 0, 0)
+  return format(today, apiGatewayFormat)
 }
 
 /**
@@ -102,6 +103,28 @@ export function isDatePast(date: Date): boolean {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
   return date < today
+}
+
+/**
+ * Convert date locale from string.
+ *
+ * Falls back to English if an unexpected value is given.
+ */
+export function convertStringToLocale(localeString: string): Locale {
+  return localeString === 'es' ? es : enUS
+}
+
+/**
+ * Format appointment.
+ */
+export function formatAppointmentDate(date: Date, localeString: string): string {
+  const dateFormat = 'EEEE, LLLL d, yyyy'
+  const convertedDate = utcToZonedTime(date, pacificTimeZone)
+  const formattedDate = format(convertedDate, dateFormat, {
+    locale: convertStringToLocale(localeString),
+    timeZone: pacificTimeZone,
+  })
+  return formattedDate
 }
 
 /**
