@@ -15,15 +15,20 @@ export interface ProgramType {
 // Mapped to the strings that the API gateway provides
 export const programTypeNames: ProgramType = {
   UI: 'UI',
-  PEUC: 'PEUC - Tier 1 Extension',
-  PEUX: 'PEUX - Tier 2 Extension',
-  PEUY: 'PEUY - Tier 2 Augmentation',
+  EUC: 'EUC - Tier 1 Extension',
+  EUX: 'EUX - Tier 2 Extension',
+  EUY: 'EUY - Tier 2 Augmentation',
+  EUW: 'EUW - Tier 3 Extension',
+  EUZ: 'EUZ - Tier 4 Extension',
   FEDED: 'FED-ED Extension',
+  CALED: 'CAL-ED Extension',
   TRA: 'TRA Basic Extension',
   TRAAdditional: 'TRA Additional/Remedial Extension',
   TE: 'Training Extension (TE)',
   DUA: 'DUA',
   PUA: 'PUA',
+  INTERSTATE: 'Interstate',
+  NAFTA: 'NAFTA-TAA/REV30',
 }
 
 export interface programExtensionPairType {
@@ -37,21 +42,33 @@ export const programExtensionPairs = {
     programType: 'claim-details:program-type.ui',
     extensionType: '',
   },
-  PEUC: {
+  EUC: {
     programType: 'claim-details:program-type.ui',
-    extensionType: 'claim-details:extension-type.peuc',
+    extensionType: 'claim-details:extension-type.euc',
   },
-  PEUX: {
+  EUX: {
     programType: 'claim-details:program-type.ui',
-    extensionType: 'claim-details:extension-type.peux',
+    extensionType: 'claim-details:extension-type.eux',
   },
-  PEUY: {
+  EUY: {
     programType: 'claim-details:program-type.ui',
-    extensionType: 'claim-details:extension-type.peuy',
+    extensionType: 'claim-details:extension-type.euy',
+  },
+  EUW: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.euw',
+  },
+  EUZ: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.euz',
   },
   FEDED: {
     programType: 'claim-details:program-type.ui',
     extensionType: 'claim-details:extension-type.fed-ed',
+  },
+  CALED: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.cal-ed',
   },
   TRA: {
     programType: 'claim-details:program-type.ui',
@@ -73,6 +90,14 @@ export const programExtensionPairs = {
     programType: 'claim-details:program-type.pua',
     extensionType: '',
   },
+  INTERSTATE: {
+    programType: 'claim-details:program-type.interstate',
+    extensionType: '',
+  },
+  NAFTA: {
+    programType: 'claim-details:program-type.nafta',
+    extensionType: '',
+  },
 }
 
 /**
@@ -84,8 +109,12 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
       return pair
     }
   }
-  // If no known mapping is found, throw an error.
-  throw new Error('Unknown Program Type')
+  // If no known mapping is found, pass through the raw program type.
+  // @TODO: log this case
+  return {
+    programType: apiString,
+    extensionType: '',
+  }
 }
 
 /**

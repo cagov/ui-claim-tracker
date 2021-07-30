@@ -17,10 +17,11 @@ describe('Converting ProgramType to user-facing strings', () => {
     }
   })
 
-  it('throws an error if an unknown ProgramType is given', () => {
-    expect(() => {
-      getProgramExtensionPair('unknown')
-    }).toThrowError('Unknown Program Type')
+  it('returns the unknown string if an unknown ProgramType is given', () => {
+    const unknownProgram = 'unknown'
+    const parts: programExtensionPairType = getProgramExtensionPair(unknownProgram)
+    expect(parts.programType).toBe(unknownProgram)
+    expect(parts.extensionType).toBe('')
   })
 })
 

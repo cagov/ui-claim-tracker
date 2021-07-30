@@ -1025,7 +1025,7 @@ exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
               &lt;em&gt;Notice of Determination&lt;/em&gt;
                (DE 1080CZ) with the reasons you were denied benefits and an 
               &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal. 
+               (DE 1000M). If you disagree with the decision, you have the right to appeal.
             </li>
             <li
               className="next-step"
@@ -1135,7 +1135,7 @@ exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
               &lt;em&gt;Notice of Determination&lt;/em&gt;
                (DE 1080CZ) with the reasons you were denied benefits and an 
               &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal. 
+               (DE 1000M). If you disagree with the decision, you have the right to appeal.
             </li>
             <li
               className="next-step"
@@ -1234,7 +1234,7 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on desktop 1`] =
               &lt;em&gt;Notice of Determination&lt;/em&gt;
                (DE 1080CZ) with the reasons you were denied benefits and an 
               &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal. 
+               (DE 1000M). If you disagree with the decision, you have the right to appeal.
             </li>
             <li
               className="next-step"
@@ -1333,7 +1333,7 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on mobile 1`] = 
               &lt;em&gt;Notice of Determination&lt;/em&gt;
                (DE 1080CZ) with the reasons you were denied benefits and an 
               &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal. 
+               (DE 1000M). If you disagree with the decision, you have the right to appeal.
             </li>
             <li
               className="next-step"

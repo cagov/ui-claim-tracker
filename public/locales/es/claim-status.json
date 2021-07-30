@@ -2,15 +2,17 @@
   "scenarios": {
     "scenario1": {
       "heading": "Elegibilidad pendiente — Se programará una entrevista telefónica",
-      "summary": {
-        "text": "Identificamos un problema que podría hacer que no sea elegible para los beneficios. Necesitamos confirmar su elegibilidad en una entrevista telefónica."
-      },
+      "summary": [
+        {
+          "text": "Identificamos un problema que podría hacer que no sea elegible para los beneficios. Necesitamos confirmar su elegibilidad en una entrevista telefónica."
+        }
+      ],
       "your-next-steps": [
         {
-          "text": "Confirme que tenemos su número de teléfono y dirección postal actuales. Vaya a la <0>página de inicio de UI Online</0>, seleccione <strong>Perfil</strong> en el menú principal y luego seleccione <strong>Información de contacto</strong>."
+          "text": "Confirme que tenemos su número de teléfono y dirección postal actuales. Vaya a la <0>página principal de UI Online</0>, seleccione <strong>Perfil</strong> en el menú principal, luego seleccione <strong>Información de contacto</strong>."
         },
         {
-          "text": "Consulte su correo para obtener la <em>Notificación de la entrevista de elegibilidad para los beneficios del seguro de desempleo</em> (DE 4800). Le explicará el problema y le ayudará a prepararse para la entrevista."
+          "text": "La <em>Notificación sobre una Entrevista Telefónica para Determinar la Elegibilidad de los Pagos de Beneficios del Seguro de Desempleo</em> (DE 4800/S) se le enviará por correo postal. Le explicará el problema y le ayudará a prepararse para la entrevista."
         }
       ],
       "edd-next-steps": [
@@ -19,73 +21,146 @@
         }
       ]
     },
-    "scenario4": {
-      "heading": "Revisión requerida",
-      "summary": {
-        "text": "Identificamos un problema y es posible que necesitemos determinar su elegibilidad o verificar su información."
-      },
+    "scenario2": {
+      "heading": "Elegibilidad pendiente — Entrevista telefónica programada",
+      "summary": [
+        {
+          "text": "Identificamos un problema que podría hacer que no sea elegible para los beneficios. Tiene una entrevista telefónica programada para:"
+        },
+        {
+          "text": "<strong>Importante</strong>: Si falta a su entrevista telefónica, se tomará una decisión basada en los hechos disponibles, lo que podría resultar en la demora o la negación de sus beneficios por desempleo."
+        }
+      ],
       "your-next-steps": [
         {
-          "text": "Revisar su <0>UI Online homepage</0> y bandeja de entrada para las últimas actualizaciones."
+          "text": "Confirme que tenemos su número de teléfono actualizado. Vaya a la <0>página principal de UI Online</0>, seleccione <strong>Perfil</strong> en el menú principal, luego seleccione <strong>Información de contacto</strong>."
         },
         {
-          "text": "Revisa tu correo. Podemos enviar solicitudes de información adicional. Asegúrese de responder según se le solicite para evitar demoras en el procesamiento de su reclamo."
+          "text": "Prepárese para la entrevista. La <em>Notificación sobre una Entrevista Telefónica para Determinar la Elegibilidad de los Pagos de Beneficios del Seguro de Desempleo</em> (DE 4800/S) incluye las preguntas que probablemente le harán durante la entrevista."
         },
         {
-          "text": "Para más información visite <0>Claim Status: Pending Payment</0>."
+          "text": "Si necesita reprogramar su entrevista, seleccione <strong>Reprogramar</strong> en la sección Citas en su <0>página principal de UI Online</0>. Debe reprogramar al menos un día antes de la entrevista."
         }
       ],
       "edd-next-steps": [
         {
-          "text": "Nos comunicaremos contigo si necesitamos más información para resolver el problema."
+          "text": "Lo llamaremos durante la hora programada para la entrevista. Su identificador de llamadas puede mostrar “St of CA EDD” o el número de Servicio al Cliente de UI 1-800-300-5616.",
+          "subBullets": [
+            {
+              "text": "Si no recibe una llamada del EDD a la hora programada para su cita, es posible que hayamos cancelado su cita porque confirmamos su elegibilidad o resolvimos el problema antes de su entrevista."
+            },
+            {
+              "text": "Si su cita ha sido cancelada, ya no aparecerá en su página principal de UI Online."
+            }
+          ]
+        }
+      ]
+    },
+    "scenario3": {
+      "heading": "Elegibilidad pendiente — Bajo revisión",
+      "summary": [
+        {
+          "text": "Ha pasado el tiempo de su entrevista telefónica y se está revisando su elegibilidad para beneficios."
         },
         {
-          "text": "Le enviaremos un correo electrónico cuando tenga semanas disponibles para <0>certificar los beneficios</0>."
+          "text": "<strong>Importante</strong>: Si falto a su entrevista telefónica, se tomará una decisión basada en los hechos disponibles, lo que podría resultar en la demora o la negación de sus beneficios por desempleo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Espere hasta 10 días para que el EDD tome una decisión."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Determinaremos su elegibilidad.",
+          "subBullets": [
+            {
+              "text": "Si se determina que es elegible y no se identifican otros problemas, le pagaremos todas las semanas pendientes."
+            },
+            {
+              "text": "Si se determina que no es elegible, le enviaremos una <em>Notificación de Determinación</em> (DE 1080CZ/S) con las razones por las que se le negaron los beneficios y un <em>Formulario de Apelación</em> (DE 1000M). Si no está de acuerdo con la decisión, tiene derecho a apelar."
+            },
+            {
+              "text": "Si se le pagan beneficios y luego se determina que no es elegible, también le enviaremos una <em>Notificación de sobrepago de beneficios</em> (DE 1444/S) que explica por qué se le emitió un sobrepago."
+            }
+          ]
+        }
+      ]
+    },
+    "scenario4": {
+      "heading": "Revisión necesaria",
+      "summary": [
+        {
+          "text": " Identificamos un problema y es posible que necesitemos determinar su elegibilidad o verificar su información."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Consulte su <0>página principal de UI Online</0> y el buzón de entrada de UI Online para obtener las últimas actualizaciones."
+        },
+        {
+          "text": "Revise su correo. Es posible que le pidamos información adicional. Asegúrese de responder según se le solicite para evitar demoras al procesar su solicitud. "
+        },
+        {
+          "text": "Para obtener más información, visite <0>Estatus de la solicitud: pendiente de pago</0>."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Nos comunicaremos con usted si necesitamos más información para resolver el problema."
+        },
+        {
+          "text": "Le enviaremos un correo electrónico cuando tenga semanas disponibles para <0>certificar para beneficios</0>."
         }
       ]
     },
     "scenario5": {
       "heading": "No hay semanas disponibles para certificar",
-      "summary": {
-        "text": "Actualmente no tiene semanas disponibles para certificar los beneficios."
-      },
+      "summary": [
+        {
+          "text": "Actualmente no tiene semanas disponibles para certificar para beneficios."
+        }
+      ],
       "your-next-steps": [
         {
-          "text": "Consulte la página de inicio y la bandeja de entrada de UI Online para obtener las últimas actualizaciones."
+          "text": "Revise su <0>página principal de UI Online</0> y el buzón de entrada de UI Online para obtener las últimas actualizaciones."
         },
         {
-          "text": "Revisa tu correo. Podemos enviar solicitudes de información adicional. Asegúrese de responder según se le solicite para evitar demoras en el procesamiento de su reclamo."
+          "text": "Revise su correo. Es posible que le pidamos información adicional. Asegúrese de responder según se le solicite para evitar demoras al procesar su solicitud."
         },
         {
-          "text": "Si han pasado más de 30 días desde la última vez que certificó los beneficios, debe <0>reabrir su reclamo</0> antes de poder certificar."
+          "text": "Si han pasado más de 30 días desde la última vez que certificó los beneficios, debe <0>reactivar su solicitud</0> antes de poder certificar."
         }
       ],
       "edd-next-steps": [
         {
-          "text": "Le enviaremos un correo electrónico cuando tenga semanas disponibles para <0>certificar los beneficios</0>."
+          "text": "Le enviaremos un correo electrónico cuando tenga semanas disponibles para <0>certificar para los beneficios</0>."
         }
       ]
     },
     "scenario6": {
       "heading": "Semanas disponibles para certificar",
-      "summary": {
-        "text": "Tiene semanas disponibles para <0>certificar los beneficios</0>."
-      },
+      "summary": [
+        {
+          "text": "Tiene semanas disponibles para <0>certificar para beneficios</0>."
+        }
+      ],
       "your-next-steps": [
         {
-          "text": "Seleccione <strong>Certificar para obtener beneficios</strong> en la sección de notificaciones de la página de inicio de UI Online."
+          "text": "Seleccione <strong>Certificar para beneficios</strong> en la sección de Notificación en su <0>página principal de UI Online</0>."
         }
       ],
       "edd-next-steps": [
         {
-          "text": "Cuando procesemos su certificación, actualizaremos el estado del pago. Vaya a la <0>página de inicio de UI Online</0> y seleccione <strong>Historial</strong> en el menú principal."
+          "text": "Cuando procesemos su certificación, actualizaremos el estado del pago. Vaya a la <0>página principal de UI Online</0> y seleccione <strong>Historial</strong> en el menú principal."
         }
       ]
     }
   },
   "conditional-next-steps": {
     "continue-certifying": {
-      "text": "Continúe <0>certificando los beneficios</0> mientras determinamos su elegibilidad."
+      "text": "Continúe <0>certificando para beneficios</0> mientras determinamos su elegibilidad."
     }
   }
 }

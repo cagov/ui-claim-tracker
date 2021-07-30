@@ -1,16 +1,21 @@
 {
   "program-type": {
-    "ui": "Seguro de desempleo (UI)",
-    "dua": "Asistencia por desempleo por desastre (DUA)",
-    "pua": "Asistencia por desempleo pandémico (PUA)"
+    "ui": "Seguro de Desempleo (UI)",
+    "dua": "Asistencia de Desempleo por Desastre (DUA)",
+    "pua": "Asistencia de Desempleo por la Pandemia (PUA)",
+    "interstate": "Interstate Unemployment Insurance",
+    "nafta": "NAFTA Transitional Assistance"
   },
   "extension-type": {
-    "peuc": "Compensación por desempleo de emergencia pandémica (PEUC) — Extensión de nivel 1",
-    "peux": "Compensación por desempleo de emergencia pandémica (PEUC) — Extensión de nivel 2",
-    "peuy": "Compensación por desempleo de emergencia pandémica (PEUC) — Tier 2 Augmentation",
-    "fed-ed": "Duración extendida federal-estatal (FED-ED)",
-    "tra": "Extensión básica de la asignación por reajuste comercial",
-    "tra-additional": "Extensión adicional de la asignación por reajuste comercial",
-    "te": "Extensión de formación (TE)"
+    "euc": "Compensación de Desempleo de Emergencia (EUC) – Nivel 1",
+    "eux": "Compensación de Desempleo de Emergencia (EUC) – Nivel 2",
+    "euy": "Compensación de Desempleo de Emergencia (EUC) – Aumento de nivel 2",
+    "euw": "Compensación de Desempleo de Emergencia (EUC) – Nivel 3",
+    "euz": "Compensación de Desempleo de Emergencia (EUC) – Nivel 4",
+    "fed-ed": "Duración de la Extensión Federal-Estatal de Beneficios (FED-ED)",
+    "cal-ed": "California Extended Duration (CAL-ED)",
+    "tra": "Extensión básica de la Asignación por Reajuste Comercial ",
+    "tra-additional": "Extensión adicional de la Asistencia por Ajuste Ccomercial",
+    "te": "Extensión de entrenamiento laboral (TE)"
   }
 }
