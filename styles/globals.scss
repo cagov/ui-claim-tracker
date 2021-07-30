@@ -11,7 +11,7 @@ body {
   line-height: 22.4px;
 
   b, strong {
-    font-family: 'Source Sans Pro Bold';
+    font-family: 'Source Sans Pro Bold', arial;
   }
 
   h3 {
@@ -101,6 +101,7 @@ body {
     margin-top: 1.5rem;
   }
 
+  .claim-details {
     padding: 0;
 
     .claim-details-title {
@@ -120,14 +121,38 @@ body {
     }
   }
 
+  .summary-section {
+    margin: 1rem 0;
+  }
+
+  .appointment {
+    margin: 1rem 0 1rem 1.5rem;
+  }
+
   //override bootstrap for our NextSteps component layout
   ul {
     padding-left: 1rem;
+    margin-top: 0.5rem;
     margin-left: 0.5rem;
+    list-style: none
+  }
+
+  //this styles our bullets into fancy small dots with a consistent color
+  //pulled from https://www.w3.org/Style/Examples/007/color-bullets.en.html
+  li::before {
+    content: "•";
+    color: black;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em
   }
 
   li {
     margin-bottom:0.5rem;
+  }
+
+  .sub-bullets {
+    margin-left: 0.5rem;
   }
 
   .main {
@@ -159,6 +184,7 @@ body {
       }
 
     }
+  }
 
   .shimmer {
     display: inline-block;

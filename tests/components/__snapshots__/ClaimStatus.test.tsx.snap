@@ -20,7 +20,7 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
     </div>
@@ -47,6 +47,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -66,6 +69,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -73,6 +79,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
           Check your mail for the 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800). It will explain the issue and help you prepare for the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -93,6 +102,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -120,7 +132,7 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
     </div>
@@ -147,6 +159,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -166,6 +181,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -173,6 +191,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
           Check your mail for the 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800). It will explain the issue and help you prepare for the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -193,6 +214,9 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -220,7 +244,7 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
     </div>
@@ -255,6 +279,9 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -262,6 +289,9 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
           Check your mail for the 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800). It will explain the issue and help you prepare for the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -282,6 +312,9 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -309,7 +342,7 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = 
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
     </div>
@@ -344,6 +377,9 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = 
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -351,6 +387,9 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = 
           Check your mail for the 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800). It will explain the issue and help you prepare for the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -371,6 +410,9 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -398,21 +440,23 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
     </div>
     <div
       className="appointment"
     >
-      <span
-        className="text-line"
-      >
-        Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
-      </span>
+      <strong>
+        <span
+          className="text-line"
+        >
+          Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
+        </span>
+      </strong>
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -442,6 +486,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -461,6 +508,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -468,6 +518,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
           Prepare for the interview. The 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800) includes the questions the interviewer is most likely to ask.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -483,6 +536,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
             UI Online homepage
           </a>
           . You must reschedule at least one day before the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -503,18 +559,28 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
-            </li>
-            <li
-              className="next-step"
-            >
-              If your appointment has been canceled, it will no longer display on your UI Online homepage.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If your appointment has been canceled, it will no longer display on your UI Online homepage.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -542,21 +608,23 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
     </div>
     <div
       className="appointment"
     >
-      <span
-        className="text-line"
-      >
-        Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
-      </span>
+      <strong>
+        <span
+          className="text-line"
+        >
+          Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
+        </span>
+      </strong>
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -586,6 +654,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -605,6 +676,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -612,6 +686,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
           Prepare for the interview. The 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800) includes the questions the interviewer is most likely to ask.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -627,6 +704,9 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
             UI Online homepage
           </a>
           . You must reschedule at least one day before the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -647,18 +727,28 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
-            </li>
-            <li
-              className="next-step"
-            >
-              If your appointment has been canceled, it will no longer display on your UI Online homepage.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If your appointment has been canceled, it will no longer display on your UI Online homepage.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -686,21 +776,23 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
     </div>
     <div
       className="appointment"
     >
-      <span
-        className="text-line"
-      >
-        Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
-      </span>
+      <strong>
+        <span
+          className="text-line"
+        >
+          Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
+        </span>
+      </strong>
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -738,6 +830,9 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -745,6 +840,9 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
           Prepare for the interview. The 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800) includes the questions the interviewer is most likely to ask.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -760,6 +858,9 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
             UI Online homepage
           </a>
           . You must reschedule at least one day before the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -780,18 +881,28 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
-            </li>
-            <li
-              className="next-step"
-            >
-              If your appointment has been canceled, it will no longer display on your UI Online homepage.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If your appointment has been canceled, it will no longer display on your UI Online homepage.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -819,21 +930,23 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on mobile 1`] = 
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified a potential issue that could make you ineligible for benefits. You have a phone interview scheduled for:
     </div>
     <div
       className="appointment"
     >
-      <span
-        className="text-line"
-      >
-        Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
-      </span>
+      <strong>
+        <span
+          className="text-line"
+        >
+          Wednesday, May 12, 2021, between 1–3 p.m. Pacific time
+        </span>
+      </strong>
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -871,6 +984,9 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on mobile 1`] = 
             Contact Information
           </strong>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -878,6 +994,9 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on mobile 1`] = 
           Prepare for the interview. The 
           &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
            (DE 4800) includes the questions the interviewer is most likely to ask.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -893,6 +1012,9 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on mobile 1`] = 
             UI Online homepage
           </a>
           . You must reschedule at least one day before the interview.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -913,18 +1035,28 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           We will call you during your scheduled interview time. Your caller ID may show “St of CA EDD” or the UI Customer Service number 1-800-300-5616.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
-            </li>
-            <li
-              className="next-step"
-            >
-              If your appointment has been canceled, it will no longer display on your UI Online homepage.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you do not receive a call from the EDD at your scheduled appointment time, we may have canceled your appointment because we confirmed your eligibility or resolved the issue before your interview.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If your appointment has been canceled, it will no longer display on your UI Online homepage.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -952,12 +1084,12 @@ exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       Your phone interview time has passed and your eligibility for benefits is under review.
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -987,11 +1119,17 @@ exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Allow up to 10 days for the EDD to make a decision.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1012,29 +1150,42 @@ exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           We will determine your eligibility.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are found not eligible, we will mail you a 
-              &lt;em&gt;Notice of Determination&lt;/em&gt;
-               (DE 1080CZ) with the reasons you were denied benefits and an 
-              &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are paid benefits and are later found not eligible, we will also mail you a 
-              &lt;em&gt;Notice of Overpayment&lt;/em&gt;
-               (DE 1444) that explains why you were overpaid.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are found not eligible, we will mail you a 
+                &lt;em&gt;Notice of Determination&lt;/em&gt;
+                 (DE 1080CZ) with the reasons you were denied benefits and an 
+                &lt;em&gt;Appeal Form&lt;/em&gt;
+                 (DE 1000M). If you disagree with the decision, you have the right to appeal.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are paid benefits and are later found not eligible, we will also mail you a 
+                &lt;em&gt;Notice of Overpayment&lt;/em&gt;
+                 (DE 1444) that explains why you were overpaid.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -1062,12 +1213,12 @@ exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       Your phone interview time has passed and your eligibility for benefits is under review.
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -1097,11 +1248,17 @@ exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Allow up to 10 days for the EDD to make a decision.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1122,29 +1279,42 @@ exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           We will determine your eligibility.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are found not eligible, we will mail you a 
-              &lt;em&gt;Notice of Determination&lt;/em&gt;
-               (DE 1080CZ) with the reasons you were denied benefits and an 
-              &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are paid benefits and are later found not eligible, we will also mail you a 
-              &lt;em&gt;Notice of Overpayment&lt;/em&gt;
-               (DE 1444) that explains why you were overpaid.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are found not eligible, we will mail you a 
+                &lt;em&gt;Notice of Determination&lt;/em&gt;
+                 (DE 1080CZ) with the reasons you were denied benefits and an 
+                &lt;em&gt;Appeal Form&lt;/em&gt;
+                 (DE 1000M). If you disagree with the decision, you have the right to appeal.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are paid benefits and are later found not eligible, we will also mail you a 
+                &lt;em&gt;Notice of Overpayment&lt;/em&gt;
+                 (DE 1444) that explains why you were overpaid.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -1172,12 +1342,12 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on desktop 1`] =
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       Your phone interview time has passed and your eligibility for benefits is under review.
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -1201,6 +1371,9 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           Allow up to 10 days for the EDD to make a decision.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1221,29 +1394,42 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           We will determine your eligibility.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are found not eligible, we will mail you a 
-              &lt;em&gt;Notice of Determination&lt;/em&gt;
-               (DE 1080CZ) with the reasons you were denied benefits and an 
-              &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are paid benefits and are later found not eligible, we will also mail you a 
-              &lt;em&gt;Notice of Overpayment&lt;/em&gt;
-               (DE 1444) that explains why you were overpaid.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are found not eligible, we will mail you a 
+                &lt;em&gt;Notice of Determination&lt;/em&gt;
+                 (DE 1080CZ) with the reasons you were denied benefits and an 
+                &lt;em&gt;Appeal Form&lt;/em&gt;
+                 (DE 1000M). If you disagree with the decision, you have the right to appeal.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are paid benefits and are later found not eligible, we will also mail you a 
+                &lt;em&gt;Notice of Overpayment&lt;/em&gt;
+                 (DE 1444) that explains why you were overpaid.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -1271,12 +1457,12 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on mobile 1`] = 
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       Your phone interview time has passed and your eligibility for benefits is under review.
     </div>
     <div
-      className=""
+      className="summary-section"
     >
       <strong>
         Important
@@ -1300,6 +1486,9 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           Allow up to 10 days for the EDD to make a decision.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1320,29 +1509,42 @@ exports[`Scenario 3 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           We will determine your eligibility.
-          <ul>
-            <li
-              className="next-step"
-            >
-              If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are found not eligible, we will mail you a 
-              &lt;em&gt;Notice of Determination&lt;/em&gt;
-               (DE 1080CZ) with the reasons you were denied benefits and an 
-              &lt;em&gt;Appeal Form&lt;/em&gt;
-               (DE 1000M). If you disagree with the decision, you have the right to appeal.
-            </li>
-            <li
-              className="next-step"
-            >
-              If you are paid benefits and are later found not eligible, we will also mail you a 
-              &lt;em&gt;Notice of Overpayment&lt;/em&gt;
-               (DE 1444) that explains why you were overpaid.
-            </li>
-          </ul>
+          <div
+            className="sub-bullets"
+          >
+            <ul>
+              <li
+                className="next-step"
+              >
+                If you are found eligible and no other issues are identified, we will pay you for all pending weeks.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are found not eligible, we will mail you a 
+                &lt;em&gt;Notice of Determination&lt;/em&gt;
+                 (DE 1080CZ) with the reasons you were denied benefits and an 
+                &lt;em&gt;Appeal Form&lt;/em&gt;
+                 (DE 1000M). If you disagree with the decision, you have the right to appeal.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+              <li
+                className="next-step"
+              >
+                If you are paid benefits and are later found not eligible, we will also mail you a 
+                &lt;em&gt;Notice of Overpayment&lt;/em&gt;
+                 (DE 1444) that explains why you were overpaid.
+                <div
+                  className="sub-bullets"
+                />
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
@@ -1370,7 +1572,7 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue and may need to determine your eligibility or verify your information.
     </div>
@@ -1397,6 +1599,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1408,11 +1613,17 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
             UI Online homepage
           </a>
            and inbox for the latest updates.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1424,6 +1635,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
             Claim Status: Pending Payment
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1444,6 +1658,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           We will contact you if we need more information to resolve the issue.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1455,6 +1672,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
             certify for benefits
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1482,7 +1702,7 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue and may need to determine your eligibility or verify your information.
     </div>
@@ -1509,6 +1729,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
             certify for benefits
           </a>
            while we determine your eligibility.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1520,11 +1743,17 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
             UI Online homepage
           </a>
            and inbox for the latest updates.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1536,6 +1765,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
             Claim Status: Pending Payment
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1556,6 +1788,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           We will contact you if we need more information to resolve the issue.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1567,6 +1802,9 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
             certify for benefits
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1594,7 +1832,7 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue and may need to determine your eligibility or verify your information.
     </div>
@@ -1621,11 +1859,17 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
             UI Online homepage
           </a>
            and inbox for the latest updates.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1637,6 +1881,9 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
             Claim Status: Pending Payment
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1657,6 +1904,9 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           We will contact you if we need more information to resolve the issue.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1668,6 +1918,9 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
             certify for benefits
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1695,7 +1948,7 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       We identified an issue and may need to determine your eligibility or verify your information.
     </div>
@@ -1722,11 +1975,17 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
             UI Online homepage
           </a>
            and inbox for the latest updates.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1738,6 +1997,9 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
             Claim Status: Pending Payment
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1758,6 +2020,9 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           We will contact you if we need more information to resolve the issue.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1769,6 +2034,9 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
             certify for benefits
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1796,7 +2064,7 @@ exports[`Scenario 5 matches, on desktop 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       You currently have no weeks available to certify for benefits.
     </div>
@@ -1823,11 +2091,17 @@ exports[`Scenario 5 matches, on desktop 1`] = `
             UI Online homepage
           </a>
            and inbox for the latest updates.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1839,6 +2113,9 @@ exports[`Scenario 5 matches, on desktop 1`] = `
             reopen your claim
           </a>
            before you can certify.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1865,6 +2142,9 @@ exports[`Scenario 5 matches, on desktop 1`] = `
             certify for benefits
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1892,7 +2172,7 @@ exports[`Scenario 5 matches, on mobile 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       You currently have no weeks available to certify for benefits.
     </div>
@@ -1919,11 +2199,17 @@ exports[`Scenario 5 matches, on mobile 1`] = `
             UI Online homepage
           </a>
            and inbox for the latest updates.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
         >
           Check your mail. We may send requests for additional information. Make sure to respond as requested to avoid delays in processing your claim.
+          <div
+            className="sub-bullets"
+          />
         </li>
         <li
           className="next-step"
@@ -1935,6 +2221,9 @@ exports[`Scenario 5 matches, on mobile 1`] = `
             reopen your claim
           </a>
            before you can certify.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1961,6 +2250,9 @@ exports[`Scenario 5 matches, on mobile 1`] = `
             certify for benefits
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -1988,7 +2280,7 @@ exports[`Scenario 6 matches, on desktop 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       You have weeks available to 
       <a
@@ -2025,6 +2317,9 @@ exports[`Scenario 6 matches, on desktop 1`] = `
             UI Online homepage
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -2055,6 +2350,9 @@ exports[`Scenario 6 matches, on desktop 1`] = `
             History
           </strong>
            from the main menu.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -2082,7 +2380,7 @@ exports[`Scenario 6 matches, on mobile 1`] = `
     className="summary"
   >
     <div
-      className=""
+      className="summary-section"
     >
       You have weeks available to 
       <a
@@ -2119,6 +2417,9 @@ exports[`Scenario 6 matches, on mobile 1`] = `
             UI Online homepage
           </a>
           .
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
@@ -2149,6 +2450,9 @@ exports[`Scenario 6 matches, on mobile 1`] = `
             History
           </strong>
            from the main menu.
+          <div
+            className="sub-bullets"
+          />
         </li>
       </ul>
     </div>
