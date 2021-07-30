@@ -17,7 +17,7 @@ export const ClaimSummary: React.FC<ClaimSummaryProps> = ({
 
   // Build generic paragraphs.
   elements = paragraphs.map((paragraph, index) => (
-    <div key={index} className="">
+    <div key={index} className="summary-section">
       <TransLine
         loading={loading}
         userArrivedFromUioMobile={userArrivedFromUioMobile}

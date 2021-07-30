@@ -120,6 +120,14 @@ body {
     }
   }
 
+  .summary-section {
+    margin: 1rem 0;
+  }
+
+  .appointment {
+    margin: 1rem 0 1rem 1.5rem;
+  }
+
   //override bootstrap for our NextSteps component layout
   ul {
     padding-left: 1rem;
@@ -128,10 +136,6 @@ body {
 
   li {
     margin-bottom:0.5rem;
-  }
-
-  .appointment {
-    margin: 1rem 0 1rem 1.5rem;
   }
 
   .main {
