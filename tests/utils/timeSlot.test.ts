@@ -17,6 +17,16 @@ describe('A time slot string is', () => {
     expect(badTimeSlot).toBe(null)
   })
 
+  it('handled if it is a number less than 1', () => {
+    const badTimeSlot = parseTimeSlot('0-12')
+    expect(badTimeSlot).toBe(null)
+  })
+
+  it('handled if it is a greater than 12', () => {
+    const badTimeSlot = parseTimeSlot('3-16')
+    expect(badTimeSlot).toBe(null)
+  })
+
   it('handled if the separator is an ndash', () => {
     const multipleDigits = parseTimeSlot('10–12')
     expect(multipleDigits.rangeStart).toBe(10)

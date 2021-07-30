@@ -10,23 +10,36 @@
 import { I18nString, TimeSlot } from '../types/common'
 
 /**
+ * Validate times.
+ *
+ * @TODO: Log if we receive a time that is outside this range.
+ */
+export function validTime(time: number): boolean {
+  return time >= 1 && time <= 12
+}
+
+/**
  * Parse a time slot from the API gateway.
  */
 export function parseTimeSlot(timeSlot: string): TimeSlot | null {
   // Time slots are expected to be in the format 10-12,
   // where the dash can either be a hyphen (-) or an ndash (–) or an mdash (—).
+  let result: TimeSlot | null = null
+
   const match = /(\d+)[-–—](\d+)/.exec(timeSlot)
   if (match) {
-    const formattedTimeSlot: TimeSlot = {
-      rangeStart: parseInt(match[1]),
-      rangeEnd: parseInt(match[2]),
+    const start = parseInt(match[1])
+    const end = parseInt(match[2])
+
+    if (validTime(start) && validTime(end)) {
+      result = {
+        rangeStart: start,
+        rangeEnd: end,
+      }
     }
-    return formattedTimeSlot
   }
   // If the arg does not match the regex, return null.
-  else {
-    return null
-  }
+  return result
 }
 
 /**
