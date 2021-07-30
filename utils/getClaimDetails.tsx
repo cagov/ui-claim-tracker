@@ -109,8 +109,12 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
       return pair
     }
   }
-  // If no known mapping is found, throw an error.
-  throw new Error('Unknown Program Type')
+  // If no known mapping is found, pass through the raw program type.
+  // @TODO: log this case
+  return {
+    programType: apiString,
+    extensionType: '',
+  }
 }
 
 /**
