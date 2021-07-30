@@ -12,8 +12,8 @@
   "change-locale": "In English",
   "claim-status": {
     "title": "Estatus de solicitud",
-    "your-next-steps": "Próximos pasos del usted",
-    "edd-next-steps": "Próximos pasos del EDD"
+    "your-next-steps": "Sus próximos pasos",
+    "edd-next-steps": "Próximos pasos de EDD"
   },
   "claim-details": {
     "title": "Detalles de la solicitud",
