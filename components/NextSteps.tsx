@@ -1,6 +1,5 @@
 import { NextStepsList } from './NextStepsList'
 import { Shimmer } from './Shimmer'
-import { TransLine } from './TransLine'
 import { TransLineContent } from '../types/common'
 
 export interface NextStepsProps {
