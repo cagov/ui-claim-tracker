@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -25,11 +26,15 @@ module.exports = {
     },
   ],
   webpackFinal: (config) => {
+    // applicationinsights is meant for node.js applications, storybook uses a browser environment.
+    // Use webpack's NormalModuleReplacementPlugin to mock the applicationinsights in storybook.
+    // See https://webpack.js.org/plugins/normal-module-replacement-plugin
+    config.plugins.push(new webpack.NormalModuleReplacementPlugin(/pino-applicationinsights/, 'node-noop'))
     return {
       ...config,
       node: {
         ...config.node,
-        fs: 'empty', //required to with with next-i18next
+        fs: 'empty', // required for next-i18next
       },
     }
   },
