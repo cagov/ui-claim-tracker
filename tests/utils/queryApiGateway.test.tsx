@@ -195,13 +195,31 @@ describe('Building the API url', () => {
 // Test getUniqueNumber()
 describe('The unique number', () => {
   it('is returned when given the correct ID key', () => {
-    const idHeaderName = 'id'
-    const id = getUniqueNumber(goodRequest, idHeaderName)
+    // Mock process.env
+    const restore = mockEnv({
+      ID_HEADER_NAME: 'id',
+    })
+
+    const id = getUniqueNumber(goodRequest)
     expect(id).toStrictEqual(goodRequest.headers.id)
+
+    // Restore env vars
+    restore()
   })
 
-  it('is not case sensitive', () => {
-    const key = 'uniqueNumber'
+  // Each test case should be:
+  // [test description, mock env var
+  const caseSensitiveTestCases = [
+    ['lowercase', 'uniquenumber'],
+    ['camelCase', 'uniqueNumber'],
+    ['uppercase', 'UNIQUENUMBER'],
+  ]
+  it.each(caseSensitiveTestCases)('is not case sensitive: %s', (description: string, key: string) => {
+    // Mock process.env
+    const restore = mockEnv({
+      ID_HEADER_NAME: key,
+    })
+
     const request = {
       headers: {
         uniquenumber: 'lower',
@@ -210,22 +228,25 @@ describe('The unique number', () => {
       },
     }
 
-    const mixed = getUniqueNumber(request, key)
-    expect(mixed).toStrictEqual(request.headers.uniquenumber)
+    const id = getUniqueNumber(request)
+    expect(id).toStrictEqual('lower')
 
-    const lower = getUniqueNumber(request, key.toLowerCase())
-    expect(lower).toStrictEqual(request.headers.uniquenumber)
-
-    const upper = getUniqueNumber(request, key.toUpperCase())
-    expect(upper).toStrictEqual(request.headers.uniquenumber)
+    // Restore env vars
+    restore()
   })
 
   // Current behavior is to return undefined.
-  // @TODO: Correct behavior to be implemented in #217
   it('is not returned when given the incorrect ID key', () => {
-    const idHeaderName = 'key'
-    const id = getUniqueNumber(goodRequest, idHeaderName)
+    // Mock process.env
+    const restore = mockEnv({
+      ID_HEADER_NAME: 'nonsense',
+    })
+
+    const id = getUniqueNumber(goodRequest)
     expect(id).toStrictEqual(undefined)
+
+    // Restore env vars
+    restore()
   })
 })
 
