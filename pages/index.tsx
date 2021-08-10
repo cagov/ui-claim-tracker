@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import pino from 'pino'
-import appInsights from 'pino-applicationinsights'
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -82,17 +81,8 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale, query }) => {
-  const isAzureEnv = process.env.NODE_ENV === 'production'
-
-  // Pino: use pretty print and log to STDOUT for local environments.
-  let logger = pino({ prettyPrint: true })
-
-  // Pino: otherwise, log to Azure Application Insights.
-  if (isAzureEnv) {
-    const appInsightsStream = await appInsights.createWriteStream()
-    logger = pino(appInsightsStream)
-  }
-
+  const isProd = process.env.NODE_ENV === 'production'
+  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
   logger.info(req)
   logger.info(query)
 
@@ -109,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
     scenarioContent = getScenarioContent(claimData)
   } catch (error) {
     // If an error occurs, log it and show 500.
-    logger.error(error, 'Application error')
+    logger.error(error)
     errorCode = 500
   }
 
