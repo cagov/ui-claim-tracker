@@ -7,6 +7,38 @@ export default {
   title: 'Component/Page Section/Claim Details',
   component: ClaimDetailsComponent,
   decorators: [withNextRouter],
+  argTypes: {
+    programType: {
+      control: {
+        type: 'text',
+      },
+    },
+    benefitYear: {
+      control: {
+        type: 'text',
+      },
+    },
+    claimBalance: {
+      control: {
+        type: 'text',
+      },
+    },
+    weeklyBenefitAmount: {
+      control: {
+        type: 'text',
+      },
+    },
+    lastPaymentIssued: {
+      control: {
+        type: 'text',
+      },
+    },
+    extensionType: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as Meta
 
 const Template: Story<ClaimDetailsProps> = (args) => <ClaimDetailsComponent {...args} />
