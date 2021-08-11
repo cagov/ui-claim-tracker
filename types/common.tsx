@@ -44,6 +44,7 @@ export interface Claim {
   claimDetails?: null | ClaimDetailsResult
   hasPendingWeeks?: null | undefined | boolean
   hasCertificationWeeksAvailable?: null | undefined | boolean
+  hasClaimDetails?: null | undefined | boolean
   pendingDetermination?: null | PendingDetermination[]
 }
 

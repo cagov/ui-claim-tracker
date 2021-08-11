@@ -34,6 +34,11 @@ export default {
         type: 'boolean',
       },
     },
+    hasClaimDetails: {
+      control: {
+        type: 'boolean',
+      },
+    },
     userArrivedFromUioMobile: {
       control: {
         type: 'boolean',
@@ -56,7 +61,7 @@ interface StoryHomeProps extends HomeProps {
 
 const Template: Story<StoryHomeProps> = ({ ...args }) => {
   args.scenarioContent = getScenarioContent(
-    apiGatewayStub(args.scenario, args.hasCertificationWeeksAvailable, args.programType),
+    apiGatewayStub(args.scenario, args.hasCertificationWeeksAvailable, args.hasClaimDetails, args.programType),
   )
   return <Home {...args} />
 }
