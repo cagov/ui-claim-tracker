@@ -57,6 +57,7 @@ interface StoryHomeProps extends HomeProps {
   scenario: number
   programType: string
   hasCertificationWeeksAvailable: boolean
+  hasClaimDetails: boolean
 }
 
 const Template: Story<StoryHomeProps> = ({ ...args }) => {
