@@ -6,23 +6,13 @@ import { ScenarioContent } from '../../types/common'
 
 import { useRouter } from 'next/router'
 
-jest.mock('next/router', () => ({
-  __esModule: true,
-  useRouter: jest.fn(),
-}))
-
-let scenarioContent: ScenarioContent
-
-beforeAll(() => {
-  scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.Scenario1))
-})
-
 describe('Claim Status & Claim Details are provided', () => {
   it('shows both sections', () => {
     const mockRouter = {
       locale: 'en',
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
+    const scenarioContent: ScenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.Scenario1))
 
     render(
       <ClaimSection
@@ -42,6 +32,7 @@ describe('No Claim Details are provided', () => {
       locale: 'en',
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
+    const scenarioContent: ScenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.Scenario1, true, false))
 
     render(
       <ClaimSection
