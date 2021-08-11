@@ -219,10 +219,10 @@ export default function getScenarioContent(claimData: Claim): ScenarioContent {
   )
 
   // Construct claim details content.
-  if (!claimData.claimDetails) {
-    throw new Error('Missing claim details')
+  let detailsContent: ClaimDetailsContent | null = null
+  if (claimData.claimDetails) {
+    detailsContent = getClaimDetails(claimData.claimDetails)
   }
-  const detailsContent: ClaimDetailsContent = getClaimDetails(claimData.claimDetails)
 
   const content: ScenarioContent = {
     statusContent: statusContent,
