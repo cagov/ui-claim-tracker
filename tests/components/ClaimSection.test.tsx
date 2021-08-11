@@ -6,6 +6,11 @@ import { ScenarioContent } from '../../types/common'
 
 import { useRouter } from 'next/router'
 
+jest.mock('next/router', () => ({
+  __esModule: true,
+  useRouter: jest.fn(),
+}))
+
 describe('Claim Status & Claim Details are provided', () => {
   it('shows both sections', () => {
     const mockRouter = {
