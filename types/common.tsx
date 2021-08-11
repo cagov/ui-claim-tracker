@@ -81,5 +81,5 @@ export interface ClaimDetailsContent {
 
 export interface ScenarioContent {
   statusContent: ClaimStatusContent
-  detailsContent: ClaimDetailsContent
+  detailsContent: null | ClaimDetailsContent
 }
