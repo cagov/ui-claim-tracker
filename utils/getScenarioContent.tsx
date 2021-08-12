@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { isDatePast, isValidDate, parseApiGatewayDate } from './formatDate'
+import { isDatePast, isNullDateString, isValidDate, parseApiGatewayDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -122,8 +122,8 @@ export function identifyPendingDeterminationScenario(
     // AND requestDate has a value
     else if (
       !pendingDetermination.determinationStatus &&
-      !pendingDetermination.scheduleDate &&
-      pendingDetermination.requestDate
+      isValidDate(pendingDetermination.requestDate) &&
+      (!pendingDetermination.scheduleDate || isNullDateString(pendingDetermination.scheduleDate))
     ) {
       hasNotYetScheduled = true
     }

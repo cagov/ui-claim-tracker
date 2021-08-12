@@ -1,7 +1,7 @@
 import MockDate from 'mockdate'
 import { toDate } from 'date-fns-tz'
 
-import formatDate, { formatAppointmentDate, isDatePast, isValidDate } from '../../utils/formatDate'
+import formatDate, { formatAppointmentDate, isDatePast, isNullDateString, isValidDate } from '../../utils/formatDate'
 
 // Test isValidDate()
 describe('Valid dates: A date is', () => {
@@ -10,11 +10,23 @@ describe('Valid dates: A date is', () => {
   })
 
   it('invalid if it is earlier than the minimum date', () => {
-    expect(isValidDate('0001-01-01T00:00:00')).toBe(false)
+    expect(isValidDate('1831-01-01T00:00:00')).toBe(false)
   })
 
   it('valid if it is later than the minimum date', () => {
     expect(isValidDate('2013-01-01T00:00:00')).toBe(true)
+  })
+})
+
+// Test isNullDateString()
+describe('Null dates: A date is', () => {
+  it('null if it is Jan 1, 0001', () => {
+    expect(isNullDateString('0001-01-01T00:00:00')).toBe(true)
+  })
+
+  it('not null if it is any string', () => {
+    expect(isNullDateString('2001-01-01T00:00:00')).toBe(false)
+    expect(isNullDateString('something else')).toBe(false)
   })
 })
 

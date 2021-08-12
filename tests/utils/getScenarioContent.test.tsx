@@ -3,6 +3,7 @@ import MockDate from 'mockdate'
 import { getMockPendingDetermination, getPendingDeterminationWithScheduleDate } from '../testHelpers'
 import { PendingDetermination } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
+import { formatFromApiGateway } from '../../utils/formatDate'
 import {
   getScenario,
   identifyPendingDeterminationScenario,
@@ -74,7 +75,7 @@ describe('The determination interview is not yet scheduled (scenario 1) when all
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = null
     pendingDetermination.scheduleDate = null
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
   })
@@ -83,7 +84,7 @@ describe('The determination interview is not yet scheduled (scenario 1) when all
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = ''
     pendingDetermination.scheduleDate = null
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
   })
@@ -92,37 +93,46 @@ describe('The determination interview is not yet scheduled (scenario 1) when all
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = undefined
     pendingDetermination.scheduleDate = null
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
   })
 })
 
 // Scenario 1: Test various values of pendingDetermination.scheduleDate
-describe('The determination interview is not yet scheduled (scenario 1) when all other criteria are met and the schedule date evaluates to', () => {
-  it('false (null)', () => {
+describe('The determination interview is not yet scheduled (scenario 1) when all other criteria are met and the schedule date', () => {
+  it('evaluates to false (null)', () => {
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = null
     pendingDetermination.scheduleDate = null
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
-  it('false (empty string)', () => {
+  it('evaluates to false (empty string)', () => {
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = null
     pendingDetermination.scheduleDate = ''
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
-  it('false (undefined)', () => {
+  it('evaluates to false (undefined)', () => {
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = null
     pendingDetermination.scheduleDate = undefined
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
+    const result = identifyPendingDeterminationScenario([pendingDetermination])
+    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+  })
+
+  it('is 0001-01-01T00:00:00', () => {
+    const pendingDetermination = getMockPendingDetermination()
+    pendingDetermination.determinationStatus = null
+    pendingDetermination.scheduleDate = '0001-01-01T00:00:00'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
   })
@@ -134,7 +144,7 @@ describe('The determination interview is invalid if all other Scenario 1 critera
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = 'non-null value'
     pendingDetermination.scheduleDate = ''
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result).toBe(null)
   })
@@ -144,7 +154,7 @@ describe('The determination interview is invalid if all other Scenario 1 critera
     // Determination Status is one of NonPendingDeterminationValues values
     pendingDetermination.determinationStatus = 'Complete'
     pendingDetermination.scheduleDate = '2000-01-01T00:00:00'
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result).toBe(null)
   })
@@ -153,7 +163,7 @@ describe('The determination interview is invalid if all other Scenario 1 critera
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = ''
     pendingDetermination.scheduleDate = 'non-null value'
-    pendingDetermination.requestDate = 'any non-null value'
+    pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result).toBe(null)
   })
@@ -163,6 +173,15 @@ describe('The determination interview is invalid if all other Scenario 1 critera
     pendingDetermination.determinationStatus = ''
     pendingDetermination.scheduleDate = ''
     pendingDetermination.requestDate = ''
+    const result = identifyPendingDeterminationScenario([pendingDetermination])
+    expect(result).toBe(null)
+  })
+
+  it('the request date is an invalid date', () => {
+    const pendingDetermination = getMockPendingDetermination()
+    pendingDetermination.determinationStatus = ''
+    pendingDetermination.scheduleDate = ''
+    pendingDetermination.requestDate = '0001-01-01T00:00:00'
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result).toBe(null)
   })
@@ -203,12 +222,12 @@ describe('When there are multiple pendingDetermination objects, the determinatio
     const appt1 = getMockPendingDetermination()
     appt1.pendingDetermination = ''
     appt1.scheduleDate = ''
-    appt1.requestDate = 'not empty'
+    appt1.requestDate = formatFromApiGateway(-30)
 
     const appt2 = getMockPendingDetermination()
     appt2.pendingDetermination = ''
     appt2.scheduleDate = ''
-    appt2.requestDate = 'not empty'
+    appt2.requestDate = formatFromApiGateway(-30)
 
     const result = identifyPendingDeterminationScenario([appt1, appt2])
     expect(result.scenarioType).toBe(ScenarioType.Scenario1)
