@@ -1,8 +1,4 @@
-import renderer from 'react-test-renderer'
 import { render, screen } from '@testing-library/react'
-import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
-import apiGatewayStub from '../../utils/apiGatewayStub'
-import { ScenarioContent, ClaimDetailsContent } from '../../types/common'
 
 import { useRouter } from 'next/router'
 

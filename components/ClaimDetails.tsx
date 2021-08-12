@@ -36,9 +36,9 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
     )
   }
 
-  let extension: JSX.Element | null = null
+  let extensionField: JSX.Element | null = null
   if (extensionType) {
-    extension = (
+    extensionField = (
       <div className="col-6">
         <div />
         <InfoField loading={loading} label={t('claim-details.extension-type')} text={t(extensionType)} />
@@ -63,7 +63,7 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
 
             {lastPaymentIssuedField}
           </div>
-          {extension}
+          {extensionField}
         </div>
       </div>
     </div>

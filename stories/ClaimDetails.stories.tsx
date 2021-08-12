@@ -49,6 +49,6 @@ ClaimDetails.args = {
   benefitYear: '3/21/2020 - 3/20/2021',
   claimBalance: '$508.00',
   weeklyBenefitAmount: '$120.00',
-  lastPaymentIssued: '4/29/2021',
+  lastPaymentIssued: '$120.00 on 4/29/21',
   extensionType: 'Tier 2 Extension',
 }
