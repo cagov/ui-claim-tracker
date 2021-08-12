@@ -137,14 +137,22 @@ export function formatCurrency(amount: number): string {
 export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDetailsContent {
   // Get programType and extensionType.
   const pair: programExtensionPairType = getProgramExtensionPair(rawDetails.programType)
+
+  // construct our fields
   const benefitYear = buildBenefitYear(rawDetails.benefitYearStartDate, rawDetails.benefitYearEndDate)
+  const claimBalance = rawDetails.claimBalance ? formatCurrency(rawDetails.claimBalance) : null
+  const weeklyBenefitAmount = rawDetails.weeklyBenefitAmount ? formatCurrency(rawDetails.weeklyBenefitAmount) : null
+  const lastPaymentIssued =
+    rawDetails.lastPaymentAmount && rawDetails.lastPaymentIssued
+      ? `${formatCurrency(rawDetails.lastPaymentAmount)} on ${formatDate(rawDetails.lastPaymentIssued)}`
+      : null
 
   return {
     programType: pair.programType,
     benefitYear: benefitYear,
-    claimBalance: formatCurrency(rawDetails.claimBalance),
-    weeklyBenefitAmount: formatCurrency(rawDetails.weeklyBenefitAmount),
-    lastPaymentIssued: `${formatCurrency(rawDetails.lastPaymentAmount)} on ${formatDate(rawDetails.lastPaymentIssued)}`,
+    claimBalance: claimBalance,
+    weeklyBenefitAmount: weeklyBenefitAmount,
+    lastPaymentIssued: lastPaymentIssued,
     extensionType: pair.extensionType,
   }
 }

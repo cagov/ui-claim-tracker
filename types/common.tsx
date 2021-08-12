@@ -44,7 +44,6 @@ export interface Claim {
   claimDetails?: null | ClaimDetailsResult
   hasPendingWeeks?: null | undefined | boolean
   hasCertificationWeeksAvailable?: null | undefined | boolean
-  hasClaimDetails?: null | undefined | boolean
   pendingDetermination?: null | PendingDetermination[]
 }
 
@@ -74,9 +73,9 @@ export interface ClaimStatusContent {
 export interface ClaimDetailsContent {
   programType: string
   benefitYear: string
-  claimBalance: string
-  weeklyBenefitAmount: string
-  lastPaymentIssued: string
+  claimBalance: string | null
+  weeklyBenefitAmount: string | null
+  lastPaymentIssued: string | null
   extensionType: string
 }
 
