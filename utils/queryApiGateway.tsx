@@ -62,10 +62,6 @@ export function getApiVars(): ApiEnvVars {
 
 /**
  * Construct the url request to the API gateway.
- *
- * @param {string} url - base url for the API gateway
- * @param {QueryParams} queryParams - query params to append to the API gateway url
- * @returns {string}
  */
 export function buildApiUrl(url: string, queryParams: QueryParams): string {
   const apiUrl = new URL(url)
@@ -89,18 +85,17 @@ export function extractJSON(responseBody: string): Claim {
 /**
  * Return the unique number.
  */
-export function getUniqueNumber(req: IncomingMessage, idHeaderName: string): string {
+export function getUniqueNumber(req: IncomingMessage): string {
+  const apiEnvVars: ApiEnvVars = getApiVars()
+  const idHeaderName = apiEnvVars.idHeaderName
   // Request converts all headers to lowercase, so we need to convert the key to lowercase too.
   return req.headers[idHeaderName.toLowerCase()] as string
 }
 
 /**
  * Returns results from API Gateway
- *
- * @param {Qbject} request
- * @returns {Promise<string>}
  */
-export default async function queryApiGateway(req: IncomingMessage): Promise<Claim> {
+export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
 
@@ -123,7 +118,7 @@ export default async function queryApiGateway(req: IncomingMessage): Promise<Cla
 
   const apiUrlParams: QueryParams = {
     user_key: apiEnvVars.apiUserKey,
-    uniqueNumber: getUniqueNumber(req, apiEnvVars.idHeaderName),
+    uniqueNumber: uniqueNumber,
   }
 
   const apiUrl: RequestInfo = buildApiUrl(apiEnvVars.apiUrl, apiUrlParams)
