@@ -68,8 +68,12 @@ export default function Home({
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/claimstatus/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
-        <link href="/claimstatus/source-sans-pro-bold.ttf" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
