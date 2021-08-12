@@ -14,6 +14,7 @@ import { formatFromApiGateway } from '../utils/formatDate'
 export default function apiGatewayStub(
   scenarioType: ScenarioType,
   hasCertificationWeeksAvailable = false,
+  hasClaimDetails = true,
   programType = 'UI',
 ): Claim {
   // Default empty response from the API gateway
@@ -87,15 +88,19 @@ export default function apiGatewayStub(
       throw new Error('Unknown scenario type')
   }
 
-  claim.claimDetails = {
-    programType: programType,
-    benefitYearStartDate: '2020-03-21T00:00:00',
-    benefitYearEndDate: '2021-03-20T00:00:00',
-    claimBalance: 1100.45,
-    weeklyBenefitAmount: 111,
-    lastPaymentIssued: '2021-04-29T00:00:00',
-    lastPaymentAmount: 100,
-    monetaryStatus: 'Active',
+  if (hasClaimDetails) {
+    claim.claimDetails = {
+      programType: programType,
+      benefitYearStartDate: '2020-03-21T00:00:00',
+      benefitYearEndDate: '2021-03-20T00:00:00',
+      claimBalance: 1100.45,
+      weeklyBenefitAmount: 111,
+      lastPaymentIssued: '2021-04-29T00:00:00',
+      lastPaymentAmount: 100,
+      monetaryStatus: 'Active',
+    }
+  } else {
+    claim.claimDetails = null
   }
 
   return claim

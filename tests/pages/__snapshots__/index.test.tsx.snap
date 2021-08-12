@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Exemplar react-test-renderer Snapshot test renders homepage unchanged 1`] = `
+exports[`Full page snapshot renders homepage unchanged 1`] = `
 <div
   className="index container-fluid"
 >

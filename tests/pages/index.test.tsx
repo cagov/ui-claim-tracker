@@ -19,7 +19,7 @@ beforeAll(() => {
   scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.Scenario1))
 })
 
-describe('Exemplar react-test-renderer Snapshot test', () => {
+describe('Full page snapshot', () => {
   it('renders homepage unchanged', () => {
     const mockRouter = {
       locale: 'en',
