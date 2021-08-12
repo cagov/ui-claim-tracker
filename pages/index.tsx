@@ -68,8 +68,10 @@ export default function Home({
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/claimstatus/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" rel="stylesheet" />
-        <link href="/claimstatus/source-sans-pro-bold.ttf" rel="stylesheet" type="text/css" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Sans+Pro:bold,bolditalic,italic"
+          rel="stylesheet"
+        />
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}

@@ -10,8 +10,9 @@ body {
   color: #333333;
   line-height: 22.4px;
 
-  b, strong {
-    font-family: 'Source Sans Pro Bold', arial;
+  b,
+  strong {
+    font-weight: 700;
   }
 
   h3 {
@@ -109,7 +110,7 @@ body {
     }
 
     .claim-details-box {
-      padding: 0 1.5rem 1.0rem 1.5rem;
+      padding: 0 1.5rem 1rem 1.5rem;
       border: 4px solid #f0f0f0;
     }
 
@@ -134,21 +135,21 @@ body {
     padding-left: 1rem;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
-    list-style: none
+    list-style: none;
   }
 
   //this styles our bullets into fancy small dots with a consistent color
   //pulled from https://www.w3.org/Style/Examples/007/color-bullets.en.html
   li::before {
-    content: "•";
+    content: '•';
     color: black;
     display: inline-block;
     width: 1em;
-    margin-left: -1em
+    margin-left: -1em;
   }
 
   li {
-    margin-bottom:0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .sub-bullets {
@@ -182,7 +183,6 @@ body {
       .claim-section {
         margin-top: 2rem;
       }
-
     }
   }
 
@@ -190,7 +190,6 @@ body {
     display: inline-block;
     position: relative;
     margin-top: 10px !important;
-
 
     -webkit-animation-duration: 1.3s;
     -webkit-animation-fill-mode: forwards;
