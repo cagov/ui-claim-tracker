@@ -68,4 +68,82 @@ describe('Constructing the Claim Details object', () => {
     const claimDetails = getClaimDetails(rawDetails)
     expect(claimDetails).toStrictEqual(expected)
   })
+
+  it('null values pass through properly', () => {
+    // Mock ClaimDetailsResults
+    const rawDetails = {
+      programType: 'UI',
+      benefitYearStartDate: '2021-05-21T00:00:00',
+      benefitYearEndDate: '2022-05-20T00:00:00',
+      claimBalance: null,
+      weeklyBenefitAmount: null,
+      lastPaymentIssued: null,
+      lastPaymentAmount: null,
+      monetaryStatus: 'active',
+    }
+
+    // Expected results
+    const expected = {
+      programType: 'claim-details:program-type.ui',
+      benefitYear: '5/21/2021–5/20/2022',
+      claimBalance: null,
+      weeklyBenefitAmount: null,
+      lastPaymentIssued: null,
+      extensionType: '',
+    }
+    const claimDetails = getClaimDetails(rawDetails)
+    expect(claimDetails).toStrictEqual(expected)
+  })
+
+  it('null lastPaymentIssued date makes the final lastPaymentIssued null', () => {
+    // Mock ClaimDetailsResults
+    const rawDetails = {
+      programType: 'UI',
+      benefitYearStartDate: '2021-05-21T00:00:00',
+      benefitYearEndDate: '2022-05-20T00:00:00',
+      claimBalance: 100,
+      weeklyBenefitAmount: 25,
+      lastPaymentIssued: null,
+      lastPaymentAmount: 10,
+      monetaryStatus: 'active',
+    }
+
+    // Expected results
+    const expected = {
+      programType: 'claim-details:program-type.ui',
+      benefitYear: '5/21/2021–5/20/2022',
+      claimBalance: '$100.00',
+      weeklyBenefitAmount: '$25.00',
+      lastPaymentIssued: null,
+      extensionType: '',
+    }
+    const claimDetails = getClaimDetails(rawDetails)
+    expect(claimDetails).toStrictEqual(expected)
+  })
+
+  it('null lastPaymentAmount makes the final lastPaymentIssued null', () => {
+    // Mock ClaimDetailsResults
+    const rawDetails = {
+      programType: 'UI',
+      benefitYearStartDate: '2021-05-21T00:00:00',
+      benefitYearEndDate: '2022-05-20T00:00:00',
+      claimBalance: 100,
+      weeklyBenefitAmount: 25,
+      lastPaymentIssued: '2021-03-12T00:00:00',
+      lastPaymentAmount: null,
+      monetaryStatus: 'active',
+    }
+
+    // Expected results
+    const expected = {
+      programType: 'claim-details:program-type.ui',
+      benefitYear: '5/21/2021–5/20/2022',
+      claimBalance: '$100.00',
+      weeklyBenefitAmount: '$25.00',
+      lastPaymentIssued: null,
+      extensionType: '',
+    }
+    const claimDetails = getClaimDetails(rawDetails)
+    expect(claimDetails).toStrictEqual(expected)
+  })
 })
