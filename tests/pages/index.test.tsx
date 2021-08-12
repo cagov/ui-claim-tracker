@@ -1,5 +1,6 @@
 import renderer from 'react-test-renderer'
 import { render, screen } from '@testing-library/react'
+
 import Index from '../../pages/index'
 import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 import apiGatewayStub from '../../utils/apiGatewayStub'

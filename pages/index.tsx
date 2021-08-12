@@ -14,7 +14,7 @@ import { ClaimSection } from '../components/ClaimSection'
 import { TimeoutModal } from '../components/TimeoutModal'
 import { Footer } from '../components/Footer'
 
-import queryApiGateway from '../utils/queryApiGateway'
+import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
 import getScenarioContent from '../utils/getScenarioContent'
 import { ScenarioContent } from '../types/common'
 
@@ -88,19 +88,31 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
 
   let errorCode: number | null = null
   let scenarioContent: ScenarioContent | null = null
+  const uniqueNumber = getUniqueNumber(req)
 
-  try {
-    // Make the API request and return the data.
-    const claimData = await queryApiGateway(req)
-
-    logger.info(claimData) /* @TODO: Remove. For development purposes only. */
-
-    // Run business logic to get content for the current scenario.
-    scenarioContent = getScenarioContent(claimData)
-  } catch (error) {
-    // If an error occurs, log it and show 500.
-    logger.error(error)
+  // If there is no unique number in the header, AND it is the Front Door health probe,
+  // then display a 500 but don't log an error.
+  // If there is no unique number in the header, BUT it is not the health probe,
+  // then display a 500 AND log an error.
+  if (!uniqueNumber) {
+    if (req.headers['user-agent'] !== 'Edge Health Probe') {
+      logger.error('Missing unique number')
+    }
     errorCode = 500
+  }
+  // Only query the API gateway if there is a unique number in the header.
+  else {
+    try {
+      // Make the API request and return the data.
+      const claimData = await queryApiGateway(req, uniqueNumber)
+      logger.info(claimData) /* @TODO: Remove. For development purposes only. */
+      // Run business logic to get content for the current scenario.
+      scenarioContent = getScenarioContent(claimData)
+    } catch (error) {
+      // If an error occurs, log it and show 500.
+      logger.error(error, 'Application error')
+      errorCode = 500
+    }
   }
 
   // Note whether the user came from the main UIO website or UIO Mobile, and match
