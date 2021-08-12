@@ -17,9 +17,28 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
 }) => {
   const { t } = useTranslation(['common', 'claim-details'])
 
-  let extension: JSX.Element | null = null
+  let claimBalanceField: JSX.Element | null = null
+  if (claimBalance) {
+    claimBalanceField = <InfoField loading={loading} label={t('claim-details.claim-balance')} text={claimBalance} />
+  }
+
+  let weeklyBenefitAmountField: JSX.Element | null = null
+  if (weeklyBenefitAmount) {
+    weeklyBenefitAmountField = (
+      <InfoField loading={loading} label={t('claim-details.weekly-benefit-amount')} text={weeklyBenefitAmount} />
+    )
+  }
+
+  let lastPaymentIssuedField: JSX.Element | null = null
+  if (lastPaymentIssued) {
+    lastPaymentIssuedField = (
+      <InfoField loading={loading} label={t('claim-details.last-payment-issued')} text={lastPaymentIssued} />
+    )
+  }
+
+  let extensionField: JSX.Element | null = null
   if (extensionType) {
-    extension = (
+    extensionField = (
       <div className="col-6">
         <div />
         <InfoField loading={loading} label={t('claim-details.extension-type')} text={t(extensionType)} />
@@ -38,13 +57,13 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
 
             <InfoField loading={loading} label={t('claim-details.benefit-year')} text={benefitYear} />
 
-            <InfoField loading={loading} label={t('claim-details.claim-balance')} text={claimBalance} />
+            {claimBalanceField}
 
-            <InfoField loading={loading} label={t('claim-details.weekly-benefit-amount')} text={weeklyBenefitAmount} />
+            {weeklyBenefitAmountField}
 
-            <InfoField loading={loading} label={t('claim-details.last-payment-issued')} text={lastPaymentIssued} />
+            {lastPaymentIssuedField}
           </div>
-          {extension}
+          {extensionField}
         </div>
       </div>
     </div>
