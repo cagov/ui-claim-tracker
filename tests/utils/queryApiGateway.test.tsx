@@ -208,7 +208,7 @@ describe('The unique number', () => {
   })
 
   // Each test case should be:
-  // [test description, mock env var
+  // [test description, mock env var]
   const caseSensitiveTestCases = [
     ['lowercase', 'uniquenumber'],
     ['camelCase', 'uniqueNumber'],
