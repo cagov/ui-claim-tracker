@@ -91,6 +91,15 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
   }
 }
 
+/**
+ * Returns true if the dateString is falsy.
+ *
+ * We are defining falsy here to mean: standard JS falsy (null, empty string, undefined, etc) or 0001-01-01T00:00:00.
+ */
+export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
+  return !dateString || dateString === '0001-01-01T00:00:00'
+}
+
 // @TODO: add a function to check and log any dates that are earlier
 // than 2020 as these are anomolous dates that could indicate an error.
 
