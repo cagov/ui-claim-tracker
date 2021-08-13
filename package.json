@@ -19,7 +19,7 @@
     "bootstrap": "^4.6.0",
     "date-fns": "^2.22.1",
     "date-fns-tz": "^1.1.4",
-    "next": "10.0.8",
+    "next": "11.1.0",
     "pino": "^6.11.3",
     "react": "17.0.1",
     "react-bootstrap": "^1.5.2",
