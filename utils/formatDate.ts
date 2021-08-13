@@ -94,7 +94,7 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
 /**
  * Returns true if the dateString is falsy.
  *
- * We are defining falsy here to mean: null, empty string, undefined, or 0001-01-01T00:00:00.
+ * We are defining falsy here to mean: standard JS falsy (null, empty string, undefined, etc) or 0001-01-01T00:00:00.
  */
 export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
   return !dateString || dateString === '0001-01-01T00:00:00'
