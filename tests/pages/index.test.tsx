@@ -1,5 +1,6 @@
 import renderer from 'react-test-renderer'
 import { render, screen } from '@testing-library/react'
+
 import Index from '../../pages/index'
 import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 import apiGatewayStub from '../../utils/apiGatewayStub'
@@ -18,7 +19,7 @@ beforeAll(() => {
   scenarioContent = getScenarioContent(apiGatewayStub(ScenarioType.Scenario1))
 })
 
-describe('Exemplar react-test-renderer Snapshot test', () => {
+describe('Full page snapshot', () => {
   it('renders homepage unchanged', () => {
     const mockRouter = {
       locale: 'en',

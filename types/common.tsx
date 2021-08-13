@@ -73,13 +73,13 @@ export interface ClaimStatusContent {
 export interface ClaimDetailsContent {
   programType: string
   benefitYear: string
-  claimBalance: string
-  weeklyBenefitAmount: string
-  lastPaymentIssued: string
+  claimBalance: string | null
+  weeklyBenefitAmount: string | null
+  lastPaymentIssued: string | null
   extensionType: string
 }
 
 export interface ScenarioContent {
   statusContent: ClaimStatusContent
-  detailsContent: ClaimDetailsContent
+  detailsContent: null | ClaimDetailsContent
 }
