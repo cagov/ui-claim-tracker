@@ -159,10 +159,10 @@ describe('The determination interview is invalid if all other Scenario 1 critera
     expect(result).toBe(null)
   })
 
-  it('the schedule date is an invalid datetime string', () => {
+  it('the schedule date is a non-empty string', () => {
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = ''
-    pendingDetermination.scheduleDate = 'non-null value'
+    pendingDetermination.scheduleDate = 'non-empty string'
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
     expect(result).toBe(null)

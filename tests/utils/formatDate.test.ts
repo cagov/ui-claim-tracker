@@ -1,7 +1,7 @@
 import MockDate from 'mockdate'
 import { toDate } from 'date-fns-tz'
 
-import formatDate, { formatAppointmentDate, isDatePast, isNullDateString, isValidDate } from '../../utils/formatDate'
+import formatDate, { formatAppointmentDate, isDatePast, isDateStringFalsy, isValidDate } from '../../utils/formatDate'
 
 // Test isValidDate()
 describe('Valid dates: A date is', () => {
@@ -18,15 +18,30 @@ describe('Valid dates: A date is', () => {
   })
 })
 
-// Test isNullDateString()
-describe('Null dates: A date is', () => {
-  it('null if it is Jan 1, 0001', () => {
-    expect(isNullDateString('0001-01-01T00:00:00')).toBe(true)
+// Test isDateStringFalsy()
+describe('Falsy date strings: A date string is', () => {
+  it('falsy if it is Jan 1, 0001', () => {
+    expect(isDateStringFalsy('0001-01-01T00:00:00')).toBe(true)
   })
 
-  it('not null if it is any string', () => {
-    expect(isNullDateString('2001-01-01T00:00:00')).toBe(false)
-    expect(isNullDateString('something else')).toBe(false)
+  it('falsy if it is null', () => {
+    expect(isDateStringFalsy(null)).toBe(true)
+  })
+
+  it('falsy if it is an empty string', () => {
+    expect(isDateStringFalsy('')).toBe(true)
+  })
+
+  it('falsy if it is undefined', () => {
+    expect(isDateStringFalsy(undefined)).toBe(true)
+  })
+
+  it('not falsy if it is any valid date', () => {
+    expect(isDateStringFalsy('2001-01-01T00:00:00')).toBe(false)
+  })
+
+  it('not falsy if it is any valid string', () => {
+    expect(isDateStringFalsy('something else')).toBe(false)
   })
 })
 
