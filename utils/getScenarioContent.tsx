@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { isDatePast, isValidDate, parseApiGatewayDate } from './formatDate'
+import { isDatePast, isDateStringFalsy, isValidDate, parseApiGatewayDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -117,13 +117,13 @@ export function identifyPendingDeterminationScenario(
       }
     }
     // Scenario 1:
-    // If determinationStatus is empty/null/undefined/unset
-    // AND scheduleDate has no value
-    // AND requestDate has a value
+    // If determinationStatus is empty/null/undefined
+    // AND scheduleDate is empty/null/undefined or null date string
+    // AND requestDate is a valid date
     else if (
       !pendingDetermination.determinationStatus &&
-      !pendingDetermination.scheduleDate &&
-      pendingDetermination.requestDate
+      isDateStringFalsy(pendingDetermination.scheduleDate) &&
+      isValidDate(pendingDetermination.requestDate)
     ) {
       hasNotYetScheduled = true
     }
