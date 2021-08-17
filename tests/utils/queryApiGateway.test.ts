@@ -250,6 +250,23 @@ describe('The unique number', () => {
   })
 })
 
+// Test extractJSON()
+describe('Validating extracted JSON', () => {
+  it('returns the claim with a schema-valid JSON string', () => {
+    const validJSON = '{ "ClaimType": "PUA" }'
+
+    const jsonData: Claim = extractJSON(validJSON)
+    expect(jsonData.ClaimType).toBe('PUA')
+  })
+
+  it('throws an error with an schema-invalid JSON string', () => {
+    const invalidJSON = '{}'
+    expect(() => {
+      extractJSON(invalidJSON)
+    }).toThrowError('TODO')
+  })
+})
+
 /*
  * @TODO: Test
  * - env vars missing (each) #176

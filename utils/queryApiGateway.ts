@@ -16,6 +16,7 @@ import fs from 'fs'
 import https from 'https'
 import { IncomingMessage } from 'http'
 import { Claim } from '../types/common'
+import { claimSchema } from '../types/schema'
 
 export interface QueryParams {
   user_key: string
@@ -76,10 +77,14 @@ export function buildApiUrl(url: string, queryParams: QueryParams): string {
 /**
  * Extract JSON body from API gateway response
  * See https://github.com/typescript-eslint/typescript-eslint/issues/2118#issuecomment-641464651
- * @TODO: Validate response. See #150
  */
 export function extractJSON(responseBody: string): Claim {
-  return JSON.parse(responseBody) as Claim
+  const uncheckedResponse: Claim = JSON.parse(responseBody) as Claim
+
+  const apiData: Claim = claimSchema.parse(uncheckedResponse)
+  console.log(apiData)
+
+  return apiData
 }
 
 /**
