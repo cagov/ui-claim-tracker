@@ -12,11 +12,14 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ userArrivedF
   const router = useRouter()
 
   const queryString = userArrivedFromUioMobile ? { from: 'uiom' } : {}
+  // The Next Link will add the href value to the final <a> tag
+  /* eslint-disable jsx-a11y/anchor-is-valid */
   return (
     <div className="language-switcher">
       <Link href={{ pathname: '/', query: queryString }} locale={router.locale === 'en' ? 'es' : 'en'}>
-        <span className="text">{t('change-locale')}</span>
+        <a className="text">{t('change-locale')}</a>
       </Link>
     </div>
   )
+  /* eslint-enable jsx-a11y/anchor-is-valid */
 }
