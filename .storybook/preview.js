@@ -6,6 +6,7 @@ import '../styles/globals.scss'
 import i18n from 'i18next'
 import { I18nextProvider, initReactI18next } from 'react-i18next'
 import { withI18next } from 'storybook-addon-i18next'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
 
 import enCommon from '../public/locales/en/common.json'
 import enClaimDetails from '../public/locales/en/claim-details.json'
@@ -22,6 +23,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  nextRouter: {
+    Provider: RouterContext.Provider,
   },
   options: {
     storySort: {

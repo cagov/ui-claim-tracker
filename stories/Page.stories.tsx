@@ -1,5 +1,4 @@
 import { Story, Meta } from '@storybook/react'
-import { withNextRouter } from 'storybook-addon-next-router'
 
 import Home, { HomeProps } from '../pages/index'
 import apiGatewayStub from '../utils/apiGatewayStub'
@@ -11,7 +10,6 @@ import { getNumericEnumKeys } from '../utils/numericEnum'
 export default {
   title: 'Claim Tracker/Page',
   component: Home,
-  decorators: [withNextRouter],
   argTypes: {
     scenario: {
       options: getNumericEnumKeys(ScenarioType),
