@@ -26,7 +26,7 @@ relates to weekly certification
 - CERTIFICATE_DIR: The path to the client certificate (certificate must be in PFX/P12 format)
 - PFX_FILE: The name of the client certificate file
 - (Optional) PFX_PASSPHRASE: The import passphrase for the client certificate if there is one
-- (Optional) URL_UIO_LANDING, URL_UIOMOBILE_LANDING: The environment-specific links to the UIO landing page
+- (Optional) URL_UIO_LANDING, URL_UIOMOBILE_LANDING: The environment-specific links to the UIO and UIO Mobile landing pages
 
 For local development:
 
