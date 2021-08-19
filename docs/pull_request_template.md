@@ -8,6 +8,6 @@ Before submitting the PR for review, consider the checklist below and check off 
 
 Resolves #XXX
 
-- [ ] Relevent Documentation (e.g. READMEs, Technical Foundation) updated
+- [ ] Relevant documentation (e.g. READMEs, Technical Foundation) updated
 - [ ] Issue AC are copied to this PR & are met
 - [ ] Changes are tested on Staging post-merge into `main`
