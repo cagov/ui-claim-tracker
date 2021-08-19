@@ -15,7 +15,11 @@ export interface TransLineProps extends TransLineContent {
 function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   // Special case for UIO homepage links.
   if (link === 'uio-home') {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
+    // Optional environment-specific links back to the UIO landing page, used by EDD testing
+    const uioLandingUrl = process.env.URL_UIO_LANDING ?? getUrl('uio-home-url-desktop')
+    const uioMobileLandingUrl = process.env.URL_UIOMOBILE_LANDING ?? getUrl('uio-home-url-mobile')
+
+    const uioHomeLink = userArrivedFromUioMobile ? uioMobileLandingUrl : uioLandingUrl
     if (uioHomeLink) {
       // If the link is for UIO homepage, do a direct getUrl() lookup.
       // Do not pass the looked up url through t() because t() will mangle the url.
