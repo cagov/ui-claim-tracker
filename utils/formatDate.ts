@@ -126,9 +126,9 @@ export function convertStringToLocale(localeString: string): Locale {
 /**
  * Format appointment.
  */
-export function formatAppointmentDate(date: Date, localeString: string): string {
+export function formatAppointmentDate(dateString: string, localeString: string): string {
   const dateFormat = 'EEEE, LLLL d, yyyy'
-  const convertedDate = utcToZonedTime(date, pacificTimeZone)
+  const convertedDate = utcToZonedTime(dateString, pacificTimeZone)
   const formattedDate = format(convertedDate, dateFormat, {
     locale: convertStringToLocale(localeString),
     timeZone: pacificTimeZone,
