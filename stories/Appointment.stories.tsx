@@ -47,7 +47,6 @@ export default {
 } as Meta
 
 interface StoryAppointmentProps extends AppointmentProps {
-  date: Date
   start?: number
   end?: number
 }
@@ -64,5 +63,5 @@ const Template: Story<StoryAppointmentProps> = ({ ...args }) => {
 
 export const Appointment = Template.bind({})
 Appointment.args = {
-  date: new Date(),
+  date: new Date().toJSON(),
 }

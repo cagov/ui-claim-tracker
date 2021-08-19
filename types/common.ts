@@ -54,7 +54,7 @@ export interface TimeSlot {
 }
 
 export interface AppointmentContent {
-  date: Date
+  date: string
   timeSlot?: TimeSlot
 }
 
