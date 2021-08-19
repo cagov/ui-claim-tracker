@@ -20,6 +20,6 @@ ClaimSummary.args = {
     },
   ],
   appointment: {
-    date: new Date(),
+    date: new Date().toJSON(),
   },
 }
