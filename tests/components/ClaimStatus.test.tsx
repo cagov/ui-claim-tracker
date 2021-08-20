@@ -1,5 +1,6 @@
-import MockDate from 'mockdate'
 import renderer from 'react-test-renderer'
+
+import { DateTime, Settings } from 'luxon'
 
 import { ClaimStatus } from '../../components/ClaimStatus'
 import { ClaimStatusContent } from '../../types/common'
@@ -56,7 +57,9 @@ describe('Scenario 1', () => {
 
 describe('Scenario 2', () => {
   beforeAll(() => {
-    MockDate.set('2021-05-05')
+    Settings.defaultZone = 'America/Los_Angeles'
+    const expectedNow = DateTime.local(2021, 5, 5)
+    Settings.now = () => expectedNow.toMillis()
   })
 
   it('matches when there are weeks to certify, on desktop', () => {

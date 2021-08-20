@@ -12,17 +12,13 @@
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
 
-import { isValid } from 'date-fns'
-import { format, toDate, utcToZonedTime } from 'date-fns-tz'
 import enUS from 'date-fns/locale/en-US'
 import es from 'date-fns/locale/es'
 import { DateTime, Settings } from 'luxon'
 
 import { ApiGatewayDateString } from '../types/common'
 
-const pacificTimeZone = 'America/Los_Angeles'
-const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
-
+// Our API times come in as PT, and we display in PT - let's just stay in that space
 Settings.defaultZone = 'America/Los_Angeles'
 
 /**
@@ -44,8 +40,8 @@ Settings.defaultZone = 'America/Los_Angeles'
  *
  * See: https://github.com/marnusw/date-fns-tz#todate
  */
-export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
-  return toDate(dateString, { timeZone: pacificTimeZone })
+export function parseApiGatewayDate(dateString: ApiGatewayDateString): DateTime {
+  return DateTime.fromISO(dateString)
 }
 
 /**
@@ -55,6 +51,7 @@ export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
  *
  */
 export function formatFromApiGateway(daysOffset = 1, today = DateTime.now()): string {
+  const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
   const newDate = today.plus({ days: daysOffset }).startOf('day')
   return newDate.toFormat(apiGatewayFormat)
 }
@@ -63,31 +60,25 @@ export function formatFromApiGateway(daysOffset = 1, today = DateTime.now()): st
  * Determine if the date string is valid.
  */
 export function isValidDate(dateString: ApiGatewayDateString): boolean {
-  let date: Date
+  let date: DateTime
 
-  // If the date format is such that it can't be parsed, then it is definitely invalid.
+  // Tell luxon to throw an error if the date is invalid
+  // https://moment.github.io/luxon/#/validity
+  Settings.throwOnInvalid = true
   try {
     date = parseApiGatewayDate(dateString)
   } catch (error) {
     return false
   }
 
-  if (isValid(date)) {
-    // Set a min date because it's possible for the date to be '0001-01-01'.
-    const minDate = toDate('1900-01-01', { timeZone: pacificTimeZone })
-    if (date <= minDate) {
-      return false
-    }
-    // date-fns says the date is valid
-    // AND the date is sooner than the min date.
-    else {
-      return true
-    }
-  }
-  // date-fns says the date is invalid
-  else {
+  // Set a min date because it's possible for the date to be '0001-01-01'.
+  const minDate = DateTime.fromISO('1900-01-01')
+  if (date <= minDate) {
     return false
   }
+
+  // Okay, looks good!
+  return true
 }
 
 /**
@@ -107,10 +98,9 @@ export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
  *
  * Assumes that the given date is a valid date.
  */
-export function isDatePast(date: Date): boolean {
+export function isDatePast(date: DateTime): boolean {
   const today = DateTime.now().startOf('day')
-  const dateToCheck = DateTime.fromJSDate(date)
-  return dateToCheck < today
+  return date < today
 }
 
 /**
@@ -127,11 +117,8 @@ export function convertStringToLocale(localeString: string): Locale {
  */
 export function formatAppointmentDate(dateString: string, localeString: string): string {
   const dateFormat = 'EEEE, LLLL d, yyyy'
-  const convertedDate = utcToZonedTime(dateString, pacificTimeZone)
-  const formattedDate = format(convertedDate, dateFormat, {
-    locale: convertStringToLocale(localeString),
-    timeZone: pacificTimeZone,
-  })
+  const date = parseApiGatewayDate(dateString)
+  const formattedDate = date.setLocale(localeString).toFormat(dateFormat)
   return formattedDate
 }
 
@@ -142,5 +129,5 @@ export function formatAppointmentDate(dateString: string, localeString: string):
  */
 export default function formatDate(dateString: ApiGatewayDateString): string {
   const date = parseApiGatewayDate(dateString)
-  return format(date, 'M/d/yyyy')
+  return date.toLocaleString(DateTime.DATE_SHORT)
 }

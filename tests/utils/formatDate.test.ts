@@ -1,6 +1,4 @@
-import MockDate from 'mockdate'
-import { toDate } from 'date-fns-tz'
-import { DateTime, Settings } from 'luxon'
+import { DateTime } from 'luxon'
 
 import formatDate, {
   formatAppointmentDate,
@@ -54,35 +52,27 @@ describe('Falsy date strings: A date string is', () => {
 
 // Test isDatePast()
 describe('Past dates: A date is', () => {
-  beforeAll(() => {
-    MockDate.set('2020-05-05T00:00:00')
-  })
-
   it('correctly identified as being in the past', () => {
-    const date = new Date()
-    date.setDate(date.getDate() - 1)
-    expect(isDatePast(date)).toBe(true)
+    const yesterday = DateTime.now().minus({ days: 1 })
+    expect(isDatePast(yesterday)).toBe(true)
   })
 
   it('correctly identified as not past if it is today', () => {
-    const today = new Date()
+    const today = DateTime.now()
     expect(isDatePast(today)).toBe(false)
   })
 
   it('correctly identified as not past if it is in the future', () => {
-    const date = new Date()
-    date.setDate(date.getDate() + 1)
-    expect(isDatePast(date)).toBe(false)
+    const tomorrow = DateTime.now().plus({ days: 1 })
+    expect(isDatePast(tomorrow)).toBe(false)
   })
 })
 
 // Test formatAppointmentDate()
 describe('Formatting appointments', () => {
   it('displays the date in the expected format and timezone', () => {
-    // Create a date that is midnight UTC
-    const date = toDate('2021-01-01T00:00:00', { timeZone: 'Europe/London' })
-    // Verify that it is formatted correctly for PT
-    const formattedDate = formatAppointmentDate(date)
+    const date = '2020-12-31T00:00:00'
+    const formattedDate = formatAppointmentDate(date, 'en')
     expect(formattedDate).toBe('Thursday, December 31, 2020')
   })
 })
