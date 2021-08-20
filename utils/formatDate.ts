@@ -16,11 +16,14 @@ import { isValid } from 'date-fns'
 import { format, toDate, utcToZonedTime } from 'date-fns-tz'
 import enUS from 'date-fns/locale/en-US'
 import es from 'date-fns/locale/es'
+import { DateTime, Settings } from 'luxon'
 
 import { ApiGatewayDateString } from '../types/common'
 
 const pacificTimeZone = 'America/Los_Angeles'
 const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+Settings.defaultZone = 'America/Los_Angeles'
 
 /**
  * Parse a date string from the API gateway.
@@ -48,16 +51,12 @@ export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
 /**
  * Return a string that matches the API gateway format for datetimes.
  *
- * Create a Date object that is offset from today.
+ * Allows 'today' to be passed in so we can test robustly
  *
- * Note: This returns a date at either midnight or 1am, depending on whether it is
- * currently PST (-8) or PDT (-7).
  */
-export function formatFromApiGateway(daysOffset = 1): string {
-  const today = new Date()
-  today.setDate(today.getDate() + daysOffset)
-  today.setUTCHours(8, 0, 0, 0)
-  return format(today, apiGatewayFormat)
+export function formatFromApiGateway(daysOffset = 1, today = DateTime.now()): string {
+  const newDate = today.plus({ days: daysOffset }).startOf('day')
+  return newDate.toFormat(apiGatewayFormat)
 }
 
 /**
@@ -109,9 +108,9 @@ export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
  * Assumes that the given date is a valid date.
  */
 export function isDatePast(date: Date): boolean {
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  return date < today
+  const today = DateTime.now().startOf('day')
+  const dateToCheck = DateTime.fromJSDate(date)
+  return dateToCheck < today
 }
 
 /**

@@ -1,7 +1,14 @@
 import MockDate from 'mockdate'
 import { toDate } from 'date-fns-tz'
+import { DateTime, Settings } from 'luxon'
 
-import formatDate, { formatAppointmentDate, isDatePast, isDateStringFalsy, isValidDate } from '../../utils/formatDate'
+import formatDate, {
+  formatAppointmentDate,
+  formatFromApiGateway,
+  isDatePast,
+  isDateStringFalsy,
+  isValidDate,
+} from '../../utils/formatDate'
 
 // Test isValidDate()
 describe('Valid dates: A date is', () => {
@@ -86,5 +93,30 @@ describe('Formatting dates', () => {
     const notFormatted = '2013-09-27T00:00:00'
     const formatted = formatDate(notFormatted)
     expect(formatted).toEqual('9/27/2013')
+  })
+})
+
+// Test formatFromApiGateway()
+describe('Requesting a date adjusted from existing in the correct format', () => {
+  it('has our time set to PT!', () => {
+    expect(DateTime.local().zoneName).toEqual('America/Los_Angeles')
+  })
+
+  it('displays the expected date string', () => {
+    const baseDate = DateTime.fromISO('2021-09-10T02:00:00')
+    const adjustment = -1
+    const newDate = formatFromApiGateway(adjustment, baseDate)
+
+    expect(newDate).toEqual('2021-09-09T00:00:00')
+  })
+
+  it('handles PT edge cases', () => {
+    // Tricky time - 10pm PT means its always* the next day ET & UTC
+    // *like, casually true but don't hold me to this time is hard okay?
+    const baseDate = DateTime.fromISO('2021-09-01T22:00:00')
+    const adjustment = 3
+    const newDate = formatFromApiGateway(adjustment, baseDate)
+
+    expect(newDate).toEqual('2021-09-04T00:00:00')
   })
 })
