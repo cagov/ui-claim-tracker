@@ -57,7 +57,6 @@ describe('Scenario 1', () => {
 
 describe('Scenario 2', () => {
   beforeAll(() => {
-    Settings.defaultZone = 'America/Los_Angeles'
     const expectedNow = DateTime.local(2021, 5, 5)
     Settings.now = () => expectedNow.toMillis()
   })
