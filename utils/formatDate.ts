@@ -12,8 +12,6 @@
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
 
-import enUS from 'date-fns/locale/en-US'
-import es from 'date-fns/locale/es'
 import { DateTime, Settings } from 'luxon'
 
 import { ApiGatewayDateString } from '../types/common'
@@ -101,15 +99,6 @@ export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
 export function isDatePast(date: DateTime): boolean {
   const today = DateTime.now().startOf('day')
   return date < today
-}
-
-/**
- * Convert date locale from string.
- *
- * Falls back to English if an unexpected value is given.
- */
-export function convertStringToLocale(localeString: string): Locale {
-  return localeString === 'es' ? es : enUS
 }
 
 /**
