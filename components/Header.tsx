@@ -14,7 +14,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
   //   main UIO landing page if user arrived from main UIO
-  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
+  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-home-url')
 
   return (
     <header className="header border-bottom border-secondary">
@@ -34,10 +34,10 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
                 <span className="text">{t('header.edd-home')}</span>
               </Nav.Link>
             </Navbar.Collapse>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-help-new-claim')}>
+            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-help-new-claim')}>
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
-            <Nav.Link href={getUrl('edd-log-out')}>
+            <Nav.Link href={getUrl('bpo-log-out')}>
               <span className="text">{t('header.logout')}</span>
             </Nav.Link>
           </Nav>
@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse>
             <Nav>
-              <Nav.Link target="_blank" rel="noopener noreferrer" href={uioHomeLink}>
+              <Nav.Link rel="noopener noreferrer" href={uioHomeLink}>
                 <span className="text">{t('header.uio-home')}</span>
               </Nav.Link>
             </Nav>

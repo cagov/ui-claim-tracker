@@ -128,7 +128,6 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
               onClick={[Function]}
               onKeyDown={[Function]}
               rel="noopener noreferrer"
-              target="_blank"
             >
               <span
                 className="text"
