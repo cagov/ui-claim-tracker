@@ -111,8 +111,8 @@ describe('Requesting a date adjusted from existing in the correct format', () =>
   })
 
   it('handles PT edge cases', () => {
-    // Tricky time - 10pm PT means its always* the next day ET & UTC
-    // *like, casually true but don't hold me to this time is hard okay?
+    // Tricky time - 10pm PT means it's always* the next day ET & UTC
+    // *like, casually true but don't hold me to this; time is hard okay?
     const baseDate = DateTime.fromISO('2021-09-01T22:00:00')
     const adjustment = 3
     const newDate = formatFromApiGateway(adjustment, baseDate)
