@@ -1,5 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
+import { DateTime } from 'luxon'
+
 import { ClaimSummary as ClaimSummaryComponent, ClaimSummaryProps } from '../components/ClaimSummary'
 
 export default {
@@ -9,6 +11,7 @@ export default {
 
 const Template: Story<ClaimSummaryProps> = (args) => <ClaimSummaryComponent {...args} />
 
+const exampleDate = DateTime.now().toString()
 export const ClaimSummary = Template.bind({})
 ClaimSummary.args = {
   paragraphs: [
@@ -20,6 +23,6 @@ ClaimSummary.args = {
     },
   ],
   appointment: {
-    date: new Date().toJSON(),
+    date: exampleDate,
   },
 }

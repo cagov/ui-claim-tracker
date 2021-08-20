@@ -1,5 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
+import { DateTime } from 'luxon'
+
 import { Appointment as AppointmentComponent, AppointmentProps } from '../components/Appointment'
 
 export default {
@@ -62,6 +64,7 @@ const Template: Story<StoryAppointmentProps> = ({ ...args }) => {
 }
 
 export const Appointment = Template.bind({})
+const exampleDate = DateTime.now().toString()
 Appointment.args = {
-  date: new Date().toJSON(),
+  date: exampleDate,
 }
