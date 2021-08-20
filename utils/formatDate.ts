@@ -22,21 +22,13 @@ Settings.defaultZone = 'America/Los_Angeles'
 /**
  * Parse a date string from the API gateway.
  *
- * By default, if a date time string has no time zone (which is how we expect
- * the date times from the API gateway to be formatted), it is interpreted as a UTC time.
- *
- * From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse:
- *
- * > For example, "2011-10-10" (date-only form), "2011-10-10T14:48:00" (date-time form),
- * > or "2011-10-10T14:48:00.000+09:00" (date-time form with milliseconds and time zone)
- * > can be passed and will be parsed. When the time zone offset is absent, date-only forms
- * > are interpreted as a UTC time and date-time forms are interpreted as local time.
  *
  * This function will interpret date time strings with no time zone as a Pacific Time Zone
- * time. If the date string argument contains a time zone offset, the `timeZone` option
- * is ignored.
+ * Date Time due to the Settings.defaultZone specification in this file.
  *
- * See: https://github.com/marnusw/date-fns-tz#todate
+ * See more about ISO format parsing in the Luxon docs
+ * https://moment.github.io/luxon/#/tour?id=parse-from-iso-8601
+ *
  */
 export function parseApiGatewayDate(dateString: ApiGatewayDateString): DateTime {
   return DateTime.fromISO(dateString)
@@ -115,6 +107,9 @@ export function formatAppointmentDate(dateString: string, localeString: string):
  * Format dates for user-facing display.
  *
  * Does not care if the given dateString is a valid date.
+ *
+ * See Luxon formatting docs for more info on toLocaleString & the DATE_SHORT preset
+ * https://moment.github.io/luxon/#/formatting?id=presets
  */
 export default function formatDate(dateString: ApiGatewayDateString): string {
   const date = parseApiGatewayDate(dateString)
