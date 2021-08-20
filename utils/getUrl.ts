@@ -11,12 +11,22 @@ export type UrlType = keyof typeof urls
  * Get url from urls.json
  */
 export default function getUrl(linkKey: string): string | undefined {
-  // Optional environment-specific links back to the UIO landing page, used by EDD testing
-  if (linkKey === 'uio-home-url-desktop' && process.env.URL_UIO_LANDING) return process.env.URL_UIO_LANDING
-  if (linkKey === 'uio-home-url-mobile' && process.env.URL_UIOMOBILE_LANDING) return process.env.URL_UIOMOBILE_LANDING
-
   // Explicitly cast to one of the allowed keys in urls.json.
   // If the key does not exist in urls.json, this function will return undefined.
   const key = linkKey as UrlType
+
+  // Optional environment-specific links back to the UIO landing page, used by EDD testing
+  if (key.startsWith('uio') && process.env.URL_PREFIX_UIO) {
+    return urls[key].replace('uio.edd.ca.gov/UIO', process.env.URL_PREFIX_UIO)
+  }
+
+  if (key.startsWith('uio-mobile') && process.env.URL_PREFIX_UIO_MOBILE) {
+    return urls[key].replace('uiom.edd.ca.gov/UIOM', process.env.URL_PREFIX_UIO_MOBILE)
+  }
+
+  if (key.startsWith('bpo') && process.env.URL_PREFIX_BPO) {
+    return urls[key].replace('portal.edd.ca.gov', process.env.URL_PREFIX_BPO)
+  }
+
   return urls[key]
 }
