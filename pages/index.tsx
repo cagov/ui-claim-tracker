@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
-import pino from 'pino'
 import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
 import Error from 'next/error'
+import pino from 'pino'
 
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
@@ -14,9 +14,10 @@ import { ClaimSection } from '../components/ClaimSection'
 import { TimeoutModal } from '../components/TimeoutModal'
 import { Footer } from '../components/Footer'
 
-import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
-import getScenarioContent from '../utils/getScenarioContent'
 import { ScenarioContent } from '../types/common'
+import getScenarioContent from '../utils/getScenarioContent'
+import { Logger } from '../utils/logger'
+import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
 
 export interface HomeProps {
   scenarioContent: ScenarioContent
@@ -85,43 +86,61 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale, query }) => {
-  const isProd = process.env.NODE_ENV === 'production'
-  const logger = isProd ? pino({}) : pino({ prettyPrint: true })
-  logger.info(req)
-  logger.info(query)
-
-  let errorCode: number | null = null
-  let scenarioContent: ScenarioContent | null = null
-  const uniqueNumber = getUniqueNumber(req)
-
-  // If there is no unique number in the header, AND it is the Front Door health probe,
-  // then display a 500 but don't log an error.
-  // If there is no unique number in the header, BUT it is not the health probe,
-  // then display a 500 AND log an error.
-  if (!uniqueNumber) {
-    if (req.headers['user-agent'] !== 'Edge Health Probe') {
-      logger.error('Missing unique number')
-    }
-    errorCode = 500
-  }
-  // Only query the API gateway if there is a unique number in the header.
-  else {
-    try {
-      // Make the API request and return the data.
-      const claimData = await queryApiGateway(req, uniqueNumber)
-      logger.info(claimData) /* @TODO: Remove. For development purposes only. */
-      // Run business logic to get content for the current scenario.
-      scenarioContent = getScenarioContent(claimData)
-    } catch (error) {
-      // If an error occurs, log it and show 500.
-      logger.error(error, 'Application error')
-      errorCode = 500
-    }
-  }
-
   // Note whether the user came from the main UIO website or UIO Mobile, and match
   // that in our links back out to UIO.
   const userArrivedFromUioMobile = query?.from === 'uiom'
+
+  // Other vars.
+  let errorCode: number | null = null
+  let scenarioContent: ScenarioContent | null = null
+  let pino: pino.Logger | null = null
+
+  // Initialize logging.
+  try {
+    const logger: Logger = Logger.getInstance()
+    await logger.initialize()
+    pino = logger.pino
+  } catch (error) {
+    // If we are unable to set up logging, return 500 and log to console.
+    // As long as server-preload.js is configured with setAutoCollectConsole(true, true),
+    // this console.log will be logged in Application Insights.
+    errorCode = 500
+    console.log(error)
+  }
+
+  // Proceed only if pino has been configured and there have been no errors up to this point.
+  if (pino) {
+    pino.info(req, 'Request')
+    pino.info(query, 'Query')
+
+    // If there is no unique number in the header, AND it is the Front Door health probe,
+    // then display a 500 but don't log an error.
+    // If there is no unique number in the header, BUT it is not the health probe,
+    // then display a 500 AND log an error.
+    const uniqueNumber = getUniqueNumber(req)
+
+    if (!uniqueNumber) {
+      if (req.headers['user-agent'] !== 'Edge Health Probe') {
+        pino.error('Missing unique number')
+      }
+      errorCode = 500
+    }
+    // Only query the API gateway if there is a unique number in the header.
+    else {
+      try {
+        // Make the API request and return the data.
+        const claimData = await queryApiGateway(req, uniqueNumber)
+        pino.info(claimData, 'ClaimData') /* @TODO: Remove. For development purposes only. */
+        // Run business logic to get content for the current scenario.
+        scenarioContent = getScenarioContent(claimData)
+        pino.info(scenarioContent, 'ScenarioContent') /* @TODO: Remove. For development purposes only. */
+      } catch (error) {
+        // If an error occurs, log it and show 500.
+        pino.error(error, 'Application error')
+        errorCode = 500
+      }
+    }
+  }
 
   // Return Props.
   return {
