@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
 import Error from 'next/error'
 import pino from 'pino'
+import { req as reqSerializer } from 'pino-std-serializers'
 
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
@@ -110,8 +111,16 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
 
   // Proceed only if pino has been configured and there have been no errors up to this point.
   if (pino) {
-    pino.info(req, 'Request')
-    pino.info(query, 'Query')
+    pino.info(
+      {
+        // If you call pino.info(req), pino does some behind the scenes serialization.
+        // If you put the req into an object, it doesn't automatically do the serialization,
+        // so we explicitly call it here.
+        request: reqSerializer(req),
+        query: query,
+      },
+      'Request',
+    )
 
     // If there is no unique number in the header, AND it is the Front Door health probe,
     // then display a 500 but don't log an error.
