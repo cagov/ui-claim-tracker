@@ -41,27 +41,32 @@ export class Logger {
   /**
    * Initialize pino.
    *
-   * This needs to be called once. Presumably in index.tsx.
+   * This needs to be called once at the start of all processing.
+   * We expect this to be called in index.tsx BEFORE all other calls
+   * to logger.pino.
    */
   async initialize(): Promise<void> {
-    // const isAzureEnv = process.env.NODE_ENV === 'production'
+    const isAzureEnv = process.env.NODE_ENV === 'production'
 
-    // // Use pretty print and log to STDOUT for local environments.
-    // this.pino = pino({ prettyPrint: true })
-
-    // // Otherwise, log to Azure Application Insights.
-    // if (isAzureEnv) {
-
-    // Only log to Application Insights if there is a connection string env var.
-    const connectionString = process.env.APPLICATIONINSIGHTS_CONNECTION_STRING ?? ''
-    if (connectionString) {
-      const appInsightsStream = await pinoAppInsights.createWriteStream({
-        key: connectionString,
-      })
-      this.pino = pino(appInsightsStream)
-    } else {
-      throw new Error('Missing Application Insights connection string')
+    // Use pretty print and log to STDOUT for local environments.
+    if (!isAzureEnv) {
+      this.pino = pino({ prettyPrint: true })
     }
-    // }
+
+    // Otherwise, log to Azure Application Insights.
+    else {
+      const connectionString = process.env.APPLICATIONINSIGHTS_CONNECTION_STRING ?? ''
+      if (connectionString) {
+        // Only log to Application Insights if there is a connection string env var.
+        const appInsightsStream = await pinoAppInsights.createWriteStream({
+          key: connectionString,
+        })
+        this.pino = pino(appInsightsStream)
+      }
+      // If there is no connections string, throw an error.
+      else {
+        throw new Error('Missing Application Insights connection string')
+      }
+    }
   }
 }
