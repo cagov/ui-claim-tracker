@@ -1,11 +1,11 @@
 /**
- * Use node.js preloading to require a node module before importing and executing
+ * We need to connect to App Insights early enough for it to be able to log HTTP requests,
+ * so we use node.js preloading to require a node module before importing and executing
  * the entrypoint script.
  *
- * Intended to be used in package.json scripts with something like:
+ * This script is called in package.json with:
  * - `node -r ./server-preload.js ./node_modules/.bin/next start -p 8080`
  *
- * We need to connect to App Insights early enough for it to be able to log HTTP requests.
  *
  * References:
  * - https://jake.tl/notes/2021-04-04-nextjs-preload-hack
