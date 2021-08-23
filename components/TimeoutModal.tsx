@@ -51,7 +51,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
       setShowWarningModal(true)
       setWarned(true)
       setNumberOfMinutes(WARNING_DURATION)
-    }, WARNING_TIMER * ONE_MINUTE_MS)
+    }, 10000)
     // And at the end, send back to EDD
     setTimeout(() => {
       if (typeof window !== 'undefined') {
@@ -63,7 +63,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
         )
         window.location.href = eddLoginLink || ''
       }
-    }, REDIRECT_TIMER * ONE_MINUTE_MS)
+    }, 20000)
   }
 
   function closeWarningModal() {
@@ -76,7 +76,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
   }
 
   function redirectToUIHome() {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-home-url')
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
     window.location.href = uioHomeLink || ''
   }
 
