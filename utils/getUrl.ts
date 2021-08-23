@@ -16,16 +16,16 @@ export default function getUrl(linkKey: string): string | undefined {
   const key = linkKey as UrlType
 
   // Optional environment-specific links back to the UIO landing page, used by EDD testing
-  if (key.startsWith('uio') && process.env.URL_PREFIX_UIO) {
-    return urls[key].replace('uio.edd.ca.gov/UIO', process.env.URL_PREFIX_UIO)
+  if (process.env.URL_PREFIX_UIO && key.startsWith('uio')) {
+    return urls[key].replace(urls['uio-prefix'], process.env.URL_PREFIX_UIO)
   }
 
-  if (key.startsWith('uio-mobile') && process.env.URL_PREFIX_UIO_MOBILE) {
-    return urls[key].replace('uiom.edd.ca.gov/UIOM', process.env.URL_PREFIX_UIO_MOBILE)
+  if (process.env.URL_PREFIX_UIO_MOBILE && key.startsWith('uio-mobile')) {
+    return urls[key].replace(urls['uio-mobile-prefix'], process.env.URL_PREFIX_UIO_MOBILE)
   }
 
-  if (key.startsWith('bpo') && process.env.URL_PREFIX_BPO) {
-    return urls[key].replace('portal.edd.ca.gov', process.env.URL_PREFIX_BPO)
+  if (process.env.URL_PREFIX_BPO && key.startsWith('bpo')) {
+    return urls[key].replace(urls['bpo-prefix'], process.env.URL_PREFIX_BPO)
   }
 
   return urls[key]

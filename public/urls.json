@@ -5,9 +5,12 @@
   "edd-about-contact": "https://www.edd.ca.gov/About_EDD/Contact_EDD.htm",
   "edd-about-privacy-policy": "https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm",
   "edd-ca-gov": "https://edd.ca.gov",
-  "bpo-log-in": "https://portal.edd.ca.gov/WebApp/Login",
-  "bpo-log-out": "https://portal.edd.ca.gov/WebApp/Logout",
+  "bpo-prefix": "https://portal.edd.ca.gov/WebApp",
+  "bpo-login": "https://portal.edd.ca.gov/WebApp/Login",
+  "bpo-logout": "https://portal.edd.ca.gov/WebApp/Logout",
+  "uio-prefix": "https://uio.edd.ca.gov/UIO",
   "uio-help-new-claim": "https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm",
   "uio-home-url": "https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx",
+  "uio-mobile-prefix": "https://uiom.edd.ca.gov/UIOM",
   "uio-mobile-home-url": "https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
 }
