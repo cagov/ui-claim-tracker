@@ -17,6 +17,8 @@
 import pino from 'pino'
 import pinoAppInsights from 'pino-applicationinsights'
 
+// These are the only pino.<logFn>() calls that are currently passed through via logger.log(logFn).
+// This list can be expanded as needed.
 type LogFunction = 'debug' | 'info' | 'warn' | 'error' | 'fatal'
 
 /**
