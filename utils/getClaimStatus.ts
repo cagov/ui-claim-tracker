@@ -83,7 +83,7 @@ export function buildAppointment(
   if (scenarioType === ScenarioType.Scenario2 && pendingDetermination) {
     const parsedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
     const appointment: AppointmentContent = {
-      date: parsedDate,
+      date: parsedDate.toJSON(),
     }
 
     const timeSlot = parseTimeSlot(pendingDetermination.timeSlotDesc)

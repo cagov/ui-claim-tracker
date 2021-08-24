@@ -91,6 +91,15 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
   }
 }
 
+/**
+ * Returns true if the dateString is falsy.
+ *
+ * We are defining falsy here to mean: standard JS falsy (null, empty string, undefined, etc) or 0001-01-01T00:00:00.
+ */
+export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
+  return !dateString || dateString === '0001-01-01T00:00:00'
+}
+
 // @TODO: add a function to check and log any dates that are earlier
 // than 2020 as these are anomolous dates that could indicate an error.
 
@@ -117,9 +126,9 @@ export function convertStringToLocale(localeString: string): Locale {
 /**
  * Format appointment.
  */
-export function formatAppointmentDate(date: Date, localeString: string): string {
+export function formatAppointmentDate(dateString: string, localeString: string): string {
   const dateFormat = 'EEEE, LLLL d, yyyy'
-  const convertedDate = utcToZonedTime(date, pacificTimeZone)
+  const convertedDate = utcToZonedTime(dateString, pacificTimeZone)
   const formattedDate = format(convertedDate, dateFormat, {
     locale: convertStringToLocale(localeString),
     timeZone: pacificTimeZone,

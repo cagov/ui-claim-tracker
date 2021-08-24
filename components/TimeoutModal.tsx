@@ -55,7 +55,12 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
     // And at the end, send back to EDD
     setTimeout(() => {
       if (typeof window !== 'undefined') {
-        const eddLoginLink = getUrl('edd-log-in')?.concat(encodeURIComponent(window.location.toString()))
+        // Note that the concatenated portion of this link is functionally useless, as IDM is not currently
+        // able to redirect based on the resource_url parameter concatenated.
+        const eddLoginLink = getUrl('bpo-log-in')?.concat(
+          '?resource_url=',
+          encodeURIComponent(window.location.toString()),
+        )
         window.location.href = eddLoginLink || ''
       }
     }, REDIRECT_TIMER * ONE_MINUTE_MS)
@@ -71,7 +76,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
   }
 
   function redirectToUIHome() {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-home-url-mobile') : getUrl('uio-home-url-desktop')
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-home-url')
     window.location.href = uioHomeLink || ''
   }
 

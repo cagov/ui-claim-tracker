@@ -8,6 +8,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     'storybook-addon-i18next',
+    'storybook-addon-next-router',
     // Handle SCSS modules
     {
       name: '@storybook/preset-scss',

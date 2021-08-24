@@ -128,7 +128,6 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
               onClick={[Function]}
               onKeyDown={[Function]}
               rel="noopener noreferrer"
-              target="_blank"
             >
               <span
                 className="text"
@@ -155,13 +154,14 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       <div
         className="language-switcher"
       >
-        <span
+        <a
           className="text"
+          href="/"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
           En español
-        </span>
+        </a>
       </div>
       <div
         className="claim-section"
