@@ -17,6 +17,8 @@
 import pino from 'pino'
 import pinoAppInsights from 'pino-applicationinsights'
 
+type LogFunction = 'debug' | 'info' | 'warn' | 'error' | 'fatal'
+
 /**
  * Logger singleton class.
  */
@@ -66,6 +68,22 @@ export class Logger {
       // If there is no connections string, throw an error.
       else {
         throw new Error('Missing Application Insights connection string')
+      }
+    }
+  }
+
+  /**
+   * Wrapper for all pino log functions.
+   */
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  log(logFn: LogFunction, mergingObject: object, message: string): void {
+    if (this.pino === undefined) {
+      throw new Error('Pino is undefined')
+    } else {
+      if (mergingObject) {
+        this.pino[logFn](mergingObject, message)
+      } else {
+        this.pino[logFn](message)
       }
     }
   }

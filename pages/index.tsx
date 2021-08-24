@@ -5,7 +5,6 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
 import Error from 'next/error'
-import pino from 'pino'
 import { req as reqSerializer } from 'pino-std-serializers'
 
 import { Header } from '../components/Header'
@@ -94,13 +93,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
   // Other vars.
   let errorCode: number | null = null
   let scenarioContent: ScenarioContent | null = null
-  let pino: pino.Logger | null = null
+  const logger: Logger = Logger.getInstance()
 
   // Initialize logging.
   try {
-    const logger: Logger = Logger.getInstance()
     await logger.initialize()
-    pino = logger.pino
   } catch (error) {
     // If we are unable to set up logging, return 500 and log to console.
     // As long as server-preload.js is configured with setAutoCollectConsole(true, true),
@@ -109,9 +106,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
     console.log(error)
   }
 
-  // Proceed only if pino has been configured and there have been no errors up to this point.
-  if (pino) {
-    pino.info(
+  // Use a separate try block for errors that are loggable to App Insights.
+  try {
+    logger.log(
+      'info',
       {
         // If you call pino.info(req), pino does some behind the scenes serialization.
         // If you put the req into an object, it doesn't automatically do the serialization,
@@ -130,25 +128,23 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
 
     if (!uniqueNumber) {
       if (req.headers['user-agent'] !== 'Edge Health Probe') {
-        pino.error('Missing unique number')
+        logger.log('error', {}, 'Missing unique number')
       }
       errorCode = 500
     }
     // Only query the API gateway if there is a unique number in the header.
     else {
-      try {
-        // Make the API request and return the data.
-        const claimData = await queryApiGateway(req, uniqueNumber)
-        pino.info(claimData, 'ClaimData') /* @TODO: Remove. For development purposes only. */
-        // Run business logic to get content for the current scenario.
-        scenarioContent = getScenarioContent(claimData)
-        pino.info(scenarioContent, 'ScenarioContent') /* @TODO: Remove. For development purposes only. */
-      } catch (error) {
-        // If an error occurs, log it and show 500.
-        pino.error(error, 'Application error')
-        errorCode = 500
-      }
+      // Make the API request and return the data.
+      const claimData = await queryApiGateway(req, uniqueNumber)
+      logger.log('info', claimData, 'ClaimData') /* @TODO: Remove. For development purposes only. */
+      // Run business logic to get content for the current scenario.
+      scenarioContent = getScenarioContent(claimData)
+      logger.log('info', scenarioContent, 'ScenarioContent') /* @TODO: Remove. For development purposes only. */
     }
+  } catch (error) {
+    // If an error occurs, log it and show 500.
+    logger.log('error', error, 'Application error')
+    errorCode = 500
   }
 
   // Return Props.

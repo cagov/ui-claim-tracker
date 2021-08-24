@@ -109,12 +109,12 @@ export function getProgramExtensionPair(apiString: string): programExtensionPair
 
   for (const [id, pair] of Object.entries(programExtensionPairs)) {
     if (apiString === programTypeNames[id]) {
-      logger.pino.info({ programType: apiString }, 'Program Type: Known')
+      logger.log('info', { programType: apiString }, 'Program Type: Known')
       return pair
     }
   }
   // If no known mapping is found, pass through the raw program type.
-  logger.pino.info({ programType: apiString }, 'Program Type: Unknown')
+  logger.log('info', { programType: apiString }, 'Program Type: Unknown')
   return {
     programType: apiString,
     extensionType: '',
