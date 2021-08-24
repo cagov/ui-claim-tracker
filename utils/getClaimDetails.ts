@@ -20,6 +20,9 @@ export const programTypeNames: ProgramType = {
   EUY: 'EUY - Tier 2 Augmentation',
   EUW: 'EUW - Tier 3 Extension',
   EUZ: 'EUZ - Tier 4 Extension',
+  PEUC: 'PEUC - Tier 1 Extension',
+  PEUX: 'PEUX - Tier 2 Extension',
+  PEUY: 'PEUY - Tier 2 Augmentation',
   FEDED: 'FED-ED Extension',
   CALED: 'CAL-ED Extension',
   TRA: 'TRA Basic Extension',
@@ -59,6 +62,18 @@ export const programExtensionPairs = {
   EUZ: {
     programType: 'claim-details:program-type.ui',
     extensionType: 'claim-details:extension-type.euz',
+  },
+  PEUC: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.peuc',
+  },
+  PEUX: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.peux',
+  },
+  PEUY: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.peuy',
   },
   FEDED: {
     programType: 'claim-details:program-type.ui',
