@@ -84,7 +84,7 @@ export default function Home({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, locale, query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res, locale, query }) => {
   const isProd = process.env.NODE_ENV === 'production'
   const logger = isProd ? pino({}) : pino({ prettyPrint: true })
   logger.info(req)
@@ -122,6 +122,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
   // Note whether the user came from the main UIO website or UIO Mobile, and match
   // that in our links back out to UIO.
   const userArrivedFromUioMobile = query?.from === 'uiom'
+
+  // If there is an errorCode, set the response statusCode to match.
+  if (errorCode) {
+    res.statusCode = errorCode
+  }
 
   // Return Props.
   return {
