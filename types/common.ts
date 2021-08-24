@@ -2,7 +2,7 @@
 export type I18nString = string
 export type ApiGatewayDateString = string
 
-// Types for URL prefixes from env vars
+// Types for URL prefixes loaded from env vars
 export interface UrlPrefixes {
   urlPrefixUioDesktop: string | undefined
   urlPrefixUioMobile: string | undefined

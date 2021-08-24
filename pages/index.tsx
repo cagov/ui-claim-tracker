@@ -87,6 +87,9 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale, query }) => {
+  // Environment-specific links to UIO, UIO Mobile, and BPO, used by EDD testing
+  // Note: it's not possible to use the NEXT_PUBLIC_ prefix to expose these env vars to the browser
+  // because they're set at build time, and Azure doesn't inject env vars ("App Settings") until runtime
   const URL_PREFIXES = {
     urlPrefixUioDesktop: process.env.URL_PREFIX_UIO_DESKTOP,
     urlPrefixUioMobile: process.env.URL_PREFIX_UIO_MOBILE,
