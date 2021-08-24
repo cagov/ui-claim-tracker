@@ -53,7 +53,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
       setShowWarningModal(true)
       setWarned(true)
       setNumberOfMinutes(WARNING_DURATION)
-    }, 10000)
+    }, WARNING_TIMER * ONE_MINUTE_MS)
     // And at the end, send back to EDD
     setTimeout(() => {
       if (typeof window !== 'undefined') {
@@ -65,7 +65,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
         )
         window.location.href = eddLoginLink || ''
       }
-    }, 20000)
+    }, REDIRECT_TIMER * ONE_MINUTE_MS)
   }
 
   function closeWarningModal() {

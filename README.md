@@ -26,7 +26,7 @@ relates to weekly certification
 - CERTIFICATE_DIR: The path to the client certificate (certificate must be in PFX/P12 format)
 - PFX_FILE: The name of the client certificate file
 - (Optional) PFX_PASSPHRASE: The import passphrase for the client certificate if there is one
-- (Optional) Environment-specific path prefixes for UIO and BPO links, [exposed to the client](https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser)
+- (Optional) Environment-specific path prefixes for UIO and BPO links
   - URL_PREFIX_UIO_DESKTOP
   - URL_PREFIX_UIO_MOBILE
   - URL_PREFIX_BPO
