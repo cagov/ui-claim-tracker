@@ -7,13 +7,13 @@
     "logout": "Cerrar sesión",
     "uio-home": "Página principal de UI"
   },
-  "title": "Buscador de solicitud",
-  "welcome": "Buscador de solicitud",
+  "title": "Buscador del estatus de su solicitud",
+  "welcome": "Buscador del estatus de su solicitud",
   "change-locale": "In English",
   "claim-status": {
     "title": "Estatus de solicitud",
     "your-next-steps": "Sus próximos pasos",
-    "edd-next-steps": "Próximos pasos de EDD"
+    "edd-next-steps": "Próximos pasos del EDD"
   },
   "claim-details": {
     "title": "Detalles de la solicitud",

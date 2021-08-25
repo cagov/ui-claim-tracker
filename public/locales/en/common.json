@@ -7,8 +7,8 @@
     "logout": "Log Out",
     "uio-home": "UI Home"
   },
-  "title": "Claim Tracker",
-  "welcome": "Claim Tracker",
+  "title": "Claim Status Tracker",
+  "welcome": "Claim Status Tracker",
   "change-locale": "En español",
   "claim-status": {
     "title": "Claim Status",
