@@ -86,7 +86,7 @@ export default function Home({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, locale, query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res, locale, query }) => {
   // Environment-specific links to UIO, UIO Mobile, and BPO, used by EDD testing
   // Note: it's not possible to use the NEXT_PUBLIC_ prefix to expose these env vars to the browser
   // because they're set at build time, and Azure doesn't inject env vars ("App Settings") until runtime
@@ -133,6 +133,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
   // Note whether the user came from the main UIO website or UIO Mobile, and match
   // that in our links back out to UIO.
   const userArrivedFromUioMobile = query?.from === 'uiom'
+
+  // If there is an errorCode, set the response statusCode to match.
+  if (errorCode) {
+    res.statusCode = errorCode
+  }
 
   // Return Props.
   return {
