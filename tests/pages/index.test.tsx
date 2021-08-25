@@ -39,7 +39,7 @@ describe('Main component shows loading', () => {
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
     render(<Index loading scenarioContent={scenarioContent} />)
-    expect(screen.queryByText('Claim Tracker')).toBeInTheDocument()
+    expect(screen.queryByText('Claim Status Tracker')).toBeInTheDocument()
     expect(screen.queryByText('Claim Status')).toBeInTheDocument()
     expect(screen.queryByText('There are no pending issues at this time.')).not.toBeInTheDocument()
     expect(screen.queryByText('Your Next Steps')).toBeInTheDocument()
