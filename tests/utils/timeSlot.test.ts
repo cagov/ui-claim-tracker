@@ -1,4 +1,4 @@
-import { convertTo24H, isAm, isFirstTimeSlotEarlier, parseTimeSlot, samePeriod } from '../../utils/timeSlot'
+import { convertTo24H, isFirstTimeSlotEarlier, parseTimeSlot } from '../../utils/timeSlot'
 
 // Test parseTimeSlot()
 describe('A time slot string is', () => {
@@ -74,36 +74,6 @@ describe('Comparing time slots results in', () => {
   it('the second time slot if both start at the same time', () => {
     const result = isFirstTimeSlotEarlier(earlier, earlier)
     expect(result).toBe(false)
-  })
-})
-
-// Test samePeriod()
-describe('Two times are', () => {
-  it('the same period if they are both AM', () => {
-    expect(samePeriod(8, 10)).toBe(true)
-  })
-
-  it('the same period if they are both PM', () => {
-    expect(samePeriod(1, 3)).toBe(true)
-  })
-
-  it('not the same period if one is AM and one is PM', () => {
-    expect(samePeriod(8, 3)).toBe(false)
-  })
-})
-
-// Test isAm()
-describe('A time is in the period', () => {
-  it('am if it is equal to or after 8 and before 12', () => {
-    expect(isAm(8)).toBe(true)
-    expect(isAm(11)).toBe(true)
-  })
-
-  it('pm if it is before 8 and equal to or after 12', () => {
-    expect(isAm(7)).toBe(false)
-    expect(isAm(12)).toBe(false)
-    expect(isAm(1)).toBe(false)
-    expect(isAm(5)).toBe(false)
   })
 })
 
