@@ -27,8 +27,6 @@ export const programTypeNames: ProgramType = {
   TE: 'Training Extension (TE)',
   DUA: 'DUA',
   PUA: 'PUA',
-  INTERSTATE: 'Interstate',
-  NAFTA: 'NAFTA-TAA/REV30',
 }
 
 export interface programExtensionPairType {
@@ -88,14 +86,6 @@ export const programExtensionPairs = {
   },
   PUA: {
     programType: 'claim-details:program-type.pua',
-    extensionType: '',
-  },
-  INTERSTATE: {
-    programType: 'claim-details:program-type.interstate',
-    extensionType: '',
-  },
-  NAFTA: {
-    programType: 'claim-details:program-type.nafta',
     extensionType: '',
   },
 }
