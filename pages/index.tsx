@@ -16,7 +16,7 @@ import { Footer } from '../components/Footer'
 
 import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
 import getScenarioContent from '../utils/getScenarioContent'
-import { ScenarioContent } from '../types/common'
+import { UrlPrefixes, ScenarioContent } from '../types/common'
 
 export interface HomeProps {
   scenarioContent: ScenarioContent
@@ -24,6 +24,7 @@ export interface HomeProps {
   loading: boolean
   errorCode?: number | null
   userArrivedFromUioMobile?: boolean
+  urlPrefixes: UrlPrefixes
 }
 
 export default function Home({
@@ -32,6 +33,7 @@ export default function Home({
   loading,
   errorCode = null,
   userArrivedFromUioMobile = false,
+  urlPrefixes,
 }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
@@ -77,7 +79,7 @@ export default function Home({
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
-      <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} />
+      <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
       {console.dir({ scenarioContent })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
@@ -85,6 +87,15 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, locale, query }) => {
+  // Environment-specific links to UIO, UIO Mobile, and BPO, used by EDD testing
+  // Note: it's not possible to use the NEXT_PUBLIC_ prefix to expose these env vars to the browser
+  // because they're set at build time, and Azure doesn't inject env vars ("App Settings") until runtime
+  const URL_PREFIXES = {
+    urlPrefixUioDesktop: process.env.URL_PREFIX_UIO_DESKTOP,
+    urlPrefixUioMobile: process.env.URL_PREFIX_UIO_MOBILE,
+    urlPrefixBpo: process.env.URL_PREFIX_BPO,
+  }
+
   const isProd = process.env.NODE_ENV === 'production'
   const logger = isProd ? pino({}) : pino({ prettyPrint: true })
   logger.info(req)
@@ -130,6 +141,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale, quer
       loading: false,
       errorCode: errorCode,
       userArrivedFromUioMobile: userArrivedFromUioMobile,
+      urlPrefixes: URL_PREFIXES,
       ...(await serverSideTranslations(locale || 'en', ['common', 'claim-details', 'claim-status'])),
     },
   }

@@ -25,7 +25,10 @@ This repo contains the Claim Status Tracker app, which helps Californians better
 - CERTIFICATE_DIR: The path to the client certificate (certificate must be in PFX/P12 format)
 - PFX_FILE: The name of the client certificate file
 - (Optional) PFX_PASSPHRASE: The import passphrase for the client certificate if there is one
-- (Optional) URL_PREFIX_UIO, URL_PREFIX_UIO_MOBILE, URL_PREFIX_BPO: Environment-specific path prefixes for UIO and BPO links
+- (Optional) Environment-specific path prefixes for UIO and BPO links
+  - URL_PREFIX_UIO_DESKTOP
+  - URL_PREFIX_UIO_MOBILE
+  - URL_PREFIX_BPO
 
 For local development:
 
