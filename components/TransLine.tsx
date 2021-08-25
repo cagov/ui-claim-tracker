@@ -15,7 +15,7 @@ export interface TransLineProps extends TransLineContent {
 function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   // Special case for UIO homepage links.
   if (link === 'uio-home') {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-home-url')
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
     if (uioHomeLink) {
       // If the link is for UIO homepage, do a direct getUrl() lookup.
       // Do not pass the looked up url through t() because t() will mangle the url.
