@@ -8,7 +8,7 @@ import { getNumericEnumKeys } from '../utils/numericEnum'
 
 // See https://storybook.js.org/docs/riot/essentials/controls#dealing-with-complex-values
 export default {
-  title: 'Claim Tracker/Page',
+  title: 'Claim Status Tracker/Page',
   component: Home,
   argTypes: {
     scenario: {
