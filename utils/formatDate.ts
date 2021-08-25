@@ -18,6 +18,7 @@ import enUS from 'date-fns/locale/en-US'
 import es from 'date-fns/locale/es'
 
 import { ApiGatewayDateString } from '../types/common'
+import { Logger } from './logger'
 
 const pacificTimeZone = 'America/Los_Angeles'
 const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -74,6 +75,13 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
   }
 
   if (isValid(date)) {
+    // Log anomalous dates: All dates are expected to be after 1970.
+    const expectedMinDate = toDate('1970-01-01', { timeZone: pacificTimeZone })
+    if (date <= expectedMinDate) {
+      const logger = Logger.getInstance()
+      logger.log('warn', { dateString: dateString }, 'Unexpected date')
+    }
+
     // Set a min date because it's possible for the date to be '0001-01-01'.
     const minDate = toDate('1900-01-01', { timeZone: pacificTimeZone })
     if (date <= minDate) {
@@ -99,9 +107,6 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
 export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
   return !dateString || dateString === '0001-01-01T00:00:00'
 }
-
-// @TODO: add a function to check and log any dates that are earlier
-// than 2020 as these are anomolous dates that could indicate an error.
 
 /**
  * Determine if the date is in the past.

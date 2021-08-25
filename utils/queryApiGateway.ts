@@ -16,6 +16,7 @@ import fs from 'fs'
 import https from 'https'
 import { IncomingMessage } from 'http'
 import { Claim } from '../types/common'
+import { Logger } from './logger'
 
 export interface QueryParams {
   user_key: string
@@ -37,7 +38,6 @@ export interface AgentOptions {
 
 /**
  * Load environment variables to be used for authentication & API calls.
- * @TODO: Handle error case where env vars are null or undefined.
  */
 export function getApiVars(): ApiEnvVars {
   const apiEnvVars: ApiEnvVars = { idHeaderName: '', apiUrl: '', apiUserKey: '', pfxPath: '' }
@@ -56,6 +56,19 @@ export function getApiVars(): ApiEnvVars {
 
   // Some certificates have an import password
   apiEnvVars.pfxPassphrase = process.env.PFX_PASSPHRASE || ''
+
+  // Verify that all required env vars have been set.
+  const missingEnvVars: string[] = []
+  for (const key of Object.keys(apiEnvVars)) {
+    const castKey = key as keyof typeof apiEnvVars
+    if (!apiEnvVars[castKey]) {
+      missingEnvVars.push(castKey)
+    }
+  }
+  if (missingEnvVars) {
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
+  }
 
   return apiEnvVars
 }
@@ -143,7 +156,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       throw new Error('API Gateway error')
     }
   } catch (error) {
-    console.log(error)
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', error, 'API gateway error')
   }
 
   // Although we are using an https.Agent with keepAlive false (default behaviour),

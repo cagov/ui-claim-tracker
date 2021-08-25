@@ -8,14 +8,18 @@
  */
 
 import { I18nString, TimeSlot } from '../types/common'
+import { Logger } from './logger'
 
 /**
  * Validate times.
- *
- * @TODO: Log if we receive a time that is outside this range.
  */
 export function validTime(time: number): boolean {
-  return time >= 1 && time <= 12
+  const isExpected = time >= 1 && time <= 12
+  if (!isExpected) {
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', { time: time }, 'Unexpected time')
+  }
+  return isExpected
 }
 
 /**
@@ -120,6 +124,8 @@ export function isFirstTimeSlotEarlier(first: string, second: string): boolean |
   // This is required due to a weird typescript issue.
   // In practice, this should be unreachable code.
   else {
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', { first: first, second: second }, 'Unreachable code was executed')
     return null
   }
 }

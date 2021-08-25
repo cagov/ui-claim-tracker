@@ -11,6 +11,7 @@ import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } fro
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
 import { isDatePast, isDateStringFalsy, isValidDate, parseApiGatewayDate } from './formatDate'
+import { Logger } from './logger'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -128,6 +129,10 @@ export function identifyPendingDeterminationScenario(
       hasNotYetScheduled = true
     }
     // All other combinations are invalid!
+    else {
+      const logger: Logger = Logger.getInstance()
+      logger.log('error', { pendingDetermination: pendingDetermination }, 'Invalid pending determination scenario')
+    }
   }
 
   // Scenarios 2 takes priority over Scenarios 1 & 3.
