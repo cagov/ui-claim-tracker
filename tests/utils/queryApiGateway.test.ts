@@ -307,5 +307,4 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
  * @TODO: Test
  * - api gateway error logs error
  * - pfx missing or not read correctly #176
- * - request missing expected header #217
  */
