@@ -129,6 +129,17 @@ export function isZero(amount: number): boolean {
 }
 
 /**
+ * Returns true if the amount is not falsy OR is zero.
+ */
+export function hasDollarAmount(amount: number): boolean {
+  if (amount || isZero(amount)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+/**
  * Get Claim Details content.
  */
 export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDetailsContent {
@@ -138,16 +149,13 @@ export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDe
   // Construct claim details fields.
   const benefitYear = buildBenefitYear(rawDetails.benefitYearStartDate, rawDetails.benefitYearEndDate)
 
-  // Return null (aka hide the field) if the raw value is falsy.
-  // Exception: display the value if the dollar amount is zero.
-  const claimBalance =
-    rawDetails.claimBalance || isZero(rawDetails.claimBalance) ? formatCurrency(rawDetails.claimBalance) : null
-  const weeklyBenefitAmount =
-    rawDetails.weeklyBenefitAmount || isZero(rawDetails.weeklyBenefitAmount)
-      ? formatCurrency(rawDetails.weeklyBenefitAmount)
-      : null
+  // Returns null if given a falsy dollar amount to hide the field.
+  const claimBalance = hasDollarAmount(rawDetails.claimBalance) ? formatCurrency(rawDetails.claimBalance) : null
+  const weeklyBenefitAmount = hasDollarAmount(rawDetails.weeklyBenefitAmount)
+    ? formatCurrency(rawDetails.weeklyBenefitAmount)
+    : null
   const lastPaymentIssued =
-    rawDetails.lastPaymentIssued && (rawDetails.lastPaymentAmount || isZero(rawDetails.lastPaymentAmount))
+    rawDetails.lastPaymentIssued && hasDollarAmount(rawDetails.lastPaymentAmount)
       ? `${formatCurrency(rawDetails.lastPaymentAmount)} on ${formatDate(rawDetails.lastPaymentIssued)}`
       : null
 
