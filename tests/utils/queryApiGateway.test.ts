@@ -32,6 +32,7 @@ const goodRequest = {
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
   const goodResponse = { ClaimType: 'PUA' }
+  const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
 
   beforeEach(() => {
     // Mock the fetch response
@@ -40,6 +41,9 @@ describe('Querying the API Gateway', () => {
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
     fs.readFileSync = jest.fn().mockResolvedValue('mock file data')
+
+    // Clear the logger mock before each test.
+    loggerSpy.mockClear()
   })
 
   afterEach(() => {
@@ -84,6 +88,7 @@ describe('Querying the API Gateway', () => {
     const data = await queryApiGateway(goodRequest)
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -105,8 +110,10 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -128,6 +135,7 @@ describe('Querying the API Gateway', () => {
     const data = await queryApiGateway(goodRequest)
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -305,6 +313,5 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
 
 /*
  * @TODO: Test
- * - api gateway error logs error
  * - pfx missing or not read correctly #176
  */
