@@ -97,6 +97,7 @@ export function isDatePast(date: DateTime): boolean {
  * Format appointment.
  */
 export function formatAppointmentDate(dateString: string, localeString: string): string {
+  console.log(`formatAppointmentDate: ${dateString} in ${localeString}`)
   const dateFormat = 'EEEE, LLLL d, yyyy'
   const date = parseApiGatewayDate(dateString)
   const formattedDate = date.setLocale(localeString).toFormat(dateFormat)
