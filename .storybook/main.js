@@ -33,6 +33,7 @@ module.exports = {
     config.plugins.push(new webpack.NormalModuleReplacementPlugin(/pino-applicationinsights/, 'node-noop'))
 
     // Mock logger functionality in storybook.
+    // This is a relative path from the perspective of the file importing the logger, not of this file.
     config.plugins.push(new webpack.NormalModuleReplacementPlugin(/logger.ts/, '../.storybook/loggerMock.ts'))
 
     return {
