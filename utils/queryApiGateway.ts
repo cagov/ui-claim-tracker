@@ -117,7 +117,7 @@ export function getUniqueNumber(req: IncomingMessage): string {
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
-  const options: AgentOptions | null = null
+  let options: AgentOptions | null = null
 
   const headers = {
     Accept: 'application/json',
@@ -125,7 +125,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
 
   try {
     // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-    const options: AgentOptions = {
+    options = {
       pfx: fs.readFileSync(apiEnvVars.pfxPath),
       keepAlive: true,
       timeout: 60 * 1000,
