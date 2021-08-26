@@ -1,6 +1,7 @@
 import MockDate from 'mockdate'
 
 import formatDate, { isDatePast, isDateStringFalsy, isValidDate } from '../../utils/formatDate'
+import { Logger } from '../../utils/logger'
 
 // Test isValidDate()
 describe('Valid dates: A date is', () => {
@@ -9,7 +10,11 @@ describe('Valid dates: A date is', () => {
   })
 
   it('invalid if it is earlier than the minimum date', () => {
+    const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
+    loggerSpy.mockClear()
     expect(isValidDate('1831-01-01T00:00:00')).toBe(false)
+    expect(loggerSpy).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('warn', expect.anything(), 'Unexpected date')
   })
 
   it('valid if it is later than the minimum date', () => {
