@@ -9,7 +9,8 @@
  * To test this locally,
  * 1) update package.json yarn dev with
  *   `node -r ./server-preload.js ./node_modules/.bin/next dev`
- * 2) update the process.env.* below as appropriate (see App Service Application Settings for CONNECTION_STRING)
+ * 2) update the process.env.* below as appropriate
+ *   (see App Service Application Settings for APPLICATIONINSIGHTS_CONNECTION_STRING)
  *
  * References:
  * - https://jake.tl/notes/2021-04-04-nextjs-preload-hack
@@ -26,10 +27,9 @@ function setupLogging() {
   const https = require('https')
   const agent = new https.Agent({
     keepAlive: true,
-    maxSockets: 24,
-    maxFreeSockets: 10,
-    timeout: 60000,
-    freeSocketTimeout: 30000,
+    timeout: 60 * 1000,
+    freeSocketTimeout: 30 * 1000,
+    maxSockets: 50,
   })
 
   // Only send Live Metrics when needed (e.g. prod); contributes to SNAT port exhaustion:

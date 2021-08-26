@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node -r ./server-preload.js ./node_modules/.bin/next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "/home/site/wwwroot/node_modules/next/dist/bin/next start -p 8080",
+    "start": "node -r ./server-preload.js ./node_modules/.bin/next start -p 8080",
     "test": "jest --ci --coverage",
     "test:update-snapshots": "jest -u",
     "test:watch": "jest --watch",
