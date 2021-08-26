@@ -33,6 +33,10 @@ export interface ApiEnvVars {
 
 export interface AgentOptions {
   pfx: Buffer
+  keepAlive: boolean
+  timeout: number
+  freeSocketTimeout: number
+  maxSockets: number
   passphrase?: string
 }
 
@@ -113,7 +117,7 @@ export function getUniqueNumber(req: IncomingMessage): string {
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
-  let options: AgentOptions | null = null
+  const options: AgentOptions | null = null
 
   const headers = {
     Accept: 'application/json',
@@ -121,8 +125,12 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
 
   try {
     // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-    options = {
+    const options: AgentOptions = {
       pfx: fs.readFileSync(apiEnvVars.pfxPath),
+      keepAlive: true,
+      timeout: 60 * 1000,
+      freeSocketTimeout: 30 * 1000,
+      maxSockets: 50,
     }
   } catch (error) {
     // Log any certificate loading errors and return.
@@ -169,13 +177,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     const logger: Logger = Logger.getInstance()
     logger.log('error', error, 'API gateway error')
   }
-
-  // Although we are using an https.Agent with keepAlive false (default behaviour),
-  // we are explicitly destroying it because:
-  // > It is good practice, to destroy() an Agent instance when it is no longer in use,
-  // > because unused sockets consume OS resources.
-  // https://nodejs.org/api/http.html#http_class_http_agent
-  sslConfiguredAgent.destroy()
 
   return apiData
 }
