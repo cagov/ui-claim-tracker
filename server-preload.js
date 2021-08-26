@@ -32,7 +32,7 @@ function setupLogging() {
     maxSockets: 50,
   })
 
-  // Only send Live Metrics when needed (e.g. prod); contributes to SNAT port exhaustion:
+  // Only send Live Metrics when needed (e.g. prod) because it contributes to SNAT port exhaustion:
   // https://github.com/microsoft/ApplicationInsights-node.js/issues/615
   // Also, all process.env.* are cast to strings, so we avoid true/false values to minimize bugs
   const enableLiveMetrics = process.env.APPINSIGHTS_ENABLE_LIVE_METRICS === 'enabled'
