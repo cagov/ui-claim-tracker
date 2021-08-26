@@ -18,7 +18,7 @@
  */
 
 function setupLogging() {
-  // To disable Application Insights for an App Service env, set the Application Setting aka env var below to false
+  // To disable Application Insights for an App Service env, set `APPINSIGHTS_DISABLE_SDK` in Configuration > Application Setting below to 'disabled'
   // AND set the Application Insights toggle in the web UI to disabled
   if (process.env.APPINSIGHTS_DISABLE_SDK === 'disabled') {
     return
