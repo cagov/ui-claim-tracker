@@ -171,7 +171,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       const responseBody: string = await response.text()
       apiData = extractJSON(responseBody)
     } else {
-      throw new Error('API Gateway error')
+      throw new Error('API Gateway response is not 200')
     }
   } catch (error) {
     const logger: Logger = Logger.getInstance()
