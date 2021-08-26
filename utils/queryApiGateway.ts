@@ -52,7 +52,9 @@ export function getApiVars(): ApiEnvVars {
   // TLS Certificate fields
   const certDir: string = process.env.CERTIFICATE_DIR ?? ''
   const pfxFilename: string = process.env.PFX_FILE ?? ''
-  apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+  if (certDir && pfxFilename) {
+    apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+  }
 
   // Some certificates have an import password
   apiEnvVars.pfxPassphrase = process.env.PFX_PASSPHRASE || ''
@@ -61,11 +63,11 @@ export function getApiVars(): ApiEnvVars {
   const missingEnvVars: string[] = []
   for (const key of Object.keys(apiEnvVars)) {
     const castKey = key as keyof typeof apiEnvVars
-    if (!apiEnvVars[castKey]) {
+    if (!apiEnvVars[castKey] && castKey !== 'pfxPassphrase') {
       missingEnvVars.push(castKey)
     }
   }
-  if (missingEnvVars) {
+  if (missingEnvVars.length > 0) {
     const logger: Logger = Logger.getInstance()
     logger.log('error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
   }

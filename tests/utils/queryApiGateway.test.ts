@@ -1,5 +1,13 @@
 import { Claim } from '../../types/common'
-import queryApiGateway, { buildApiUrl, getUniqueNumber, extractJSON, QueryParams } from '../../utils/queryApiGateway'
+import { Logger } from '../../utils/logger'
+import queryApiGateway, {
+  buildApiUrl,
+  getApiVars,
+  getUniqueNumber,
+  extractJSON,
+  QueryParams,
+} from '../../utils/queryApiGateway'
+
 import mockEnv from 'mocked-env'
 import fs from 'fs'
 import jestFetchMock from 'jest-fetch-mock'
@@ -250,9 +258,54 @@ describe('The unique number', () => {
   })
 })
 
+// Test getApiVars()
+// Each test case should be:
+// [env var that should not be set, boolean whether an error should be logged]
+const envVarCases = [
+  ['ID_HEADER_NAME', true],
+  ['API_URL', true],
+  ['API_USER_KEY', true],
+  ['CERTIFICATE_DIR', true],
+  ['PFX_FILE', true],
+  ['PFX_PASSPHRASE', false],
+]
+describe.each(envVarCases)('Missing environment variables log errors', (testEnv: string, triggersError: boolean) => {
+  const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
+
+  beforeEach(() => {
+    loggerSpy.mockClear()
+  })
+
+  it(`${testEnv}`, () => {
+    // Mock process.env
+    const mockEnvs = {}
+    const allEnvs = ['ID_HEADER_NAME', 'API_URL', 'API_USER_KEY', 'CERTIFICATE_DIR', 'PFX_FILE', 'PFX_PASSPHRASE']
+    for (const env of allEnvs) {
+      if (env !== testEnv) {
+        mockEnvs[env] = 'not empty'
+      }
+    }
+    const restore = mockEnv(mockEnvs)
+
+    getApiVars()
+
+    /* eslint-disable jest/no-conditional-expect */
+    if (triggersError) {
+      expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Missing required environment variable(s)')
+      expect(loggerSpy).toHaveBeenCalledTimes(1)
+    } else {
+      expect(loggerSpy).toHaveBeenCalledTimes(0)
+    }
+    /* eslint-enable jest/no-conditional-expect */
+
+    // Restore env vars
+    restore()
+  })
+})
+
 /*
  * @TODO: Test
- * - env vars missing (each) #176
+ * - api gateway error logs error
  * - pfx missing or not read correctly #176
  * - request missing expected header #217
  */
