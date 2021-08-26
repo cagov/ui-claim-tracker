@@ -14,7 +14,7 @@ import { ClaimSection } from '../components/ClaimSection'
 import { TimeoutModal } from '../components/TimeoutModal'
 import { Footer } from '../components/Footer'
 
-import { UrlPrefixes, ScenarioContent } from '../types/common'
+import { ScenarioContent, UrlPrefixes } from '../types/common'
 import getScenarioContent from '../utils/getScenarioContent'
 import { Logger } from '../utils/logger'
 import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
