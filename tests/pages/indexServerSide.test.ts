@@ -17,11 +17,15 @@ describe('Main component server side logic', () => {
         // empty header
         headers: {},
       },
+      res: {
+        statusCode: null,
+      },
     }
 
     const result: GetServerSideProps = await getServerSideProps(context as GetServerSidePropsContext)
     const props: HomeProps = result.props as HomeProps
     expect(props.errorCode).toBe(500)
+    expect(context.res.statusCode).toBe(500)
 
     restore()
   })

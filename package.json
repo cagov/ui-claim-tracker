@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "/home/site/wwwroot/node_modules/next/dist/bin/next start -p 8080",
+    "start": "node -r ./server-preload.js ./node_modules/.bin/next start -p 8080",
     "test": "jest --ci --coverage",
     "test:update-snapshots": "jest -u",
     "test:watch": "jest --watch",
@@ -15,6 +15,7 @@
     "chromatic": "npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "applicationinsights": "^2.1.5",
     "bootstrap": "^4.6.0",
     "luxon": "^2.0.2",
     "next": "^11.1.0",

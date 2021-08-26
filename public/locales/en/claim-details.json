@@ -2,9 +2,7 @@
   "program-type": {
     "ui": "Unemployment Insurance (UI)",
     "dua": "Disaster Unemployment Assistance (DUA)",
-    "pua": "Pandemic Unemployment Assistance (PUA)",
-    "interstate": "Interstate Unemployment Insurance",
-    "nafta": "NAFTA Transitional Assistance"
+    "pua": "Pandemic Unemployment Assistance (PUA)"
   },
   "extension-type": {
     "euc": "Emergency Unemployment Compensation (EUC) - Tier 1 Extension",
