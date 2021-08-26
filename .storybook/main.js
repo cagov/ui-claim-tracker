@@ -31,6 +31,10 @@ module.exports = {
     // Use webpack's NormalModuleReplacementPlugin to mock the applicationinsights in storybook.
     // See https://webpack.js.org/plugins/normal-module-replacement-plugin
     config.plugins.push(new webpack.NormalModuleReplacementPlugin(/pino-applicationinsights/, 'node-noop'))
+
+    // Mock logger functionality in storybook.
+    config.plugins.push(new webpack.NormalModuleReplacementPlugin(/logger.ts/, '../.storybook/loggerMock.ts'))
+
     return {
       ...config,
       node: {
