@@ -32,6 +32,10 @@ export interface ApiEnvVars {
 
 export interface AgentOptions {
   pfx: Buffer
+  keepAlive: boolean
+  timeout: number
+  freeSocketTimeout: number
+  maxSockets: number
   passphrase?: string
 }
 
@@ -106,6 +110,10 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
   const options: AgentOptions = {
     pfx: fs.readFileSync(apiEnvVars.pfxPath),
+    keepAlive: true,
+    timeout: 60 * 1000,
+    freeSocketTimeout: 30 * 1000,
+    maxSockets: 50,
   }
 
   if (apiEnvVars.pfxPassphrase) {
@@ -145,13 +153,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   } catch (error) {
     console.log(error)
   }
-
-  // Although we are using an https.Agent with keepAlive false (default behaviour),
-  // we are explicitly destroying it because:
-  // > It is good practice, to destroy() an Agent instance when it is no longer in use,
-  // > because unused sockets consume OS resources.
-  // https://nodejs.org/api/http.html#http_class_http_agent
-  sslConfiguredAgent.destroy()
 
   return apiData
 }
