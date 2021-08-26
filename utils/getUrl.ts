@@ -32,7 +32,7 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes): stri
   }
 
   if (urlPrefixBpo && key.startsWith('bpo')) {
-    return urls[key].replace('portal.edd.ca.gov', urlPrefixBpo)
+    return urls[key].replace('portal.edd.ca.gov/WebApp', urlPrefixBpo)
   }
 
   return urls[key]
