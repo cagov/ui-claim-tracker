@@ -37,7 +37,7 @@ describe('Querying the API Gateway', () => {
   beforeEach(() => {
     // Mock the fetch response
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockReturnValue(Promise.resolve(new Response(JSON.stringify(goodResponse))))
+    fetch.mockResolvedValue(new Response(JSON.stringify(goodResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
@@ -82,7 +82,7 @@ describe('Querying the API Gateway', () => {
 
   it('handles errors thrown by fetch', async () => {
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockRejectedValueOnce(new Error('network error'))
+    fetch.mockRejectedValue(new Error('network error'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -107,7 +107,7 @@ describe('Querying the API Gateway', () => {
       status: 403,
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
-    fetch.mockReturnValue(Promise.resolve(errorResponse403))
+    fetch.mockRejectedValue(errorResponse403)
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -130,7 +130,7 @@ describe('Querying the API Gateway', () => {
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockReturnValue(Promise.resolve(new Response('not json')))
+    fetch.mockResolvedValue(new Response('not json'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
