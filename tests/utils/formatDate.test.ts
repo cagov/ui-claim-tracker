@@ -1,7 +1,12 @@
-import MockDate from 'mockdate'
-import { toDate } from 'date-fns-tz'
+import { DateTime } from 'luxon'
 
-import formatDate, { formatAppointmentDate, isDatePast, isDateStringFalsy, isValidDate } from '../../utils/formatDate'
+import formatDate, {
+  formatAppointmentDate,
+  formatFromApiGateway,
+  isDatePast,
+  isDateStringFalsy,
+  isValidDate,
+} from '../../utils/formatDate'
 
 // Test isValidDate()
 describe('Valid dates: A date is', () => {
@@ -47,35 +52,27 @@ describe('Falsy date strings: A date string is', () => {
 
 // Test isDatePast()
 describe('Past dates: A date is', () => {
-  beforeAll(() => {
-    MockDate.set('2020-05-05T00:00:00')
-  })
-
   it('correctly identified as being in the past', () => {
-    const date = new Date()
-    date.setDate(date.getDate() - 1)
-    expect(isDatePast(date)).toBe(true)
+    const yesterday = DateTime.now().minus({ days: 1 })
+    expect(isDatePast(yesterday)).toBe(true)
   })
 
   it('correctly identified as not past if it is today', () => {
-    const today = new Date()
+    const today = DateTime.now()
     expect(isDatePast(today)).toBe(false)
   })
 
   it('correctly identified as not past if it is in the future', () => {
-    const date = new Date()
-    date.setDate(date.getDate() + 1)
-    expect(isDatePast(date)).toBe(false)
+    const tomorrow = DateTime.now().plus({ days: 1 })
+    expect(isDatePast(tomorrow)).toBe(false)
   })
 })
 
 // Test formatAppointmentDate()
 describe('Formatting appointments', () => {
   it('displays the date in the expected format and timezone', () => {
-    // Create a date that is midnight UTC
-    const date = toDate('2021-01-01T00:00:00', { timeZone: 'Europe/London' })
-    // Verify that it is formatted correctly for PT
-    const formattedDate = formatAppointmentDate(date)
+    const date = '2020-12-31T00:00:00'
+    const formattedDate = formatAppointmentDate(date, 'en')
     expect(formattedDate).toBe('Thursday, December 31, 2020')
   })
 })
@@ -86,5 +83,30 @@ describe('Formatting dates', () => {
     const notFormatted = '2013-09-27T00:00:00'
     const formatted = formatDate(notFormatted)
     expect(formatted).toEqual('9/27/2013')
+  })
+})
+
+// Test formatFromApiGateway()
+describe('Requesting a date adjusted from existing in the correct format', () => {
+  it('has our time set to PT!', () => {
+    expect(DateTime.local().zoneName).toEqual('America/Los_Angeles')
+  })
+
+  it('displays the expected date string', () => {
+    const baseDate = DateTime.fromISO('2021-09-10T02:00:00')
+    const adjustment = -1
+    const newDate = formatFromApiGateway(adjustment, baseDate)
+
+    expect(newDate).toEqual('2021-09-09T00:00:00')
+  })
+
+  it('handles PT edge cases', () => {
+    // Tricky time - 10pm PT means it's always* the next day ET & UTC
+    // *like, casually true but don't hold me to this; time is hard okay?
+    const baseDate = DateTime.fromISO('2021-09-01T22:00:00')
+    const adjustment = 3
+    const newDate = formatFromApiGateway(adjustment, baseDate)
+
+    expect(newDate).toEqual('2021-09-04T00:00:00')
   })
 })

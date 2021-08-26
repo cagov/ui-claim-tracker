@@ -21,6 +21,9 @@ export const programTypeNames: ProgramType = {
   EUY: 'EUY - Tier 2 Augmentation',
   EUW: 'EUW - Tier 3 Extension',
   EUZ: 'EUZ - Tier 4 Extension',
+  PEUC: 'PEUC - Tier 1 Extension',
+  PEUX: 'PEUX - Tier 2 Extension',
+  PEUY: 'PEUY - Tier 2 Augmentation',
   FEDED: 'FED-ED Extension',
   CALED: 'CAL-ED Extension',
   TRA: 'TRA Basic Extension',
@@ -28,8 +31,6 @@ export const programTypeNames: ProgramType = {
   TE: 'Training Extension (TE)',
   DUA: 'DUA',
   PUA: 'PUA',
-  INTERSTATE: 'Interstate',
-  NAFTA: 'NAFTA-TAA/REV30',
 }
 
 export interface programExtensionPairType {
@@ -63,6 +64,18 @@ export const programExtensionPairs = {
     programType: 'claim-details:program-type.ui',
     extensionType: 'claim-details:extension-type.euz',
   },
+  PEUC: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.peuc',
+  },
+  PEUX: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.peux',
+  },
+  PEUY: {
+    programType: 'claim-details:program-type.ui',
+    extensionType: 'claim-details:extension-type.peuy',
+  },
   FEDED: {
     programType: 'claim-details:program-type.ui',
     extensionType: 'claim-details:extension-type.fed-ed',
@@ -89,14 +102,6 @@ export const programExtensionPairs = {
   },
   PUA: {
     programType: 'claim-details:program-type.pua',
-    extensionType: '',
-  },
-  INTERSTATE: {
-    programType: 'claim-details:program-type.interstate',
-    extensionType: '',
-  },
-  NAFTA: {
-    programType: 'claim-details:program-type.nafta',
     extensionType: '',
   },
 }
@@ -136,18 +141,40 @@ export function formatCurrency(amount: number): string {
 }
 
 /**
+ * Check for zero dollar amounts.
+ */
+export function isZero(amount: number): boolean {
+  return amount === 0
+}
+
+/**
+ * Returns true if the amount is not falsy OR is zero.
+ */
+export function hasDollarAmount(amount: number): boolean {
+  if (amount || isZero(amount)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+/**
  * Get Claim Details content.
  */
 export default function getClaimDetails(rawDetails: ClaimDetailsResult): ClaimDetailsContent {
   // Get programType and extensionType.
   const pair: programExtensionPairType = getProgramExtensionPair(rawDetails.programType)
 
-  // construct our fields
+  // Construct claim details fields.
   const benefitYear = buildBenefitYear(rawDetails.benefitYearStartDate, rawDetails.benefitYearEndDate)
-  const claimBalance = rawDetails.claimBalance ? formatCurrency(rawDetails.claimBalance) : null
-  const weeklyBenefitAmount = rawDetails.weeklyBenefitAmount ? formatCurrency(rawDetails.weeklyBenefitAmount) : null
+
+  // Returns null if given a falsy dollar amount to hide the field.
+  const claimBalance = hasDollarAmount(rawDetails.claimBalance) ? formatCurrency(rawDetails.claimBalance) : null
+  const weeklyBenefitAmount = hasDollarAmount(rawDetails.weeklyBenefitAmount)
+    ? formatCurrency(rawDetails.weeklyBenefitAmount)
+    : null
   const lastPaymentIssued =
-    rawDetails.lastPaymentAmount && rawDetails.lastPaymentIssued
+    rawDetails.lastPaymentIssued && hasDollarAmount(rawDetails.lastPaymentAmount)
       ? `${formatCurrency(rawDetails.lastPaymentAmount)} on ${formatDate(rawDetails.lastPaymentIssued)}`
       : null
 

@@ -1,4 +1,4 @@
-import MockDate from 'mockdate'
+import { DateTime, Settings } from 'luxon'
 
 import { getPendingDeterminationWithScheduleDate } from '../testHelpers'
 import { formatFromApiGateway, parseApiGatewayDate } from '../../utils/formatDate'
@@ -20,7 +20,8 @@ describe('The Claim Status heading', () => {
 // Test buildAppointment()
 describe('An appointment is', () => {
   beforeAll(() => {
-    MockDate.set('2020-01-05')
+    const expectedNow = DateTime.local(2020, 1, 5)
+    Settings.now = () => expectedNow.toMillis()
   })
 
   it('returned with a time slot if there is a time slot value', () => {

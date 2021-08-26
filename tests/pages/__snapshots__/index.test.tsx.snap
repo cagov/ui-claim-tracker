@@ -149,7 +149,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       <h1
         className="title"
       >
-        Claim Tracker
+        Claim Status Tracker
       </h1>
       <div
         className="language-switcher"
