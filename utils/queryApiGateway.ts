@@ -32,7 +32,7 @@ export interface ApiEnvVars {
 }
 
 export interface AgentOptions {
-  pfx: Buffer | undefined
+  pfx: Buffer
   passphrase?: string
 }
 
@@ -113,7 +113,7 @@ export function getUniqueNumber(req: IncomingMessage): string {
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
-  let options: AgentOptions = { pfx: undefined }
+  let options: AgentOptions | null = null
 
   const headers = {
     Accept: 'application/json',
