@@ -7,6 +7,7 @@
 
 import { ClaimDetailsContent, ClaimDetailsResult, I18nString } from '../types/common'
 import formatDate from './formatDate'
+import { Logger } from './logger'
 
 export interface ProgramType {
   [key: string]: string
@@ -109,13 +110,16 @@ export const programExtensionPairs = {
  * Given a ProgramType string by the API gateway, return a pair of user-facing translation strings.
  */
 export function getProgramExtensionPair(apiString: string): programExtensionPairType {
+  const logger: Logger = Logger.getInstance()
+
   for (const [id, pair] of Object.entries(programExtensionPairs)) {
     if (apiString === programTypeNames[id]) {
+      logger.log('info', { programType: apiString }, 'Program Type: Known')
       return pair
     }
   }
   // If no known mapping is found, pass through the raw program type.
-  // @TODO: log this case
+  logger.log('info', { programType: apiString }, 'Program Type: Unknown')
   return {
     programType: apiString,
     extensionType: '',
