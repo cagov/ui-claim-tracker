@@ -32,7 +32,7 @@ export interface ApiEnvVars {
 }
 
 export interface AgentOptions {
-  pfx: Buffer
+  pfx: Buffer | undefined
   passphrase?: string
 }
 
@@ -113,14 +113,22 @@ export function getUniqueNumber(req: IncomingMessage): string {
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
+  let options: AgentOptions = { pfx: undefined }
 
   const headers = {
     Accept: 'application/json',
   }
 
-  // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-  const options: AgentOptions = {
-    pfx: fs.readFileSync(apiEnvVars.pfxPath),
+  try {
+    // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
+    options = {
+      pfx: fs.readFileSync(apiEnvVars.pfxPath),
+    }
+  } catch (error) {
+    // Log any certificate loading errors and return.
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', error, 'Read certificate error')
+    return apiData
   }
 
   if (apiEnvVars.pfxPassphrase) {

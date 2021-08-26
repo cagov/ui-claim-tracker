@@ -40,7 +40,11 @@ describe('Querying the API Gateway', () => {
     fetch.mockReturnValue(Promise.resolve(new Response(JSON.stringify(goodResponse))))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
-    fs.readFileSync = jest.fn().mockResolvedValue('mock file data')
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fs.readFileSync.mockImplementation(() => {
+      return 'mock file data'
+    })
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Clear the logger mock before each test.
     loggerSpy.mockClear()
@@ -68,6 +72,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(goodResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
 
@@ -86,6 +91,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
@@ -133,9 +139,33 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles certificate reading errors', async () => {
+    // Override the beforeEach mock to throw an error.
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fs.readFileSync.mockImplementation(() => {
+      throw new Error('file read issue')
+    })
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const data = await queryApiGateway(goodRequest)
+
+    expect(data).toStrictEqual(emptyResponse)
+    expect(fetch).toHaveBeenCalledTimes(0)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
 
     // Restore env vars
     restore()
@@ -310,8 +340,3 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
     restore()
   })
 })
-
-/*
- * @TODO: Test
- * - pfx missing or not read correctly #176
- */
