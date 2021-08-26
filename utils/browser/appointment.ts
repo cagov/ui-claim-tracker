@@ -1,32 +1,21 @@
 /**
  * Utility functions to support appointment logic.
  */
-import enUS from 'date-fns/locale/en-US'
-import es from 'date-fns/locale/es'
-import { format, utcToZonedTime } from 'date-fns-tz'
+
+import { DateTime, Settings } from 'luxon'
 
 import { I18nString } from '../../types/common'
 
-/**
- * Convert date locale from string.
- *
- * Falls back to English if an unexpected value is given.
- */
-export function convertStringToLocale(localeString: string): Locale {
-  return localeString === 'es' ? es : enUS
-}
+// Our API times come in as PT, and we display in PT - let's just stay in that space
+Settings.defaultZone = 'America/Los_Angeles'
 
 /**
  * Format appointment.
  */
 export function formatAppointmentDate(dateString: string, localeString: string): string {
   const dateFormat = 'EEEE, LLLL d, yyyy'
-  const pacificTimeZone = 'America/Los_Angeles'
-  const convertedDate = utcToZonedTime(dateString, pacificTimeZone)
-  const formattedDate = format(convertedDate, dateFormat, {
-    locale: convertStringToLocale(localeString),
-    timeZone: pacificTimeZone,
-  })
+  const date = DateTime.fromISO(dateString)
+  const formattedDate = date.setLocale(localeString).toFormat(dateFormat)
   return formattedDate
 }
 

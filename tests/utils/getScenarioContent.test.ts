@@ -1,4 +1,4 @@
-import MockDate from 'mockdate'
+import { DateTime, Settings } from 'luxon'
 
 import { getMockPendingDetermination, getPendingDeterminationWithScheduleDate } from '../testHelpers'
 import { PendingDetermination } from '../../types/common'
@@ -17,7 +17,8 @@ import {
  * Setup before all tests.
  */
 beforeAll(() => {
-  MockDate.set('2020-05-05T00:00:00')
+  const expectedNow = DateTime.local(2021, 5, 5)
+  Settings.now = () => expectedNow.toMillis()
 })
 
 /**

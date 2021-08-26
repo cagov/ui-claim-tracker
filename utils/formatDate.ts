@@ -12,89 +12,71 @@
  * in Pacific Time if there is no timezone provided in the datetime string.
  */
 
-import { isValid } from 'date-fns'
-import { format, toDate } from 'date-fns-tz'
+import { DateTime, Settings } from 'luxon'
 
 import { ApiGatewayDateString } from '../types/common'
 import { Logger } from './logger'
 
-const pacificTimeZone = 'America/Los_Angeles'
-const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
+// Our API times come in as PT, and we display in PT - let's just stay in that space
+Settings.defaultZone = 'America/Los_Angeles'
 
 /**
  * Parse a date string from the API gateway.
  *
- * By default, if a date time string has no time zone (which is how we expect
- * the date times from the API gateway to be formatted), it is interpreted as a UTC time.
- *
- * From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse:
- *
- * > For example, "2011-10-10" (date-only form), "2011-10-10T14:48:00" (date-time form),
- * > or "2011-10-10T14:48:00.000+09:00" (date-time form with milliseconds and time zone)
- * > can be passed and will be parsed. When the time zone offset is absent, date-only forms
- * > are interpreted as a UTC time and date-time forms are interpreted as local time.
  *
  * This function will interpret date time strings with no time zone as a Pacific Time Zone
- * time. If the date string argument contains a time zone offset, the `timeZone` option
- * is ignored.
+ * Date Time due to the Settings.defaultZone specification in this file.
  *
- * See: https://github.com/marnusw/date-fns-tz#todate
+ * See more about ISO format parsing in the Luxon docs
+ * https://moment.github.io/luxon/#/tour?id=parse-from-iso-8601
+ *
  */
-export function parseApiGatewayDate(dateString: ApiGatewayDateString): Date {
-  return toDate(dateString, { timeZone: pacificTimeZone })
+export function parseApiGatewayDate(dateString: ApiGatewayDateString): DateTime {
+  return DateTime.fromISO(dateString)
 }
 
 /**
  * Return a string that matches the API gateway format for datetimes.
  *
- * Create a Date object that is offset from today.
+ * Allows 'today' to be passed in so we can test robustly
  *
- * Note: This returns a date at either midnight or 1am, depending on whether it is
- * currently PST (-8) or PDT (-7).
  */
-export function formatFromApiGateway(daysOffset = 1): string {
-  const today = new Date()
-  today.setDate(today.getDate() + daysOffset)
-  today.setUTCHours(8, 0, 0, 0)
-  return format(today, apiGatewayFormat)
+export function formatFromApiGateway(daysOffset = 1, today = DateTime.now()): string {
+  const apiGatewayFormat = "yyyy-MM-dd'T'HH:mm:ss"
+  const newDate = today.plus({ days: daysOffset }).startOf('day')
+  return newDate.toFormat(apiGatewayFormat)
 }
 
 /**
  * Determine if the date string is valid.
  */
 export function isValidDate(dateString: ApiGatewayDateString): boolean {
-  let date: Date
+  let date: DateTime
 
-  // If the date format is such that it can't be parsed, then it is definitely invalid.
+  // Tell luxon to throw an error if the date is invalid
+  // https://moment.github.io/luxon/#/validity
+  Settings.throwOnInvalid = true
   try {
     date = parseApiGatewayDate(dateString)
   } catch (error) {
     return false
   }
 
-  if (isValid(date)) {
-    // Log anomalous dates: All dates are expected to be after 1970.
-    const expectedMinDate = toDate('1970-01-01', { timeZone: pacificTimeZone })
-    if (date <= expectedMinDate) {
-      const logger = Logger.getInstance()
-      logger.log('warn', { dateString: dateString }, 'Unexpected date')
-    }
-
-    // Set a min date because it's possible for the date to be '0001-01-01'.
-    const minDate = toDate('1900-01-01', { timeZone: pacificTimeZone })
-    if (date <= minDate) {
-      return false
-    }
-    // date-fns says the date is valid
-    // AND the date is sooner than the min date.
-    else {
-      return true
-    }
+  // Log anomalous dates: All dates are expected to be after 1970.
+  const expectedMinDate = DateTime.fromISO('1970-01-01')
+  if (date <= expectedMinDate) {
+    const logger = Logger.getInstance()
+    logger.log('warn', { dateString: dateString }, 'Unexpected date')
   }
-  // date-fns says the date is invalid
-  else {
+
+  // Set a min date because it's possible for the date to be '0001-01-01'.
+  const minDate = DateTime.fromISO('1900-01-01')
+  if (date <= minDate) {
     return false
   }
+
+  // Okay, looks good!
+  return true
 }
 
 /**
@@ -111,9 +93,8 @@ export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
  *
  * Assumes that the given date is a valid date.
  */
-export function isDatePast(date: Date): boolean {
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
+export function isDatePast(date: DateTime): boolean {
+  const today = DateTime.now().startOf('day')
   return date < today
 }
 
@@ -121,8 +102,11 @@ export function isDatePast(date: Date): boolean {
  * Format dates for user-facing display.
  *
  * Does not care if the given dateString is a valid date.
+ *
+ * See Luxon formatting docs for more info on toLocaleString & the DATE_SHORT preset
+ * https://moment.github.io/luxon/#/formatting?id=presets
  */
 export default function formatDate(dateString: ApiGatewayDateString): string {
   const date = parseApiGatewayDate(dateString)
-  return format(date, 'M/d/yyyy')
+  return date.toLocaleString(DateTime.DATE_SHORT)
 }

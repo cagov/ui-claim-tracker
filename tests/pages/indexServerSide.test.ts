@@ -18,6 +18,9 @@ describe('Main component server side logic', () => {
         // empty header
         headers: {},
       },
+      res: {
+        statusCode: null,
+      },
     }
 
     const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
@@ -26,6 +29,7 @@ describe('Main component server side logic', () => {
     const result: GetServerSideProps = await getServerSideProps(context as GetServerSidePropsContext)
     const props: HomeProps = result.props as HomeProps
     expect(props.errorCode).toBe(500)
+    expect(context.res.statusCode).toBe(500)
     expect(loggerSpy).toHaveBeenCalledWith('error', {}, 'Missing unique number')
 
     restore()
