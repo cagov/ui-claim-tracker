@@ -16,6 +16,8 @@ export const Appointment: React.FC<AppointmentProps> = ({ loading = false, date,
   let formattedAppointment = ''
 
   // Format the date portion.
+  console.log('Appointment language')
+  console.log(i18n.language)
   formattedAppointment = capitalizeFirstLetter(formatAppointmentDate(date, i18n.language))
 
   // Format the time portion.
