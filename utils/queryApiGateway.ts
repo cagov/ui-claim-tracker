@@ -16,6 +16,7 @@ import fs from 'fs'
 import https from 'https'
 import { IncomingMessage } from 'http'
 import { Claim } from '../types/common'
+import { Logger } from './logger'
 
 export interface QueryParams {
   user_key: string
@@ -41,7 +42,6 @@ export interface AgentOptions {
 
 /**
  * Load environment variables to be used for authentication & API calls.
- * @TODO: Handle error case where env vars are null or undefined.
  */
 export function getApiVars(): ApiEnvVars {
   const apiEnvVars: ApiEnvVars = { idHeaderName: '', apiUrl: '', apiUserKey: '', pfxPath: '' }
@@ -56,10 +56,25 @@ export function getApiVars(): ApiEnvVars {
   // TLS Certificate fields
   const certDir: string = process.env.CERTIFICATE_DIR ?? ''
   const pfxFilename: string = process.env.PFX_FILE ?? ''
-  apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+  if (certDir && pfxFilename) {
+    apiEnvVars.pfxPath = path.join(certDir, pfxFilename)
+  }
 
   // Some certificates have an import password
   apiEnvVars.pfxPassphrase = process.env.PFX_PASSPHRASE || ''
+
+  // Verify that all required env vars have been set.
+  const missingEnvVars: string[] = []
+  for (const key of Object.keys(apiEnvVars)) {
+    const castKey = key as keyof typeof apiEnvVars
+    if (!apiEnvVars[castKey] && castKey !== 'pfxPassphrase') {
+      missingEnvVars.push(castKey)
+    }
+  }
+  if (missingEnvVars.length > 0) {
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
+  }
 
   return apiEnvVars
 }
@@ -102,18 +117,26 @@ export function getUniqueNumber(req: IncomingMessage): string {
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
+  let options: AgentOptions | null = null
 
   const headers = {
     Accept: 'application/json',
   }
 
-  // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
-  const options: AgentOptions = {
-    pfx: fs.readFileSync(apiEnvVars.pfxPath),
-    keepAlive: true,
-    timeout: 60 * 1000,
-    freeSocketTimeout: 30 * 1000,
-    maxSockets: 50,
+  try {
+    // https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
+    options = {
+      pfx: fs.readFileSync(apiEnvVars.pfxPath),
+      keepAlive: true,
+      timeout: 60 * 1000,
+      freeSocketTimeout: 30 * 1000,
+      maxSockets: 50,
+    }
+  } catch (error) {
+    // Log any certificate loading errors and return.
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', error, 'Read certificate error')
+    return apiData
   }
 
   if (apiEnvVars.pfxPassphrase) {
@@ -148,10 +171,11 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       const responseBody: string = await response.text()
       apiData = extractJSON(responseBody)
     } else {
-      throw new Error('API Gateway error')
+      throw new Error('API Gateway response is not 200')
     }
   } catch (error) {
-    console.log(error)
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', error, 'API gateway error')
   }
 
   return apiData

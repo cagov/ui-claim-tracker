@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
-import getUrl from '../utils/getUrl'
+import getUrl from '../utils/browser/getUrl'
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation('common')

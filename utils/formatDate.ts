@@ -15,6 +15,7 @@
 import { DateTime, Settings } from 'luxon'
 
 import { ApiGatewayDateString } from '../types/common'
+import { Logger } from './logger'
 
 // Our API times come in as PT, and we display in PT - let's just stay in that space
 Settings.defaultZone = 'America/Los_Angeles'
@@ -61,6 +62,13 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
     return false
   }
 
+  // Log anomalous dates: All dates are expected to be after 1970.
+  const expectedMinDate = DateTime.fromISO('1970-01-01')
+  if (date <= expectedMinDate) {
+    const logger = Logger.getInstance()
+    logger.log('warn', { dateString: dateString }, 'Unexpected date')
+  }
+
   // Set a min date because it's possible for the date to be '0001-01-01'.
   const minDate = DateTime.fromISO('1900-01-01')
   if (date <= minDate) {
@@ -80,9 +88,6 @@ export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
   return !dateString || dateString === '0001-01-01T00:00:00'
 }
 
-// @TODO: add a function to check and log any dates that are earlier
-// than 2020 as these are anomolous dates that could indicate an error.
-
 /**
  * Determine if the date is in the past.
  *
@@ -91,16 +96,6 @@ export function isDateStringFalsy(dateString: ApiGatewayDateString): boolean {
 export function isDatePast(date: DateTime): boolean {
   const today = DateTime.now().startOf('day')
   return date < today
-}
-
-/**
- * Format appointment.
- */
-export function formatAppointmentDate(dateString: string, localeString: string): string {
-  const dateFormat = 'EEEE, LLLL d, yyyy'
-  const date = parseApiGatewayDate(dateString)
-  const formattedDate = date.setLocale(localeString).toFormat(dateFormat)
-  return formattedDate
 }
 
 /**

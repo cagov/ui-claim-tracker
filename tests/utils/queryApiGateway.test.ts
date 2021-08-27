@@ -1,5 +1,13 @@
 import { Claim } from '../../types/common'
-import queryApiGateway, { buildApiUrl, getUniqueNumber, extractJSON, QueryParams } from '../../utils/queryApiGateway'
+import { Logger } from '../../utils/logger'
+import queryApiGateway, {
+  buildApiUrl,
+  getApiVars,
+  getUniqueNumber,
+  extractJSON,
+  QueryParams,
+} from '../../utils/queryApiGateway'
+
 import mockEnv from 'mocked-env'
 import fs from 'fs'
 import jestFetchMock from 'jest-fetch-mock'
@@ -24,14 +32,22 @@ const goodRequest = {
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
   const goodResponse = { ClaimType: 'PUA' }
+  const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
 
   beforeEach(() => {
     // Mock the fetch response
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockReturnValue(Promise.resolve(new Response(JSON.stringify(goodResponse))))
+    fetch.mockResolvedValue(new Response(JSON.stringify(goodResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
-    fs.readFileSync = jest.fn().mockResolvedValue('mock file data')
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fs.readFileSync.mockImplementation(() => {
+      return 'mock file data'
+    })
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+
+    // Clear the logger mock before each test.
+    loggerSpy.mockClear()
   })
 
   afterEach(() => {
@@ -56,6 +72,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(goodResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
 
@@ -65,7 +82,7 @@ describe('Querying the API Gateway', () => {
 
   it('handles errors thrown by fetch', async () => {
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockRejectedValueOnce(new Error('network error'))
+    fetch.mockRejectedValue(new Error('network error'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -74,8 +91,10 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -88,7 +107,7 @@ describe('Querying the API Gateway', () => {
       status: 403,
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
-    fetch.mockReturnValue(Promise.resolve(errorResponse403))
+    fetch.mockRejectedValue(errorResponse403)
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -97,8 +116,10 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -109,7 +130,7 @@ describe('Querying the API Gateway', () => {
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockReturnValue(Promise.resolve(new Response('not json')))
+    fetch.mockResolvedValue(new Response('not json'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -118,8 +139,33 @@ describe('Querying the API Gateway', () => {
     })
 
     const data = await queryApiGateway(goodRequest)
+
     expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles certificate reading errors', async () => {
+    // Override the beforeEach mock to throw an error.
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fs.readFileSync.mockImplementation(() => {
+      throw new Error('file read issue')
+    })
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const data = await queryApiGateway(goodRequest)
+
+    expect(data).toStrictEqual(emptyResponse)
+    expect(fetch).toHaveBeenCalledTimes(0)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
 
     // Restore env vars
     restore()
@@ -250,9 +296,47 @@ describe('The unique number', () => {
   })
 })
 
-/*
- * @TODO: Test
- * - env vars missing (each) #176
- * - pfx missing or not read correctly #176
- * - request missing expected header #217
- */
+// Test getApiVars()
+// Each test case should be:
+// [env var that should not be set, boolean whether an error should be logged]
+const envVarCases = [
+  ['ID_HEADER_NAME', true],
+  ['API_URL', true],
+  ['API_USER_KEY', true],
+  ['CERTIFICATE_DIR', true],
+  ['PFX_FILE', true],
+  ['PFX_PASSPHRASE', false],
+]
+describe.each(envVarCases)('Missing environment variables log errors', (testEnv: string, triggersError: boolean) => {
+  const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
+
+  beforeEach(() => {
+    loggerSpy.mockClear()
+  })
+
+  it(`${testEnv}`, () => {
+    // Mock process.env
+    const mockEnvs = {}
+    const allEnvs = ['ID_HEADER_NAME', 'API_URL', 'API_USER_KEY', 'CERTIFICATE_DIR', 'PFX_FILE', 'PFX_PASSPHRASE']
+    for (const env of allEnvs) {
+      if (env !== testEnv) {
+        mockEnvs[env] = 'not empty'
+      }
+    }
+    const restore = mockEnv(mockEnvs)
+
+    getApiVars()
+
+    /* eslint-disable jest/no-conditional-expect */
+    if (triggersError) {
+      expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Missing required environment variable(s)')
+      expect(loggerSpy).toHaveBeenCalledTimes(1)
+    } else {
+      expect(loggerSpy).toHaveBeenCalledTimes(0)
+    }
+    /* eslint-enable jest/no-conditional-expect */
+
+    // Restore env vars
+    restore()
+  })
+})

@@ -2,8 +2,8 @@
  * Utility file to retrieve urls from the urls.json file.
  */
 
-import urls from '../public/urls.json'
-import { UrlPrefixes } from '../types/common'
+import urls from '../../public/urls.json'
+import { UrlPrefixes } from '../../types/common'
 
 // Type alias for the keys in urls.json
 export type UrlType = keyof typeof urls

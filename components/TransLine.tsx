@@ -2,7 +2,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import React from 'react'
 import { Shimmer } from './Shimmer'
 import { I18nString, TransLineContent } from '../types/common'
-import getUrl from '../utils/getUrl'
+import getUrl from '../utils/browser/getUrl'
 
 export interface TransLineProps extends TransLineContent {
   loading: boolean
