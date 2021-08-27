@@ -2,9 +2,8 @@ import { useTranslation } from 'next-i18next'
 
 import { TextLine } from './TextLine'
 import { AppointmentContent } from '../types/common'
-import { formatAppointmentDate } from '../utils/formatDate'
-import { capitalizeFirstLetter } from '../utils/strings'
-import { identifyI18nPeriod, samePeriod } from '../utils/timeSlot'
+import { formatAppointmentDate, identifyI18nPeriod, samePeriod } from '../utils/browser/appointment'
+import { capitalizeFirstLetter } from '../utils/browser/strings'
 
 export interface AppointmentProps extends AppointmentContent {
   loading: boolean

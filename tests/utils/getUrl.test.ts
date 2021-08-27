@@ -1,4 +1,4 @@
-import getUrl from '../../utils/getUrl'
+import getUrl from '../../utils/browser/getUrl'
 
 describe('Retrieving urls', () => {
   // Note: This tests against real content

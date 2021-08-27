@@ -13,7 +13,7 @@ import Modal from 'react-bootstrap/Modal'
 import { UrlPrefixes } from '../types/common'
 
 import { Button } from './Button'
-import getUrl from '../utils/getUrl'
+import getUrl from '../utils/browser/getUrl'
 
 let warningTimerId: NodeJS.Timeout | null = null
 
