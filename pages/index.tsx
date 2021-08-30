@@ -9,7 +9,6 @@ import { req as reqSerializer } from 'pino-std-serializers'
 
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
-import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { ClaimSection } from '../components/ClaimSection'
 import { TimeoutModal } from '../components/TimeoutModal'
 import { Footer } from '../components/Footer'
@@ -53,7 +52,6 @@ export default function Home({
       <main className="main">
         <Container className="main-content">
           <Title />
-          <LanguageSwitcher userArrivedFromUioMobile={userArrivedFromUioMobile} />
           <ClaimSection
             loading={loading}
             userArrivedFromUioMobile={userArrivedFromUioMobile}
