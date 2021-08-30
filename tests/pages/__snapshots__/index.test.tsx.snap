@@ -152,18 +152,6 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
         Claim Status Tracker
       </h1>
       <div
-        className="language-switcher"
-      >
-        <a
-          className="text"
-          href="/"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          En español
-        </a>
-      </div>
-      <div
         className="claim-section"
       >
         <div
