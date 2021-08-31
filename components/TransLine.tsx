@@ -29,7 +29,7 @@ function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
 }
 
 /**
- * Determine if this link is interal to UIO for our purposes
+ * "Internal" UIO/BPO links should not open in a new tab, vs "external" links to EDD, which should.
  */
 function internalLink(link: I18nString): boolean {
   const uioRegex = new RegExp('^uio-')
