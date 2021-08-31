@@ -28,6 +28,16 @@ function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   return t(link)
 }
 
+/**
+ * "Internal" UIO/BPO links should not open in a new tab, vs "external" links to EDD, which should.
+ */
+function internalLink(link: I18nString): boolean {
+  const uioRegex = new RegExp('^uio-')
+  const bpoRegex = new RegExp('^bpo-')
+
+  return uioRegex.test(link) || bpoRegex.test(link)
+}
+
 export const TransLine: React.FC<TransLineProps> = ({
   loading = false,
   userArrivedFromUioMobile = false,
@@ -42,11 +52,15 @@ export const TransLine: React.FC<TransLineProps> = ({
   if (links && links.length > 0) {
     for (const link of links) {
       const href = resolveUrl(link, userArrivedFromUioMobile)
-      // Disabling some linting rules for this line. The anchor <a> element will
-      // be interpolated by <Trans>.
+      // Disabling some linting rules for the <a> lines. The anchor <a> element will
+      // be interpolated by <Trans> to have content.
       /* eslint-disable jsx-a11y/anchor-has-content */
       /* eslint-disable react/self-closing-comp */
-      linkComponents.push(<a href={href} key={link}></a>)
+      if (internalLink(link)) {
+        linkComponents.push(<a href={href} key={link}></a>)
+      } else {
+        linkComponents.push(<a target="_blank" rel="noopener noreferrer" href={href} key={link}></a>)
+      }
       /* eslint-enable jsx-a11y/anchor-has-content */
       /* eslint-enable react/self-closing-comp */
     }
