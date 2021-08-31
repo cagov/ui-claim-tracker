@@ -43,6 +43,8 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -155,6 +157,8 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -482,6 +486,8 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -650,6 +656,8 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1115,6 +1123,8 @@ exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1244,6 +1254,8 @@ exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1595,6 +1607,8 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1631,6 +1645,8 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           For more information, visit 
           <a
             href="https://www.edd.ca.gov/unemployment/claim-status.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Claim Status: Pending Payment
           </a>
@@ -1668,6 +1684,8 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           We will email you when you have weeks available to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1725,6 +1743,8 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           Continue to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1761,6 +1781,8 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           For more information, visit 
           <a
             href="https://www.edd.ca.gov/unemployment/claim-status.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Claim Status: Pending Payment
           </a>
@@ -1798,6 +1820,8 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           We will email you when you have weeks available to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1877,6 +1901,8 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
           For more information, visit 
           <a
             href="https://www.edd.ca.gov/unemployment/claim-status.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Claim Status: Pending Payment
           </a>
@@ -1914,6 +1940,8 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
           We will email you when you have weeks available to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -1993,6 +2021,8 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
           For more information, visit 
           <a
             href="https://www.edd.ca.gov/unemployment/claim-status.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Claim Status: Pending Payment
           </a>
@@ -2030,6 +2060,8 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
           We will email you when you have weeks available to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -2109,6 +2141,8 @@ exports[`Scenario 5 matches, on desktop 1`] = `
           If it’s been more than 30 days since you last certified for benefits, you must 
           <a
             href="https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             reopen your claim
           </a>
@@ -2138,6 +2172,8 @@ exports[`Scenario 5 matches, on desktop 1`] = `
           We will email you when you have weeks available to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -2217,6 +2253,8 @@ exports[`Scenario 5 matches, on mobile 1`] = `
           If it’s been more than 30 days since you last certified for benefits, you must 
           <a
             href="https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             reopen your claim
           </a>
@@ -2246,6 +2284,8 @@ exports[`Scenario 5 matches, on mobile 1`] = `
           We will email you when you have weeks available to 
           <a
             href="https://edd.ca.gov/Unemployment/certify.htm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             certify for benefits
           </a>
@@ -2285,6 +2325,8 @@ exports[`Scenario 6 matches, on desktop 1`] = `
       You have weeks available to 
       <a
         href="https://edd.ca.gov/Unemployment/certify.htm"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         certify for benefits
       </a>
@@ -2385,6 +2427,8 @@ exports[`Scenario 6 matches, on mobile 1`] = `
       You have weeks available to 
       <a
         href="https://edd.ca.gov/Unemployment/certify.htm"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         certify for benefits
       </a>
