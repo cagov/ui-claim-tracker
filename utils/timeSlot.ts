@@ -18,7 +18,7 @@ export function validTime(time: number): boolean {
   const isExpected = time >= 1 && time <= 12
   if (!isExpected) {
     const logger: Logger = Logger.getInstance()
-    logger.log('error', { time: time }, 'Unexpected time')
+    logger.log('warn', { time: time }, 'Unexpected time')
   }
   return isExpected
 }
@@ -94,7 +94,7 @@ export function isFirstTimeSlotEarlier(first: string, second: string): boolean |
   // In practice, this should be unreachable code.
   else {
     const logger: Logger = Logger.getInstance()
-    logger.log('error', { first: first, second: second }, 'Unreachable code was executed')
+    logger.log('warn', { first: first, second: second }, 'Unreachable code was executed')
     return null
   }
 }
