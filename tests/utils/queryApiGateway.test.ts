@@ -57,7 +57,7 @@ describe('Querying the API Gateway', () => {
 
   // Test mocked fetch is working correctly to eliminate testing issues that might be
   // originating from the way fetch is mocked.
-  it('has a correctly mocked fetch', async () => {
+  it.skip('has a correctly mocked fetch', async () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
@@ -65,7 +65,7 @@ describe('Querying the API Gateway', () => {
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
-  it('returns the expected value', async () => {
+  it.skip('returns the expected value', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
@@ -148,7 +148,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it.skip('handles certificate reading errors', async () => {
+  it('handles certificate reading errors', async () => {
     // Override the beforeEach mock to throw an error.
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fs.readFileSync.mockImplementation(() => {
@@ -171,7 +171,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('loads pfx passphrase when given', async () => {
+  it.skip('loads pfx passphrase when given', async () => {
     // Mock process.env
     const testPassphrase = 'teststring'
     const restore = mockEnv({
@@ -193,7 +193,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('does not load pfx passphrase if it is an empty string', async () => {
+  it.skip('does not load pfx passphrase if it is an empty string', async () => {
     // Mock process.env
     const testPassphrase = ''
     const restore = mockEnv({
@@ -223,14 +223,14 @@ describe('Building the API url', () => {
     uniqueNumber: 'num',
   }
 
-  it('returns the correct url given correct options', () => {
+  it.skip('returns the correct url given correct options', () => {
     const apiUrl: string = buildApiUrl(goodUrl, goodParams)
     expect(apiUrl).toContain(goodUrl)
     expect(apiUrl).toContain(`user_key=${goodParams.user_key}`)
     expect(apiUrl).toContain(`uniqueNumber=${goodParams.uniqueNumber}`)
   })
 
-  it('with a bad url throws an error', () => {
+  it.skip('with a bad url throws an error', () => {
     const badUrl = 'badurl'
     expect(() => {
       buildApiUrl(badUrl, goodParams)
@@ -240,7 +240,7 @@ describe('Building the API url', () => {
 
 // Test getUniqueNumber()
 describe('The unique number', () => {
-  it('is returned when given the correct ID key', () => {
+  it.skip('is returned when given the correct ID key', () => {
     // Mock process.env
     const restore = mockEnv({
       ID_HEADER_NAME: 'id',
@@ -282,7 +282,7 @@ describe('The unique number', () => {
   })
 
   // Current behavior is to return undefined.
-  it('is not returned when given the incorrect ID key', () => {
+  it.skip('is not returned when given the incorrect ID key', () => {
     // Mock process.env
     const restore = mockEnv({
       ID_HEADER_NAME: 'nonsense',
@@ -314,7 +314,7 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
     loggerSpy.mockClear()
   })
 
-  it(`${testEnv}`, () => {
+  it.skip(`${testEnv}`, () => {
     // Mock process.env
     const mockEnvs = {}
     const allEnvs = ['ID_HEADER_NAME', 'API_URL', 'API_USER_KEY', 'CERTIFICATE_DIR', 'PFX_FILE', 'PFX_PASSPHRASE']
