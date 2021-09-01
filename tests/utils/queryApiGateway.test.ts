@@ -18,7 +18,6 @@ jestFetchMock.enableMocks()
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
-const emptyResponse = { ClaimType: undefined }
 const goodRequest = {
   headers: {
     id: '12345',
@@ -81,8 +80,9 @@ describe('Querying the API Gateway', () => {
   })
 
   it('handles errors thrown by fetch', async () => {
+    const networkErrorMessage = 'network error'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockRejectedValue(new Error('network error'))
+    fetch.mockRejectedValue(new Error(networkErrorMessage))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -90,9 +90,8 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest)).rejects.toThrow(networkErrorMessage)
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
@@ -107,7 +106,7 @@ describe('Querying the API Gateway', () => {
       status: 403,
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
-    fetch.mockRejectedValue(errorResponse403)
+    fetch.mockResolvedValue(errorResponse403)
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -115,9 +114,8 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest)).rejects.toThrow('API Gateway response is not 200')
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
@@ -138,9 +136,8 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest)).rejects.toThrow('Unexpected token o in JSON at position 1')
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
@@ -150,10 +147,10 @@ describe('Querying the API Gateway', () => {
 
   it('handles certificate reading errors', async () => {
     // Override the beforeEach mock to throw an error.
-    const fileReadError = new Error('file read issue')
+    const fsErrorMessage = 'file read issue'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fs.readFileSync.mockImplementation(() => {
-      throw fileReadError
+      throw new Error(fsErrorMessage)
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -162,7 +159,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest)).rejects.toThrow(fileReadError)
+    await expect(queryApiGateway(goodRequest)).rejects.toThrow(fsErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(0)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
