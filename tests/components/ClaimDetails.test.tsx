@@ -29,7 +29,7 @@ describe('ClaimDetails with all nonnull fields', () => {
     )
 
     expect(screen.queryByText('Claim Details')).toBeInTheDocument()
-    expect(screen.queryByText('Program Type')).toBeInTheDocument()
+    expect(screen.queryByText('Claim Type')).toBeInTheDocument()
     expect(screen.queryByText('Benefit Year')).toBeInTheDocument()
     expect(screen.queryByText('Claim Balance')).toBeInTheDocument()
     expect(screen.queryByText('Weekly Benefit Amount')).toBeInTheDocument()
