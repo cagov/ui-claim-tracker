@@ -1,22 +1,22 @@
 {
   "program-type": {
     "ui": "Seguro de Desempleo (UI)",
-    "dua": "Asistencia de Desempleo por Desastre (DUA)",
-    "pua": "Asistencia de Desempleo por la Pandemia (PUA)"
+    "dua": "Asistencia por Desastre - Asistencia de Desempleo por Desastre (DUA)",
+    "pua": "Asistencia por Desastre - Asistencia de Desempleo por la Pandemia (PUA)"
   },
   "extension-type": {
-    "euc": "Compensación de Desempleo de Emergencia (EUC) – Nivel 1",
-    "eux": "Compensación de Desempleo de Emergencia (EUC) – Nivel 2",
-    "euy": "Compensación de Desempleo de Emergencia (EUC) – Aumento de nivel 2",
-    "euw": "Compensación de Desempleo de Emergencia (EUC) – Nivel 3",
-    "euz": "Compensación de Desempleo de Emergencia (EUC) – Nivel 4",
-    "peuc": "Compensación de Desempleo de Emergencia por la Pandemia (PEUC) - Nivel 1",
-    "peux": "Compensación de Desempleo de Emergencia por la Pandemia (PEUC) - Nivel 2",
-    "peuy": "Compensación de Desempleo de Emergencia por la Pandemia (PEUC) - Aumento de nivel 2",
+    "euc": "Compensación de Desempleo de Emergencia (EUC) Nivel 1",
+    "eux": "Compensación de Desempleo de Emergencia (EUC) Nivel 2",
+    "euy": "Compensación de Desempleo de Emergencia (EUC) Aumento de nivel 2",
+    "euw": "Compensación de Desempleo de Emergencia (EUC) Nivel 3",
+    "euz": "Compensación de Desempleo de Emergencia (EUC) Nivel 4",
+    "peuc": "Compensación de Desempleo de Emergencia por la Pandemia (PEUC) Nivel 1",
+    "peux": "Compensación de Desempleo de Emergencia por la Pandemia (PEUC) Nivel 2",
+    "peuy": "Compensación de Desempleo de Emergencia por la Pandemia (PEUC) Aumento de nivel 2",
     "fed-ed": "Duración de la Extensión Federal-Estatal de Beneficios (FED-ED)",
     "cal-ed": "Duración de Beneficios de Extensión de California (Cal-ED)",
-    "tra": "Extensión básica de la Asignación por Reajuste Comercial",
-    "tra-additional": "Extensión adicional de la Asistencia por Ajuste Ccomercial",
+    "tra": "Extensión básica de la Asignación por Reajuste Comercial (TRA)",
+    "tra-additional": "Extensión adicional de la Asistencia por Ajuste Comercial (TRA)",
     "te": "Extensión de entrenamiento laboral (TE)"
   }
 }
