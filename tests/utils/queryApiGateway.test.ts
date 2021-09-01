@@ -162,11 +162,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    try {
-      await queryApiGateway(goodRequest)
-    } catch (error) {
-      expect(error).toEqual(fileReadError)
-    }
+    await expect(queryApiGateway(goodRequest)).rejects.toThrow(fileReadError)
 
     expect(fetch).toHaveBeenCalledTimes(0)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
