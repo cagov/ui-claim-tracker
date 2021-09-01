@@ -150,9 +150,10 @@ describe('Querying the API Gateway', () => {
 
   it('handles certificate reading errors', async () => {
     // Override the beforeEach mock to throw an error.
+    const fileReadError = new Error('file read issue')
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fs.readFileSync.mockImplementation(() => {
-      throw new Error('file read issue')
+      throw fileReadError
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -161,9 +162,12 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    try {
+      await queryApiGateway(goodRequest)
+    } catch (error) {
+      expect(error).toEqual(fileReadError)
+    }
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(0)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
 
