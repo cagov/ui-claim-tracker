@@ -57,7 +57,7 @@ describe('Querying the API Gateway', () => {
 
   // Test mocked fetch is working correctly to eliminate testing issues that might be
   // originating from the way fetch is mocked.
-  it.skip('has a correctly mocked fetch', async () => {
+  it('has a correctly mocked fetch', async () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
@@ -65,7 +65,7 @@ describe('Querying the API Gateway', () => {
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
-  it.skip('returns the expected value', async () => {
+  it('returns the expected value', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
@@ -80,7 +80,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it.skip('handles errors thrown by fetch', async () => {
+  it('handles errors thrown by fetch', async () => {
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fetch.mockRejectedValue(new Error('network error'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
@@ -100,7 +100,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it.skip('handles non-200 responses from API gateway', async () => {
+  it('handles non-200 responses from API gateway', async () => {
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     const errorResponse403: Response = new Response('403 Forbidden', {
@@ -125,7 +125,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it.skip('handles errors returned by API gateway', async () => {
+  it('handles errors returned by API gateway', async () => {
     // Mock a string response from API gateway
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
@@ -171,7 +171,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it.skip('loads pfx passphrase when given', async () => {
+  it('loads pfx passphrase when given', async () => {
     // Mock process.env
     const testPassphrase = 'teststring'
     const restore = mockEnv({
@@ -193,7 +193,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it.skip('does not load pfx passphrase if it is an empty string', async () => {
+  it('does not load pfx passphrase if it is an empty string', async () => {
     // Mock process.env
     const testPassphrase = ''
     const restore = mockEnv({
@@ -223,14 +223,14 @@ describe('Building the API url', () => {
     uniqueNumber: 'num',
   }
 
-  it.skip('returns the correct url given correct options', () => {
+  it('returns the correct url given correct options', () => {
     const apiUrl: string = buildApiUrl(goodUrl, goodParams)
     expect(apiUrl).toContain(goodUrl)
     expect(apiUrl).toContain(`user_key=${goodParams.user_key}`)
     expect(apiUrl).toContain(`uniqueNumber=${goodParams.uniqueNumber}`)
   })
 
-  it.skip('with a bad url throws an error', () => {
+  it('with a bad url throws an error', () => {
     const badUrl = 'badurl'
     expect(() => {
       buildApiUrl(badUrl, goodParams)
@@ -240,7 +240,7 @@ describe('Building the API url', () => {
 
 // Test getUniqueNumber()
 describe('The unique number', () => {
-  it.skip('is returned when given the correct ID key', () => {
+  it('is returned when given the correct ID key', () => {
     // Mock process.env
     const restore = mockEnv({
       ID_HEADER_NAME: 'id',
@@ -282,7 +282,7 @@ describe('The unique number', () => {
   })
 
   // Current behavior is to return undefined.
-  it.skip('is not returned when given the incorrect ID key', () => {
+  it('is not returned when given the incorrect ID key', () => {
     // Mock process.env
     const restore = mockEnv({
       ID_HEADER_NAME: 'nonsense',
@@ -314,7 +314,7 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
     loggerSpy.mockClear()
   })
 
-  it.skip(`${testEnv}`, () => {
+  it(`${testEnv}`, () => {
     // Mock process.env
     const mockEnvs = {}
     const allEnvs = ['ID_HEADER_NAME', 'API_URL', 'API_USER_KEY', 'CERTIFICATE_DIR', 'PFX_FILE', 'PFX_PASSPHRASE']
