@@ -179,16 +179,13 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     throw error
   }
 
-  try {
-    if (apiData?.uniqueNumber !== uniqueNumber) {
-      throw new Error(
-        `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
-      )
-    }
-  } catch (error) {
+  if (apiData?.uniqueNumber !== uniqueNumber) {
+    const mismatchError = new Error(
+      `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
+    )
     const logger: Logger = Logger.getInstance()
-    logger.log('error', error, 'Unexpected API gateway response')
-    throw error
+    logger.log('error', mismatchError, 'Unexpected API gateway response')
+    throw mismatchError
   }
 
   return apiData

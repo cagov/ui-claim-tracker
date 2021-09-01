@@ -171,6 +171,42 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
+  it('handles mismatched unique number responses', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedUniqueNumber = 'abcde'
+    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
+      'Mismatched API response and Header unique number (12345 and abcde)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles null unique number responses', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedUniqueNumber = null
+    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
+      'Mismatched API response and Header unique number (12345 and null)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
   it('loads pfx passphrase when given', async () => {
     // Mock process.env
     const testPassphrase = 'teststring'
