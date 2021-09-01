@@ -18,9 +18,10 @@ jestFetchMock.enableMocks()
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
+const goodUniqueNumber = '12345'
 const goodRequest = {
   headers: {
-    id: '12345',
+    id: goodUniqueNumber,
   },
 }
 
@@ -30,7 +31,7 @@ const goodRequest = {
 
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
-  const goodResponse = { ClaimType: 'PUA' }
+  const goodResponse = { hasPendingWeeks: false, uniqueNumber: goodUniqueNumber }
   const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
 
   beforeEach(() => {
@@ -60,7 +61,7 @@ describe('Querying the API Gateway', () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
-    expect(jsonData.ClaimType).toBe('PUA')
+    expect(jsonData.hasPendingWeeks).toBe(false)
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
@@ -70,7 +71,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    const data = await queryApiGateway(goodRequest, goodUniqueNumber)
 
     expect(data).toStrictEqual(goodResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
@@ -90,7 +91,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest)).rejects.toThrow(networkErrorMessage)
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(networkErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
@@ -114,7 +115,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest)).rejects.toThrow('API Gateway response is not 200')
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow('API Gateway response is not 200')
 
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
@@ -136,7 +137,9 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest)).rejects.toThrow('Unexpected token o in JSON at position 1')
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'Unexpected token o in JSON at position 1',
+    )
 
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
@@ -159,7 +162,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest)).rejects.toThrow(fsErrorMessage)
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(fsErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(0)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
@@ -176,7 +179,7 @@ describe('Querying the API Gateway', () => {
       PFX_PASSPHRASE: testPassphrase,
     })
 
-    await queryApiGateway(goodRequest)
+    await queryApiGateway(goodRequest, goodUniqueNumber)
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     expect(fetch).toHaveBeenCalledWith(
       expect.any(String),
@@ -198,7 +201,7 @@ describe('Querying the API Gateway', () => {
       PFX_PASSPHRASE: testPassphrase,
     })
 
-    await queryApiGateway(goodRequest)
+    await queryApiGateway(goodRequest, goodUniqueNumber)
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     expect(fetch).toHaveBeenCalledWith(
       expect.any(String),
