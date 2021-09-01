@@ -80,7 +80,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles errors thrown by fetch', async () => {
+  it.skip('handles errors thrown by fetch', async () => {
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fetch.mockRejectedValue(new Error('network error'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
@@ -100,7 +100,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles non-200 responses from API gateway', async () => {
+  it.skip('handles non-200 responses from API gateway', async () => {
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     const errorResponse403: Response = new Response('403 Forbidden', {
@@ -125,7 +125,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles errors returned by API gateway', async () => {
+  it.skip('handles errors returned by API gateway', async () => {
     // Mock a string response from API gateway
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
@@ -148,7 +148,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles certificate reading errors', async () => {
+  it.skip('handles certificate reading errors', async () => {
     // Override the beforeEach mock to throw an error.
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fs.readFileSync.mockImplementation(() => {
