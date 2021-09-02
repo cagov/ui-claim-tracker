@@ -18,7 +18,7 @@
   "claim-details": {
     "title": "Claim Details",
     "benefit-year": "Benefit Year",
-    "program-type": "Program Type",
+    "program-type": "Claim Type",
     "claim-balance": "Claim Balance",
     "weekly-benefit-amount": "Weekly Benefit Amount",
     "last-payment-issued": "Last Payment Issued",

@@ -272,7 +272,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                   <div
                     className="info-label"
                   >
-                    Program Type
+                    Claim Type
                   </div>
                   <div
                     className="info-entry"
