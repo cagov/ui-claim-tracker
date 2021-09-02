@@ -78,7 +78,7 @@ describe('ClaimDetails with nullable fields', () => {
 
     expect(screen.queryByText('Weekly Benefit Amount')).not.toBeInTheDocument()
   })
-  it('Null Last Payment Issued hides the field', () => {
+  it('Null Last Payment Issued shows None', () => {
     const mockRouter = {
       locale: 'en',
     }
@@ -96,6 +96,7 @@ describe('ClaimDetails with nullable fields', () => {
       />,
     )
 
-    expect(screen.queryByText('Last Payment Issued')).not.toBeInTheDocument()
+    expect(screen.queryByText('Last Payment Issued')).toBeInTheDocument()
+    expect(screen.queryByText('None')).toBeInTheDocument()
   })
 })
