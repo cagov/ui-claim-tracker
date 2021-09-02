@@ -189,7 +189,28 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles null unique number responses', async () => {
+  it('handles null unique number response mismatch', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedResponse = { hasPendingWeeks: false, uniqueNumber: null }
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'Mismatched API response and Header unique number (null and 12345)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles null unique number request mismatch', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
