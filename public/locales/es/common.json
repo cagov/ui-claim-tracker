@@ -22,6 +22,7 @@
     "claim-balance": "Balance de la solicitud",
     "weekly-benefit-amount": "Cantidad de beneficios semanal",
     "last-payment-issued": "Último pago emitido",
+    "none": "Ninguno",
     "extension-type": "Tipo de extensión"
   },
   "footer": {
