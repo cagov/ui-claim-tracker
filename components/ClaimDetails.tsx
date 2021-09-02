@@ -29,13 +29,6 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
     )
   }
 
-  let lastPaymentIssuedField: JSX.Element | null = null
-  if (lastPaymentIssued) {
-    lastPaymentIssuedField = (
-      <InfoField loading={loading} label={t('claim-details.last-payment-issued')} text={lastPaymentIssued} />
-    )
-  }
-
   let extensionField: JSX.Element | null = null
   if (extensionType) {
     extensionField = (
@@ -61,7 +54,11 @@ export const ClaimDetails: React.FC<ClaimDetailsProps> = ({
 
             {weeklyBenefitAmountField}
 
-            {lastPaymentIssuedField}
+            <InfoField
+              loading={loading}
+              label={t('claim-details.last-payment-issued')}
+              text={lastPaymentIssued || t('claim-details.none')}
+            />
           </div>
           {extensionField}
         </div>
