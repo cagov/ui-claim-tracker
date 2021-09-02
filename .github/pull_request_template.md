@@ -10,4 +10,5 @@ Resolves #XXX
 
 - [ ] Relevant documentation (e.g. READMEs, Technical Foundation) updated
 - [ ] Issue AC are copied to this PR & are met
+- [ ] Manual Browser Testing performed (with modheader, either locally or on BrowserStack)
 - [ ] Changes are tested on Staging post-merge into `main`
