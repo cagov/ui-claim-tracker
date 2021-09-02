@@ -9,7 +9,13 @@
   },
   "title": "Claim Status Tracker",
   "welcome": "Claim Status Tracker",
-  "change-locale": "En español",
+  "errors": {
+    "not-found": {
+      "label": "We can't find that page.",
+      "entry": "The link you clicked may be broken or the page may have been removed.",
+      "button": "Return to UI Home"
+    }
+  },
   "claim-status": {
     "title": "Claim Status",
     "your-next-steps": "Your Next Steps",
