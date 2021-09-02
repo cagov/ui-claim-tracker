@@ -50,7 +50,8 @@ export function getApiVars(): ApiEnvVars {
   apiEnvVars.idHeaderName = process.env.ID_HEADER_NAME ?? ''
 
   // API fields
-  apiEnvVars.apiUrl = process.env.API_URL ?? ''
+  // Remove trailing slash from API_URL if one exists
+  apiEnvVars.apiUrl = (process.env.API_URL ?? '').replace(/\/$/, '')
   apiEnvVars.apiUserKey = process.env.API_USER_KEY ?? ''
 
   // TLS Certificate fields
