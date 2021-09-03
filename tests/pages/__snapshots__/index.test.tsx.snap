@@ -426,6 +426,5 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       </div>
     </div>
   </footer>
-   
 </div>
 `;
