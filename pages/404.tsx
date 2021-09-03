@@ -52,6 +52,6 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['common'])),
+    ...(await serverSideTranslations(locale || 'en', ['common'])),
   },
 })

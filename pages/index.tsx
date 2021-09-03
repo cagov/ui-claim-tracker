@@ -43,7 +43,7 @@ export default function Home({
     mainComponent = (
       <main className="main">
         <Container className="main-content">
-          <Error statusCode={errorCode} />
+          <Error userArrivedFromUioMobile />
         </Container>
       </main>
     )
