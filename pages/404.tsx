@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -7,7 +8,6 @@ import Container from 'react-bootstrap/Container'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Button } from '../components/Button'
-import { UrlPrefixes } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
 
 export interface Custom404Props {
@@ -37,10 +37,12 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
 
       <main className="main">
-        <Container className="error-content">
-          <div className="error-label">{t('errors.not-found.label')}</div>
-          <div className="error-entry">{t('errors.not-found.entry')}</div>
-          <Button primary label={t('errors.not-found.button')} onClick={redirectToUIHome} />
+        <Container className="main-content">
+          <div className="error-content">
+            <div className="error-label">{t('errors.not-found.label')}</div>
+            <div className="error-entry">{t('errors.not-found.entry')}</div>
+            <Button primary label={t('errors.button')} onClick={redirectToUIHome} />
+          </div>
         </Container>
       </main>
       <Footer />
@@ -48,7 +50,7 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
   )
 }
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common'])),
   },
