@@ -1,4 +1,3 @@
-import { NextPageContext } from 'next'
 import { useTranslation } from 'next-i18next'
 import { ReactElement } from 'react'
 
