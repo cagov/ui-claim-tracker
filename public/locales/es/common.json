@@ -9,7 +9,17 @@
   },
   "title": "Buscador del estatus de su solicitud",
   "welcome": "Buscador del estatus de su solicitud",
-  "change-locale": "In English",
+  "errors": {
+    "not-found": {
+      "label": "We can't find that page.",
+      "entry": "The link you clicked may be broken or the page may have been removed."
+    },
+    "button": "Return to UI Home",
+    "server-error": {
+      "label": "There’s an error on our end.",
+      "entry": "We are unable to perform your request."
+    }
+  },
   "claim-status": {
     "title": "Estatus de solicitud",
     "your-next-steps": "Sus próximos pasos",

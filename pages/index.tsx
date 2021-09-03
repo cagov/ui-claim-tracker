@@ -4,7 +4,7 @@ import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
-import Error from 'next/error'
+import Error from './_error'
 import { req as reqSerializer } from 'pino-std-serializers'
 
 import { Header } from '../components/Header'
@@ -69,7 +69,7 @@ export default function Home({
     mainComponent = (
       <main className="main">
         <Container className="main-content">
-          <Error statusCode={errorCode} />
+          <Error userArrivedFromUioMobile />
         </Container>
       </main>
     )
@@ -107,7 +107,6 @@ export default function Home({
       {mainComponent}
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
-      {console.dir({ scenarioContent })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
   )
 }
@@ -175,10 +174,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
     else {
       // Make the API request and return the data.
       const claimData = await queryApiGateway(req, uniqueNumber)
-      logger.log('info', claimData, 'ClaimData') /* @TODO: Remove. For development purposes only. */
+      logger.log('info', claimData, 'ClaimData')
       // Run business logic to get content for the current scenario.
       scenarioContent = getScenarioContent(claimData)
-      logger.log('info', scenarioContent, 'ScenarioContent') /* @TODO: Remove. For development purposes only. */
+      logger.log('info', scenarioContent, 'ScenarioContent')
     }
   } catch (error) {
     // If an error occurs, log it and show 500.

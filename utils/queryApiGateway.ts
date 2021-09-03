@@ -137,7 +137,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     // Log any certificate loading errors and return.
     const logger: Logger = Logger.getInstance()
     logger.log('error', error, 'Read certificate error')
-    return apiData
+    throw error
   }
 
   if (apiEnvVars.pfxPassphrase) {
@@ -177,6 +177,16 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   } catch (error) {
     const logger: Logger = Logger.getInstance()
     logger.log('error', error, 'API gateway error')
+    throw error
+  }
+
+  if (apiData?.uniqueNumber !== uniqueNumber) {
+    const mismatchError = new Error(
+      `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
+    )
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', mismatchError, 'Unexpected API gateway response')
+    throw mismatchError
   }
 
   return apiData
