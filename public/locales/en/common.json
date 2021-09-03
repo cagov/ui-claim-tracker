@@ -20,6 +20,11 @@
       "entry": "We are unable to perform your request."
     }
   },
+  "maintenance": {
+    "label": "We'll Be Back Soon",
+    "entry": "This page is currently unavailable during system maintenance.",
+    "entry2": "Thank you for your patience as we continue to improve our services."
+  },
   "claim-status": {
     "title": "Claim Status",
     "your-next-steps": "Your Next Steps",

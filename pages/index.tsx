@@ -11,6 +11,7 @@ import { Header } from '../components/Header'
 import { Title } from '../components/Title'
 import { ClaimSection } from '../components/ClaimSection'
 import { TimeoutModal } from '../components/TimeoutModal'
+import { Maintenance } from '../components/Maintenance'
 import { Footer } from '../components/Footer'
 
 import { ScenarioContent, UrlPrefixes } from '../types/common'
@@ -26,6 +27,7 @@ export interface HomeProps {
   userArrivedFromUioMobile?: boolean
   urlPrefixes: UrlPrefixes
   enableGoogleAnalytics: string
+  enableMaintenancePage: string
 }
 
 export default function Home({
@@ -36,6 +38,7 @@ export default function Home({
   userArrivedFromUioMobile = false,
   urlPrefixes,
   enableGoogleAnalytics,
+  enableMaintenancePage,
 }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
@@ -64,28 +67,22 @@ export default function Home({
   )
 
   // If any errorCode is provided, render the error page.
-  let mainComponent: JSX.Element
-  if (errorCode) {
-    mainComponent = (
-      <main className="main">
-        <Container className="main-content">
-          <Error userArrivedFromUioMobile />
-        </Container>
-      </main>
-    )
+  let mainContent: JSX.Element
+  if (enableMaintenancePage) {
+    mainContent = <Maintenance />
+  } else if (errorCode) {
+    mainContent = <Error userArrivedFromUioMobile />
   } else {
-    mainComponent = (
-      <main className="main">
-        <Container className="main-content">
-          <Title />
-          <ClaimSection
-            loading={loading}
-            userArrivedFromUioMobile={userArrivedFromUioMobile}
-            statusContent={scenarioContent.statusContent}
-            detailsContent={scenarioContent.detailsContent}
-          />
-        </Container>
-      </main>
+    mainContent = (
+      <>
+        <Title />
+        <ClaimSection
+          loading={loading}
+          userArrivedFromUioMobile={userArrivedFromUioMobile}
+          statusContent={scenarioContent.statusContent}
+          detailsContent={scenarioContent.detailsContent}
+        />
+      </>
     )
   }
 
@@ -104,7 +101,9 @@ export default function Home({
         {enableGoogleAnalytics === 'enabled' && googleAnalytics}
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
-      {mainComponent}
+      <main className="main">
+        <Container className="main-content">{mainContent}</Container>
+      </main>
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
     </Container>
@@ -127,6 +126,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
 
   // Set to 'enabled' to include Google Analytics code
   const ENABLE_GOOGLE_ANALYTICS = process.env.ENABLE_GOOGLE_ANALYTICS ?? ''
+
+  // Set to 'enabled' to display down-for-maintenance page
+  const ENABLE_MAINTENANCE_PAGE = process.env.ENABLE_MAINTENANCE_PAGE ?? ''
 
   // Other vars.
   let errorCode: number | null = null
@@ -199,6 +201,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
       userArrivedFromUioMobile: userArrivedFromUioMobile,
       urlPrefixes: URL_PREFIXES,
       enableGoogleAnalytics: ENABLE_GOOGLE_ANALYTICS,
+      enableMaintenancePage: ENABLE_MAINTENANCE_PAGE,
       ...(await serverSideTranslations(locale || 'en', ['common', 'claim-details', 'claim-status'])),
     },
   }
