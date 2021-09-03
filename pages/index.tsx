@@ -4,7 +4,7 @@ import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
-import Error from 'next/error'
+import Error from './_error'
 import { req as reqSerializer } from 'pino-std-serializers'
 
 import { Header } from '../components/Header'
@@ -43,7 +43,7 @@ export default function Home({
     mainComponent = (
       <main className="main">
         <Container className="main-content">
-          <Error statusCode={errorCode} />
+          <Error userArrivedFromUioMobile />
         </Container>
       </main>
     )
