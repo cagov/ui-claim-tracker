@@ -20,7 +20,11 @@
       "entry": "We are unable to perform your request."
     }
   },
-  "maintenance": "We'll be back soon",
+  "maintenance": {
+    "label": "We'll be back soon",
+    "entry": "This page is currently unavailable.",
+    "entry2": "Thank you for your patience as we continue to improve our services."
+  },
   "claim-status": {
     "title": "Estatus de solicitud",
     "your-next-steps": "Sus próximos pasos",
