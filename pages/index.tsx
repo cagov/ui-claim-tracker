@@ -64,28 +64,20 @@ export default function Home({
   )
 
   // If any errorCode is provided, render the error page.
-  let mainComponent: JSX.Element
+  let mainContent: JSX.Element
   if (errorCode) {
-    mainComponent = (
-      <main className="main">
-        <Container className="main-content">
-          <Error userArrivedFromUioMobile />
-        </Container>
-      </main>
-    )
+    mainContent = <Error userArrivedFromUioMobile />
   } else {
-    mainComponent = (
-      <main className="main">
-        <Container className="main-content">
-          <Title />
-          <ClaimSection
-            loading={loading}
-            userArrivedFromUioMobile={userArrivedFromUioMobile}
-            statusContent={scenarioContent.statusContent}
-            detailsContent={scenarioContent.detailsContent}
-          />
-        </Container>
-      </main>
+    mainContent = (
+      <>
+        <Title />
+        <ClaimSection
+          loading={loading}
+          userArrivedFromUioMobile={userArrivedFromUioMobile}
+          statusContent={scenarioContent.statusContent}
+          detailsContent={scenarioContent.detailsContent}
+        />
+      </>
     )
   }
 
@@ -104,7 +96,9 @@ export default function Home({
         {enableGoogleAnalytics === 'enabled' && googleAnalytics}
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
-      {mainComponent}
+      <main className="main">
+        <Container className="main-content">{mainContent}</Container>
+      </main>
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
     </Container>
