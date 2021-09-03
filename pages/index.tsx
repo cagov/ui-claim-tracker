@@ -80,7 +80,6 @@ export default function Home({
       {mainComponent}
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
-      {console.dir({ scenarioContent })} {/* @TODO: Remove. For development purposes only. */}
     </Container>
   )
 }
@@ -145,10 +144,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
     else {
       // Make the API request and return the data.
       const claimData = await queryApiGateway(req, uniqueNumber)
-      logger.log('info', claimData, 'ClaimData') /* @TODO: Remove. For development purposes only. */
+      logger.log('info', claimData, 'ClaimData')
       // Run business logic to get content for the current scenario.
       scenarioContent = getScenarioContent(claimData)
-      logger.log('info', scenarioContent, 'ScenarioContent') /* @TODO: Remove. For development purposes only. */
+      logger.log('info', scenarioContent, 'ScenarioContent')
     }
   } catch (error) {
     // If an error occurs, log it and show 500.
