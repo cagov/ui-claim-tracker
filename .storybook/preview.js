@@ -32,6 +32,7 @@ export const parameters = {
       method: 'alphabetical',
       order: [
         'Claim Status Tracker',
+        ['Page', '404'],
         'Component',
         ['Page Section', ['Header', 'Main', 'Claim Section', 'Claim Status', 'Next Steps', 'Claim Details', 'Footer']],
         'Atoms',
