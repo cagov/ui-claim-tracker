@@ -21,8 +21,8 @@
     }
   },
   "maintenance": {
-    "label": "We'll be back soon",
-    "entry": "This page is currently unavailable.",
+    "label": "We'll Be Back Soon",
+    "entry": "This page is currently unavailable during system maintenance.",
     "entry2": "Thank you for your patience as we continue to improve our services."
   },
   "claim-status": {
