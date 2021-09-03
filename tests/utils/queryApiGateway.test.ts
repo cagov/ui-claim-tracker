@@ -18,10 +18,10 @@ jestFetchMock.enableMocks()
 
 // Shared test constants
 const goodUrl = 'http://nowhere.com'
-const emptyResponse = { ClaimType: undefined }
+const goodUniqueNumber = '12345'
 const goodRequest = {
   headers: {
-    id: '12345',
+    id: goodUniqueNumber,
   },
 }
 
@@ -31,7 +31,7 @@ const goodRequest = {
 
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
-  const goodResponse = { ClaimType: 'PUA' }
+  const goodResponse = { hasPendingWeeks: false, uniqueNumber: goodUniqueNumber }
   const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
 
   beforeEach(() => {
@@ -61,7 +61,7 @@ describe('Querying the API Gateway', () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
-    expect(jsonData.ClaimType).toBe('PUA')
+    expect(jsonData.hasPendingWeeks).toBe(false)
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
@@ -71,7 +71,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    const data = await queryApiGateway(goodRequest, goodUniqueNumber)
 
     expect(data).toStrictEqual(goodResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
@@ -81,8 +81,9 @@ describe('Querying the API Gateway', () => {
   })
 
   it('handles errors thrown by fetch', async () => {
+    const networkErrorMessage = 'network error'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockRejectedValue(new Error('network error'))
+    fetch.mockRejectedValue(new Error(networkErrorMessage))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -90,9 +91,8 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(networkErrorMessage)
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
@@ -107,7 +107,7 @@ describe('Querying the API Gateway', () => {
       status: 403,
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
-    fetch.mockRejectedValue(errorResponse403)
+    fetch.mockResolvedValue(errorResponse403)
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
     // Mock process.env
@@ -115,9 +115,8 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow('API Gateway response is not 200')
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
@@ -138,9 +137,10 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'Unexpected token o in JSON at position 1',
+    )
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
 
@@ -150,9 +150,10 @@ describe('Querying the API Gateway', () => {
 
   it('handles certificate reading errors', async () => {
     // Override the beforeEach mock to throw an error.
+    const fsErrorMessage = 'file read issue'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fs.readFileSync.mockImplementation(() => {
-      throw new Error('file read issue')
+      throw new Error(fsErrorMessage)
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -161,11 +162,67 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest)
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(fsErrorMessage)
 
-    expect(data).toStrictEqual(emptyResponse)
     expect(fetch).toHaveBeenCalledTimes(0)
     expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles mismatched unique number responses', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedUniqueNumber = 'abcde'
+    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
+      'Mismatched API response and Header unique number (12345 and abcde)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles null unique number response mismatch', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedResponse = { hasPendingWeeks: false, uniqueNumber: null }
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'Mismatched API response and Header unique number (null and 12345)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles null unique number request mismatch', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedUniqueNumber = null
+    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
+      'Mismatched API response and Header unique number (12345 and null)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
 
     // Restore env vars
     restore()
@@ -179,7 +236,7 @@ describe('Querying the API Gateway', () => {
       PFX_PASSPHRASE: testPassphrase,
     })
 
-    await queryApiGateway(goodRequest)
+    await queryApiGateway(goodRequest, goodUniqueNumber)
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     expect(fetch).toHaveBeenCalledWith(
       expect.any(String),
@@ -201,7 +258,7 @@ describe('Querying the API Gateway', () => {
       PFX_PASSPHRASE: testPassphrase,
     })
 
-    await queryApiGateway(goodRequest)
+    await queryApiGateway(goodRequest, goodUniqueNumber)
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     expect(fetch).toHaveBeenCalledWith(
       expect.any(String),
