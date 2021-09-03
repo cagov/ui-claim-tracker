@@ -20,6 +20,7 @@
       "entry": "We are unable to perform your request."
     }
   },
+  "maintenance": "We'll be back soon",
   "claim-status": {
     "title": "Estatus de solicitud",
     "your-next-steps": "Sus próximos pasos",
