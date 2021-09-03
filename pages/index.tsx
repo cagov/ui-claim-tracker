@@ -25,6 +25,7 @@ export interface HomeProps {
   errorCode?: number | null
   userArrivedFromUioMobile?: boolean
   urlPrefixes: UrlPrefixes
+  enableGoogleAnalytics: string
 }
 
 export default function Home({
@@ -34,8 +35,33 @@ export default function Home({
   errorCode = null,
   userArrivedFromUioMobile = false,
   urlPrefixes,
+  enableGoogleAnalytics,
 }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
+
+  // Once CSP is enabled, if you change the GA script code, you need to update the hash in csp.js to allow
+  // this script to run. Chrome dev tools will have an error with the correct hash value to use.
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script
+  const gaScript = `
+        window.dataLayer = window.dataLayer || []
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date())
+        // For details see: https://support.google.com/analytics/answer/9310895?hl=en
+        // https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
+        gtag('config', 'UA-3419582-2', { 'anonymize_ip': true }) // www.ca.gov
+        gtag('config', 'UA-3419582-31', { 'anonymize_ip': true }) // edd.ca.gov`
+
+  const googleAnalytics = (
+    <>
+      {/* Global site tag (gtag.js) - Google Analytics */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3419582-2" />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: gaScript,
+        }}
+      />
+    </>
+  )
 
   // If any errorCode is provided, render the error page.
   let mainComponent: JSX.Element
@@ -75,6 +101,7 @@ export default function Home({
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />
+        {enableGoogleAnalytics === 'enabled' && googleAnalytics}
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
       {mainComponent}
@@ -97,6 +124,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
     urlPrefixUioMobile: process.env.URL_PREFIX_UIO_MOBILE ?? '',
     urlPrefixBpo: process.env.URL_PREFIX_BPO ?? '',
   }
+
+  // Set to 'enabled' to include Google Analytics code
+  const ENABLE_GOOGLE_ANALYTICS = process.env.ENABLE_GOOGLE_ANALYTICS ?? ''
 
   // Other vars.
   let errorCode: number | null = null
@@ -168,6 +198,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
       errorCode: errorCode,
       userArrivedFromUioMobile: userArrivedFromUioMobile,
       urlPrefixes: URL_PREFIXES,
+      enableGoogleAnalytics: ENABLE_GOOGLE_ANALYTICS,
       ...(await serverSideTranslations(locale || 'en', ['common', 'claim-details', 'claim-status'])),
     },
   }
