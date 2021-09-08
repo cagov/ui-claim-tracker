@@ -140,7 +140,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
     await logger.initialize()
   } catch (error) {
     // If we are unable to set up logging, log to console.
-    // This is accessible in Azure Monitor AppServiceHTTPLogs.
+    // This is accessible in Azure Monitor AppServiceConsoleLogs.
     console.log(error)
   }
 
