@@ -139,10 +139,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
   try {
     await logger.initialize()
   } catch (error) {
-    // If we are unable to set up logging, return 500 and log to console.
-    // As long as server-preload.js is configured with setAutoCollectConsole(true, true),
-    // this console.log will be logged in Application Insights.
-    errorCode = 500
+    // If we are unable to set up logging, log to console.
+    // This is accessible in Azure Monitor AppServiceHTTPLogs.
     console.log(error)
   }
 
