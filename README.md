@@ -37,6 +37,7 @@ For local development:
    - Nava Engineers - see Vault for preconfigured `.env.local`
 3. Configure a test header
    - Configure ModHeader ([firefox](https://addons.mozilla.org/en-US/firefox/addon/modheader-firefox/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)/[chrome](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=en)) to send the ID_HEADER_NAME defined header value to the local dev environment - see Vault for value. Also, we recommend limiting ModHeader to only modify `localhost:3000`
+   - Please add nava_test=YOUR_NAME as an additional header to make it easier to distinguish ModHeader queries
 
 ## Run the test suite
 
