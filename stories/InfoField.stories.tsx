@@ -10,4 +10,7 @@ export default {
 const Template: Story<InfoFieldProps> = (args) => <InfoFieldComponent {...args} />
 
 export const InfoField = Template.bind({})
-InfoField.args = {}
+InfoField.args = {
+  label: 'Label text!',
+  text: 'Field text!',
+}
