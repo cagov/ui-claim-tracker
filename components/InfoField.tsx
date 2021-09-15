@@ -6,11 +6,7 @@ export interface InfoFieldProps {
   text: string
 }
 
-export const InfoField: React.FC<InfoFieldProps> = ({
-  loading = false,
-  label = 'Label text!',
-  text = 'Field text!',
-}) => {
+export const InfoField: React.FC<InfoFieldProps> = ({ loading = false, label, text }) => {
   if (loading) {
     return <ShimmerField />
   }
