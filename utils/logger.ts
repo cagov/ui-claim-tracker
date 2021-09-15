@@ -80,7 +80,7 @@ export class Logger {
   // eslint-disable-next-line @typescript-eslint/ban-types
   log(logFn: LogFunction, mergingObject: object, message: string): void {
     if (this.pino === undefined) {
-      console.log('Pino is undefined')
+      console.log('Pino is undefined. Application will not log requests until corrected.')
     } else {
       if (mergingObject) {
         this.pino[logFn](mergingObject, message)
