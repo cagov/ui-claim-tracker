@@ -112,7 +112,10 @@
     "**/trim": "^1.0.0",
     "**/prismjs": "^1.24.0",
     "**/glob-parent": "^5.1.2",
-    "**/browserslist": " ^4.16.5",
-    "storybook-addon-i18next/react-i18next": "^11.8.8"
+    "**/browserslist": "^4.16.5",
+    "storybook-addon-i18next/react-i18next": "^11.8.8",
+    "**/immer": "^9.0.6",
+    "**/axios": "^0.21.2",
+    "**/highlight.js": "^10.4.1"
   }
 }
