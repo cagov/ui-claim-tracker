@@ -44,7 +44,7 @@ export default {
     },
     errorCode: {
       control: {
-        type: 'text',
+        type: 'number',
       },
     },
   },
@@ -70,11 +70,14 @@ Default.args = {
   errorCode: null,
 }
 
-export const TimedOut = Template.bind({})
-TimedOut.args = { timedOut: true, ...Default.args }
+export const Errorred = Template.bind({})
+Errorred.args = { errorCode: 500 }
 
 export const Loading = Template.bind({})
 Loading.args = { loading: true, ...Default.args }
 
-export const Errorred = Template.bind({})
-Errorred.args = { errorCode: 500 }
+export const Maintenance = Template.bind({})
+Maintenance.args = { enableMaintenancePage: 'enabled', ...Default.args }
+
+export const TimedOut = Template.bind({})
+TimedOut.args = { timedOut: true, ...Default.args }
