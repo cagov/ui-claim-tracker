@@ -44,7 +44,7 @@ export default {
     },
     errorCode: {
       control: {
-        type: 'text',
+        type: 'number',
       },
     },
   },
