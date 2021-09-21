@@ -16,6 +16,7 @@
 
 import pino from 'pino'
 import pinoAppInsights from 'pino-applicationinsights'
+import { err as errSerializer } from 'pino-std-serializers'
 
 // These are the only pino.<logFn>() calls that are currently passed through via logger.log(logFn).
 // This list can be expanded as needed.
@@ -87,6 +88,11 @@ export class Logger {
       console.log(`Pino is undefined. Application will not log requests until corrected. Message: ${message}`)
     } else {
       if (mergingObject) {
+        // Manually serialize error objects in order to retain other child bindings.
+        // See https://github.com/pinojs/pino-pretty/issues/39
+        if (logFn === 'error') {
+          mergingObject = { error: errSerializer(mergingObject) }
+        }
         childLogger[logFn](mergingObject, message)
       } else {
         childLogger[logFn](message)

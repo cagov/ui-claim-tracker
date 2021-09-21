@@ -11,11 +11,14 @@
  *   - PFX_FILE: filename of the PKCS#12 certificate for authenticating with the API gateway
  */
 
-import path from 'path'
 import fs from 'fs'
-import https from 'https'
 import { IncomingMessage } from 'http'
+import https from 'https'
+import path from 'path'
+import pino from 'pino'
+
 import { Claim } from '../types/common'
+import { asyncContext } from './asyncContext'
 import { Logger } from './logger'
 
 export interface QueryParams {
@@ -74,7 +77,8 @@ export function getApiVars(): ApiEnvVars {
   }
   if (missingEnvVars.length > 0) {
     const logger: Logger = Logger.getInstance()
-    logger.log(null, 'error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
+    const childLogger = asyncContext.getStore() as pino.Logger
+    logger.log(childLogger, 'error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
   }
 
   return apiEnvVars
@@ -136,7 +140,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   } catch (error) {
     // Log any certificate loading errors and return.
     const logger: Logger = Logger.getInstance()
-    logger.log(null, 'error', error, 'Read certificate error')
+    const childLogger = asyncContext.getStore() as pino.Logger
+    logger.log(childLogger, 'error', error, 'Read certificate error')
     throw error
   }
 
@@ -176,7 +181,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     }
   } catch (error) {
     const logger: Logger = Logger.getInstance()
-    logger.log(null, 'error', error, 'API gateway error')
+    const childLogger = asyncContext.getStore() as pino.Logger
+    logger.log(childLogger, 'error', error, 'API gateway error')
     throw error
   }
 
@@ -185,7 +191,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
     const logger: Logger = Logger.getInstance()
-    logger.log(null, 'error', mismatchError, 'Unexpected API gateway response')
+    const childLogger = asyncContext.getStore() as pino.Logger
+    logger.log(childLogger, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
 
