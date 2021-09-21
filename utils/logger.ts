@@ -49,7 +49,7 @@ export class Logger {
    * We expect this to be called in index.tsx BEFORE all other calls
    * to logger.pino.
    */
-  async initialize(): Promise<void> {
+  async initialize(requestId: string): Promise<pino.Logger> {
     const isAzureEnv = process.env.NODE_ENV === 'production'
 
     // Use pretty print and log to STDOUT for local environments.
@@ -72,20 +72,24 @@ export class Logger {
         throw new Error('Missing Application Insights connection string')
       }
     }
+
+    // Create a child logger.
+    const childLogger = this.pino.child({ requestId: requestId })
+    return childLogger
   }
 
   /**
    * Wrapper for all pino log functions.
    */
   // eslint-disable-next-line @typescript-eslint/ban-types
-  log(logFn: LogFunction, mergingObject: object, message: string): void {
-    if (this.pino === undefined) {
-      console.log('Pino is undefined. Application will not log requests until corrected.')
+  log(childLogger: pino.Logger | null, logFn: LogFunction, mergingObject: object, message: string): void {
+    if (!childLogger) {
+      console.log(`Pino is undefined. Application will not log requests until corrected. Message: ${message}`)
     } else {
       if (mergingObject) {
-        this.pino[logFn](mergingObject, message)
+        childLogger[logFn](mergingObject, message)
       } else {
-        this.pino[logFn](message)
+        childLogger[logFn](message)
       }
     }
   }

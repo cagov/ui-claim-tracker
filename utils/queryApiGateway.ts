@@ -74,7 +74,7 @@ export function getApiVars(): ApiEnvVars {
   }
   if (missingEnvVars.length > 0) {
     const logger: Logger = Logger.getInstance()
-    logger.log('error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
+    logger.log(null, 'error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
   }
 
   return apiEnvVars
@@ -136,7 +136,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   } catch (error) {
     // Log any certificate loading errors and return.
     const logger: Logger = Logger.getInstance()
-    logger.log('error', error, 'Read certificate error')
+    logger.log(null, 'error', error, 'Read certificate error')
     throw error
   }
 
@@ -176,7 +176,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     }
   } catch (error) {
     const logger: Logger = Logger.getInstance()
-    logger.log('error', error, 'API gateway error')
+    logger.log(null, 'error', error, 'API gateway error')
     throw error
   }
 
@@ -185,7 +185,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
     const logger: Logger = Logger.getInstance()
-    logger.log('error', mismatchError, 'Unexpected API gateway response')
+    logger.log(null, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
 

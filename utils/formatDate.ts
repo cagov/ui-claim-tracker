@@ -66,7 +66,7 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
   const expectedMinDate = DateTime.fromISO('1970-01-01')
   if (date <= expectedMinDate) {
     const logger = Logger.getInstance()
-    logger.log('warn', { dateString: dateString }, 'Unexpected date')
+    logger.log(null, 'warn', { dateString: dateString }, 'Unexpected date')
   }
 
   // Set a min date because it's possible for the date to be '0001-01-01'.
