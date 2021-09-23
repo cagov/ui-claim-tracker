@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           <Navbar.Collapse>
             <Nav>
               <Nav.Link rel="noopener noreferrer" href={uioHomeLink}>
-                <span className="text">{t('header.uio-home')}</span>
+                <span className="ca-gov-icon-home" />
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
