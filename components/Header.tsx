@@ -2,19 +2,25 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
+
+import { UrlPrefixes } from '../types/common'
+
 import getUrl from '../utils/browser/getUrl'
 
 export interface HeaderProps {
   userArrivedFromUioMobile: boolean
+  urlPrefixes: UrlPrefixes
 }
 
-export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false }) => {
+export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false, urlPrefixes }) => {
   const { t } = useTranslation('common')
 
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
   //   main UIO landing page if user arrived from main UIO
-  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
+  const uioHomeLink = userArrivedFromUioMobile
+    ? getUrl('uio-mobile-home-url', urlPrefixes)
+    : getUrl('uio-desktop-home-url', urlPrefixes)
 
   return (
     <header className="header border-bottom border-secondary">
