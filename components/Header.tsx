@@ -3,8 +3,9 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
-import { UrlPrefixes } from '../types/common'
+import { HeaderIcon } from './HeaderIcon'
 
+import { UrlPrefixes } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
 
 export interface HeaderProps {
@@ -62,11 +63,38 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse>
-            <Nav>
-              <Nav.Link rel="noopener noreferrer" href={uioHomeLink}>
-                <span className="ca-gov-icon-home" />
-              </Nav.Link>
-            </Nav>
+            <HeaderIcon link={uioHomeLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
+            <HeaderIcon
+              link={getUrl('uio-desktop-certify-url', urlPrefixes)}
+              label={t('header.uio-certify')}
+              icon="ca-gov-icon-file-check"
+            />
+            <HeaderIcon
+              link={getUrl('uio-desktop-payments-url', urlPrefixes)}
+              label={t('header.uio-payments')}
+              icon="ca-gov-icon-currency"
+            />
+            <HeaderIcon
+              link={getUrl('uio-desktop-history-url', urlPrefixes)}
+              label={t('header.uio-history')}
+              icon="ca-gov-icon-clock"
+            />
+            <HeaderIcon link="/claimstatus" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
+            <HeaderIcon
+              link={getUrl('uio-desktop-profile-url', urlPrefixes)}
+              label={t('header.uio-profile')}
+              icon="ca-gov-icon-person"
+            />
+            <HeaderIcon
+              link={getUrl('uio-desktop-inbox-url', urlPrefixes)}
+              label={t('header.uio-inbox')}
+              icon="ca-gov-icon-email"
+            />
+            <HeaderIcon
+              link={getUrl('uio-desktop-contact-url', urlPrefixes)}
+              label={t('header.uio-contact')}
+              icon="ca-gov-icon-users-dialog"
+            />
           </Navbar.Collapse>
         </Container>
       </Navbar>

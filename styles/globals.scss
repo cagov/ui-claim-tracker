@@ -83,6 +83,18 @@ body {
     }
   }
 
+  .header-icon {
+    [class^='ca-gov-icon-'] {
+      color: #116c97;
+      display: block;
+      font-size: 32px;
+    }
+
+    .text {
+      color: #555555;
+    }
+  }
+
   //Stretch the header/footer edge-to-edge
   .index {
     padding: 0px;
