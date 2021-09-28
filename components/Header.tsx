@@ -10,7 +10,7 @@ import getUrl from '../utils/browser/getUrl'
 
 export interface HeaderProps {
   userArrivedFromUioMobile: boolean
-  urlPrefixes: UrlPrefixes
+  urlPrefixes?: UrlPrefixes
 }
 
 export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false, urlPrefixes }) => {

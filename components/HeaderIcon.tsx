@@ -1,7 +1,7 @@
 import Nav from 'react-bootstrap/Nav'
 
 export interface HeaderIconProps {
-  link: string
+  link: string | undefined
   label: string
   icon: string
 }
