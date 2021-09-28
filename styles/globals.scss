@@ -105,6 +105,26 @@ body {
     }
   }
 
+  @media (max-width: 976px) {
+    .navbar-collapse {
+      margin-top: 5px;
+    }
+
+    .header-icon {
+      //flagged important to override important flag in bootstrap
+      border-bottom: 1px solid #E1F2F7 !important;
+      text-align: left;
+    }
+
+    .nav-link {
+      display: flex;
+    }
+
+    .text {
+      vertical-align: middle;
+    }
+  }
+
   //Stretch the header/footer edge-to-edge
   .index {
     padding: 0px;
