@@ -26,7 +26,7 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
     <Container fluid className="index">
       <Head>
         <title>{t('title')}</title>
-        <link rel="icon" href="/claimstatus/favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link

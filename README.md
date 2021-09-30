@@ -15,7 +15,7 @@ This repo contains the Claim Status Tracker app, which helps Californians better
 2. Run `yarn install`
 3. Define environment variables (see below)
 4. Run `yarn dev`
-5. Open [http://localhost:3000/claimstatus](http://localhost:3000/claimstatus) with your browser to see the result
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 
 ### Environment variables
 
