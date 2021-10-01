@@ -100,7 +100,7 @@ export default function Home({
         />
         {enableGoogleAnalytics === 'enabled' && googleAnalytics}
       </Head>
-      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} urlPrefixes={urlPrefixes} />
       <main className="main">
         <Container className="main-content">{mainContent}</Container>
       </main>

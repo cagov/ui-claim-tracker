@@ -7,7 +7,7 @@ describe('Header component loads', () => {
     expect(screen.queryByText('UI Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Home' })).toHaveAttribute(
       'href',
-      'https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx',
+      'https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx',
     )
   })
 

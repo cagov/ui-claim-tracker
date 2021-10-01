@@ -5,7 +5,14 @@
     "edd-home": "Página principal de EDD",
     "help": "Ayuda",
     "logout": "Cerrar sesión",
-    "uio-home": "Página principal de UI"
+    "uio-home": "UI Inicio",
+    "uio-certify": "Certificar",
+    "uio-payments": "Pagos",
+    "uio-history": "Historial",
+    "uio-status": "Estatus",
+    "uio-profile": "Perfil",
+    "uio-inbox": "Buzón",
+    "uio-contact": "Contáctenos"
   },
   "title": "Buscador del estatus de su solicitud",
   "welcome": "Buscador del estatus de su solicitud",

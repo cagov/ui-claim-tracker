@@ -58,7 +58,7 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
         >
           Confirm we have your current phone number and mailing address. Go to the 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -270,7 +270,7 @@ exports[`Scenario 1 matches when there aren't weeks to certify, on desktop 1`] =
         >
           Confirm we have your current phone number and mailing address. Go to the 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -501,7 +501,7 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
         >
           Confirm we have your current phone number. Go to the 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -537,7 +537,7 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
           </strong>
            in the Appointments section on your 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -825,7 +825,7 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
         >
           Confirm we have your current phone number. Go to the 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -861,7 +861,7 @@ exports[`Scenario 2 matches when there aren't weeks to certify, on desktop 1`] =
           </strong>
            in the Appointments section on your 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -1622,7 +1622,7 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
         >
           Check your 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -1878,7 +1878,7 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
         >
           Check your 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -2118,7 +2118,7 @@ exports[`Scenario 5 matches, on desktop 1`] = `
         >
           Check your 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -2354,7 +2354,7 @@ exports[`Scenario 6 matches, on desktop 1`] = `
           </strong>
            in the Notification section on your 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
@@ -2383,7 +2383,7 @@ exports[`Scenario 6 matches, on desktop 1`] = `
         >
           When we process your certification, we will update the payment status. Go to the 
           <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+            href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
             UI Online homepage
           </a>
