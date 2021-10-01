@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Container>
           <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('ca-gov')}>
-            <img src="images/Ca-Gov-Logo-Gold.svg" alt={t('header.alt-image-cagov')} width="46" height="34" />
+            <img src="/images/Ca-Gov-Logo-Gold.svg" alt={t('header.alt-image-cagov')} width="46" height="34" />
           </Navbar.Brand>
           <Nav>
             <Navbar.Collapse>
@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
         <Container>
           <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
             <img
-              src="images/edd-logo-2-Color.svg"
+              src="/images/edd-logo-2-Color.svg"
               alt={t('header.alt-image-edd')}
               height="60"
               width="171"
