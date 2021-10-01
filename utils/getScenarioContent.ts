@@ -8,7 +8,7 @@
  */
 
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
-import getClaimDetails from './getClaimDetails'
+import getClaimDetails, { hasDollarAmount } from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
 import { isDatePast, isDateStringFalsy, isValidDate, parseApiGatewayDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
@@ -20,6 +20,7 @@ export enum ScenarioType {
   Scenario4,
   Scenario5,
   Scenario6,
+  Scenario7,
 }
 
 export const ScenarioTypeNames = {
@@ -29,6 +30,7 @@ export const ScenarioTypeNames = {
   [ScenarioType.Scenario4]: 'Generic pending state: pending weeks',
   [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
   [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
+  [ScenarioType.Scenario7]: 'Benefit year end: conditional message',
 }
 
 interface PendingDeterminationScenario {
@@ -151,6 +153,24 @@ export function identifyPendingDeterminationScenario(
 }
 
 /**
+ * Identify if the benefit year has ended and there is a remaining balance.
+ */
+export function isByeWithBalance(claimData: Claim): boolean {
+  if (
+    claimData.claimDetails?.benefitYearEndDate &&
+    claimData.claimDetails?.claimBalance &&
+    isValidDate(claimData.claimDetails?.benefitYearEndDate)
+  ) {
+    const benefitYearEndDate = parseApiGatewayDate(claimData.claimDetails.benefitYearEndDate)
+    const claimBalance = claimData.claimDetails.claimBalance
+    if (isDatePast(benefitYearEndDate) && hasDollarAmount(claimBalance) && claimBalance > 0) {
+      return true
+    }
+  }
+  return false
+}
+
+/**
  * Identify the correct scenario to display.
  *
  * @TODO: Validating the API gateway response #150
@@ -178,9 +198,16 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   }
   // hasPendingWeeks === false
   else {
+    // hasCertificationWeeksAvailable === false
     if (claimData.hasCertificationWeeksAvailable === false) {
       return { scenarioType: ScenarioType.Scenario5 }
-    } else {
+    }
+    // If the benefit year end is in the past and there is a positive claim balance.
+    else if (isByeWithBalance(claimData)) {
+      return { scenarioType: ScenarioType.Scenario7 }
+    }
+    // None of the above.
+    else {
       return { scenarioType: ScenarioType.Scenario6 }
     }
   }
