@@ -87,6 +87,10 @@ body {
     margin: 0 2rem;
     text-align: center;
 
+    &:hover .text, &:hover [class^='ca-gov-icon-'] {
+      color: #CF7F00;
+    }
+
     [class^='ca-gov-icon-'] {
       color: #116c97;
       display: block;
