@@ -19,9 +19,56 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
   //   main UIO landing page if user arrived from main UIO
-  const uioHomeLink = userArrivedFromUioMobile
-    ? getUrl('uio-mobile-home-url', urlPrefixes)
-    : getUrl('uio-desktop-home-url', urlPrefixes)
+  const uioHomeDesktopLink = getUrl('uio-desktop-home-url', urlPrefixes)
+  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url', urlPrefixes) : uioHomeDesktopLink
+
+  let globalHeader: JSX.Element
+  if (userArrivedFromUioMobile) {
+    globalHeader = (
+      <Nav>
+        <Nav.Link rel="noopener noreferrer" href={uioHomeLink}>
+          <span className="text">{t('header.uio-home')}</span>
+        </Nav.Link>
+      </Nav>
+    )
+  } else {
+    globalHeader = (
+      <>
+        <HeaderIcon link={uioHomeDesktopLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
+        <HeaderIcon
+          link={getUrl('uio-desktop-certify-url', urlPrefixes)}
+          label={t('header.uio-certify')}
+          icon="ca-gov-icon-file-check"
+        />
+        <HeaderIcon
+          link={getUrl('uio-desktop-payments-url', urlPrefixes)}
+          label={t('header.uio-payments')}
+          icon="ca-gov-icon-currency"
+        />
+        <HeaderIcon
+          link={getUrl('uio-desktop-history-url', urlPrefixes)}
+          label={t('header.uio-history')}
+          icon="ca-gov-icon-clock"
+        />
+        <HeaderIcon link="/claimstatus" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
+        <HeaderIcon
+          link={getUrl('uio-desktop-profile-url', urlPrefixes)}
+          label={t('header.uio-profile')}
+          icon="ca-gov-icon-person"
+        />
+        <HeaderIcon
+          link={getUrl('uio-desktop-inbox-url', urlPrefixes)}
+          label={t('header.uio-inbox')}
+          icon="ca-gov-icon-email"
+        />
+        <HeaderIcon
+          link={getUrl('uio-desktop-contact-url', urlPrefixes)}
+          label={t('header.uio-contact')}
+          icon="ca-gov-icon-users-dialog"
+        />
+      </>
+    )
+  }
 
   return (
     <header className="header border-bottom border-secondary">
@@ -62,40 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse>
-            <HeaderIcon link={uioHomeLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
-            <HeaderIcon
-              link={getUrl('uio-desktop-certify-url', urlPrefixes)}
-              label={t('header.uio-certify')}
-              icon="ca-gov-icon-file-check"
-            />
-            <HeaderIcon
-              link={getUrl('uio-desktop-payments-url', urlPrefixes)}
-              label={t('header.uio-payments')}
-              icon="ca-gov-icon-currency"
-            />
-            <HeaderIcon
-              link={getUrl('uio-desktop-history-url', urlPrefixes)}
-              label={t('header.uio-history')}
-              icon="ca-gov-icon-clock"
-            />
-            <HeaderIcon link="/claimstatus" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
-            <HeaderIcon
-              link={getUrl('uio-desktop-profile-url', urlPrefixes)}
-              label={t('header.uio-profile')}
-              icon="ca-gov-icon-person"
-            />
-            <HeaderIcon
-              link={getUrl('uio-desktop-inbox-url', urlPrefixes)}
-              label={t('header.uio-inbox')}
-              icon="ca-gov-icon-email"
-            />
-            <HeaderIcon
-              link={getUrl('uio-desktop-contact-url', urlPrefixes)}
-              label={t('header.uio-contact')}
-              icon="ca-gov-icon-users-dialog"
-            />
-          </Navbar.Collapse>
+          <Navbar.Collapse>{globalHeader}</Navbar.Collapse>
         </Container>
       </Navbar>
     </header>

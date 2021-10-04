@@ -123,8 +123,8 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           >
             <a
               className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
-              href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
               rel="noopener noreferrer"
@@ -352,7 +352,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 >
                   Confirm we have your current phone number and mailing address. Go to the 
                   <a
-                    href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+                    href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
                   >
                     UI Online homepage
                   </a>
