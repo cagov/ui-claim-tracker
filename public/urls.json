@@ -8,6 +8,12 @@
   "bpo-log-in": "https://portal.edd.ca.gov/WebApp/Login",
   "bpo-log-out": "https://portal.edd.ca.gov/WebApp/Logout",
   "uio-desktop-help-new-claim": "https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm",
-  "uio-desktop-home-url": "https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx",
-  "uio-mobile-home-url": "https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+  "uio-desktop-home-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx",
+  "uio-mobile-home-url": "https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx",
+  "uio-desktop-certify-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/Certification/AvailableWeeksNotification.aspx",
+  "uio-desktop-payments-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PaymentActivity.aspx",
+  "uio-desktop-history-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/ClaimHistory.aspx",
+  "uio-desktop-profile-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PersonalProfile.aspx",
+  "uio-desktop-inbox-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/Inbox.aspx",
+  "uio-desktop-contact-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/WebCorrespondence/ContactUs.aspx"
 }
