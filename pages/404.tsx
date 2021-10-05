@@ -18,6 +18,7 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
   const { t } = useTranslation('common')
 
   // We need to route our static content through /claimstatus to work properly through EDD
+  const isAzureEnv = process.env.NODE_ENV === 'production'
   const assetPrefix = isAzureEnv ? '/claimstatus' : ''
   const favicon = assetPrefix + '/favicon.ico'
 
