@@ -10,10 +10,11 @@ import getUrl from '../utils/browser/getUrl'
 
 export interface HeaderProps {
   userArrivedFromUioMobile: boolean
+  assetPrefix: string
   urlPrefixes?: UrlPrefixes
 }
 
-export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false, urlPrefixes }) => {
+export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false, urlPrefixes, assetPrefix = '' }) => {
   const { t } = useTranslation('common')
 
   // Return a link back to:
@@ -76,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
         <Container>
           <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('ca-gov')}>
             <img
-              src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
+              src={assetPrefix + '/images/Ca-Gov-Logo-Gold.svg'}
               alt={t('header.alt-image-cagov')}
               width="46"
               height="34"
@@ -101,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
         <Container>
           <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
             <img
-              src="/claimstatus/images/edd-logo-2-Color.svg"
+              src={assetPrefix + '/images/edd-logo-2-Color.svg'}
               alt={t('header.alt-image-edd')}
               height="60"
               width="171"

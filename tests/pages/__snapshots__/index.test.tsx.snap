@@ -23,7 +23,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           <img
             alt="CA.gov"
             height="34"
-            src="/claimstatus/images/Ca-Gov-Logo-Gold.svg"
+            src="/images/Ca-Gov-Logo-Gold.svg"
             width="46"
           />
         </a>
@@ -98,7 +98,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
             alt="EDD Employment Development Department State of California Home"
             className="edd-logo d-inline-block align-top mr-5"
             height="60"
-            src="/claimstatus/images/edd-logo-2-Color.svg"
+            src="/images/edd-logo-2-Color.svg"
             width="171"
           />
         </a>
