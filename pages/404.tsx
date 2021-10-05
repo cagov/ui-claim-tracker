@@ -17,6 +17,10 @@ export interface Custom404Props {
 export default function Custom404({ userArrivedFromUioMobile = false }: Custom404Props): ReactElement {
   const { t } = useTranslation('common')
 
+  // We need to route our static content through /claimstatus to work properly through EDD
+  const assetPrefix = isAzureEnv ? '/claimstatus' : ''
+  const favicon = assetPrefix + '/favicon.ico'
+
   function redirectToUIHome() {
     const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
     window.location.href = uioHomeLink || ''
@@ -26,7 +30,7 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
     <Container fluid className="index">
       <Head>
         <title>{t('title')}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={favicon} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
@@ -34,7 +38,7 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
           rel="stylesheet"
         />
       </Head>
-      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} assetPrefix={assetPrefix} />
 
       <main className="main">
         <Container className="main-content">
