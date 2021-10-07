@@ -25,6 +25,7 @@ export interface HomeProps {
   loading: boolean
   errorCode?: number | null
   userArrivedFromUioMobile?: boolean
+  isAzureEnv?: boolean
   urlPrefixes: UrlPrefixes
   enableGoogleAnalytics: string
   enableMaintenancePage: string
@@ -36,11 +37,16 @@ export default function Home({
   loading,
   errorCode = null,
   userArrivedFromUioMobile = false,
+  isAzureEnv = false,
   urlPrefixes,
   enableGoogleAnalytics,
   enableMaintenancePage,
 }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
+
+  // We need to route our static content through /claimstatus to work properly through EDD
+  const assetPrefix = isAzureEnv ? '/claimstatus' : ''
+  const favicon = assetPrefix + '/favicon.ico'
 
   // Once CSP is enabled, if you change the GA script code, you need to update the hash in csp.js to allow
   // this script to run. Chrome dev tools will have an error with the correct hash value to use.
@@ -91,7 +97,7 @@ export default function Home({
     <Container fluid className="index">
       <Head>
         <title>{t('title')}</title>
-        <link rel="icon" href="/claimstatus/favicon.ico" />
+        <link rel="icon" href={favicon} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
@@ -100,7 +106,7 @@ export default function Home({
         />
         {enableGoogleAnalytics === 'enabled' && googleAnalytics}
       </Head>
-      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} />
+      <Header userArrivedFromUioMobile={userArrivedFromUioMobile} urlPrefixes={urlPrefixes} assetPrefix={assetPrefix} />
       <main className="main">
         <Container className="main-content">{mainContent}</Container>
       </main>
@@ -114,6 +120,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
   // Note whether the user came from the main UIO website or UIO Mobile, and match
   // that in our links back out to UIO.
   const userArrivedFromUioMobile = query?.from === 'uiom'
+  const isAzureEnv = process.env.NODE_ENV === 'production'
 
   // Environment-specific links to UIO, UIO Mobile, and BPO, used by EDD testing
   // Note: it's not possible to use the NEXT_PUBLIC_ prefix to expose these env vars to the browser
@@ -197,6 +204,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
       loading: false,
       errorCode: errorCode,
       userArrivedFromUioMobile: userArrivedFromUioMobile,
+      isAzureEnv: isAzureEnv,
       urlPrefixes: URL_PREFIXES,
       enableGoogleAnalytics: ENABLE_GOOGLE_ANALYTICS,
       enableMaintenancePage: ENABLE_MAINTENANCE_PAGE,

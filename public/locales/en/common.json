@@ -5,7 +5,14 @@
     "edd-home": "EDD Home",
     "help": "Help",
     "logout": "Log Out",
-    "uio-home": "UI Home"
+    "uio-home": "UI Home",
+    "uio-certify": "Certify",
+    "uio-payments": "Payments",
+    "uio-history": "History",
+    "uio-status": "Status",
+    "uio-profile": "Profile",
+    "uio-inbox": "Inbox",
+    "uio-contact": "Contact"
   },
   "title": "Claim Status Tracker",
   "welcome": "Claim Status Tracker",
