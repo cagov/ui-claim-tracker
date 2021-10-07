@@ -26,8 +26,8 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   let globalHeader: JSX.Element
   if (userArrivedFromUioMobile) {
     globalHeader = (
-      <Nav>
-        <Nav.Link rel="noopener noreferrer" href={uioHomeLink}>
+      <Nav className="uiom">
+        <Nav.Link className="uiom" rel="noopener noreferrer" href={uioHomeLink}>
           <span className="text">{t('header.uio-home')}</span>
         </Nav.Link>
       </Nav>
