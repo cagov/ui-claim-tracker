@@ -118,21 +118,15 @@ export function getUniqueNumber(req: IncomingMessage): string {
  *
  * We do not expect any of these in production, in theory.
  */
-export function reponseIsNull(apiBody: Claim): boolean {
+export function reponseIsNullish(apiBody: Claim): boolean {
   const response: Claim = JSON.parse(JSON.stringify(apiBody)) as Claim
+  const responseUniqueNumber = response.uniqueNumber
   delete response.uniqueNumber
 
-  // This is the response for a bad UniqueNumber, or a UniqueNumber without a claim
-  const nullResponseShort = {
-    claimDetails: null,
-    hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false,
-    pendingDetermination: null,
-  }
-
   // This is an unexpected null response we are seeing in production
-  // catch here to avoid showing any bad data
-  const nullResponseLong = {
+  // where the API responses with a matching UniqueNumber we asked for,
+  // but no claim data
+  const nullishResponse = {
     claimDetails: {
       programType: '',
       benefitYearStartDate: null,
@@ -149,8 +143,8 @@ export function reponseIsNull(apiBody: Claim): boolean {
   }
 
   try {
-    assert.notDeepStrictEqual(response, nullResponseShort, 'Response is null')
-    assert.notDeepStrictEqual(response, nullResponseLong, 'Response is null')
+    assert.notStrictEqual(responseUniqueNumber, null, 'Response is null')
+    assert.notDeepStrictEqual(response, nullishResponse, 'Response is null')
   } catch {
     return true
   }
@@ -226,7 +220,18 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     throw error
   }
 
-  if (reponseIsNull(apiData)) {
+  // Yell real loud if the API returns a different, non-null uniqueNumber
+  if (apiData?.uniqueNumber && apiData?.uniqueNumber !== uniqueNumber) {
+    const mismatchError = new Error(
+      `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
+    )
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', mismatchError, 'Unexpected API gateway response')
+    throw mismatchError
+  }
+
+  // Yell if if the API returns a null or null-ish response
+  if (reponseIsNullish(apiData)) {
     const nullResponseError = new Error(
       `API responded with a null response (queried with ${uniqueNumber}, responded with ${
         apiData.uniqueNumber || 'null'
@@ -235,15 +240,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     const logger: Logger = Logger.getInstance()
     logger.log('error', nullResponseError, 'Unexpected API gateway response')
     throw nullResponseError
-  }
-
-  if (apiData?.uniqueNumber !== uniqueNumber) {
-    const mismatchError = new Error(
-      `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
-    )
-    const logger: Logger = Logger.getInstance()
-    logger.log('error', mismatchError, 'Unexpected API gateway response')
-    throw mismatchError
   }
 
   return apiData
