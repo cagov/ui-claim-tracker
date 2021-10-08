@@ -119,6 +119,7 @@ export function getUniqueNumber(req: IncomingMessage): string {
  * We do not expect any of these in production, in theory.
  */
 export function reponseIsNullish(apiBody: Claim): boolean {
+  // This is a trick to make a deep-copy of a JSON object
   const response: Claim = JSON.parse(JSON.stringify(apiBody)) as Claim
   const responseUniqueNumber = response.uniqueNumber
   delete response.uniqueNumber
