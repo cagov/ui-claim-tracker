@@ -25,10 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
 
   let globalHeader: JSX.Element
 
-  /* eslint-disable no-constant-condition */
-  if (true) {
-    // (userArrivedFromUioMobile) {
-    /* eslint-enable no-constant-condition */
+  if (userArrivedFromUioMobile) {
     globalHeader = (
       <Nav className="uiom">
         <Nav.Link className="uiom" rel="noopener noreferrer" href={uioHomeLink}>
