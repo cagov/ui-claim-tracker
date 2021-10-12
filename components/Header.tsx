@@ -24,7 +24,11 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url', urlPrefixes) : uioHomeDesktopLink
 
   let globalHeader: JSX.Element
-  if (userArrivedFromUioMobile) {
+
+  /* eslint-disable no-constant-condition */
+  if (true) {
+    // (userArrivedFromUioMobile) {
+    /* eslint-enable no-constant-condition */
     globalHeader = (
       <Nav className="uiom">
         <Nav.Link className="uiom" rel="noopener noreferrer" href={uioHomeLink}>
