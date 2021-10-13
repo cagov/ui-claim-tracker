@@ -10,8 +10,8 @@
     "test:update-snapshots": "jest -u",
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "storybook": "start-storybook -s ./public:/claimstatus -p 6006",
-    "build-storybook": "build-storybook -s public:/claimstatus",
+    "storybook": "start-storybook -s ./public:/ -p 6006",
+    "build-storybook": "build-storybook -s public:/",
     "chromatic": "npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
