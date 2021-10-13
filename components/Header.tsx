@@ -24,10 +24,14 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
   const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url', urlPrefixes) : uioHomeDesktopLink
 
   let globalHeader: JSX.Element
-  if (userArrivedFromUioMobile) {
+
+  /* eslint-disable no-constant-condition */
+  if (true) {
+    // (userArrivedFromUioMobile) {
+    /* eslint-enable no-constant-condition */
     globalHeader = (
-      <Nav>
-        <Nav.Link rel="noopener noreferrer" href={uioHomeLink}>
+      <Nav className="uiom">
+        <Nav.Link className="uiom" rel="noopener noreferrer" href={uioHomeLink}>
           <span className="text">{t('header.uio-home')}</span>
         </Nav.Link>
       </Nav>
@@ -51,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           label={t('header.uio-history')}
           icon="ca-gov-icon-clock"
         />
-        <HeaderIcon link="/claimstatus" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
+        <HeaderIcon link="/" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
         <HeaderIcon
           link={getUrl('uio-desktop-profile-url', urlPrefixes)}
           label={t('header.uio-profile')}

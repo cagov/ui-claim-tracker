@@ -67,6 +67,16 @@ body {
       }
     }
 
+    .navbar-light .navbar-nav {
+      margin: 0 4px -12px 4px;
+      border-bottom: 4px solid #FDB81E;
+
+      &:hover {
+        margin: 0 4px -12px 4px;
+        border-bottom: 4px solid #046B99;
+      }
+    }
+
     .navbar-toggler {
       border: 0;
       font-size: 2rem;
@@ -81,6 +91,10 @@ body {
       vertical-align: middle;
       display: inline-block;
     }
+
+    .uiom {
+      border-bottom: 0 !important;
+    }
   }
 
   .header-icon {
@@ -88,7 +102,7 @@ body {
     text-align: center;
 
     &:hover .text, &:hover [class^='ca-gov-icon-'] {
-      color: #CF7F00;
+      color: #B55E00;
     }
 
     [class^='ca-gov-icon-'] {
@@ -109,23 +123,30 @@ body {
     }
   }
 
-  @media (max-width: 976px) {
-    .navbar-collapse {
-      margin-top: 5px;
-    }
+  @media (max-width: 992px) {
+    .header {
+      .navbar-collapse {
+        margin-top: 5px;
+      }
 
-    .header-icon {
-      //flagged important to override important flag in bootstrap
-      border-bottom: 1px solid #E1F2F7 !important;
-      text-align: left;
-    }
+      .navbar-light .navbar-nav {
+        text-align: left;
+        border-bottom: 1px solid #E1F2F7;
+        margin: 0 4px 0 4px;
 
-    .nav-link {
-      display: flex;
-    }
+        &:hover {
+          margin: 0 4px 0 4px;
+          border-bottom: 1px solid #E1F2F7;
+        }
+      }
 
-    .text {
-      margin: 0.5rem 0;
+      .nav-link {
+        display: flex;
+      }
+
+      .text {
+        margin: 0.5rem 0;
+      }
     }
   }
 
