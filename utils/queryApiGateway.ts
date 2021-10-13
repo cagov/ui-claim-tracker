@@ -231,7 +231,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     throw mismatchError
   }
 
-  // Yell if if the API returns a null or null-ish response
+  // Yell if the API returns a null or null-ish response
   if (reponseIsNullish(apiData)) {
     const nullResponseError = new Error(
       `API responded with a null response (queried with ${uniqueNumber}, responded with ${
