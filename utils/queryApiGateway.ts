@@ -14,6 +14,7 @@
 import path from 'path'
 import fs from 'fs'
 import https from 'https'
+import assert from 'assert'
 import { IncomingMessage } from 'http'
 import { Claim } from '../types/common'
 import { Logger } from './logger'
@@ -113,6 +114,46 @@ export function getUniqueNumber(req: IncomingMessage): string {
 }
 
 /**
+ * Check if the API responded with a null response body
+ *
+ * We do not expect any of these in production, in theory.
+ */
+export function reponseIsNullish(apiBody: Claim): boolean {
+  // This is a trick to make a deep-copy of a JSON object
+  const response: Claim = JSON.parse(JSON.stringify(apiBody)) as Claim
+  const responseUniqueNumber = response.uniqueNumber
+  delete response.uniqueNumber
+
+  // This is an unexpected null response we are seeing in production
+  // where the API responses with a matching UniqueNumber we asked for,
+  // but no claim data
+  const nullishResponse = {
+    claimDetails: {
+      programType: '',
+      benefitYearStartDate: null,
+      benefitYearEndDate: null,
+      claimBalance: null,
+      weeklyBenefitAmount: null,
+      lastPaymentIssued: null,
+      lastPaymentAmount: null,
+      monetaryStatus: '',
+    },
+    hasCertificationWeeksAvailable: false,
+    hasPendingWeeks: false,
+    pendingDetermination: [],
+  }
+
+  try {
+    assert.notStrictEqual(responseUniqueNumber, null, 'Response is null')
+    assert.notDeepStrictEqual(response, nullishResponse, 'Response is null')
+  } catch {
+    return true
+  }
+
+  return false
+}
+
+/**
  * Returns results from API Gateway
  */
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
@@ -180,13 +221,26 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     throw error
   }
 
-  if (apiData?.uniqueNumber !== uniqueNumber) {
+  // Yell real loud if the API returns a different, non-null uniqueNumber
+  if (apiData?.uniqueNumber && apiData?.uniqueNumber !== uniqueNumber) {
     const mismatchError = new Error(
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
     const logger: Logger = Logger.getInstance()
     logger.log('error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
+  }
+
+  // Yell if the API returns a null or null-ish response
+  if (reponseIsNullish(apiData)) {
+    const nullResponseError = new Error(
+      `API responded with a null response (queried with ${uniqueNumber}, responded with ${
+        apiData.uniqueNumber || 'null'
+      })`,
+    )
+    const logger: Logger = Logger.getInstance()
+    logger.log('error', nullResponseError, 'Unexpected API gateway response')
+    throw nullResponseError
   }
 
   return apiData
