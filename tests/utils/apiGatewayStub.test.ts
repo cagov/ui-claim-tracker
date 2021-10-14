@@ -44,6 +44,7 @@ describe('The API gateway stub response for the Generic Pending state', () => {
     const response = apiGatewayStub(ScenarioType.Scenario4)
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(true)
+    expect(response.hasValidPendingWeeks).toBe(true)
     expect([true, false]).toContain(response.hasCertificationWeeksAvailable)
   })
 })
@@ -53,6 +54,7 @@ describe('The API gateway stub response for the Base States', () => {
     const response = apiGatewayStub(ScenarioType.Scenario5)
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
   })
 
@@ -60,6 +62,7 @@ describe('The API gateway stub response for the Base States', () => {
     const response = apiGatewayStub(ScenarioType.Scenario6)
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(true)
   })
 })

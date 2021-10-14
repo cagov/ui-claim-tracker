@@ -31,7 +31,7 @@ const goodRequest = {
 
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
-  const goodResponse = { hasPendingWeeks: false, uniqueNumber: goodUniqueNumber }
+  const goodResponse = { hasValidPendingWeeks: false, hasPendingWeeks: false, uniqueNumber: goodUniqueNumber }
   const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
 
   beforeEach(() => {
@@ -62,6 +62,7 @@ describe('Querying the API Gateway', () => {
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
     expect(jsonData.hasPendingWeeks).toBe(false)
+    expect(jsonData.hasValidPendingWeeks).toBe(false)
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
@@ -195,7 +196,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const mismatchedResponse = { hasPendingWeeks: false, uniqueNumber: null }
+    const mismatchedResponse = { hasValidPendingWeeks: false, hasPendingWeeks: false, uniqueNumber: null }
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */

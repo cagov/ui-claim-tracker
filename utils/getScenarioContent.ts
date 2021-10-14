@@ -250,6 +250,11 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
     // @TODO: Validate that hasCertificationWeeks is a boolean
     return { scenarioType: ScenarioType.Scenario4 }
   }
+  // @TODO: Validate that hasValidPendingWeeks is a boolean
+  else if (claimData.hasValidPendingWeeks === true) {
+    // @TODO: Validate that hasCertificationWeeks is a boolean
+    return { scenarioType: ScenarioType.Scenario4 }
+  }
   // hasPendingWeeks === false
   else {
     // hasCertificationWeeksAvailable === false

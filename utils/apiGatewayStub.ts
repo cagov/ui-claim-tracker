@@ -23,6 +23,7 @@ export default function apiGatewayStub(
     claimDetails: null,
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false,
+    hasValidPendingWeeks: false,
     pendingDetermination: null,
   }
 
@@ -68,6 +69,7 @@ export default function apiGatewayStub(
 
     case ScenarioType.Scenario4:
       claim.hasPendingWeeks = true
+      claim.hasValidPendingWeeks = true
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break
 
@@ -75,11 +77,13 @@ export default function apiGatewayStub(
     // is true or false, so we ignore the argument.
     case ScenarioType.Scenario5:
       claim.hasPendingWeeks = false
+      claim.hasValidPendingWeeks = true
       claim.hasCertificationWeeksAvailable = false
       break
 
     case ScenarioType.Scenario6:
       claim.hasPendingWeeks = false
+      claim.hasValidPendingWeeks = true
       claim.hasCertificationWeeksAvailable = true
       break
 
