@@ -20,6 +20,10 @@ export enum ScenarioType {
   Scenario4,
   Scenario5,
   Scenario6,
+  Scenario7,
+  Scenario8,
+  Scenario9,
+  Scenario10,
 }
 
 export const ScenarioTypeNames = {
@@ -29,6 +33,10 @@ export const ScenarioTypeNames = {
   [ScenarioType.Scenario4]: 'Generic pending state: pending weeks',
   [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
   [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
+  [ScenarioType.Scenario7]: 'Benefit year end: Regular UI',
+  [ScenarioType.Scenario8]: 'Benefit year end: Extensions',
+  [ScenarioType.Scenario9]: 'Benefit year end: PUA',
+  [ScenarioType.Scenario10]: 'Benefit year end: DUA',
 }
 
 interface PendingDeterminationScenario {
@@ -151,6 +159,72 @@ export function identifyPendingDeterminationScenario(
 }
 
 /**
+ * Identifies the Program Types that count as a federal extension
+ **/
+export function isFederalExtension(programType: string): boolean {
+  const byeValidExtensions = {
+    EUC: 'EUC - Tier 1 Extension',
+    PEUC: 'PEUC - Tier 1 Extension',
+    EUX: 'EUX - Tier 2 Extension',
+    PEUX: 'PEUX - Tier 2 Extension',
+    PEUY: 'PEUY - Tier 2 Augmentation',
+    EUW: 'EUW - Tier 3 Extension',
+    EUZ: 'EUZ - Tier 4 Extension',
+    FEDED: 'FED-ED Extension',
+  }
+
+  if (programType in byeValidExtensions) {
+    return true
+  }
+
+  return false
+}
+
+/**
+ * Identify if the benefit claim year has ended for appropriate
+ * claim types
+ **/
+export function isBye(claimData: Claim): boolean {
+  const byeValidPrograms = {
+    UI: 'UI',
+    DUA: 'DUA',
+    PUA: 'PUA',
+  }
+  const programType = claimData.claimDetails?.programType || ''
+
+  if (claimData.isBye) {
+    if (programType in byeValidPrograms) {
+      return true
+    } else if (isFederalExtension(programType)) {
+      return true
+    }
+  }
+
+  return false
+}
+
+/**
+ * Determine which BYE scenario applies
+ **/
+export function byeScenario(claimData: Claim): ScenarioType | null {
+  const programType = claimData.claimDetails?.programType
+
+  if (!programType) {
+    return null
+  } else if (programType === 'UI') {
+    return ScenarioType.Scenario7
+  } else if (isFederalExtension(programType)) {
+    return ScenarioType.Scenario8
+  } else if (programType === 'PUA') {
+    return ScenarioType.Scenario9
+  } else if (programType === 'DUA') {
+    return ScenarioType.Scenario10
+  }
+
+  return null
+}
+
+/**
  * Identify the correct scenario to display.
  *
  * @TODO: Validating the API gateway response #150
@@ -178,9 +252,21 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   }
   // hasPendingWeeks === false
   else {
+    // hasCertificationWeeksAvailable === false
     if (claimData.hasCertificationWeeksAvailable === false) {
       return { scenarioType: ScenarioType.Scenario5 }
-    } else {
+    }
+    // isBye === true
+    else if (isBye(claimData)) {
+      const byeScenarioType = byeScenario(claimData)
+      if (byeScenarioType) {
+        return { scenarioType: byeScenarioType }
+      } else {
+        return { scenarioType: ScenarioType.Scenario6 }
+      }
+    }
+    // None of the above.
+    else {
       return { scenarioType: ScenarioType.Scenario6 }
     }
   }
