@@ -83,6 +83,30 @@ export default function apiGatewayStub(
       claim.hasCertificationWeeksAvailable = true
       break
 
+    case ScenarioType.Scenario7:
+      claim.isBye = true
+      hasClaimDetails = true
+      programType = 'UI'
+      break
+
+    case ScenarioType.Scenario8:
+      claim.isBye = true
+      hasClaimDetails = true
+      programType = 'EUC'
+      break
+
+    case ScenarioType.Scenario9:
+      claim.isBye = true
+      hasClaimDetails = true
+      programType = 'PUA'
+      break
+
+    case ScenarioType.Scenario10:
+      claim.isBye = true
+      hasClaimDetails = true
+      programType = 'DUA'
+      break
+
     // No match should throw an error
     default:
       throw new Error('Unknown scenario type')
