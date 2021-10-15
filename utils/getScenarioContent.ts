@@ -167,6 +167,7 @@ export function isFederalExtension(programType: string): boolean {
     PEUC: 'PEUC - Tier 1 Extension',
     EUX: 'EUX - Tier 2 Extension',
     PEUX: 'PEUX - Tier 2 Extension',
+    EUY: 'EUY - Tier 2 Augmentation',
     PEUY: 'PEUY - Tier 2 Augmentation',
     EUW: 'EUW - Tier 3 Extension',
     EUZ: 'EUZ - Tier 4 Extension',
