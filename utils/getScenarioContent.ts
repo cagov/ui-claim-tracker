@@ -258,9 +258,9 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   }
   // hasPendingWeeks === false
   else {
-    // hasCertificationWeeksAvailable === false
-    if (claimData.hasCertificationWeeksAvailable === false) {
-      return { scenarioType: ScenarioType.Scenario5 }
+    // hasCertificationWeeksAvailable === true
+    if (claimData.hasCertificationWeeksAvailable === true) {
+      return { scenarioType: ScenarioType.Scenario6 }
     }
     // isBye === true
     else if (isBye(claimData)) {
@@ -268,12 +268,12 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
       if (byeScenarioType) {
         return { scenarioType: byeScenarioType }
       } else {
-        return { scenarioType: ScenarioType.Scenario6 }
+        return { scenarioType: ScenarioType.Scenario5 }
       }
     }
     // None of the above.
     else {
-      return { scenarioType: ScenarioType.Scenario6 }
+      return { scenarioType: ScenarioType.Scenario5 }
     }
   }
 }

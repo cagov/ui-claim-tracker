@@ -66,6 +66,21 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
   })
 })
 
+describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
+  it('are returned as expected', () => {
+    const byeScenarios = [
+      ScenarioType.Scenario7,
+      ScenarioType.Scenario8,
+      ScenarioType.Scenario9,
+      ScenarioType.Scenario10,
+    ]
+    for (const scenarioType of byeScenarios) {
+      const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+      expect(scenarioObject.scenarioType).toBe(scenarioType)
+    }
+  })
+})
+
 /**
  * Test identifyPendingDeterminationScenario()
  */
