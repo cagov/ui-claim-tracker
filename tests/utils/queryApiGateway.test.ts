@@ -190,18 +190,35 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles null unique number response mismatch', async () => {
+  it('handles nullish with unique number response', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
     })
 
-    const mismatchedResponse = { hasValidPendingWeeks: false, hasPendingWeeks: false, uniqueNumber: null }
+    const mismatchedResponse = {
+      claimDetails: {
+        programType: '',
+        benefitYearStartDate: null,
+        benefitYearEndDate: null,
+        claimBalance: null,
+        weeklyBenefitAmount: null,
+        lastPaymentIssued: null,
+        lastPaymentAmount: null,
+        monetaryStatus: '',
+      },
+      uniqueNumber: '12345',
+      hasCertificationWeeksAvailable: false,
+      hasPendingWeeks: false,
+      hasValidPendingWeeks: false,
+      pendingDetermination: [],
+    }
+
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
-      'Mismatched API response and Header unique number (null and 12345)',
+      'API responded with a null response (queried with 12345, responded with 12345)',
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
@@ -211,15 +228,18 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles null unique number request mismatch', async () => {
+  it('handles null unique number response', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
     })
 
-    const mismatchedUniqueNumber = null
-    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
-      'Mismatched API response and Header unique number (12345 and null)',
+    const mismatchedResponse = { hasPendingWeeks: false, uniqueNumber: null }
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'API responded with a null response (queried with 12345, responded with null)',
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
