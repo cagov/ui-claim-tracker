@@ -66,3 +66,53 @@ describe('The API gateway stub response for the Base States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(true)
   })
 })
+
+describe('The API gateway stub response for the Bye States', () => {
+  it('is correct for Scenario 7', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario7)
+    // make sure no higher precedence scenarios will apply
+    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasValidPendingWeeks).toBe(false)
+    expect(response.hasCertificationWeeksAvailable).toBe(false)
+    // check the BYE settings
+    expect(response.isBye).toBe(true)
+    expect(response.claimDetails?.programType).toBe('UI')
+  })
+
+  it('is correct for Scenario 8', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario8)
+    // make sure no higher precedence scenarios will apply
+    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasValidPendingWeeks).toBe(false)
+    expect(response.hasCertificationWeeksAvailable).toBe(false)
+    // check the BYE settings
+    expect(response.isBye).toBe(true)
+    expect(response.claimDetails?.programType).toBe('EUC')
+  })
+
+  it('is correct for Scenario 9', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario9)
+    // make sure no higher precedence scenarios will apply
+    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasValidPendingWeeks).toBe(false)
+    expect(response.hasCertificationWeeksAvailable).toBe(false)
+    // check the BYE settings
+    expect(response.isBye).toBe(true)
+    expect(response.claimDetails?.programType).toBe('PUA')
+  })
+
+  it('is correct for Scenario 10', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario10)
+    // make sure no higher precedence scenarios will apply
+    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasValidPendingWeeks).toBe(false)
+    expect(response.hasCertificationWeeksAvailable).toBe(false)
+    // check the BYE settings
+    expect(response.isBye).toBe(true)
+    expect(response.claimDetails?.programType).toBe('DUA')
+  })
+})

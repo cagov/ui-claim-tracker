@@ -77,13 +77,13 @@ export default function apiGatewayStub(
     // is true or false, so we ignore the argument.
     case ScenarioType.Scenario5:
       claim.hasPendingWeeks = false
-      claim.hasValidPendingWeeks = true
+      claim.hasValidPendingWeeks = false
       claim.hasCertificationWeeksAvailable = false
       break
 
     case ScenarioType.Scenario6:
       claim.hasPendingWeeks = false
-      claim.hasValidPendingWeeks = true
+      claim.hasValidPendingWeeks = false
       claim.hasCertificationWeeksAvailable = true
       break
 
