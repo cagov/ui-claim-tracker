@@ -31,7 +31,11 @@ const goodRequest = {
 
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
-  const goodResponse = { hasValidPendingWeeks: false, hasPendingWeeks: false, uniqueNumber: goodUniqueNumber }
+  const goodResponse = {
+    hasValidPendingWeeks: false,
+    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+    uniqueNumber: goodUniqueNumber,
+  }
   const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
 
   beforeEach(() => {
@@ -61,7 +65,7 @@ describe('Querying the API Gateway', () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
-    expect(jsonData.hasPendingWeeks).toBe(false)
+    expect(jsonData.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(jsonData.hasValidPendingWeeks).toBe(false)
     expect(fetch).toHaveBeenCalledTimes(1)
   })
@@ -209,7 +213,7 @@ describe('Querying the API Gateway', () => {
       },
       uniqueNumber: '12345',
       hasCertificationWeeksAvailable: false,
-      hasPendingWeeks: false,
+      hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
       hasValidPendingWeeks: false,
       pendingDetermination: [],
     }
@@ -234,7 +238,11 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const mismatchedResponse = { hasPendingWeeks: false, uniqueNumber: null }
+    const mismatchedResponse = {
+      hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+      hasValidPendingWeeks: false,
+      uniqueNumber: null,
+    }
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
     fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */

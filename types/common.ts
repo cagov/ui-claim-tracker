@@ -49,7 +49,7 @@ export interface Claim {
   ClaimType?: null | undefined | string
   uniqueNumber?: null | string
   claimDetails?: null | ClaimDetailsResult
-  hasPendingWeeks?: null | undefined | boolean
+  hasPendingWeeks?: null | undefined | boolean // deprecated for hasValidPendingWeeks
   hasValidPendingWeeks?: null | undefined | boolean
   hasCertificationWeeksAvailable?: null | undefined | boolean
   isBye?: null | undefined | boolean

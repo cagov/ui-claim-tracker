@@ -248,6 +248,7 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
 
   // @TODO: Validate that hasPendingWeeks is a boolean
   if (claimData.hasPendingWeeks === true) {
+    // deprecated for hasValidPendingWeeks
     // @TODO: Validate that hasCertificationWeeks is a boolean
     return { scenarioType: ScenarioType.Scenario4 }
   }
@@ -256,7 +257,7 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
     // @TODO: Validate that hasCertificationWeeks is a boolean
     return { scenarioType: ScenarioType.Scenario4 }
   }
-  // hasPendingWeeks === false
+  // hasValidPendingWeeks === false
   else {
     // hasCertificationWeeksAvailable === true
     if (claimData.hasCertificationWeeksAvailable === true) {

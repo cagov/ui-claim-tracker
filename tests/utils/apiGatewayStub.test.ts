@@ -43,7 +43,7 @@ describe('The API gateway stub response for the Generic Pending state', () => {
   it('is correct for Scenario 4', () => {
     const response = apiGatewayStub(ScenarioType.Scenario4)
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(true)
+    expect(response.hasPendingWeeks).toBe(true) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(true)
     expect([true, false]).toContain(response.hasCertificationWeeksAvailable)
   })
@@ -53,7 +53,7 @@ describe('The API gateway stub response for the Base States', () => {
   it('is correct for Scenario 5', () => {
     const response = apiGatewayStub(ScenarioType.Scenario5)
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
   })
@@ -61,7 +61,7 @@ describe('The API gateway stub response for the Base States', () => {
   it('is correct for Scenario 6', () => {
     const response = apiGatewayStub(ScenarioType.Scenario6)
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(true)
   })
@@ -72,7 +72,7 @@ describe('The API gateway stub response for the Bye States', () => {
     const response = apiGatewayStub(ScenarioType.Scenario7)
     // make sure no higher precedence scenarios will apply
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
@@ -84,7 +84,7 @@ describe('The API gateway stub response for the Bye States', () => {
     const response = apiGatewayStub(ScenarioType.Scenario8)
     // make sure no higher precedence scenarios will apply
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
@@ -96,7 +96,7 @@ describe('The API gateway stub response for the Bye States', () => {
     const response = apiGatewayStub(ScenarioType.Scenario9)
     // make sure no higher precedence scenarios will apply
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
@@ -108,7 +108,7 @@ describe('The API gateway stub response for the Bye States', () => {
     const response = apiGatewayStub(ScenarioType.Scenario10)
     // make sure no higher precedence scenarios will apply
     expect([null, [], false, undefined]).toContain(response.pendingDetermination)
-    expect(response.hasPendingWeeks).toBe(false)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings

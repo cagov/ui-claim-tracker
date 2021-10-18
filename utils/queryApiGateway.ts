@@ -141,7 +141,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       monetaryStatus: '',
     },
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false,
+    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
     pendingDetermination: [],
   }
@@ -158,7 +158,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       monetaryStatus: '',
     },
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false,
+    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     pendingDetermination: [],
   }
 
