@@ -156,6 +156,90 @@
           "text": "Cuando procesemos su certificación, actualizaremos el estado del pago. Vaya a la <0>página principal de UI Online</0> y seleccione <strong>Historial</strong> en el menú principal."
         }
       ]
+    },
+    "scenario7": {
+      "heading": "Benefits Expired",
+      "summary": [
+        {
+          "text": "Your benefit year has ended on your regular Unemployment Insurance claim. Although you have a claim balance remaining, you cannot be paid for additional weeks as your claim has expired."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "You currently have no weeks available to certify."
+        },
+        {
+          "text": "If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "None at this time"
+        }
+      ]
+    },
+    "scenario8": {
+      "heading": "Benefits Expired",
+      "summary": [
+        {
+          "text": "Federal extension benefits have ended. Although you have a federal extension with a balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "You currently have no weeks available to certify."
+        },
+        {
+          "text": "If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "None at this time"
+        }
+      ]
+    },
+    "scenario9": {
+      "heading": "Benefits Expired",
+      "summary": [
+        {
+          "text": "Pandemic Unemployment Assistance benefits have ended. Although you have PUA claim balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "You currently have no weeks available to certify."
+        },
+        {
+          "text": "If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "None at this time"
+        }
+      ]
+    },
+    "scenario10": {
+      "heading": "Benefits Expired",
+      "summary": [
+        {
+          "text": "Disaster Unemployment Assistance benefits has ended. Although you have a claim balance remaining, you cannot be paid for additional weeks as DUA benefits are payable only for weeks that fall within the Disaster Assistance Period."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "You currently have no weeks available to certify."
+        },
+        {
+          "text": "If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "None at this time"
+        }
+      ]
     }
   },
   "conditional-next-steps": {
