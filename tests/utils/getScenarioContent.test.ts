@@ -57,27 +57,26 @@ describe('The Generic Pending scenario (scenario 4)', () => {
 
 // Scenarios 5 & 6
 describe('The Base State scenarios (scenarios 5 & 6)', () => {
-  it('are returned as expected', () => {
-    const baseScenarios = [ScenarioType.Scenario5, ScenarioType.Scenario6]
-    for (const scenarioType of baseScenarios) {
-      const scenarioObject = getScenario(apiGatewayStub(scenarioType))
-      expect(scenarioObject.scenarioType).toBe(scenarioType)
-    }
+  const baseScenarios = [
+    ['No Weeks to Certify', ScenarioType.Scenario5],
+    ['Weeks to Certify', ScenarioType.Scenario6],
+  ]
+  it.each(baseScenarios)('Base State with %s returns as expected', (description, scenarioType) => {
+    const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+    expect(scenarioObject.scenarioType).toBe(scenarioType)
   })
 })
 
 describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
-  it('are returned as expected', () => {
-    const byeScenarios = [
-      ScenarioType.Scenario7,
-      ScenarioType.Scenario8,
-      ScenarioType.Scenario9,
-      ScenarioType.Scenario10,
-    ]
-    for (const scenarioType of byeScenarios) {
-      const scenarioObject = getScenario(apiGatewayStub(scenarioType))
-      expect(scenarioObject.scenarioType).toBe(scenarioType)
-    }
+  const byeScenarios = [
+    ['UI', ScenarioType.Scenario7],
+    ['Federal Extension', ScenarioType.Scenario8],
+    ['PUA', ScenarioType.Scenario9],
+    ['DUA', ScenarioType.Scenario10],
+  ]
+  it.each(byeScenarios)('BYE for %s returns as expected', (description, scenarioType) => {
+    const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+    expect(scenarioObject.scenarioType).toBe(scenarioType)
   })
 })
 
