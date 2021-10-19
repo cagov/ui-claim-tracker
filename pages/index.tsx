@@ -4,7 +4,7 @@ import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
-import pino from 'pino'
+import { Logger as pinoLogger } from 'pino'
 import { req as reqSerializer } from 'pino-std-serializers'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -144,7 +144,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
   let errorCode: number | null = null
   let scenarioContent: ScenarioContent | null = null
   const logger: Logger = Logger.getInstance()
-  let childLogger: pino.Logger | null = null
+  let childLogger: pinoLogger | null = null
   const requestId = uuidv4()
 
   // Initialize logging.

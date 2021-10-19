@@ -91,7 +91,7 @@ export class Logger {
         // Manually serialize error objects in order to retain other child bindings.
         // See https://github.com/pinojs/pino-pretty/issues/39
         if (logFn === 'error') {
-          mergingObject = { error: errSerializer(mergingObject) }
+          mergingObject = { error: errSerializer(mergingObject as Error) }
         }
         childLogger[logFn](mergingObject, message)
       } else {

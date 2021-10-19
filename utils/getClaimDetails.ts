@@ -5,7 +5,7 @@
  * shown in the Claim Tracker to the user.
  */
 
-import pino from 'pino'
+import { Logger as pinoLogger } from 'pino'
 
 import { ClaimDetailsContent, ClaimDetailsResult, I18nString } from '../types/common'
 import { asyncContext } from './asyncContext'
@@ -114,7 +114,7 @@ export const programExtensionPairs = {
  */
 export function getProgramExtensionPair(apiString: string): programExtensionPairType {
   const logger: Logger = Logger.getInstance()
-  const childLogger = asyncContext.getStore() as pino.Logger
+  const childLogger = asyncContext.getStore() as pinoLogger
 
   for (const [id, pair] of Object.entries(programExtensionPairs)) {
     if (apiString === programTypeNames[id]) {

@@ -7,9 +7,12 @@
  * - etc
  */
 
+import { Logger as pinoLogger } from 'pino'
+
 import { TimeSlot } from '../types/common'
-import { Logger } from './logger'
 import { isAm } from './browser/appointment'
+import { asyncContext } from './asyncContext'
+import { Logger } from './logger'
 
 /**
  * Validate times.
@@ -18,7 +21,8 @@ export function validTime(time: number): boolean {
   const isExpected = time >= 1 && time <= 12
   if (!isExpected) {
     const logger: Logger = Logger.getInstance()
-    logger.log(null, 'warn', { time: time }, 'Unexpected time')
+    const childLogger = asyncContext.getStore() as pinoLogger
+    logger.log(childLogger, 'warn', { time: time }, 'Unexpected time')
   }
   return isExpected
 }
@@ -94,7 +98,8 @@ export function isFirstTimeSlotEarlier(first: string, second: string): boolean |
   // In practice, this should be unreachable code.
   else {
     const logger: Logger = Logger.getInstance()
-    logger.log(null, 'warn', { first: first, second: second }, 'Unreachable code was executed')
+    const childLogger = asyncContext.getStore() as pinoLogger
+    logger.log(childLogger, 'warn', { first: first, second: second }, 'Unreachable code was executed')
     return null
   }
 }

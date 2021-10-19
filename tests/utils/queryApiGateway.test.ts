@@ -94,7 +94,7 @@ describe('Querying the API Gateway', () => {
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(networkErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -118,7 +118,7 @@ describe('Querying the API Gateway', () => {
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow('API Gateway response is not 200')
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -142,7 +142,7 @@ describe('Querying the API Gateway', () => {
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -165,7 +165,7 @@ describe('Querying the API Gateway', () => {
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(fsErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(0)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Read certificate error')
 
     // Restore env vars
     restore()
@@ -183,7 +183,7 @@ describe('Querying the API Gateway', () => {
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
 
     // Restore env vars
     restore()
@@ -220,7 +220,7 @@ describe('Querying the API Gateway', () => {
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
 
     // Restore env vars
     restore()
@@ -241,7 +241,7 @@ describe('Querying the API Gateway', () => {
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
 
     // Restore env vars
     restore()
@@ -405,7 +405,12 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
 
     /* eslint-disable jest/no-conditional-expect */
     if (triggersError) {
-      expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Missing required environment variable(s)')
+      expect(loggerSpy).toHaveBeenCalledWith(
+        undefined,
+        'error',
+        expect.anything(),
+        'Missing required environment variable(s)',
+      )
       expect(loggerSpy).toHaveBeenCalledTimes(1)
     } else {
       expect(loggerSpy).toHaveBeenCalledTimes(0)

@@ -16,7 +16,7 @@ import https from 'https'
 import assert from 'assert'
 import { IncomingMessage } from 'http'
 import path from 'path'
-import pino from 'pino'
+import { Logger as pinoLogger } from 'pino'
 
 import { Claim } from '../types/common'
 import { asyncContext } from './asyncContext'
@@ -78,7 +78,7 @@ export function getApiVars(): ApiEnvVars {
   }
   if (missingEnvVars.length > 0) {
     const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pino.Logger
+    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
   }
 
@@ -181,7 +181,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   } catch (error) {
     // Log any certificate loading errors and return.
     const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pino.Logger
+    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', error, 'Read certificate error')
     throw error
   }
@@ -222,7 +222,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     }
   } catch (error) {
     const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pino.Logger
+    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', error, 'API gateway error')
     throw error
   }
@@ -233,7 +233,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
     const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pino.Logger
+    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
@@ -246,7 +246,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       })`,
     )
     const logger: Logger = Logger.getInstance()
-    logger.log('error', nullResponseError, 'Unexpected API gateway response')
+    const childLogger = asyncContext.getStore() as pinoLogger
+    logger.log(childLogger, 'error', nullResponseError, 'Unexpected API gateway response')
     throw nullResponseError
   }
 
