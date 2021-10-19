@@ -268,15 +268,12 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
       const byeScenarioType = byeScenario(claimData)
       if (byeScenarioType) {
         return { scenarioType: byeScenarioType }
-      } else {
-        return { scenarioType: ScenarioType.Scenario5 }
       }
     }
-    // None of the above.
-    else {
-      return { scenarioType: ScenarioType.Scenario5 }
-    }
   }
+
+  // None of the above.
+  return { scenarioType: ScenarioType.Scenario5 }
 }
 
 /**
