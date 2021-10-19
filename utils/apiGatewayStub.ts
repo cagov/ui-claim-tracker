@@ -96,7 +96,7 @@ export default function apiGatewayStub(
     case ScenarioType.Scenario8:
       claim.isBye = true
       hasClaimDetails = true
-      programType = 'EUC'
+      programType = 'EUC - Tier 1 Extension'
       break
 
     case ScenarioType.Scenario9:

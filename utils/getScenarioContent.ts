@@ -193,12 +193,11 @@ export function isBye(claimData: Claim): boolean {
   }
   const programType = claimData.claimDetails?.programType || ''
 
-  if (claimData.isBye) {
-    if (programType in byeValidPrograms) {
-      return true
-    } else if (isFederalExtension(programType)) {
-      return true
-    }
+  if (
+    claimData.isBye && 
+    ((programType in byeValidPrograms) || isFederalExtension(programType)
+  ) {
+    return true
   }
 
   return false
@@ -210,19 +209,22 @@ export function isBye(claimData: Claim): boolean {
 export function byeScenario(claimData: Claim): ScenarioType | null {
   const programType = claimData.claimDetails?.programType
 
-  if (!programType) {
-    return null
-  } else if (programType === 'UI') {
-    return ScenarioType.Scenario7
-  } else if (isFederalExtension(programType)) {
-    return ScenarioType.Scenario8
-  } else if (programType === 'PUA') {
-    return ScenarioType.Scenario9
-  } else if (programType === 'DUA') {
-    return ScenarioType.Scenario10
-  }
+  if (programType) {
+    if (isFederalExtension(programType)) {
+      return ScenarioType.Scenario8
+    }
 
-  return null
+    switch(programType) {
+      case "UI":
+        return ScenarioType.Scenario7
+      case 'PUA':
+        return ScenarioType.Scenario9
+      case 'DUA':
+        return ScenarioType.Scenario10
+    }
+  } else {
+    return null
+  }
 }
 
 /**
