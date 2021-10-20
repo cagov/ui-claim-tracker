@@ -164,6 +164,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
   let options: AgentOptions | null = null
+  const logger: Logger = Logger.getInstance()
+  const childLogger = asyncContext.getStore() as pinoLogger
 
   const headers = {
     Accept: 'application/json',
@@ -180,8 +182,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     }
   } catch (error) {
     // Log any certificate loading errors and return.
-    const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', error, 'Read certificate error')
     throw error
   }
@@ -221,8 +221,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       throw new Error('API Gateway response is not 200')
     }
   } catch (error) {
-    const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', error, 'API gateway error')
     throw error
   }
@@ -232,8 +230,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     const mismatchError = new Error(
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
-    const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
@@ -245,8 +241,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
         apiData.uniqueNumber || 'null'
       })`,
     )
-    const logger: Logger = Logger.getInstance()
-    const childLogger = asyncContext.getStore() as pinoLogger
     logger.log(childLogger, 'error', nullResponseError, 'Unexpected API gateway response')
     throw nullResponseError
   }
