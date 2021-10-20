@@ -89,7 +89,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('EUC')
+    expect(response.claimDetails?.programType).toBe('EUC - Tier 1 Extension')
   })
 
   it('is correct for Scenario 9', () => {

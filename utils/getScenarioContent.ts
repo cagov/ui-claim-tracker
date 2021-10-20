@@ -193,10 +193,7 @@ export function isBye(claimData: Claim): boolean {
   }
   const programType = claimData.claimDetails?.programType || ''
 
-  if (
-    claimData.isBye && 
-    ((programType in byeValidPrograms) || isFederalExtension(programType)
-  ) {
+  if (claimData.isBye && (programType in byeValidPrograms || isFederalExtension(programType))) {
     return true
   }
 
@@ -214,8 +211,8 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
       return ScenarioType.Scenario8
     }
 
-    switch(programType) {
-      case "UI":
+    switch (programType) {
+      case 'UI':
         return ScenarioType.Scenario7
       case 'PUA':
         return ScenarioType.Scenario9
