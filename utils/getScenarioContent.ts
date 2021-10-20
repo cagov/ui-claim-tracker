@@ -245,29 +245,22 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   // If the scenario is not one of the Pending Determination scenarios,
   // check to see if it one of the remaining scenarios.
 
-  // @TODO: Validate that hasPendingWeeks is a boolean
-  if (claimData.hasPendingWeeks === true) {
-    // deprecated for hasValidPendingWeeks
-    // @TODO: Validate that hasCertificationWeeks is a boolean
-    return { scenarioType: ScenarioType.Scenario4 }
-  }
+  // deprecated for hasValidPendingWeeks
   // @TODO: Validate that hasValidPendingWeeks is a boolean
-  else if (claimData.hasValidPendingWeeks === true) {
+  if (claimData.hasPendingWeeks === true || claimData.hasValidPendingWeeks === true) {
     // @TODO: Validate that hasCertificationWeeks is a boolean
     return { scenarioType: ScenarioType.Scenario4 }
   }
   // hasValidPendingWeeks === false
-  else {
-    // hasCertificationWeeksAvailable === true
-    if (claimData.hasCertificationWeeksAvailable === true) {
-      return { scenarioType: ScenarioType.Scenario6 }
-    }
-    // isBye === true
-    else if (isBye(claimData)) {
-      const byeScenarioType = byeScenario(claimData)
-      if (byeScenarioType) {
-        return { scenarioType: byeScenarioType }
-      }
+  // hasCertificationWeeksAvailable === true
+  else if (claimData.hasCertificationWeeksAvailable === true) {
+    return { scenarioType: ScenarioType.Scenario6 }
+  }
+  // isBye === true
+  else if (isBye(claimData)) {
+    const byeScenarioType = byeScenario(claimData)
+    if (byeScenarioType) {
+      return { scenarioType: byeScenarioType }
     }
   }
 
