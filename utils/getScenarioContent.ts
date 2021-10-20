@@ -174,7 +174,7 @@ export function isFederalExtension(programType: string): boolean {
     FEDED: 'FED-ED Extension',
   }
 
-  if (programType in byeValidExtensions) {
+  if (Object.values(byeValidExtensions).includes(programType)) {
     return true
   }
 
