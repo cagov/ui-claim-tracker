@@ -2503,3 +2503,659 @@ exports[`Scenario 6 matches, on mobile 1`] = `
   </div>
 </div>
 `;
+
+exports[`Scenario 7 matches, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Your benefit year has ended on your regular Unemployment Insurance claim. Although you have a claim balance remaining, you cannot be paid for additional weeks as your claim has expired.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 7 matches, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Your benefit year has ended on your regular Unemployment Insurance claim. Although you have a claim balance remaining, you cannot be paid for additional weeks as your claim has expired.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 8 matches, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Federal extension benefits have ended. Although you have a federal extension with a balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 8 matches, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Federal extension benefits have ended. Although you have a federal extension with a balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 9 matches, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Pandemic Unemployment Assistance benefits have ended. Although you have PUA claim balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 9 matches, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Pandemic Unemployment Assistance benefits have ended. Although you have PUA claim balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 10 matches, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Disaster Unemployment Assistance benefits has ended. Although you have a claim balance remaining, you cannot be paid for additional weeks as DUA benefits are payable only for weeks that fall within the Disaster Assistance Period.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 10 matches, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Benefits Expired
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Disaster Unemployment Assistance benefits has ended. Although you have a claim balance remaining, you cannot be paid for additional weeks as DUA benefits are payable only for weeks that fall within the Disaster Assistance Period.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You currently have no weeks available to certify.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+        <li
+          className="next-step"
+        >
+          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

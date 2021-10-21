@@ -127,6 +127,41 @@ export function reponseIsNullish(apiBody: Claim): boolean {
   // This is an unexpected null response we are seeing in production
   // where the API responses with a matching UniqueNumber we asked for,
   // but no claim data
+  // Three cases to handle the renaming of pending weeks - can drop old ones once the API
+  // updates to use hasValidPendingWeeks
+  const nullishResponseTmp1 = {
+    claimDetails: {
+      programType: '',
+      benefitYearStartDate: null,
+      benefitYearEndDate: null,
+      claimBalance: null,
+      weeklyBenefitAmount: null,
+      lastPaymentIssued: null,
+      lastPaymentAmount: null,
+      monetaryStatus: '',
+    },
+    hasCertificationWeeksAvailable: false,
+    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+    hasValidPendingWeeks: false,
+    pendingDetermination: [],
+  }
+
+  const nullishResponseTmp2 = {
+    claimDetails: {
+      programType: '',
+      benefitYearStartDate: null,
+      benefitYearEndDate: null,
+      claimBalance: null,
+      weeklyBenefitAmount: null,
+      lastPaymentIssued: null,
+      lastPaymentAmount: null,
+      monetaryStatus: '',
+    },
+    hasCertificationWeeksAvailable: false,
+    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+    pendingDetermination: [],
+  }
+
   const nullishResponse = {
     claimDetails: {
       programType: '',
@@ -139,13 +174,15 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       monetaryStatus: '',
     },
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false,
+    hasValidPendingWeeks: false,
     pendingDetermination: [],
   }
 
   try {
     assert.notStrictEqual(responseUniqueNumber, null, 'Response is null')
     assert.notDeepStrictEqual(response, nullishResponse, 'Response is null')
+    assert.notDeepStrictEqual(response, nullishResponseTmp1, 'Response is null')
+    assert.notDeepStrictEqual(response, nullishResponseTmp2, 'Response is null')
   } catch {
     return true
   }
