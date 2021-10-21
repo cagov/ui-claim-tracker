@@ -78,6 +78,63 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
     const scenarioObject = getScenario(apiGatewayStub(scenarioType))
     expect(scenarioObject.scenarioType).toBe(scenarioType)
   })
+
+  // Negative cases
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 1', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario1)
+    pendingDeterminationBYE.isBye = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario1)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 2', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario2)
+    pendingDeterminationBYE.isBye = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario2)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 3', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario3)
+    pendingDeterminationBYE.isBye = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario3)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 4', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario4)
+    pendingDeterminationBYE.isBye = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario4)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 6', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario6)
+    pendingDeterminationBYE.isBye = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario6)
+  })
+
+  const nonByeProgramTypes = [
+    ['state extension', 'CAL-ED Extension'],
+    ['training extension', 'Training Extension (TE)'],
+  ]
+
+  it.each(nonByeProgramTypes)('BYE is not triggered for a %s', (description, programType) => {
+    // we're overrding the program type, which is the difference between the API response
+    // for scenarios 7/8/9/10 - so testing each would be redundant
+    const byeInvalidProgram = apiGatewayStub(ScenarioType.Scenario7)
+    byeInvalidProgram.claimDetails.programType = programType
+    byeInvalidProgram.claimDetails.programType = programType
+    const scenarioObject = getScenario(byeInvalidProgram)
+    expect(scenarioObject.scenarioType).not.toBe(ScenarioType.Scenario7)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario5)
+  })
 })
 
 /**
