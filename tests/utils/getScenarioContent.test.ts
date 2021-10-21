@@ -130,7 +130,6 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
     // for scenarios 7/8/9/10 - so testing each would be redundant
     const byeInvalidProgram = apiGatewayStub(ScenarioType.Scenario7)
     byeInvalidProgram.claimDetails.programType = programType
-    byeInvalidProgram.claimDetails.programType = programType
     const scenarioObject = getScenario(byeInvalidProgram)
     expect(scenarioObject.scenarioType).not.toBe(ScenarioType.Scenario7)
     expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario5)
