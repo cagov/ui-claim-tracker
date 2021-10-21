@@ -219,9 +219,9 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
       case 'DUA':
         return ScenarioType.Scenario10
     }
-  } else {
-    return null
   }
+
+  return null
 }
 
 /**
