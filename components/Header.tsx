@@ -52,7 +52,11 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           label={t('header.uio-history')}
           icon="ca-gov-icon-clock"
         />
-        <HeaderIcon link="/" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
+        <HeaderIcon
+          link={getUrl('uio-status-url', urlPrefixes)}
+          label={t('header.uio-status')}
+          icon="ca-gov-icon-file-medical-alt"
+        />
         <HeaderIcon
           link={getUrl('uio-desktop-profile-url', urlPrefixes)}
           label={t('header.uio-profile')}
