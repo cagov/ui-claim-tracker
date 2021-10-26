@@ -1,17 +1,40 @@
 /**
- * Utility for shared logging.
+ * Utility for shared serverside logging.
  *
  * The logger uses the singleton pattern in order to avoid creating multiple pino
  * instances. In order to support easier log debugging, the incoming request is
- * logged once as an info call.
+ * logged once as an info call. This logging utility is intended to be used in
+ * conjunction with AsyncLocalStorage.
  *
  * To import the logger: `import { Logger } from '../utils/logger`
  *
- * To get the single logger instance: `const logger: Logger = Logger.getInstance()`
+ * In the request entrypoint in index.tsx:getServerSideProps():
  *
- * To access the pino instance: `const pino = logger.pino`
+ * 1. The UUID is created: `const requestId = uuidv4()`
+ * 2. When the logger is initialized, it requires the UUID as an argument and
+ *    it returns a pino child logger: `childLogger = await logger.initialize(requestId)`
+ * 3. The child logger is stored in async local storage and all subsequent utility
+ *    function calls are made within an async callback function that shares the same context:
  *
- * In `index.tsx`, initialize pino: `await logger.initialize()`
+ * ```
+ *   await asyncContext.run(childLogger, async () => {
+ *     // Make the API request and return the data.
+ *     const claimData = await queryApiGateway(req, uniqueNumber)
+ *     logger.log(childLogger, 'info', claimData, 'ClaimData')
+ *
+ *     // Run business logic to get content for the current scenario.
+ *     scenarioContent = getScenarioContent(claimData)
+ *     logger.log(childLogger, 'info', scenarioContent, 'ScenarioContent')
+ *   })
+ * ```
+ *
+ * In subsequent utility functions (e.g. queryApiGateway(), getClaimDetails.ts:getProgramExtensionPair(), etc),
+ * to make a logger call:
+ *
+ * First, get the singleton logger instance: `const logger: Logger = Logger.getInstance()`
+ * Then, retrieve the child logger from async local storage:
+ *    `const childLogger = asyncContext.getStore() as pinoLogger`
+ * Finally, make the logger call: `logger.log(childLogger, <log level>, <merging object>, <log message>)`
  */
 
 import pino from 'pino'
