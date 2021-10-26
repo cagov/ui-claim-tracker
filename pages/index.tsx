@@ -4,9 +4,11 @@ import { ReactElement } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
-import Error from './_error'
+import { Logger as pinoLogger } from 'pino'
 import { req as reqSerializer } from 'pino-std-serializers'
+import { v4 as uuidv4 } from 'uuid'
 
+import Error from './_error'
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
 import { ClaimSection } from '../components/ClaimSection'
@@ -15,6 +17,7 @@ import { Maintenance } from '../components/Maintenance'
 import { Footer } from '../components/Footer'
 
 import { ScenarioContent, UrlPrefixes } from '../types/common'
+import { asyncContext } from '../utils/asyncContext'
 import getScenarioContent from '../utils/getScenarioContent'
 import { Logger } from '../utils/logger'
 import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
@@ -141,10 +144,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
   let errorCode: number | null = null
   let scenarioContent: ScenarioContent | null = null
   const logger: Logger = Logger.getInstance()
+  let childLogger: pinoLogger | null = null
+  const requestId = uuidv4()
 
   // Initialize logging.
   try {
-    await logger.initialize()
+    childLogger = await logger.initialize(requestId)
   } catch (error) {
     // If we are unable to set up logging, log to console.
     // This is accessible in Azure Monitor AppServiceConsoleLogs.
@@ -154,6 +159,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
   // Use a separate try block for errors that are loggable to App Insights.
   try {
     logger.log(
+      childLogger,
       'info',
       {
         // If you call pino.info(req), pino does some behind the scenes serialization.
@@ -173,22 +179,25 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
 
     if (!uniqueNumber) {
       if (req.headers['user-agent'] !== 'Edge Health Probe') {
-        logger.log('error', {}, 'Missing unique number')
+        logger.log(childLogger, 'error', {}, 'Missing unique number')
       }
       errorCode = 500
     }
     // Only query the API gateway if there is a unique number in the header.
     else {
-      // Make the API request and return the data.
-      const claimData = await queryApiGateway(req, uniqueNumber)
-      logger.log('info', claimData, 'ClaimData')
-      // Run business logic to get content for the current scenario.
-      scenarioContent = getScenarioContent(claimData)
-      logger.log('info', scenarioContent, 'ScenarioContent')
+      await asyncContext.run(childLogger, async () => {
+        // Make the API request and return the data.
+        const claimData = await queryApiGateway(req, uniqueNumber)
+        logger.log(childLogger, 'info', claimData, 'ClaimData')
+
+        // Run business logic to get content for the current scenario.
+        scenarioContent = getScenarioContent(claimData)
+        logger.log(childLogger, 'info', scenarioContent, 'ScenarioContent')
+      })
     }
   } catch (error) {
     // If an error occurs, log it and show 500.
-    logger.log('error', error, 'Application error')
+    logger.log(childLogger, 'error', error, 'Application error')
     errorCode = 500
   }
 

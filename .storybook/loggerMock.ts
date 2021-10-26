@@ -8,8 +8,8 @@ export class Logger {
     return this.instance
   }
 
-  // Override log() to do nothing.
+  // Override log() to call console.log().
   log(logFn: LogFunction, mergingObject: object, message: string): void {
-    return ''
+    console.log(message)
   }
 }
