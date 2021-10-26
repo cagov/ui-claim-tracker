@@ -118,11 +118,11 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           className="navbar-collapse collapse"
         >
           <div
-            className="uiom navbar-nav"
+            className="header-icon navbar-nav"
             onKeyDown={[Function]}
           >
             <a
-              className="uiom nav-link"
+              className="nav-link"
               data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
               onClick={[Function]}
@@ -130,9 +130,166 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
               rel="noopener noreferrer"
             >
               <span
+                className="ca-gov-icon-home"
+              />
+              <span
                 className="text"
               >
                 UI Home
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/Certification/AvailableWeeksNotification.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/Certification/AvailableWeeksNotification.aspx"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-file-check"
+              />
+              <span
+                className="text"
+              >
+                Certify
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PaymentActivity.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PaymentActivity.aspx"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-currency"
+              />
+              <span
+                className="text"
+              >
+                Payments
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/ClaimHistory.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/ClaimHistory.aspx"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-clock"
+              />
+              <span
+                className="text"
+              >
+                History
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/claimstatus"
+              href="https://uio.edd.ca.gov/claimstatus"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-file-medical-alt"
+              />
+              <span
+                className="text"
+              >
+                Status
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PersonalProfile.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PersonalProfile.aspx"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-person"
+              />
+              <span
+                className="text"
+              >
+                Profile
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/Inbox.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/Inbox.aspx"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-email"
+              />
+              <span
+                className="text"
+              >
+                Inbox
+              </span>
+            </a>
+          </div>
+          <div
+            className="header-icon navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <a
+              className="nav-link"
+              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/WebCorrespondence/ContactUs.aspx"
+              href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/WebCorrespondence/ContactUs.aspx"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+            >
+              <span
+                className="ca-gov-icon-users-dialog"
+              />
+              <span
+                className="text"
+              >
+                Contact
               </span>
             </a>
           </div>

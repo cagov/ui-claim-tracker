@@ -13,6 +13,7 @@
   "uio-desktop-certify-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/Certification/AvailableWeeksNotification.aspx",
   "uio-desktop-payments-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PaymentActivity.aspx",
   "uio-desktop-history-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/ClaimHistory.aspx",
+  "uio-status-url": "https://uio.edd.ca.gov/claimstatus",
   "uio-desktop-profile-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PersonalProfile.aspx",
   "uio-desktop-inbox-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/Inbox.aspx",
   "uio-desktop-contact-url": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/WebCorrespondence/ContactUs.aspx"

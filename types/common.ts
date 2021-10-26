@@ -7,6 +7,7 @@ export interface UrlPrefixes {
   urlPrefixUioDesktop: string
   urlPrefixUioMobile: string
   urlPrefixBpo: string
+  urlPrefixUioStatus: string
 }
 
 // Types for TransLine component
