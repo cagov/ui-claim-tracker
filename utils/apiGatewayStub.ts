@@ -111,6 +111,18 @@ export default function apiGatewayStub(
       programType = 'DUA'
       break
 
+    case ScenarioType.Scenario11:
+      claim.isBye = true
+      hasClaimDetails = true
+      programType = 'PEUC - Tier 1 Extension'
+      break
+
+    case ScenarioType.Scenario12:
+      claim.isBye = true
+      hasClaimDetails = true
+      programType = 'EUW - Tier 3 Extension'
+      break
+
     // No match should throw an error
     default:
       throw new Error('Unknown scenario type')

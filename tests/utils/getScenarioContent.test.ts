@@ -67,12 +67,14 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
   })
 })
 
-describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
+describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
   const byeScenarios = [
     ['UI', ScenarioType.Scenario7],
     ['FED-ED Extension', ScenarioType.Scenario8],
     ['PUA', ScenarioType.Scenario9],
     ['DUA', ScenarioType.Scenario10],
+    ['Pandemic Extension', ScenarioType.Scenario11],
+    ['Other Extension', ScenarioType.Scenario10],
   ]
   it.each(byeScenarios)('BYE for %s returns as expected', (description, scenarioType) => {
     const scenarioObject = getScenario(apiGatewayStub(scenarioType))
@@ -127,7 +129,7 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
 
   it.each(nonByeProgramTypes)('BYE is not triggered for a %s', (description, programType) => {
     // we're overrding the program type, which is the difference between the API response
-    // for scenarios 7/8/9/10 - so testing each would be redundant
+    // for scenarios 7 thru 12 - so testing each would be redundant
     const byeInvalidProgram = apiGatewayStub(ScenarioType.Scenario7)
     byeInvalidProgram.claimDetails.programType = programType
     const scenarioObject = getScenario(byeInvalidProgram)
