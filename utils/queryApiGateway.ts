@@ -11,12 +11,15 @@
  *   - PFX_FILE: filename of the PKCS#12 certificate for authenticating with the API gateway
  */
 
-import path from 'path'
 import fs from 'fs'
 import https from 'https'
 import assert from 'assert'
 import { IncomingMessage } from 'http'
+import path from 'path'
+import { Logger as pinoLogger } from 'pino'
+
 import { Claim } from '../types/common'
+import { asyncContext } from './asyncContext'
 import { Logger } from './logger'
 
 export interface QueryParams {
@@ -75,7 +78,8 @@ export function getApiVars(): ApiEnvVars {
   }
   if (missingEnvVars.length > 0) {
     const logger: Logger = Logger.getInstance()
-    logger.log('error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
+    const childLogger = asyncContext.getStore() as pinoLogger
+    logger.log(childLogger, 'error', { missingEnvVars: missingEnvVars }, 'Missing required environment variable(s)')
   }
 
   return apiEnvVars
@@ -197,6 +201,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim = { ClaimType: undefined }
   let options: AgentOptions | null = null
+  const logger: Logger = Logger.getInstance()
+  const childLogger = asyncContext.getStore() as pinoLogger
 
   const headers = {
     Accept: 'application/json',
@@ -213,8 +219,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     }
   } catch (error) {
     // Log any certificate loading errors and return.
-    const logger: Logger = Logger.getInstance()
-    logger.log('error', error, 'Read certificate error')
+    logger.log(childLogger, 'error', error, 'Read certificate error')
     throw error
   }
 
@@ -253,8 +258,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
       throw new Error('API Gateway response is not 200')
     }
   } catch (error) {
-    const logger: Logger = Logger.getInstance()
-    logger.log('error', error, 'API gateway error')
+    logger.log(childLogger, 'error', error, 'API gateway error')
     throw error
   }
 
@@ -263,8 +267,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     const mismatchError = new Error(
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
-    const logger: Logger = Logger.getInstance()
-    logger.log('error', mismatchError, 'Unexpected API gateway response')
+    logger.log(childLogger, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
 
@@ -275,8 +278,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
         apiData.uniqueNumber || 'null'
       })`,
     )
-    const logger: Logger = Logger.getInstance()
-    logger.log('error', nullResponseError, 'Unexpected API gateway response')
+    logger.log(childLogger, 'error', nullResponseError, 'Unexpected API gateway response')
     throw nullResponseError
   }
 

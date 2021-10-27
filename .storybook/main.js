@@ -36,6 +36,12 @@ module.exports = {
     // This is a relative path from the perspective of the file importing the logger, not of this file.
     config.plugins.push(new webpack.NormalModuleReplacementPlugin(/logger.ts/, '../.storybook/loggerMock.ts'))
 
+    // Mock AsyncLocalStorage functionality in storybook.
+    // This is a relative path from the perspective of the file importing the asyncContext, not of this file.
+    config.plugins.push(
+      new webpack.NormalModuleReplacementPlugin(/asyncContext.ts/, '../.storybook/asyncContextMock.ts'),
+    )
+
     return {
       ...config,
       node: {

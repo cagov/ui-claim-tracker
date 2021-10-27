@@ -5,7 +5,10 @@
  * shown in the Claim Tracker to the user.
  */
 
+import { Logger as pinoLogger } from 'pino'
+
 import { ClaimDetailsContent, ClaimDetailsResult, I18nString } from '../types/common'
+import { asyncContext } from './asyncContext'
 import formatDate from './formatDate'
 import { Logger } from './logger'
 
@@ -111,15 +114,16 @@ export const programExtensionPairs = {
  */
 export function getProgramExtensionPair(apiString: string): programExtensionPairType {
   const logger: Logger = Logger.getInstance()
+  const childLogger = asyncContext.getStore() as pinoLogger
 
   for (const [id, pair] of Object.entries(programExtensionPairs)) {
     if (apiString === programTypeNames[id]) {
-      logger.log('info', { programType: apiString }, 'Program Type: Known')
+      logger.log(childLogger, 'info', { programType: apiString }, 'Program Type: Known')
       return pair
     }
   }
   // If no known mapping is found, pass through the raw program type.
-  logger.log('info', { programType: apiString }, 'Program Type: Unknown')
+  logger.log(childLogger, 'info', { programType: apiString }, 'Program Type: Unknown')
   return {
     programType: apiString,
     extensionType: '',

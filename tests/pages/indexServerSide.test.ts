@@ -30,7 +30,7 @@ describe('Main component server side logic', () => {
     const props: HomeProps = result.props as HomeProps
     expect(props.errorCode).toBe(500)
     expect(context.res.statusCode).toBe(500)
-    expect(loggerSpy).toHaveBeenCalledWith('error', {}, 'Missing unique number')
+    expect(loggerSpy).toHaveBeenCalledWith(expect.anything(), 'error', {}, 'Missing unique number')
 
     restore()
   })
