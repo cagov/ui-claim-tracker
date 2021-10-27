@@ -72,8 +72,8 @@
       "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
       "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
       "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
-      "unemployment": "https://www.edd.ca.gov/unemployment/",
-      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm",
+      "unemployment": "https://www.edd.ca.gov/unemployment"
     }
   }
 }

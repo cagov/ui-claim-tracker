@@ -36,11 +36,11 @@ export const ScenarioTypeNames = {
   [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
   [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
   [ScenarioType.Scenario7]: 'Benefit year end: Regular UI',
-  [ScenarioType.Scenario8]: 'Benefit year end: FED-ED Extension',
-  [ScenarioType.Scenario9]: 'Benefit year end: PUA',
-  [ScenarioType.Scenario10]: 'Benefit year end: DUA',
+  [ScenarioType.Scenario8]: 'Benefit year end: PUA',
+  [ScenarioType.Scenario9]: 'Benefit year end: DUA',
+  [ScenarioType.Scenario10]: 'Benefit year end: Other Extensions',
   [ScenarioType.Scenario11]: 'Benefit year end: Pandemic Extensions',
-  [ScenarioType.Scenario12]: 'Benefit year end: Other Extensions',
+  [ScenarioType.Scenario12]: 'Benefit year end: FED-ED Extension',
 }
 
 interface PendingDeterminationScenario {
@@ -228,23 +228,23 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
   const programType = claimData.claimDetails?.programType
 
   if (programType) {
-    if (isPandemicExtension(programType)) {
-      return ScenarioType.Scenario11
+    if (isOtherExtension(programType)) {
+      return ScenarioType.Scenario10
     }
 
-    if (isOtherExtension(programType)) {
-      return ScenarioType.Scenario12
+    if (isPandemicExtension(programType)) {
+      return ScenarioType.Scenario11
     }
 
     switch (programType) {
       case 'UI':
         return ScenarioType.Scenario7
-      case 'FED-ED Extension':
-        return ScenarioType.Scenario8
       case 'PUA':
-        return ScenarioType.Scenario9
+        return ScenarioType.Scenario8
       case 'DUA':
-        return ScenarioType.Scenario10
+        return ScenarioType.Scenario9
+      case 'FED-ED Extension':
+        return ScenarioType.Scenario12
     }
   }
 

@@ -70,11 +70,11 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
 describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
   const byeScenarios = [
     ['UI', ScenarioType.Scenario7],
-    ['FED-ED Extension', ScenarioType.Scenario8],
-    ['PUA', ScenarioType.Scenario9],
-    ['DUA', ScenarioType.Scenario10],
-    ['Pandemic Extension', ScenarioType.Scenario11],
+    ['PUA', ScenarioType.Scenario8],
+    ['DUA', ScenarioType.Scenario9],
     ['Other Extension', ScenarioType.Scenario10],
+    ['Pandemic Extension', ScenarioType.Scenario11],
+    ['FED-ED Extension', ScenarioType.Scenario12],
   ]
   it.each(byeScenarios)('BYE for %s returns as expected', (description, scenarioType) => {
     const scenarioObject = getScenario(apiGatewayStub(scenarioType))

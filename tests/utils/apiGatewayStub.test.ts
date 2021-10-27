@@ -89,7 +89,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('FED-ED Extension')
+    expect(response.claimDetails?.programType).toBe('PUA')
   })
 
   it('is correct for Scenario 9', () => {
@@ -101,7 +101,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('PUA')
+    expect(response.claimDetails?.programType).toBe('DUA')
   })
 
   it('is correct for Scenario 10', () => {
@@ -113,7 +113,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('DUA')
+    expect(response.claimDetails?.programType).toBe('EUW - Tier 3 Extension')
   })
 
   it('is correct for Scenario 11', () => {
@@ -137,6 +137,6 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('EUW - Tier 3 Extension')
+    expect(response.claimDetails?.programType).toBe('FED-ED Extension')
   })
 })

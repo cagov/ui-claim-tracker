@@ -96,19 +96,19 @@ export default function apiGatewayStub(
     case ScenarioType.Scenario8:
       claim.isBye = true
       hasClaimDetails = true
-      programType = 'FED-ED Extension'
+      programType = 'PUA'
       break
 
     case ScenarioType.Scenario9:
       claim.isBye = true
       hasClaimDetails = true
-      programType = 'PUA'
+      programType = 'DUA'
       break
 
     case ScenarioType.Scenario10:
       claim.isBye = true
       hasClaimDetails = true
-      programType = 'DUA'
+      programType = 'EUW - Tier 3 Extension'
       break
 
     case ScenarioType.Scenario11:
@@ -120,7 +120,7 @@ export default function apiGatewayStub(
     case ScenarioType.Scenario12:
       claim.isBye = true
       hasClaimDetails = true
-      programType = 'EUW - Tier 3 Extension'
+      programType = 'FED-ED Extension'
       break
 
     // No match should throw an error
