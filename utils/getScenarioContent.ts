@@ -24,6 +24,8 @@ export enum ScenarioType {
   Scenario8,
   Scenario9,
   Scenario10,
+  Scenario11,
+  Scenario12,
 }
 
 export const ScenarioTypeNames = {
@@ -34,9 +36,11 @@ export const ScenarioTypeNames = {
   [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
   [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
   [ScenarioType.Scenario7]: 'Benefit year end: Regular UI',
-  [ScenarioType.Scenario8]: 'Benefit year end: Extensions',
+  [ScenarioType.Scenario8]: 'Benefit year end: FED-ED Extension',
   [ScenarioType.Scenario9]: 'Benefit year end: PUA',
   [ScenarioType.Scenario10]: 'Benefit year end: DUA',
+  [ScenarioType.Scenario11]: 'Benefit year end: Pandemic Extensions',
+  [ScenarioType.Scenario12]: 'Benefit year end: Other Extensions',
 }
 
 interface PendingDeterminationScenario {
@@ -159,19 +163,32 @@ export function identifyPendingDeterminationScenario(
 }
 
 /**
- * Identifies the Program Types that count as a federal extension
+ * Identifies the Program Types that count as a Pandemic extension
  **/
-export function isFederalExtension(programType: string): boolean {
+export function isPandemicExtension(programType: string): boolean {
+  const byeValidPandemicExtensions = {
+    PEUC: 'PEUC - Tier 1 Extension',
+    PEUX: 'PEUX - Tier 2 Extension',
+    PEUY: 'PEUY - Tier 2 Augmentation',
+  }
+
+  if (Object.values(byeValidPandemicExtensions).includes(programType)) {
+    return true
+  }
+
+  return false
+}
+
+/**
+ * Identifies the Program Types that count as another extension
+ **/
+export function isOtherExtension(programType: string): boolean {
   const byeValidExtensions = {
     EUC: 'EUC - Tier 1 Extension',
-    PEUC: 'PEUC - Tier 1 Extension',
     EUX: 'EUX - Tier 2 Extension',
-    PEUX: 'PEUX - Tier 2 Extension',
     EUY: 'EUY - Tier 2 Augmentation',
-    PEUY: 'PEUY - Tier 2 Augmentation',
     EUW: 'EUW - Tier 3 Extension',
     EUZ: 'EUZ - Tier 4 Extension',
-    FEDED: 'FED-ED Extension',
   }
 
   if (Object.values(byeValidExtensions).includes(programType)) {
@@ -190,10 +207,14 @@ export function isBye(claimData: Claim): boolean {
     UI: 'UI',
     DUA: 'DUA',
     PUA: 'PUA',
+    'FED-ED Extension': 'FED-ED Extension',
   }
   const programType = claimData.claimDetails?.programType || ''
 
-  if (claimData.isBye && (programType in byeValidPrograms || isFederalExtension(programType))) {
+  if (
+    claimData.isBye &&
+    (programType in byeValidPrograms || isPandemicExtension(programType) || isOtherExtension(programType))
+  ) {
     return true
   }
 
@@ -207,13 +228,19 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
   const programType = claimData.claimDetails?.programType
 
   if (programType) {
-    if (isFederalExtension(programType)) {
-      return ScenarioType.Scenario8
+    if (isPandemicExtension(programType)) {
+      return ScenarioType.Scenario11
+    }
+
+    if (isOtherExtension(programType)) {
+      return ScenarioType.Scenario12
     }
 
     switch (programType) {
       case 'UI':
         return ScenarioType.Scenario7
+      case 'FED-ED Extension':
+        return ScenarioType.Scenario8
       case 'PUA':
         return ScenarioType.Scenario9
       case 'DUA':

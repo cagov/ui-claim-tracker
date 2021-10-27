@@ -70,7 +70,7 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
 describe('The BYE scenarios (scenarios 7, 8, 9, 10)', () => {
   const byeScenarios = [
     ['UI', ScenarioType.Scenario7],
-    ['Federal Extension', ScenarioType.Scenario8],
+    ['FED-ED Extension', ScenarioType.Scenario8],
     ['PUA', ScenarioType.Scenario9],
     ['DUA', ScenarioType.Scenario10],
   ]
