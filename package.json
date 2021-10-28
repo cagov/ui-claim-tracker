@@ -67,7 +67,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
-    "chromatic": "^5.7.1",
+    "chromatic": "^6.0.5",
     "css-loader": "^5.2.0",
     "eslint": "^7.22.0",
     "eslint-config-nava": "^9.1.0",
