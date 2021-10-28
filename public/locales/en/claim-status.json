@@ -179,7 +179,7 @@
       "your-next-steps": [
         {
           "text": "You can <0>reapply for unemployment benefits</0> if you earned <1>enough wages</1> (paid by an employer) in the last 18 months and are still unemployed or working part time.",
-          "links": ["urls.edd.unemployment", "urls.edd.ui-calculator"]
+          "links": ["uio-landing-page", "urls.edd.ui-calculator"]
         }
       ],
       "edd-next-steps": [
@@ -198,7 +198,7 @@
       "your-next-steps": [
         {
           "text": "If you earned <0>enough wages</0> from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can <1>reapply for regular unemployment benefits.</1>",
-          "links": ["urls.edd.ui-calculator", "urls.edd.unemployment"]
+          "links": ["urls.edd.ui-calculator", "uio-landing-page"]
         }
       ],
       "edd-next-steps": [
@@ -217,7 +217,7 @@
       "your-next-steps": [
         {
           "text": "You can <0>reapply for unemployment benefits</0> if you earned <1>enough wages</1> (paid by an employer) in the last 18 months and are still unemployed or working part time.",
-          "links": ["urls.edd.unemployment", "urls.edd.ui-calculator"]
+          "links": ["uio-landing-page", "urls.edd.ui-calculator"]
         }
       ],
       "edd-next-steps": [
@@ -236,7 +236,7 @@
       "your-next-steps": [
         {
           "text": "You can <0>reapply for unemployment benefits</0> if you earned <1>enough wages</1> (paid by an employer) in the last 18 months and are still unemployed or working part time.",
-          "links": ["urls.edd.unemployment", "urls.edd.ui-calculator"]
+          "links": ["uio-landing-page", "urls.edd.ui-calculator"]
         }
       ],
       "edd-next-steps": [
@@ -255,7 +255,7 @@
       "your-next-steps": [
         {
           "text": "You can <0>reapply for unemployment benefits</0> if you earned <1>enough wages</1> (paid by an employer) in the last 18 months and are still unemployed or working part time.",
-          "links": ["urls.edd.unemployment", "urls.edd.ui-calculator"]
+          "links": ["uio-landing-page", "urls.edd.ui-calculator"]
         }
       ],
       "edd-next-steps": [
@@ -274,7 +274,7 @@
       "your-next-steps": [
         {
           "text": "You can <0>reapply for unemployment benefits</0> if you earned <1>enough wages</1> (paid by an employer) in the last 18 months and are still unemployed or working part time.",
-          "links": ["urls.edd.unemployment", "urls.edd.ui-calculator"]
+          "links": ["uio-landing-page", "urls.edd.ui-calculator"]
         }
       ],
       "edd-next-steps": [

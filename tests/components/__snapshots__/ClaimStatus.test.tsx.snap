@@ -2546,9 +2546,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -2636,9 +2634,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -2734,9 +2730,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
           </a>
            from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             reapply for regular unemployment benefits.
           </a>
@@ -2823,9 +2817,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
           </a>
            from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             reapply for regular unemployment benefits.
           </a>
@@ -2904,9 +2896,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -2994,9 +2984,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -3084,9 +3072,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -3174,9 +3160,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -3264,9 +3248,7 @@ exports[`Scenario 11 matches, on desktop 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -3354,9 +3336,7 @@ exports[`Scenario 11 matches, on mobile 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -3444,9 +3424,7 @@ exports[`Scenario 12 matches, on desktop 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
@@ -3534,9 +3512,7 @@ exports[`Scenario 12 matches, on mobile 1`] = `
         >
           You can 
           <a
-            href="https://www.edd.ca.gov/unemployment"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
             reapply for unemployment benefits
           </a>
