@@ -2544,7 +2544,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You can
+          You can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -2552,7 +2552,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
           >
             reapply for unemployment benefits
           </a>
-           if you earned
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2634,7 +2634,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You can
+          You can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -2642,7 +2642,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
           >
             reapply for unemployment benefits
           </a>
-           if you earned
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2724,7 +2724,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          If you earned
+          If you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2732,7 +2732,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can
+           from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -2813,7 +2813,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          If you earned
+          If you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2821,7 +2821,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can
+           from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -2902,7 +2902,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You can
+          You can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -2910,7 +2910,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
           >
             reapply for unemployment benefits
           </a>
-           if you earned
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2992,7 +2992,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You can
+          You can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -3000,7 +3000,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
           >
             reapply for unemployment benefits
           </a>
-           if you earned
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -3082,7 +3082,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You can
+          You can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -3090,7 +3090,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
           >
             reapply for unemployment benefits
           </a>
-           if you earned
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -3172,7 +3172,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You can
+          You can 
           <a
             href="https://www.edd.ca.gov/unemployment"
             rel="noopener noreferrer"
@@ -3180,7 +3180,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
           >
             reapply for unemployment benefits
           </a>
-           if you earned
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
