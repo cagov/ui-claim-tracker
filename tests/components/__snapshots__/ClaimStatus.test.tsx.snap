@@ -2526,7 +2526,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even if you have a balance on your claim.
+      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2558,7 +2558,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2614,7 +2614,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even if you have a balance on your claim.
+      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2646,7 +2646,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2702,7 +2702,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Pandemic Unemployment Assistance (PUA) benefits have ended. Federal law does not allow PUA benefits to be paid for weeks of unemployment after September 4, 2021, even if there is a balance on your claim.
+      Pandemic Unemployment Assistance (PUA) benefits have ended. Federal law does not allow PUA benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2720,7 +2720,13 @@ exports[`Scenario 8 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          If you earned 
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2728,12 +2734,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can 
-          <a
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
-          >
-            reapply for regular unemployment benefits.
-          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2789,7 +2790,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Pandemic Unemployment Assistance (PUA) benefits have ended. Federal law does not allow PUA benefits to be paid for weeks of unemployment after September 4, 2021, even if there is a balance on your claim.
+      Pandemic Unemployment Assistance (PUA) benefits have ended. Federal law does not allow PUA benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2807,7 +2808,13 @@ exports[`Scenario 8 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          If you earned 
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
           <a
             href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
             rel="noopener noreferrer"
@@ -2815,12 +2822,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           from an employer (not self-employment income) in the last 18 months and are still unemployed or working part time, you can 
-          <a
-            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
-          >
-            reapply for regular unemployment benefits.
-          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2876,7 +2878,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Your Disaster Unemployment Assistance benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even if there is a balance on your claim.
+      Your Disaster Unemployment Assistance (DUA) benefits have ended. Federal law does not allow DUA benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2908,7 +2910,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2964,7 +2966,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Your Disaster Unemployment Assistance benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even if there is a balance on your claim.
+      Your Disaster Unemployment Assistance (DUA) benefits have ended. Federal law does not allow DUA benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2996,7 +2998,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3052,7 +3054,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Federal unemployment benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even if there is a balance on your claim.
+      Federal unemployment benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3084,7 +3086,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3140,7 +3142,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Federal unemployment benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even if there is a balance on your claim.
+      Federal unemployment benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3172,7 +3174,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3228,7 +3230,7 @@ exports[`Scenario 11 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Pandemic Emergency Unemployment Compensation (PEUC) benefits have ended. Federal law does not allow PEUC benefits to be paid for weeks of unemployment after September 4, 2021, even if there is a balance on your claim.
+      Pandemic Emergency Unemployment Compensation (PEUC) benefits have ended. Federal law does not allow PEUC benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3260,7 +3262,7 @@ exports[`Scenario 11 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3316,7 +3318,7 @@ exports[`Scenario 11 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Pandemic Emergency Unemployment Compensation (PEUC) benefits have ended. Federal law does not allow PEUC benefits to be paid for weeks of unemployment after September 4, 2021, even if there is a balance on your claim.
+      Pandemic Emergency Unemployment Compensation (PEUC) benefits have ended. Federal law does not allow PEUC benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3348,7 +3350,7 @@ exports[`Scenario 11 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3404,7 +3406,7 @@ exports[`Scenario 12 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Federal-State Extended Duration (FED-ED) benefits have ended. Federal law does not allow FED-ED benefits to be paid for weeks of unemployment after September 11, 2021, even if there is a balance on your claim.
+      Federal-State Extended Duration (FED-ED) benefits have ended. Federal law does not allow FED-ED benefits to be paid for weeks of unemployment after September 11, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3436,7 +3438,7 @@ exports[`Scenario 12 matches, on desktop 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3492,7 +3494,7 @@ exports[`Scenario 12 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Federal-State Extended Duration (FED-ED) benefits have ended. Federal law does not allow FED-ED benefits to be paid for weeks of unemployment after September 11, 2021, even if there is a balance on your claim.
+      Federal-State Extended Duration (FED-ED) benefits have ended. Federal law does not allow FED-ED benefits to be paid for weeks of unemployment after September 11, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3524,7 +3526,7 @@ exports[`Scenario 12 matches, on mobile 1`] = `
           >
             enough wages
           </a>
-           (paid by an employer) in the last 18 months and are still unemployed or working part time.
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
