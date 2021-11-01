@@ -14,7 +14,7 @@ describe('Valid dates: A date is', () => {
     loggerSpy.mockClear()
     expect(isValidDate('1831-01-01T00:00:00')).toBe(false)
     expect(loggerSpy).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('warn', expect.anything(), 'Unexpected date')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'warn', expect.anything(), 'Unexpected date')
   })
 
   it('valid if it is later than the minimum date', () => {
