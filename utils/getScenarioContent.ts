@@ -38,7 +38,7 @@ export const ScenarioTypeNames = {
   [ScenarioType.Scenario7]: 'Benefit year end: Regular UI',
   [ScenarioType.Scenario8]: 'Benefit year end: PUA',
   [ScenarioType.Scenario9]: 'Benefit year end: DUA',
-  [ScenarioType.Scenario10]: 'Benefit year end: Other Extensions',
+  [ScenarioType.Scenario10]: 'Benefit year end: Old Extensions',
   [ScenarioType.Scenario11]: 'Benefit year end: Pandemic Extensions',
   [ScenarioType.Scenario12]: 'Benefit year end: FED-ED Extension',
 }
@@ -182,7 +182,7 @@ export function isPandemicExtension(programType: string): boolean {
 /**
  * Identifies the Program Types that count as another extension
  **/
-export function isOtherExtension(programType: string): boolean {
+export function isOldExtension(programType: string): boolean {
   const byeValidExtensions = {
     EUC: 'EUC - Tier 1 Extension',
     EUX: 'EUX - Tier 2 Extension',
@@ -213,7 +213,7 @@ export function isBye(claimData: Claim): boolean {
 
   if (
     claimData.isBye &&
-    (programType in byeValidPrograms || isPandemicExtension(programType) || isOtherExtension(programType))
+    (programType in byeValidPrograms || isPandemicExtension(programType) || isOldExtension(programType))
   ) {
     return true
   }
@@ -228,7 +228,7 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
   const programType = claimData.claimDetails?.programType
 
   if (programType) {
-    if (isOtherExtension(programType)) {
+    if (isOldExtension(programType)) {
       return ScenarioType.Scenario10
     }
 
