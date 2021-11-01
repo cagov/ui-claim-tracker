@@ -29,7 +29,7 @@ This repo contains the Claim Status Tracker app, which helps Californians better
   - URL_PREFIX_UIO_DESKTOP
   - URL_PREFIX_UIO_MOBILE
   - URL_PREFIX_BPO
-- (Optional) ASSET_PREFIX: The static asset path (default is `/claimstatus`)
+- ASSET_PREFIX: The static asset path (default is `/claimstatus`; this env var is required for local development)
 
 For local development:
 
