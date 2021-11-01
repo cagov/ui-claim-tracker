@@ -1,9 +1,12 @@
 const { i18n } = require('./next-i18next.config')
 
-const isAzureEnv = process.env.NODE_ENV === 'production'
+const assetPrefix =
+  process.env.ASSET_PREFIX === 'undefined' || process.env.ASSET_PREFIX === undefined
+    ? '/claimstatus'
+    : process.env.ASSET_PREFIX
 
 module.exports = {
-  assetPrefix: isAzureEnv ? '/claimstatus' : '',
+  assetPrefix: assetPrefix,
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.fallback = {
