@@ -166,3 +166,21 @@ describe('Scenario 10', () => {
     expect(testClaimStatus(ScenarioType.Scenario10, true, true)).toMatchSnapshot()
   })
 })
+
+describe('Scenario 11', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario11)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario11, true, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 12', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario12)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario12, true, true)).toMatchSnapshot()
+  })
+})

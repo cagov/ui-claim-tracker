@@ -71,7 +71,8 @@
     "edd": {
       "ui-certify": "https://edd.ca.gov/Unemployment/certify-espanol.htm",
       "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status-espanol.htm",
-      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm"
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/ui-calculator-espanol.htm"
     }
   }
 }

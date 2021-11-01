@@ -89,7 +89,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('EUC - Tier 1 Extension')
+    expect(response.claimDetails?.programType).toBe('PUA')
   })
 
   it('is correct for Scenario 9', () => {
@@ -101,7 +101,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('PUA')
+    expect(response.claimDetails?.programType).toBe('DUA')
   })
 
   it('is correct for Scenario 10', () => {
@@ -113,6 +113,30 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
     expect(response.isBye).toBe(true)
-    expect(response.claimDetails?.programType).toBe('DUA')
+    expect(response.claimDetails?.programType).toBe('EUW - Tier 3 Extension')
+  })
+
+  it('is correct for Scenario 11', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario11)
+    // make sure no higher precedence scenarios will apply
+    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
+    expect(response.hasValidPendingWeeks).toBe(false)
+    expect(response.hasCertificationWeeksAvailable).toBe(false)
+    // check the BYE settings
+    expect(response.isBye).toBe(true)
+    expect(response.claimDetails?.programType).toBe('PEUC - Tier 1 Extension')
+  })
+
+  it('is correct for Scenario 12', () => {
+    const response = apiGatewayStub(ScenarioType.Scenario12)
+    // make sure no higher precedence scenarios will apply
+    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
+    expect(response.hasValidPendingWeeks).toBe(false)
+    expect(response.hasCertificationWeeksAvailable).toBe(false)
+    // check the BYE settings
+    expect(response.isBye).toBe(true)
+    expect(response.claimDetails?.programType).toBe('FED-ED Extension')
   })
 })

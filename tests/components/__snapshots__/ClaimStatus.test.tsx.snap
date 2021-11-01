@@ -2517,7 +2517,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Benefit Year Has Ended
     </h3>
   </div>
   <div
@@ -2526,7 +2526,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Your benefit year has ended on your regular Unemployment Insurance claim. Although you have a claim balance remaining, you cannot be paid for additional weeks as your claim has expired.
+      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2544,15 +2544,21 @@ exports[`Scenario 7 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2575,7 +2581,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -2599,7 +2605,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Benefit Year Has Ended
     </h3>
   </div>
   <div
@@ -2608,7 +2614,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Your benefit year has ended on your regular Unemployment Insurance claim. Although you have a claim balance remaining, you cannot be paid for additional weeks as your claim has expired.
+      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2626,15 +2632,21 @@ exports[`Scenario 7 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2657,7 +2669,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -2681,7 +2693,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Pandemic Unemployment Assistance Has Ended
     </h3>
   </div>
   <div
@@ -2690,7 +2702,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Federal extension benefits have ended. Although you have a federal extension with a balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+      Pandemic Unemployment Assistance (PUA) benefits have ended. Federal law does not allow PUA benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2708,15 +2720,21 @@ exports[`Scenario 8 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2739,7 +2757,7 @@ exports[`Scenario 8 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -2763,7 +2781,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Pandemic Unemployment Assistance Has Ended
     </h3>
   </div>
   <div
@@ -2772,7 +2790,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Federal extension benefits have ended. Although you have a federal extension with a balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+      Pandemic Unemployment Assistance (PUA) benefits have ended. Federal law does not allow PUA benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2790,15 +2808,21 @@ exports[`Scenario 8 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2821,7 +2845,7 @@ exports[`Scenario 8 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -2845,7 +2869,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Disaster Unemployment Assistance Has Ended
     </h3>
   </div>
   <div
@@ -2854,7 +2878,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Pandemic Unemployment Assistance benefits have ended. Although you have PUA claim balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+      Your Disaster Unemployment Assistance (DUA) benefits have ended. Federal law does not allow DUA benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2872,15 +2896,21 @@ exports[`Scenario 9 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2903,7 +2933,7 @@ exports[`Scenario 9 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -2927,7 +2957,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Disaster Unemployment Assistance Has Ended
     </h3>
   </div>
   <div
@@ -2936,7 +2966,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Pandemic Unemployment Assistance benefits have ended. Although you have PUA claim balance remaining, federal law does not allow benefits to be paid for weeks of unemployment after the program ends.
+      Your Disaster Unemployment Assistance (DUA) benefits have ended. Federal law does not allow DUA benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2954,15 +2984,21 @@ exports[`Scenario 9 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -2985,7 +3021,7 @@ exports[`Scenario 9 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -3009,7 +3045,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Federal Unemployment Benefits Have Ended
     </h3>
   </div>
   <div
@@ -3018,7 +3054,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Disaster Unemployment Assistance benefits has ended. Although you have a claim balance remaining, you cannot be paid for additional weeks as DUA benefits are payable only for weeks that fall within the Disaster Assistance Period.
+      Federal unemployment benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3036,15 +3072,21 @@ exports[`Scenario 10 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3067,7 +3109,7 @@ exports[`Scenario 10 matches, on desktop 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
           <div
             className="sub-bullets"
           />
@@ -3091,7 +3133,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
     <h3
       className="header-line"
     >
-      Benefits Expired
+      Federal Unemployment Benefits Have Ended
     </h3>
   </div>
   <div
@@ -3100,7 +3142,7 @@ exports[`Scenario 10 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Disaster Unemployment Assistance benefits has ended. Although you have a claim balance remaining, you cannot be paid for additional weeks as DUA benefits are payable only for weeks that fall within the Disaster Assistance Period.
+      Federal unemployment benefits have ended. Federal law does not allow benefits to be paid for weeks of unemployment after these programs end, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -3118,15 +3160,21 @@ exports[`Scenario 10 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          You currently have no weeks available to certify.
-          <div
-            className="sub-bullets"
-          />
-        </li>
-        <li
-          className="next-step"
-        >
-          If you earned enough wages from an employer in the past 18 months and are still unemployed or working part time, you can apply for regular unemployment benefits.
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
           />
@@ -3149,7 +3197,359 @@ exports[`Scenario 10 matches, on mobile 1`] = `
         <li
           className="next-step"
         >
-          None at this time
+          None at this time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 11 matches, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pandemic Emergency Unemployment Compensation Has Ended
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Pandemic Emergency Unemployment Compensation (PEUC) benefits have ended. Federal law does not allow PEUC benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 11 matches, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Pandemic Emergency Unemployment Compensation Has Ended
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Pandemic Emergency Unemployment Compensation (PEUC) benefits have ended. Federal law does not allow PEUC benefits to be paid for weeks of unemployment after September 4, 2021, even though you have a balance on your claim.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 12 matches, on desktop 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Federal-State Extended Duration Benefits Have Ended
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Federal-State Extended Duration (FED-ED) benefits have ended. Federal law does not allow FED-ED benefits to be paid for weeks of unemployment after September 11, 2021, even though you have a balance on your claim.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You can 
+          <a
+            href="https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Scenario 12 matches, on mobile 1`] = `
+<div
+  className="claim-status claim-section"
+>
+  <h2>
+    Claim Status
+  </h2>
+  <div
+    className="pending-status claim-subsection"
+  >
+    <h3
+      className="header-line"
+    >
+      Federal-State Extended Duration Benefits Have Ended
+    </h3>
+  </div>
+  <div
+    className="summary"
+  >
+    <div
+      className="summary-section"
+    >
+      Federal-State Extended Duration (FED-ED) benefits have ended. Federal law does not allow FED-ED benefits to be paid for weeks of unemployment after September 11, 2021, even though you have a balance on your claim.
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      Your Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          You can 
+          <a
+            href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
+          >
+            reapply for unemployment benefits
+          </a>
+           if you earned 
+          <a
+            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            enough wages
+          </a>
+           from an employer in the last 18 months and are still unemployed or working part time.
+          <div
+            className="sub-bullets"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="next-steps claim-subsection"
+  >
+    <h3
+      className="next-steps-header"
+    >
+      EDD Next Steps
+    </h3>
+    <div
+      className="next-step-explanation"
+    >
+      <ul>
+        <li
+          className="next-step"
+        >
+          None at this time.
           <div
             className="sub-bullets"
           />
