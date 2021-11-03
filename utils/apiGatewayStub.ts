@@ -89,6 +89,7 @@ export default function apiGatewayStub(
 
     case ScenarioType.Scenario7:
       claim.isBye = true
+      claim.pendingDetermination = [] // test this alternative null pendingDetermination
       hasClaimDetails = true
       programType = 'UI'
       break
