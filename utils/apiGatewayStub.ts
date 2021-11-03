@@ -88,38 +88,38 @@ export default function apiGatewayStub(
       break
 
     case ScenarioType.Scenario7:
-      claim.isBye = true
+      claim.isBYE = true
       claim.pendingDetermination = [] // test this alternative null pendingDetermination
       hasClaimDetails = true
       programType = 'UI'
       break
 
     case ScenarioType.Scenario8:
-      claim.isBye = true
+      claim.isBYE = true
       hasClaimDetails = true
       programType = 'PUA'
       break
 
     case ScenarioType.Scenario9:
-      claim.isBye = true
+      claim.isBYE = true
       hasClaimDetails = true
       programType = 'DUA'
       break
 
     case ScenarioType.Scenario10:
-      claim.isBye = true
+      claim.isBYE = true
       hasClaimDetails = true
       programType = 'EUW - Tier 3 Extension'
       break
 
     case ScenarioType.Scenario11:
-      claim.isBye = true
+      claim.isBYE = true
       hasClaimDetails = true
       programType = 'PEUC - Tier 1 Extension'
       break
 
     case ScenarioType.Scenario12:
-      claim.isBye = true
+      claim.isBYE = true
       hasClaimDetails = true
       programType = 'FED-ED Extension'
       break

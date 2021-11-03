@@ -53,7 +53,7 @@ export interface Claim {
   hasPendingWeeks?: null | undefined | boolean // deprecated for hasValidPendingWeeks
   hasValidPendingWeeks?: null | undefined | boolean
   hasCertificationWeeksAvailable?: null | undefined | boolean
-  isBye?: null | undefined | boolean
+  isBYE?: null | undefined | boolean
   pendingDetermination?: null | PendingDetermination[]
 }
 

@@ -76,7 +76,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('UI')
   })
 
@@ -88,7 +88,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('PUA')
   })
 
@@ -100,7 +100,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('DUA')
   })
 
@@ -112,7 +112,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('EUW - Tier 3 Extension')
   })
 
@@ -124,7 +124,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('PEUC - Tier 1 Extension')
   })
 
@@ -136,7 +136,7 @@ describe('The API gateway stub response for the Bye States', () => {
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('FED-ED Extension')
   })
 })
