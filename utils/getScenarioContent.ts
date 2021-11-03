@@ -202,7 +202,7 @@ export function isOldExtension(programType: string): boolean {
  * Identify if the benefit claim year has ended for appropriate
  * claim types
  **/
-export function isBye(claimData: Claim): boolean {
+export function isBenefitYearExpired(claimData: Claim): boolean {
   const byeValidPrograms = {
     UI: 'UI',
     DUA: 'DUA',
@@ -212,7 +212,7 @@ export function isBye(claimData: Claim): boolean {
   const programType = claimData.claimDetails?.programType || ''
 
   if (
-    claimData.isBye &&
+    claimData.isBYE &&
     (programType in byeValidPrograms || isPandemicExtension(programType) || isOldExtension(programType))
   ) {
     return true
@@ -283,8 +283,8 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   else if (claimData.hasCertificationWeeksAvailable === true) {
     return { scenarioType: ScenarioType.Scenario6 }
   }
-  // isBye === true
-  else if (isBye(claimData)) {
+  // isBYE === true
+  else if (isBenefitYearExpired(claimData)) {
     const byeScenarioType = byeScenario(claimData)
     if (byeScenarioType) {
       return { scenarioType: byeScenarioType }
