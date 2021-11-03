@@ -104,6 +104,10 @@ export class Logger {
 
   /**
    * Wrapper for all pino log functions.
+   *
+   * Important note! Do not `throw` any errors from inside this function. This
+   * function is often called from within a catch block and throwing a function
+   * at that stage will break the application in an undesirable way.
    */
   // eslint-disable-next-line @typescript-eslint/ban-types
   log(childLogger: pino.Logger | null, logFn: LogFunction, mergingObject: object, message: string): void {
