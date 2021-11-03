@@ -144,6 +144,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       lastPaymentAmount: null,
       monetaryStatus: '',
     },
+    uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
@@ -162,6 +163,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       lastPaymentAmount: null,
       monetaryStatus: '',
     },
+    uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     isBye: false,
@@ -179,6 +181,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       lastPaymentAmount: null,
       monetaryStatus: '',
     },
+    uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
     hasValidPendingWeeks: false,
     isBye: false,

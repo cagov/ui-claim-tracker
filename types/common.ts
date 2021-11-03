@@ -37,12 +37,12 @@ export interface PendingDetermination {
 
 export interface ClaimDetailsResult {
   programType: string
-  benefitYearStartDate: string
-  benefitYearEndDate: string
-  claimBalance: number
-  weeklyBenefitAmount: number
-  lastPaymentIssued: string
-  lastPaymentAmount: number
+  benefitYearStartDate: string | null
+  benefitYearEndDate: string | null
+  claimBalance: number | null
+  weeklyBenefitAmount: number | null
+  lastPaymentIssued: string | null
+  lastPaymentAmount: number | null
   monetaryStatus: string
 }
 
