@@ -72,7 +72,7 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
     ['UI', ScenarioType.Scenario7],
     ['PUA', ScenarioType.Scenario8],
     ['DUA', ScenarioType.Scenario9],
-    ['Other Extension', ScenarioType.Scenario10],
+    ['Old Extension', ScenarioType.Scenario10],
     ['Pandemic Extension', ScenarioType.Scenario11],
     ['FED-ED Extension', ScenarioType.Scenario12],
   ]
@@ -135,6 +135,13 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
     const scenarioObject = getScenario(byeInvalidProgram)
     expect(scenarioObject.scenarioType).not.toBe(ScenarioType.Scenario7)
     expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario5)
+  })
+
+  it('FED-ED prior to cutoff date should return Scenario 10', () => {
+    const scenarioObject = getScenario(
+      apiGatewayStub(ScenarioType.Scenario12, false, true, 'FED-ED', '2016-10-05T00:00:00'),
+    )
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario10)
   })
 })
 
