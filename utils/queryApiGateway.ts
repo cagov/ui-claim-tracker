@@ -126,7 +126,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
   // This is a trick to make a deep-copy of a JSON object
   const response: Claim = JSON.parse(JSON.stringify(apiBody)) as Claim
   const responseUniqueNumber = response.uniqueNumber
-  delete response.uniqueNumber
+  response.uniqueNumber = null
 
   // This is an unexpected null response we are seeing in production
   // where the API responses with a matching UniqueNumber we asked for,
@@ -147,6 +147,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
+    isBye: false,
     pendingDetermination: [],
   }
 
@@ -163,6 +164,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
     },
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+    isBye: false,
     pendingDetermination: [],
   }
 
@@ -179,6 +181,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
     },
     hasCertificationWeeksAvailable: false,
     hasValidPendingWeeks: false,
+    isBye: false,
     pendingDetermination: [],
   }
 
@@ -199,7 +202,16 @@ export function reponseIsNullish(apiBody: Claim): boolean {
  */
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
-  let apiData: Claim = { ClaimType: undefined }
+  let apiData: Claim = {
+    ClaimType: undefined,
+    uniqueNumber: null,
+    claimDetails: null,
+    hasCertificationWeeksAvailable: null,
+    hasPendingWeeks: null,
+    hasValidPendingWeeks: null,
+    isBye: null,
+    pendingDetermination: null,
+  }
   let options: AgentOptions | null = null
   const logger: Logger = Logger.getInstance()
   const childLogger = asyncContext.getStore() as pinoLogger

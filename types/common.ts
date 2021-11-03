@@ -48,13 +48,13 @@ export interface ClaimDetailsResult {
 
 export interface Claim {
   ClaimType?: null | undefined | string
-  uniqueNumber?: null | string
-  claimDetails?: null | ClaimDetailsResult
-  hasPendingWeeks?: null | undefined | boolean // deprecated for hasValidPendingWeeks
-  hasValidPendingWeeks?: null | undefined | boolean
-  hasCertificationWeeksAvailable?: null | undefined | boolean
-  isBye?: null | undefined | boolean
-  pendingDetermination?: null | PendingDetermination[]
+  uniqueNumber: null | string
+  claimDetails: null | ClaimDetailsResult
+  hasPendingWeeks: null | undefined | boolean // deprecated for hasValidPendingWeeks
+  hasValidPendingWeeks: null | undefined | boolean
+  hasCertificationWeeksAvailable: null | undefined | boolean
+  isBye: null | undefined | boolean
+  pendingDetermination: null | PendingDetermination[]
 }
 
 // Types for Claim Status and Claim Details
