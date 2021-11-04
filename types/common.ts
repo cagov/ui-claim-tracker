@@ -37,24 +37,44 @@ export interface PendingDetermination {
 
 export interface ClaimDetailsResult {
   programType: string
-  benefitYearStartDate: string | null
-  benefitYearEndDate: string | null
-  claimBalance: number | null
-  weeklyBenefitAmount: number | null
-  lastPaymentIssued: string | null
-  lastPaymentAmount: number | null
+  benefitYearStartDate: string
+  benefitYearEndDate: string
+  claimBalance: number
+  weeklyBenefitAmount: number
+  lastPaymentIssued: string
+  lastPaymentAmount: number
   monetaryStatus: string
+}
+
+export interface NullClaimDetailsResult {
+  benefitYearStartDate: null
+  benefitYearEndDate: null
+  claimBalance: null
+  weeklyBenefitAmount: null
+  lastPaymentIssued: null
+  lastPaymentAmount: null
 }
 
 export interface Claim {
   ClaimType?: null | undefined | string
   uniqueNumber: null | string
   claimDetails: null | ClaimDetailsResult
-  hasPendingWeeks: null | undefined | boolean // deprecated for hasValidPendingWeeks
-  hasValidPendingWeeks: null | undefined | boolean
-  hasCertificationWeeksAvailable: null | undefined | boolean
-  isBye: null | undefined | boolean
+  hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
+  hasValidPendingWeeks: boolean
+  hasCertificationWeeksAvailable: boolean
+  isBye: boolean
   pendingDetermination: null | PendingDetermination[]
+}
+
+export interface NullClaim {
+  ClaimType?: null
+  uniqueNumber: null | string
+  claimDetails: null | NullClaimDetailsResult
+  hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
+  hasValidPendingWeeks: boolean
+  hasCertificationWeeksAvailable: boolean
+  isBye: boolean
+  pendingDetermination: null | []
 }
 
 // Types for Claim Status and Claim Details

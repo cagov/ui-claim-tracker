@@ -18,7 +18,7 @@ import { IncomingMessage } from 'http'
 import path from 'path'
 import { Logger as pinoLogger } from 'pino'
 
-import { Claim } from '../types/common'
+import { Claim, NullClaim } from '../types/common'
 import { asyncContext } from './asyncContext'
 import { Logger } from './logger'
 
@@ -205,14 +205,14 @@ export function reponseIsNullish(apiBody: Claim): boolean {
  */
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
-  let apiData: Claim = {
+  let apiData: Claim | NullClaim = {
     ClaimType: undefined,
     uniqueNumber: null,
     claimDetails: null,
-    hasCertificationWeeksAvailable: null,
-    hasPendingWeeks: null,
-    hasValidPendingWeeks: null,
-    isBye: null,
+    hasCertificationWeeksAvailable: false,
+    hasPendingWeeks: false,
+    hasValidPendingWeeks: false,
+    isBye: false,
     pendingDetermination: null,
   }
   let options: AgentOptions | null = null
@@ -285,9 +285,8 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     logger.log(childLogger, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
-
   // Yell if the API returns a null or null-ish response
-  if (reponseIsNullish(apiData)) {
+  else if (reponseIsNullish(apiData)) {
     const nullResponseError = new Error(
       `API responded with a null response (queried with ${uniqueNumber}, responded with ${
         apiData.uniqueNumber || 'null'
@@ -295,7 +294,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     )
     logger.log(childLogger, 'error', nullResponseError, 'Unexpected API gateway response')
     throw nullResponseError
+  } else {
+    return apiData
   }
-
-  return apiData
 }
