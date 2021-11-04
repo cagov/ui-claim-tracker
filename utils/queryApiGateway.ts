@@ -278,7 +278,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   }
 
   // Yell real loud if the API returns a different, non-null uniqueNumber
-  if (apiData?.uniqueNumber && apiData?.uniqueNumber !== uniqueNumber) {
+  if (apiData.uniqueNumber && apiData.uniqueNumber !== uniqueNumber) {
     const mismatchError = new Error(
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
