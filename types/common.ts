@@ -62,7 +62,7 @@ export interface Claim {
   hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
   hasValidPendingWeeks: boolean
   hasCertificationWeeksAvailable: boolean
-  isBye: boolean
+  isBYE: boolean
   pendingDetermination: null | PendingDetermination[]
 }
 
@@ -73,7 +73,7 @@ export interface NullClaim {
   hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
   hasValidPendingWeeks: boolean
   hasCertificationWeeksAvailable: boolean
-  isBye: boolean
+  isBYE: boolean
   pendingDetermination: null | []
 }
 

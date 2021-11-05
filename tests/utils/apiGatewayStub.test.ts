@@ -7,8 +7,8 @@ describe('The API gateway stub response for the Determination Interview scenario
     const response = apiGatewayStub(ScenarioType.Scenario1)
     expect(response.pendingDetermination.length).toBe(1)
     const pendingDetermination = response.pendingDetermination
-    expect([null, false, undefined, '']).toContain(pendingDetermination.determinationStatus)
-    expect([null, false, undefined, '']).toContain(pendingDetermination.scheduleDate)
+    expect([null, false, undefined, '']).toContainEqual(pendingDetermination.determinationStatus)
+    expect([null, false, undefined, '']).toContainEqual(pendingDetermination.scheduleDate)
     expect(pendingDetermination.requestDate).not.toBe('')
   })
 
@@ -42,17 +42,17 @@ describe('The API gateway stub response for the Determination Interview scenario
 describe('The API gateway stub response for the Generic Pending state', () => {
   it('is correct for Scenario 4', () => {
     const response = apiGatewayStub(ScenarioType.Scenario4)
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(true) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(true)
-    expect([true, false]).toContain(response.hasCertificationWeeksAvailable)
+    expect([true, false]).toContainEqual(response.hasCertificationWeeksAvailable)
   })
 })
 
 describe('The API gateway stub response for the Base States', () => {
   it('is correct for Scenario 5', () => {
     const response = apiGatewayStub(ScenarioType.Scenario5)
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
@@ -60,7 +60,7 @@ describe('The API gateway stub response for the Base States', () => {
 
   it('is correct for Scenario 6', () => {
     const response = apiGatewayStub(ScenarioType.Scenario6)
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(true)
@@ -71,72 +71,72 @@ describe('The API gateway stub response for the Bye States', () => {
   it('is correct for Scenario 7', () => {
     const response = apiGatewayStub(ScenarioType.Scenario7)
     // make sure no higher precedence scenarios will apply
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('UI')
   })
 
   it('is correct for Scenario 8', () => {
     const response = apiGatewayStub(ScenarioType.Scenario8)
     // make sure no higher precedence scenarios will apply
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('PUA')
   })
 
   it('is correct for Scenario 9', () => {
     const response = apiGatewayStub(ScenarioType.Scenario9)
     // make sure no higher precedence scenarios will apply
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('DUA')
   })
 
   it('is correct for Scenario 10', () => {
     const response = apiGatewayStub(ScenarioType.Scenario10)
     // make sure no higher precedence scenarios will apply
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('EUW - Tier 3 Extension')
   })
 
   it('is correct for Scenario 11', () => {
     const response = apiGatewayStub(ScenarioType.Scenario11)
     // make sure no higher precedence scenarios will apply
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('PEUC - Tier 1 Extension')
   })
 
   it('is correct for Scenario 12', () => {
     const response = apiGatewayStub(ScenarioType.Scenario12)
     // make sure no higher precedence scenarios will apply
-    expect([null, [], false, undefined]).toContain(response.pendingDetermination)
+    expect([null, [], false, undefined]).toContainEqual(response.pendingDetermination)
     expect(response.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(response.hasValidPendingWeeks).toBe(false)
     expect(response.hasCertificationWeeksAvailable).toBe(false)
     // check the BYE settings
-    expect(response.isBye).toBe(true)
+    expect(response.isBYE).toBe(true)
     expect(response.claimDetails?.programType).toBe('FED-ED Extension')
   })
 })
