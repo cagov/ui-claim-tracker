@@ -35,7 +35,7 @@ describe('Querying the API Gateway', () => {
     hasValidPendingWeeks: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasCertificationWeeksAvailable: false,
-    isBye: false,
+    isBYE: false,
     claimDetails: null,
     pendingDetermination: null,
     uniqueNumber: goodUniqueNumber,
@@ -219,7 +219,7 @@ describe('Querying the API Gateway', () => {
       hasCertificationWeeksAvailable: false,
       hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
       hasValidPendingWeeks: false,
-      isBye: false,
+      isBYE: false,
       pendingDetermination: [],
     }
 
@@ -249,7 +249,7 @@ describe('Querying the API Gateway', () => {
       claimDetails: null,
       hasCertificationWeeksAvailable: false,
       hasValidPendingWeeks: false,
-      isBye: false,
+      isBYE: false,
       pendingDetermination: null,
     }
 
