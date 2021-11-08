@@ -143,6 +143,25 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
     )
     expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario10)
   })
+
+  const falseyBenefitYearEndDates = [
+    ['null', null],
+    ['undefined', undefined],
+    ['empty string', ''],
+  ]
+  it.each(falseyBenefitYearEndDates)(
+    'FED-ED with %s benefit year end date throws an error',
+    (description, benefitYearEndDate) => {
+      const invalidByeProgram = apiGatewayStub(ScenarioType.Scenario12, false, false, 'FED-ED', benefitYearEndDate)
+      // Create an invalid claim object by removing benefitYearEndDate.
+      if (benefitYearEndDate === undefined) {
+        delete invalidByeProgram.claimDetails.benefitYearEndDate
+      }
+      expect(() => {
+        getScenario(invalidByeProgram)
+      }).toThrowError('Claim is marked as isBYE, but is missing benefit year end date value')
+    },
+  )
 })
 
 /**

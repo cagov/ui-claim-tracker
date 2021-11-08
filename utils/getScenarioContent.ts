@@ -254,6 +254,8 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
           } else {
             return ScenarioType.Scenario12
           }
+        } else {
+          throw new Error('Claim is marked as isBYE, but is missing benefit year end date value')
         }
     }
   }
