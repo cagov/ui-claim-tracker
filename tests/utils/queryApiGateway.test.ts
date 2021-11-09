@@ -94,7 +94,7 @@ describe('Querying the API Gateway', () => {
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(networkErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -118,7 +118,7 @@ describe('Querying the API Gateway', () => {
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow('API Gateway response is not 200')
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -142,7 +142,7 @@ describe('Querying the API Gateway', () => {
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'API gateway error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
 
     // Restore env vars
     restore()
@@ -165,7 +165,7 @@ describe('Querying the API Gateway', () => {
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(fsErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(0)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Read certificate error')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Read certificate error')
 
     // Restore env vars
     restore()
@@ -183,13 +183,50 @@ describe('Querying the API Gateway', () => {
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
 
     // Restore env vars
     restore()
   })
 
-  it('handles null unique number response mismatch', async () => {
+  it('handles nullish with unique number response', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    const mismatchedResponse = {
+      claimDetails: {
+        programType: '',
+        benefitYearStartDate: null,
+        benefitYearEndDate: null,
+        claimBalance: null,
+        weeklyBenefitAmount: null,
+        lastPaymentIssued: null,
+        lastPaymentAmount: null,
+        monetaryStatus: '',
+      },
+      uniqueNumber: '12345',
+      hasCertificationWeeksAvailable: false,
+      hasPendingWeeks: false,
+      pendingDetermination: [],
+    }
+
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'API responded with a null response (queried with 12345, responded with 12345)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
+  it('handles null unique number response', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
@@ -200,29 +237,11 @@ describe('Querying the API Gateway', () => {
     fetch.mockResolvedValue(new Response(JSON.stringify(mismatchedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
-      'Mismatched API response and Header unique number (null and 12345)',
+      'API responded with a null response (queried with 12345, responded with null)',
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
-
-    // Restore env vars
-    restore()
-  })
-
-  it('handles null unique number request mismatch', async () => {
-    // Mock process.env
-    const restore = mockEnv({
-      API_URL: goodUrl,
-    })
-
-    const mismatchedUniqueNumber = null
-    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
-      'Mismatched API response and Header unique number (12345 and null)',
-    )
-
-    expect(fetch).toHaveBeenCalledTimes(1)
-    expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Unexpected API gateway response')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
 
     // Restore env vars
     restore()
@@ -386,7 +405,12 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
 
     /* eslint-disable jest/no-conditional-expect */
     if (triggersError) {
-      expect(loggerSpy).toHaveBeenCalledWith('error', expect.anything(), 'Missing required environment variable(s)')
+      expect(loggerSpy).toHaveBeenCalledWith(
+        undefined,
+        'error',
+        expect.anything(),
+        'Missing required environment variable(s)',
+      )
       expect(loggerSpy).toHaveBeenCalledTimes(1)
     } else {
       expect(loggerSpy).toHaveBeenCalledTimes(0)

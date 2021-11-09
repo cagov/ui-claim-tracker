@@ -1,5 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import './colorscheme-oceanside.min.css';
+@import './cagov.font-only.css';
 
 // Component class names must not be nested for Storybook to work
 // When this file gets too long we'll split it up into component files
@@ -44,11 +45,11 @@ body {
     }
 
     .navbar-nav {
-      font-size: 14px;
+      font-size: 16px;
       margin: 0 4px 0 4px;
 
       .nav-link {
-        font-size: 14px;
+        font-size: 16px;
         margin: 0 4px 0 4px;
       }
     }
@@ -66,6 +67,16 @@ body {
       }
     }
 
+    .navbar-light .navbar-nav {
+      margin: 0 4px -12px 4px;
+      border-bottom: 4px solid #FDB81E;
+
+      &:hover {
+        margin: 0 4px -12px 4px;
+        border-bottom: 4px solid #046B99;
+      }
+    }
+
     .navbar-toggler {
       border: 0;
       font-size: 2rem;
@@ -79,6 +90,63 @@ body {
     .text {
       vertical-align: middle;
       display: inline-block;
+    }
+
+    .uiom {
+      border-bottom: 0 !important;
+    }
+  }
+
+  .header-icon {
+    margin: 0 2rem;
+    text-align: center;
+
+    &:hover .text, &:hover [class^='ca-gov-icon-'] {
+      color: #B55E00;
+    }
+
+    [class^='ca-gov-icon-'] {
+      color: #116c97;
+      display: block;
+      font-size: 2rem;
+      margin: 0.5rem;
+    }
+
+    @media (min-width: 1200px) {
+      [class^='ca-gov-icon-'] {
+        margin: 0.5rem 1.25rem;
+      }
+    }
+
+    .text {
+      color: #555555;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .header {
+      .navbar-collapse {
+        margin-top: 5px;
+      }
+
+      .navbar-light .navbar-nav {
+        text-align: left;
+        border-bottom: 1px solid #E1F2F7;
+        margin: 0 4px 0 4px;
+
+        &:hover {
+          margin: 0 4px 0 4px;
+          border-bottom: 1px solid #E1F2F7;
+        }
+      }
+
+      .nav-link {
+        display: flex;
+      }
+
+      .text {
+        margin: 0.5rem 0;
+      }
     }
   }
 
@@ -149,6 +217,20 @@ body {
     margin-left: 0.5rem;
   }
 
+  .error-content {
+    .error-label {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 5.25rem;
+    }
+
+    .error-entry {
+      font-size: 1.5rem;
+      padding: 1rem 0;
+      line-height: 2rem;
+    }
+  }
+
   .main {
     flex: 1;
     display: flex;
@@ -159,20 +241,6 @@ body {
     //Keep reasonable padding regardless of screen size
     .main-content {
       padding: 5rem 1rem;
-    }
-
-    .error-content {
-      .error-label {
-        font-size: 3.5rem;
-        font-weight: 700;
-        line-height: 5.25rem;
-      }
-
-      .error-entry {
-        font-size: 1.5rem;
-        padding: 1rem 0;
-        line-height: 2rem;
-      }
     }
 
     @media (min-width: 768px) {

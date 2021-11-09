@@ -1,12 +1,12 @@
 const { i18n } = require('./next-i18next.config')
 
-const isAzureEnv = process.env.NODE_ENV === 'production'
+const assetPrefix =
+  process.env.ASSET_PREFIX === 'undefined' || process.env.ASSET_PREFIX === undefined
+    ? '/claimstatus'
+    : process.env.ASSET_PREFIX
 
 module.exports = {
-  // The Claim Tracker application must live at /claimstatus because IDM Webgate
-  // expects the "context root" to be /claimstatus, and all other pages must be sub-paths.
-  basePath: '/claimstatus',
-  assetPrefix: isAzureEnv ? '/claimstatus' : '',
+  assetPrefix: assetPrefix,
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.fallback = {

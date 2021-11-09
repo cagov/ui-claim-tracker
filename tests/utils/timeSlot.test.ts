@@ -1,4 +1,21 @@
-import { convertTo24H, isFirstTimeSlotEarlier, parseTimeSlot } from '../../utils/timeSlot'
+import { Logger } from '../../utils/logger'
+import { convertTo24H, isFirstTimeSlotEarlier, parseTimeSlot, validTime } from '../../utils/timeSlot'
+
+// Test validTime()
+describe('Testing a time for validity', () => {
+  const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
+
+  it('returns true for valid time', () => {
+    const result = validTime(10)
+    expect(result).toBe(true)
+  })
+
+  it('returns false for invalid time', () => {
+    const result = validTime(13)
+    expect(result).toBe(false)
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'warn', { time: 13 }, 'Unexpected time')
+  })
+})
 
 // Test parseTimeSlot()
 describe('A time slot string is', () => {

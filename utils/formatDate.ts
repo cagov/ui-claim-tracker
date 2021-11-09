@@ -13,8 +13,10 @@
  */
 
 import { DateTime, Settings } from 'luxon'
+import { Logger as pinoLogger } from 'pino'
 
 import { ApiGatewayDateString } from '../types/common'
+import { asyncContext } from './asyncContext'
 import { Logger } from './logger'
 
 // Our API times come in as PT, and we display in PT - let's just stay in that space
@@ -66,7 +68,8 @@ export function isValidDate(dateString: ApiGatewayDateString): boolean {
   const expectedMinDate = DateTime.fromISO('1970-01-01')
   if (date <= expectedMinDate) {
     const logger = Logger.getInstance()
-    logger.log('warn', { dateString: dateString }, 'Unexpected date')
+    const childLogger = asyncContext.getStore() as pinoLogger
+    logger.log(childLogger, 'warn', { dateString: dateString }, 'Unexpected date')
   }
 
   // Set a min date because it's possible for the date to be '0001-01-01'.

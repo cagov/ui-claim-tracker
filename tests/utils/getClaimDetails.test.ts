@@ -6,14 +6,23 @@ import getClaimDetails, {
   programExtensionPairType,
   programTypeNames,
 } from '../../utils/getClaimDetails'
+import { Logger } from '../../utils/logger'
 
 // Test getProgramExtensionPair()
 describe('Converting ProgramType to user-facing strings', () => {
+  const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
+
+  afterEach(() => {
+    // Clear mocks after each test
+    jest.clearAllMocks()
+  })
+
   it('returns the correct string for each known ProgramType', () => {
     for (const [id, pair] of Object.entries(programExtensionPairs)) {
       const parts: programExtensionPairType = getProgramExtensionPair(programTypeNames[id])
       expect(parts.programType).toBe(pair.programType)
       expect(parts.extensionType).toBe(parts.extensionType)
+      expect(loggerSpy).toHaveBeenCalledWith(undefined, 'info', expect.anything(), 'Program Type: Known')
     }
   })
 
@@ -22,6 +31,7 @@ describe('Converting ProgramType to user-facing strings', () => {
     const parts: programExtensionPairType = getProgramExtensionPair(unknownProgram)
     expect(parts.programType).toBe(unknownProgram)
     expect(parts.extensionType).toBe('')
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'info', { programType: 'unknown' }, 'Program Type: Unknown')
   })
 })
 
