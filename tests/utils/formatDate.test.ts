@@ -1,6 +1,12 @@
 import { DateTime } from 'luxon'
 
-import formatDate, { formatFromApiGateway, isDatePast, isDateStringFalsy, isValidDate } from '../../utils/formatDate'
+import formatDate, {
+  formatFromApiGateway,
+  isDatePast,
+  isDateStringFalsy,
+  isFirstDateBefore,
+  isValidDate,
+} from '../../utils/formatDate'
 import { Logger } from '../../utils/logger'
 
 // Test isValidDate()
@@ -64,6 +70,22 @@ describe('Past dates: A date is', () => {
   it('correctly identified as not past if it is in the future', () => {
     const tomorrow = DateTime.now().plus({ days: 1 })
     expect(isDatePast(tomorrow)).toBe(false)
+  })
+})
+
+// Test isFirstDateBefore()
+describe('Comparing dates: The first date is', () => {
+  const yesterday = formatFromApiGateway(-1)
+  const tomorrow = formatFromApiGateway(1)
+
+  it('correctly identified as being before', () => {
+    expect(isFirstDateBefore(yesterday, tomorrow)).toBe(true)
+  })
+  it('correctly identified as being after', () => {
+    expect(isFirstDateBefore(tomorrow, yesterday)).toBe(false)
+  })
+  it('correctly identified as being after if the second date is equivalent', () => {
+    expect(isFirstDateBefore(yesterday, yesterday)).toBe(false)
   })
 })
 
