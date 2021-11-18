@@ -346,6 +346,7 @@ export default function getScenarioContent(claimData: Claim): ScenarioContent {
   }
 
   const content: ScenarioContent = {
+    scenarioName: ScenarioTypeNames[scenarioType],
     statusContent: statusContent,
     detailsContent: detailsContent,
   }
