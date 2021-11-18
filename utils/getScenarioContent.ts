@@ -29,18 +29,18 @@ export enum ScenarioType {
 }
 
 export const ScenarioTypeNames = {
-  [ScenarioType.Scenario1]: 'Determination interview: not yet scheduled',
-  [ScenarioType.Scenario2]: 'Determination interview: scheduled',
-  [ScenarioType.Scenario3]: 'Determination interview: awaiting decision',
-  [ScenarioType.Scenario4]: 'Generic pending state: pending weeks',
-  [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
-  [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
-  [ScenarioType.Scenario7]: 'Benefit year end: Regular UI',
-  [ScenarioType.Scenario8]: 'Benefit year end: PUA',
-  [ScenarioType.Scenario9]: 'Benefit year end: DUA',
-  [ScenarioType.Scenario10]: 'Benefit year end: Old Extensions',
-  [ScenarioType.Scenario11]: 'Benefit year end: Pandemic Extensions',
-  [ScenarioType.Scenario12]: 'Benefit year end: FED-ED Extension',
+  [ScenarioType.Scenario1]: 'Pending Eligibility: Phone Interview Will Be Scheduled',
+  [ScenarioType.Scenario2]: 'Pending Eligibility: Phone Interview Scheduled',
+  [ScenarioType.Scenario3]: 'Pending Eligibility: Under Review',
+  [ScenarioType.Scenario4]: 'Review Required',
+  [ScenarioType.Scenario5]: 'No Weeks Available to Certify',
+  [ScenarioType.Scenario6]: 'Weeks Available to Certify',
+  [ScenarioType.Scenario7]: 'Benefit Year Has Ended',
+  [ScenarioType.Scenario8]: 'Pandemic Unemployment Assistance Has Ended',
+  [ScenarioType.Scenario9]: 'Disaster Unemployment Assistance Has Ended',
+  [ScenarioType.Scenario10]: 'Federal Unemployment Benefits Have Ended',
+  [ScenarioType.Scenario11]: 'Pandemic Emergency Unemployment Compensation Has Ended',
+  [ScenarioType.Scenario12]: 'Federal-State Extended Duration Benefits Have Ended',
 }
 
 interface PendingDeterminationScenario {
