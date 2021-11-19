@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { isDatePast, isDateStringFalsy, isValidDate, parseApiGatewayDate } from './formatDate'
+import { isDatePast, isDateStringFalsy, isFirstDateBefore, isValidDate, parseApiGatewayDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -226,6 +226,7 @@ export function isBenefitYearExpired(claimData: Claim): boolean {
  **/
 export function byeScenario(claimData: Claim): ScenarioType | null {
   const programType = claimData.claimDetails?.programType
+  const benefitYearEndDate = claimData.claimDetails?.benefitYearEndDate
 
   if (programType) {
     if (isOldExtension(programType)) {
@@ -243,8 +244,19 @@ export function byeScenario(claimData: Claim): ScenarioType | null {
         return ScenarioType.Scenario8
       case 'DUA':
         return ScenarioType.Scenario9
+
+      // BYE scenarios with the Program Type 'FED-ED' are treated differently depending
+      // on whether the benefitYearEndDate is before or on/after 2020-05-10.
       case 'FED-ED Extension':
-        return ScenarioType.Scenario12
+        if (benefitYearEndDate) {
+          if (isFirstDateBefore(benefitYearEndDate, '2020-05-10T00:00:00')) {
+            return ScenarioType.Scenario10
+          } else {
+            return ScenarioType.Scenario12
+          }
+        } else {
+          throw new Error('Claim is marked as isBYE, but is missing benefit year end date value')
+        }
     }
   }
 

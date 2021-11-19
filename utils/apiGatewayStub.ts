@@ -16,6 +16,7 @@ export default function apiGatewayStub(
   hasCertificationWeeksAvailable = false,
   hasClaimDetails = true,
   programType = 'UI',
+  benefitYearEndDate = '2021-03-20T00:00:00',
 ): Claim {
   // Default empty response from the API gateway
   const claim: Claim = {
@@ -134,7 +135,7 @@ export default function apiGatewayStub(
     claim.claimDetails = {
       programType: programType,
       benefitYearStartDate: '2020-03-21T00:00:00',
-      benefitYearEndDate: '2021-03-20T00:00:00',
+      benefitYearEndDate: benefitYearEndDate,
       claimBalance: 1100.45,
       weeklyBenefitAmount: 111,
       lastPaymentIssued: '2021-04-29T00:00:00',

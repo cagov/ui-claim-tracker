@@ -15,7 +15,7 @@ export interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false, urlPrefixes, assetPrefix = '' }) => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
 
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
@@ -34,6 +34,11 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       </Nav>
     )
   } else {
+    let cstUrl: string | undefined = getUrl('uio-status-url', urlPrefixes)
+    if (cstUrl !== undefined && i18n.language !== 'en') {
+      cstUrl += `/${i18n.language}`
+    }
+
     globalHeader = (
       <>
         <HeaderIcon link={uioHomeDesktopLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
@@ -52,11 +57,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           label={t('header.uio-history')}
           icon="ca-gov-icon-clock"
         />
-        <HeaderIcon
-          link={getUrl('uio-status-url', urlPrefixes)}
-          label={t('header.uio-status')}
-          icon="ca-gov-icon-file-medical-alt"
-        />
+        <HeaderIcon link={cstUrl} label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
         <HeaderIcon
           link={getUrl('uio-desktop-profile-url', urlPrefixes)}
           label={t('header.uio-profile')}

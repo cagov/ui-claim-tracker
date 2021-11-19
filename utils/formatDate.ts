@@ -102,6 +102,18 @@ export function isDatePast(date: DateTime): boolean {
 }
 
 /**
+ * Determine if the first date is before (not equal to) the second date.
+ */
+export function isFirstDateBefore(
+  firstDateString: ApiGatewayDateString,
+  secondDateString: ApiGatewayDateString,
+): boolean {
+  const firstDate = parseApiGatewayDate(firstDateString)
+  const secondDate = parseApiGatewayDate(secondDateString)
+  return firstDate < secondDate
+}
+
+/**
  * Format dates for user-facing display.
  *
  * Does not care if the given dateString is a valid date.
