@@ -50,9 +50,16 @@ export default function Home({
   // We need to route our static content through /claimstatus to work properly through EDD
   const favicon = assetPrefix + '/favicon.ico'
 
-  // Once CSP is enabled, if you change the GA script code, you need to update the hash in csp.js to allow
-  // this script to run. Chrome dev tools will have an error with the correct hash value to use.
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script
+  // Get scenario name to display in Google Analytics.
+  // Default to "None" if no scenario is passed through. This can happen in error cases.
+  const scenarioDimension = scenarioContent?.scenarioName ?? 'None'
+
+  // - Once CSP is enabled, if you change the GA script code, you need to update the hash in csp.js to allow
+  //   this script to run. Chrome dev tools will have an error with the correct hash value to use.
+  //   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script
+  // - Send custom dimensions to EDD google analytics instance to capture data about scenarios.
+  //   Dimension 2 has been configured in the GA UI for CST Scenarios.
+  //   https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets#send-custom-dimensions
   const gaScript = `
         window.dataLayer = window.dataLayer || []
         function gtag(){dataLayer.push(arguments)}
@@ -60,7 +67,13 @@ export default function Home({
         // For details see: https://support.google.com/analytics/answer/9310895?hl=en
         // https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
         gtag('config', 'UA-3419582-2', { 'anonymize_ip': true }) // www.ca.gov
-        gtag('config', 'UA-3419582-31', { 'anonymize_ip': true }) // edd.ca.gov`
+        gtag('config', 'UA-3419582-31', { 'anonymize_ip': true, 'custom_map': {'dimension2': 'scenario'} }) // edd.ca.gov
+        gtag('event', 'CST Scenario', {
+          "scenario": "${scenarioDimension}",
+          "event_category": "Claim Status Tracker",
+          "event_label": "${scenarioDimension}",
+          "non_interaction": true
+        })`
 
   const googleAnalytics = (
     <>
