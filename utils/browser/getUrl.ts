@@ -22,7 +22,7 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes): stri
   const urlPrefixUioDesktop = urlPrefixes?.urlPrefixUioDesktop || process.env.URL_PREFIX_UIO_DESKTOP
   const urlPrefixUioMobile = urlPrefixes?.urlPrefixUioMobile || process.env.URL_PREFIX_UIO_MOBILE
   const urlPrefixBpo = urlPrefixes?.urlPrefixBpo || process.env.URL_PREFIX_BPO
-  const urlPrefixUioStatus = urlPrefixes?.urlPrefixUioStatus || process.env.URL_PREFIX_STATUS
+  const urlPrefixUioClaimstatus = urlPrefixes?.urlPrefixUioClaimstatus || process.env.URL_PREFIX_UIO_CLAIMSTATUS
 
   if (urlPrefixUioDesktop && key.startsWith('uio-desktop')) {
     return urls[key].replace('uio.edd.ca.gov/UIO', urlPrefixUioDesktop)
@@ -32,8 +32,8 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes): stri
     return urls[key].replace('uiom.edd.ca.gov/UIOM', urlPrefixUioMobile)
   }
 
-  if (urlPrefixUioStatus && key.startsWith('uio-status')) {
-    return urls[key].replace('uio', urlPrefixUioStatus)
+  if (urlPrefixUioClaimstatus && key.startsWith('uio-claimstatus')) {
+    return urls[key].replace('uio', urlPrefixUioClaimstatus)
   }
 
   if (urlPrefixBpo && key.startsWith('bpo')) {

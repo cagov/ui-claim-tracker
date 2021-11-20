@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       </Nav>
     )
   } else {
-    let cstUrl: string | undefined = getUrl('uio-status-url', urlPrefixes)
+    let cstUrl: string | undefined = getUrl('uio-claimstatus', urlPrefixes)
     if (cstUrl !== undefined && i18n.language !== 'en') {
       cstUrl += `/${i18n.language}`
     }
