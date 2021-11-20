@@ -79,8 +79,8 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
 
   function redirectToUIHome() {
     const uioHomeLink = userArrivedFromUioMobile
-      ? getUrl('uio-mobile-home-url', urlPrefixes)
-      : getUrl('uio-desktop-home-url', urlPrefixes)
+      ? getUrl('uio-mobile-home', urlPrefixes)
+      : getUrl('uio-desktop-home', urlPrefixes)
     window.location.href = uioHomeLink || ''
   }
 

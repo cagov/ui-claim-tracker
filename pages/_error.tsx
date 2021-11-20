@@ -12,7 +12,7 @@ function Error({ userArrivedFromUioMobile = false }: ErrorProps): ReactElement {
   const { t } = useTranslation('common')
 
   function redirectToUIHome() {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home') : getUrl('uio-desktop-home')
     window.location.href = uioHomeLink || ''
   }
 
