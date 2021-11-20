@@ -98,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
             <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-desktop-help-new-claim')}>
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
-            <Nav.Link href={getUrl('bpo-log-out')}>
+            <Nav.Link href={getUrl('bpo-logout')}>
               <span className="text">{t('header.logout')}</span>
             </Nav.Link>
           </Nav>

@@ -59,7 +59,7 @@ export const TimeoutModal: React.FC<TimeoutModalProps> = ({ timedOut, userArrive
       if (typeof window !== 'undefined') {
         // Note that the concatenated portion of this link is functionally useless, as IDM is not currently
         // able to redirect based on the resource_url parameter concatenated.
-        const eddLoginLink = getUrl('bpo-log-in', urlPrefixes)?.concat(
+        const eddLoginLink = getUrl('bpo-login', urlPrefixes)?.concat(
           '?resource_url=',
           encodeURIComponent(window.location.toString()),
         )
