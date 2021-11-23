@@ -12,6 +12,11 @@ pr: none
 pool:
   vmImage: 'ubuntu-latest'
 
+# Disable next.js telemetry
+variables:
+  - name: 'NEXT_TELEMETRY_DISABLED'
+    value: '1'
+
 steps:
   - task: NodeAndNpmTool@1
     inputs:
