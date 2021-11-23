@@ -18,7 +18,7 @@ variables:
     value: '1'
 
 steps:
-  # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/node-js?view=azure-devops
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/node-js
   - task: NodeTool@0
     inputs:
       versionSpec: '14.x'
@@ -28,7 +28,10 @@ steps:
   - script: sudo npm install -g yarn
     displayName: 'Install yarn'
 
-  - script: yarn install
+  # Docs: https://classic.yarnpkg.com/en/docs/cli/install/#toc-yarn-install-no-bin-links
+  # Zipping files with symlinks introduces a potential security vulnerability, so we use
+  #   --no-bin-links to prevent symlinks from being created in node_modules.
+  - script: yarn install --no-bin-links
     displayName: 'Install dependencies'
 
   - script: yarn build
@@ -39,9 +42,6 @@ steps:
       rootFolderOrFile: '$(Build.SourcesDirectory)'
       includeRootFolder: false
     displayName: 'Zip build files'
-
-  - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
-    displayName: 'ZIP com SymLinks'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish artifacts: drop'
