@@ -4,47 +4,49 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-
+  - main
 
 # no PR triggers
 pr: none
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: 'ubuntu-latest'
 
 steps:
   - task: NodeAndNpmTool@1
     inputs:
       versionSpec: '14.x'
       checkLatest: true
+    displayName: 'Install node'
 
   - script: sudo npm install -g yarn
+    displayName: 'Install yarn'
 
   - script: yarn install
     displayName: 'Install dependencies'
 
   - script: yarn build
-    displayName: 'build'
+    displayName: 'Run yarn build'
 
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: "$(build.sourcesDirectory)"
+      rootFolderOrFile: '$(Build.SourcesDirectory)'
       includeRootFolder: false
+    displayName: 'Zip build files'
 
   - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
     displayName: 'ZIP com SymLinks'
 
   - task: PublishBuildArtifacts@1
-    displayName: "Publish artifacts: drop"
+    displayName: 'Publish artifacts: drop'
 
   - task: Veracode@3
-    displayName: 'Upload and scan: $(build.artifactstagingdirectory)'
     inputs:
       ConnectionDetailsSelection: 'Endpoint'
       AnalysisService: 'veracode'
       veracodeAppProfile: 'uiclaim.tracker'
-      version: '$(build.buildNumber)'
+      version: '$(Build.BuildNumber)'
       filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
     continueOnError: true
+    displayName: 'Upload and scan: $(Build.ArtifactStagingDirectory)'
