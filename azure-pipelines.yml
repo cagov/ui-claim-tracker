@@ -37,14 +37,40 @@ steps:
   - script: yarn build
     displayName: 'Run yarn build'
 
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/copy-files?view=azure-devops&tabs=yaml
+  # Default files needed to run yarn start: https://github.com/vercel/next.js/blob/0af3b526408bae26d6b3f8cab75c4229998bf7cb/examples/with-docker/Dockerfile
+  # Note: CST also needs a few additional config/startup files to run
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: '$(Build.SourcesDirectory)'
+      contents: |
+        package.json
+        .next/**
+        node_modules/**
+        public/**
+        next.config.js
+        next-i18next.config.js
+        server-preload.js
+      targetFolder: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)'
+    displayName: 'Copy files needed for yarn start'
+
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/archive-files
+  # Note: Zip up only the necessary files
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: '$(Build.SourcesDirectory)'
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)'
       includeRootFolder: false
-    displayName: 'Zip build files'
+    displayName: 'Zip files needed for yarn start'
 
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish artifacts: drop'
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts
+  # Docs: https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
+  # Publish the zip to deploy to App Service using a package, which mounts the zip as a read-only dir
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      artifactName: '$(Build.BuildId)'
+    displayName: 'Publish artifact: $(Build.BuildId)'
 
   - task: Veracode@3
     inputs:
