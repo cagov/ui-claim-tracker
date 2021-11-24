@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import './cagov.font-only.css';
 @import './colorscheme-oceanside.css';
+@import './custom.css';
 
 // Component class names must not be nested for Storybook to work
 // When this file gets too long we'll split it up into component files
@@ -69,11 +70,11 @@ body {
 
     .navbar-light .navbar-nav {
       margin: 0 4px -12px 4px;
-      border-bottom: 4px solid #FDB81E;
+      border-bottom: 4px solid #fdb81e;
 
       &:hover {
         margin: 0 4px -12px 4px;
-        border-bottom: 4px solid #046B99;
+        border-bottom: 4px solid #046b99;
       }
     }
 
@@ -101,8 +102,9 @@ body {
     margin: 0 2rem;
     text-align: center;
 
-    &:hover .text, &:hover [class^='ca-gov-icon-'] {
-      color: #B55E00;
+    &:hover .text,
+    &:hover [class^='ca-gov-icon-'] {
+      color: #b55e00;
     }
 
     [class^='ca-gov-icon-'] {
@@ -131,12 +133,12 @@ body {
 
       .navbar-light .navbar-nav {
         text-align: left;
-        border-bottom: 1px solid #E1F2F7;
+        border-bottom: 1px solid #e1f2f7;
         margin: 0 4px 0 4px;
 
         &:hover {
           margin: 0 4px 0 4px;
-          border-bottom: 1px solid #E1F2F7;
+          border-bottom: 1px solid #e1f2f7;
         }
       }
 
