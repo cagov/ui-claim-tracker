@@ -2526,7 +2526,7 @@ exports[`Scenario 7 matches, on desktop 1`] = `
     <div
       className="summary-section"
     >
-      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even though you have a balance on your claim.
+      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year ends, even though you have a balance on your claim.
     </div>
   </div>
   <div
@@ -2614,7 +2614,7 @@ exports[`Scenario 7 matches, on mobile 1`] = `
     <div
       className="summary-section"
     >
-      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year end, even though you have a balance on your claim.
+      Your benefit year has ended on your regular unemployment claim. You cannot be paid for weeks of unemployment after your benefit year ends, even though you have a balance on your claim.
     </div>
   </div>
   <div
