@@ -1,4 +1,4 @@
-import '../styles/globals.scss'
+import '../public/styles/globals.scss'
 import { AppProps } from 'next/app'
 import { ReactElement } from 'react'
 import { appWithTranslation } from 'next-i18next'
