@@ -110,6 +110,7 @@ export interface ClaimDetailsContent {
 }
 
 export interface ScenarioContent {
+  scenarioName?: string
   statusContent: ClaimStatusContent
   detailsContent: null | ClaimDetailsContent
 }
