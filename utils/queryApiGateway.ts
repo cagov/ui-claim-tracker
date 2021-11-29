@@ -278,7 +278,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
 
   // Yell real loud if the API returns nothing
   if (!apiData) {
-    const nullError = new Error(`API responded with a null response (queried with ${uniqueNumber}, returned null`)
+    const nullError = new Error(`API responded with a null response (queried with ${uniqueNumber}, returned null)`)
     logger.log(childLogger, 'error', nullError, 'Unexpected API gateway response')
     throw nullError
   }
