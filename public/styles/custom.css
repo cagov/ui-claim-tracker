@@ -1,0 +1,1061 @@
+@charset "utf-8";
+/* CSS Document - Custom styles that overwrite the template CSS code*/
+
+.columnImage {
+	width: 100%;
+	/*p-t-sm*/
+}
+
+.red_text {
+	color: #c90000;
+}
+
+.new_highlight {
+	color: #ff0000;
+	font-size: 0.8em;
+}
+
+/* begin responsive video */
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	/*padding-bottom: 56.25%;*/
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+/* end responsive video */
+
+/* begin jQuery expand/collapse behavior */
+.question,
+.question_nested,
+.collapseAll,
+.expandAll {
+	cursor: pointer;
+}
+
+.question,
+.question_nested {
+	color: #333;
+	font-size: 1.6em;
+	line-height: 1.5em;
+}
+
+.question a,
+.question a:hover,
+.question a:visited {
+	color: #333;
+}
+
+.question_nested a,
+.question_nested a:hover,
+.question_nested a:visited {
+	color: #333;
+}
+
+.answer,
+.answer_nested {
+	padding-left: 2.5%;
+}
+/* end jQuery expand/collapse behavior */
+
+/* begin custom table color to provide alternative for zebra striped table to have darker header matching default table */
+.table.table-striped.alt-table-header > thead > tr > th,
+.table.table-striped.alt-table-header > thead > tr > td {
+	background: #d9d9d9;
+	border: 2px solid #fff;
+}
+/* end custom table color to provide alternative for zebra striped table to have darker header matching default table */
+
+.red-alert {
+	border-color: #c90000;
+}
+
+.red-alert .panel-heading {
+	border-color: #c90000;
+	background-color: #c90000;
+	color: #fff;
+}
+
+.red-alert .panel-heading h4 span[class^='ca-gov-icon-'] {
+	color: #fff;
+}
+
+.yellow-alert {
+	border-color: #fbad23;
+}
+
+.yellow-alert .panel-heading {
+	border-color: #fbad23;
+	background-color: #fbad23;
+	/* color: #fff; */
+}
+
+/*
+.yellow-alert .panel-heading h4 span[class^="ca-gov-icon-"] {
+	color: #fff;
+}
+*/
+
+.green-alert {
+	border-color: #178300;
+}
+
+.green-alert .panel-heading {
+	border-color: #178300;
+	background-color: #178300;
+	color: #fff;
+}
+
+.green-alert .panel-heading h4 span[class^='ca-gov-icon-'] {
+	color: #fff;
+}
+
+.branding .header-organization-banner img {
+	width: 171px;
+}
+
+@media (min-width: 768px) {
+	.fixed.compact .header-organization-banner img {
+		width: 150px;
+	}
+}
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+/*overriding for new template that moved table caption to bottom of table - moving back to top so caption can be used as title for accessibility purposes */
+caption {
+	padding-left: 0.75rem;
+	color: #212529;
+	text-align: left;
+	font-weight: bold;
+	caption-side: top;
+}
+
+.table_column_10 {
+	width: 10%;
+}
+
+.table_column_15 {
+	width: 15%;
+}
+
+.table_column_30 {
+	width: 30%;
+}
+
+.table_column_sm {
+	width: 20%;
+}
+
+.table_column_med {
+	width: 40%;
+}
+
+.table_column_lg {
+	width: 60%;
+}
+
+.table_column_qtr {
+	width: 25%;
+}
+
+.table_column_half {
+	width: 50%;
+}
+
+.table_column_3qtr {
+	width: 75%;
+}
+
+.center-div-80 {
+	margin: auto;
+	width: 80%;
+}
+
+.center-div-50 {
+	margin: auto;
+	width: 50%;
+}
+
+/* -----------------------------------------
+ SERVICE TILE - No Panel Drop Down
+----------------------------------------- */
+.service-tile-no-panel {
+	float: left;
+	width: 100%;
+	/* Need to keep the two column longer than bootstrap has .make-*-column for */
+	min-height: 1px;
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	text-align: center;
+	outline: none;
+	min-height: 240px;
+	color: #e1f2f7;
+	background: #046b99;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+@media (min-width: 450px) {
+	.service-tile-no-panel {
+		width: 50%;
+	}
+}
+@media (min-width: 768px) {
+	.service-tile-no-panel {
+		float: left;
+		width: 50%;
+	}
+}
+@media (min-width: 992px) {
+	.service-tile-no-panel {
+		float: left;
+		width: 25%;
+	}
+}
+@media (min-width: 768px) {
+	.service-tile-no-panel {
+		min-height: 280px;
+	}
+}
+@media (min-width: 992px) {
+	.service-tile-no-panel {
+		min-height: 240px;
+	}
+}
+@media (min-width: 1280px) {
+	.service-tile-no-panel {
+		min-height: 320px;
+	}
+}
+.service-tile-no-panel .icon-fallback {
+	min-width: 100%;
+	line-height: 1;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+.service-tile-no-panel .teaser {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #000;
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 30%, #000000 100%);
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 30%, #000000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#000000', GradientType=0);
+	color: #fff;
+	padding: 10px 0;
+}
+.service-tile-no-panel .teaser .title {
+	margin: 5px 0 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 100%;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.service-tile-no-panel .teaser .title:hover {
+	color: #fdb81e;
+}
+.service-tile-no-panel:focus .teaser .title {
+	color: #fdb81e;
+}
+
+.home-icon {
+	color: #333;
+}
+
+.opener {
+	cursor: pointer;
+}
+
+@media (min-width: 768px) {
+	.fixed.compact .header-organization-banner img {
+		padding-top: 4px;
+		padding-bottom: 2px;
+	}
+}
+
+/*---------------------------------------------------------------*/
+/*  text accents override to pass accessibility color contrast   */
+/*---------------------------------------------------------------*/
+
+.text-accent1 {
+	color: #65b1e7 !important;
+}
+
+.text-accent6 {
+	color: #e381ee !important;
+}
+
+/*---------------------------------------------------------------------------*/
+/* This is to be able to hide a div that needs to be there for accessibility */
+/*---------------------------------------------------------------------------*/
+
+.visuallyHidden {
+	display: none;
+}
+
+/*-----------------------------------------------------*/
+/* Hiding the search menu from the main menu in mobile */
+/*-----------------------------------------------------*/
+
+@media (max-width: 768px) {
+	/*#nav-item-search {
+		display:none;
+  }*/
+	button.toggle-search {
+		display: none;
+	}
+}
+
+/*---------------------*/
+/* Custom Print Screen */
+/*---------------------*/
+@media print {
+	/*@page { margin: 0; }
+  body  { margin: 1.6cm; }*/
+	#main-content {
+		padding-top: 0px !important;
+	}
+	.main-primary {
+		margin-top: 0px !important;
+		width: 100% !important;
+	}
+
+	body {
+		font-size: 1rem !important;
+		width: 100% !important;
+	}
+
+	#header {
+		display: none;
+		height: 0px;
+	}
+
+	.section section-impact p-b-lg {
+		display: none;
+	}
+	.section.section-impact.p-b-lg div.container {
+		display: none;
+	}
+
+	#footer {
+		display: none;
+	}
+}
+
+/*----------------------------------------------*/
+/* Adds top margin to tabs panel(office locator */
+/* page, maybe other tab panel pages) */
+/*----------------------------------------------*/
+
+.tab-group.responsive {
+	margin-top: 20px;
+}
+
+/*------------------------------------------------------------------------*/
+/* --------Fix for the card headers on the office Locator page.---------- */
+/* This allows the link to expand the full width and height of the header */
+/*------------------------------------------------------------------------*/
+/*.card-header {
+	padding: 0px !important;	
+}*/
+.card-header a {
+	padding: 12px 20px !important;
+	display: block;
+}
+
+/*-------------------------------*/
+/* This makes the footer and google 
+translate stack better in mobile */
+/*-------------------------------*/
+
+@media (max-width: 992px) {
+	.section.section-impact.p-b-lg div.container .quarter {
+		float: left;
+		width: 50%;
+	}
+	#google_translate_element {
+		margin-left: 20px;
+	}
+
+	.section.section-impact.p-b-lg div.container .quarter a.opener {
+		margin-left: 20px;
+	}
+
+	/* this section below is for all page footers and manipulates the view disclaimer text for translate*/
+	.section.section-impact.p-b-lg div.container .quarter.p-t-sm a.opener {
+		margin-left: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.section.section-impact.p-b-lg div.container .quarter {
+		float: none;
+		width: 100%;
+	}
+}
+
+/*----------------------------------------------*/
+/* Lines 11,591-11,637 of the cagov.core.css file
+have been modified. The new template broke the 
+.quarter class in mobile. Reverted back to the older
+code to fix this.*/
+/*----------------------------------------------*/
+
+/*----------------------------------------------*/
+/* The following adds margin to the bottom of
+list items found on both login pages, potentially
+other pages as well.----------------------------*/
+/*----------------------------------------------*/
+ul.m-b-md li {
+	margin-bottom: 10px;
+}
+ul.p-b-md li {
+	margin-bottom: 10px;
+}
+/*------------------------------------------------*/
+/*The new accessible tab panels left a weird
+disparity in the top margin of the cards in the
+office locator. See lines 16521-16527 for the fix */
+/*------------------------------------------------*/
+
+/*--------------------------------------------------*/
+/* Custom changes were made to the settings-bar.html
+after testing by Level Access. State Template does not
+include aria-label descriptive fields for the buttons,
+and the text is non-descriptive. Aria-Labels for the 
+for the button groups referred to the ID, not what they
+were. For these reasons, always make sure the settings
+bar ssi is using the EDD one, not the standard CDT one.*/
+/*--------------------------------------------------*/
+
+/*--Color Accessibility focus fixes--*/
+
+.alert .alert-severe .alert-dismissible .alert-banner .btn:focus {
+	outline: solid 2px #483bb2;
+}
+
+.utility-header a:focus,
+.utility-header .btn:focus,
+#skip-to-content a:focus,
+#siteSettings .btn:focus,
+#siteSettings .close:focus,
+.section-impact a:not(.btn):focus,
+.card-impact a:not(.btn):focus,
+.icon.MinMaxChat.ClickableADA:focus,
+.global-footer a:focus {
+	outline: solid 2px #dce2ff !important;
+}
+
+.branding a:focus,
+#navigation a:focus,
+#navigation button:focus,
+.nav > li > a:focus,
+.nav > li > button:focus,
+.mobile-controls .toggle-menu:focus,
+.main-primary a:focus,
+.main-primary .accordion-list li:focus,
+.main-primary div.active:focus,
+.tabs [role='tabpanel']:focus,
+div.gsc-cursor-page:focus,
+.main-primary button:focus,
+#chkSameEarning:focus,
+input#txtClaimDate:focus,
+input.form-control.money:focus,
+.tableFocus:focus,
+.main-primary select:focus,
+#AstuteBotToggleChatContainer:focus,
+i.reaction_option:focus,
+input.button:focus,
+i.ca-gov-icon-check-mark:focus,
+.input-group-addon:focus,
+input[type='text']:focus,
+input[type='checkbox']:focus,
+input[type='submit']:focus {
+	outline: solid 2px #9646ff !important;
+}
+
+#Search > input:focus,
+#Search > textarea:focus,
+#Search > button:focus,
+#Search > select:focus,
+.close-search-btn > button:focus,
+.accordionExpand > button:active,
+.accordionExpand > button:focus,
+.accordionExpand > [role='button'],
+.mobile-controls .toggle-search:focus {
+	outline: solid 2px #8331c1 !important;
+}
+
+div.gs-visibleUrl {
+	color: #008233 !important;
+	/*this darkens the color contrast to pass AA WCAG requirements
+	for the link text that is returned in the search page. */
+}
+
+/*--end of focus field color accessibility fixes--*/
+
+/*--adds outline to the search box when no focus--*/
+
+.search-container.active .search-textfield {
+	border-color: #000 !important;
+}
+
+.search-container #Search .close-search .ca-gov-icon-close-mark {
+	color: #000 !important;
+}
+
+#q.w-100.height-50.p-x-sm {
+	border-color: #333;
+}
+button.pos-abs.gsc-search-button.right-0.top-0.width-50.height-50 {
+	border-color: #333;
+}
+
+/*----------------------------------------------*/
+/* The following adds margin to the bottom of
+list items found on both login pages, potentially
+other pages as well.----------------------------*/
+/*----------------------------------------------*/
+ul.m-b-md li {
+	margin-bottom: 10px;
+}
+ul.p-b-md li {
+	margin-bottom: 10px;
+}
+
+/* custom card float class */
+
+.cardFloat {
+	float: right;
+}
+
+@media (max-width: 576px) {
+	.cardFloat {
+		float: none;
+	}
+
+	.cardFloat .third {
+		width: 100% !important;
+	}
+}
+
+/* custom image float class */
+
+.floatImage {
+	float: right;
+	clear: both;
+	width: 33%;
+	padding: 20px;
+}
+
+figure.floatImage {
+	border: 0px !important;
+	background-color: #fff;
+}
+
+@media (max-width: 767px) {
+	.floatImage {
+		float: none;
+		width: 100% !important;
+	}
+}
+
+/*The following is the jumplink anchors for the accordions. They should be placed directly above the desired accordion.*/
+
+.accordDivider {
+	border-bottom: 1px;
+	width: 200px;
+}
+
+/*targets twitter color issues*/
+
+.Identity-screenName {
+	color: #333 !important;
+}
+
+/*--creates section background for homepage--*/
+.homeSectionBg {
+	background-color: #eee;
+}
+
+/*--sets quote parameters for homepage--*/
+.quote {
+	color: white;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.quoteImage {
+	width: 4.2%;
+	height: auto;
+	margin: auto;
+}
+#mainQuote {
+	/*border-top: solid 1px #000000;
+	border-bottom: solid 1px #000000;*/
+	margin: 24px 0px;
+}
+#mainQuote blockquote {
+	text-align: center;
+	border: none;
+}
+
+/*--remove main content image in mobile view --*/
+
+@media (max-width: 768px) {
+	div.mainContentImage {
+		display: none;
+	}
+}
+
+/* landing page image formatting */
+
+.landingPageImage {
+	background-size: cover;
+	background-position: center;
+}
+
+@media (max-width: 991px) {
+	div.landingPageImage {
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin-top: 10px;
+	}
+}
+
+/* remove gap on card decks on mobile */
+
+@media (max-width: 768px) {
+	div.card-deck {
+		padding-top: 0px !important;
+	}
+
+	.noPadding {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+}
+
+/* trying to create equal card height */
+
+.card-body {
+	height: 100%;
+}
+div.card-body a.btn.btn-secondary {
+	margin-top: auto;
+}
+
+/* set up no left and right padding on 
+landing page intro half divs*/
+div.group div.container div.half.p-b-md {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+/*--Modal overlay formatting--*/
+
+h2.modal-title,
+h3.modal-title,
+h4.modal-title,
+h5.modal-title {
+	font-size: 1.5rem !important;
+}
+div.modal-content {
+	color: #000 !important;
+}
+/* teaser tile corrections. */
+
+.teaser span.title {
+	font-size: 1.25rem !important;
+}
+
+.teaser h2,
+.teaser h3,
+.teaser h4,
+.teaser h5 {
+	font-size: 1.25rem !important;
+}
+
+/*adjust color of icons to be accessible for color contrast */
+
+.first-level-link > span[class^='ca-gov-icon'] {
+	color: #046b99;
+}
+.nav-item:hover > a > span[class^='ca-gov-icon'],
+.nav-item:hover > a {
+	color: #b55e00;
+}
+
+/*remove rounding of card headers*/
+.card-header:first-child {
+	border-radius: 1px 1px 0 0 !important;
+}
+
+/*adjustments to margins in cards*/
+.two-thirds h2:first-child,
+div.collapse div.card-body h3:first-of-type,
+.card h2,
+.card h3,
+.card h4,
+div.card.card-understated div.card-default.border-dark div.card-block h3,
+div.card.card-understated div.card-default div.card-block h2,
+div.card.card-understated div.card-default div.card-block h3,
+div.card.card-understated div.card-default div.card-block h4 {
+	margin-top: 0px;
+}
+
+/*adjusting font-sizes in card header tags*/
+.card-header h2,
+.card-header h3,
+.card-header h4 {
+	font-size: 1rem !important;
+	margin-bottom: 0px !important;
+}
+
+.font-header {
+	font-size: 1rem !important;
+}
+
+h2.card-title.consistant,
+h3.card-title.consistant,
+h4.card-title.consistant,
+h5.card-title.consistant {
+	font-size: 1.25rem !important;
+}
+
+.panel-heading h2,
+.panel-heading h3,
+.panel-heading h4,
+.panel-heading h5 {
+	font-size: 1.125rem !important;
+}
+
+/*adjust card button text size*/
+.card-button-text {
+	text-align: center;
+	font-size: 1.25rem !important;
+}
+
+/*fixing breadcrumb stack issue */
+
+.breadcrumb li {
+	margin: 10px 0px;
+}
+
+/* capitalize the folders in the dynamic breadcrumbs */
+
+.breadcrumb.dynamic {
+	text-transform: capitalize;
+}
+
+/* updating button stylings */
+
+button,
+.btn,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+	min-width: 80px;
+}
+
+.btn-row .btn {
+	margin-right: 1rem !important;
+}
+
+@media (max-width: 767px) {
+	.btn,
+	.btn-row .btn {
+		width: 100%;
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+		margin-bottom: 1rem !important;
+	}
+	.hide {
+		display: none;
+	}
+}
+
+/*--lowers the z-index of the EDD Logo in the main nav on mobile
+so that it does not interfere with things like the date picker--*/
+@media (max-width: 767px) {
+	.branding .header-organization-banner a {
+		z-index: 5 !important;
+	}
+}
+
+.input-group-addon {
+	font-size: 1.5rem !important;
+}
+
+/*adding padding to the second-level-link class to fill the navigation links
+instead of just having partial link clickability.*/
+a.second-level-link {
+	padding: 18.5px !important;
+}
+
+code {
+	color: #c91a6c;
+}
+
+/*new custom cards*/
+
+.card-warning-subtle,
+.card-warning-subtle div.card-header {
+	background-color: #ffe7a4;
+}
+
+.card-warning-subtle div.card-block {
+	background-color: #fff2cd;
+}
+
+.card-error {
+	border-color: #d24532;
+}
+
+.card-error div.card-header {
+	background-color: #d24532;
+	color: #fff;
+}
+
+.card-error div.card-block {
+	background-color: #fff;
+}
+
+.card-warning-message {
+	border-color: #fdb81e;
+}
+
+.card-warning-message div.card-header {
+	background-color: #fdb81e;
+	color: #333;
+}
+
+.card-warning-message div.card-block {
+	background-color: #fff;
+}
+
+.card-success-message {
+	border-color: #16872e;
+}
+
+.card-success-message div.card-header {
+	background-color: #16872e;
+	color: #fff;
+}
+
+.card-success-message div.card-block {
+	background-color: #fff;
+}
+
+/*end of custom card section*/
+
+/*--creating a white background on radio and checkboxes
+so that when placed on different color sections, the color
+does not bleed through the form controls. --*/
+
+.check-icon-radio,
+.check-icon-checkbox {
+	background-color: #fff;
+}
+
+/* creates a border for a section bottom to separate sections when needed */
+.section-border {
+	border-bottom: 1px solid gray;
+}
+
+/* remove source code textareas on mobile */
+@media (max-width: 768px) {
+	.sourceCode {
+		display: none;
+	}
+}
+
+/* help text icon formatting */
+
+.ca-gov-icon-question-fill {
+	color: #046b99;
+	margin-left: 0.5rem;
+}
+
+/* creating non-wrapping text for long checkbox labels */
+input[type='checkbox'],
+input[type='radio'] {
+	float: left;
+	margin-top: 0.35rem;
+	margin-right: 0.5rem;
+}
+
+.form-checkbox-item {
+	width: 95%;
+	display: block;
+	float: left;
+	margin-left: 0.5rem;
+}
+
+@media (max-width: 470px) {
+	.form-checkbox-item {
+		width: 90%;
+	}
+}
+
+form fieldset label.long-label {
+	display: block;
+	margin-bottom: 5px;
+	margin-left: 1.375rem;
+}
+
+/* updating the color for horizontal rules */
+hr {
+	border-top: 1px solid #d6d6d6 !important;
+}
+
+/* capitalize the folders in the dynamic breadcrumbs */
+
+.breadcrumb.dynamic {
+	text-transform: capitalize;
+}
+
+/*adding padding to the list elements top and bottom*/
+div#main-content li {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+
+ol.breadcrumb li {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+li.nav-item {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+/*create new class for html element examples*/
+.html {
+	color: #007a11;
+}
+
+/*****forces top alignment of table headers*****/
+.table thead th {
+	vertical-align: top !important;
+}
+
+/****Creating text-wrap for numbered items that
+are made to look like an ordered list *****/
+.col-content,
+.col-num {
+	position: relative;
+	width: 100%;
+	/*padding-right: 15px;*/
+	padding-left: 15px;
+}
+.col-num {
+	flex: 0 0 4.33333%;
+	max-width: 4.33333%;
+	text-align: right;
+}
+.col-content {
+	flex: 0 0 95.66667%;
+	max-width: 95.66667%;
+}
+
+@media (max-width: 767px) {
+	.col-num {
+		flex: 0 0 7.33333%;
+		max-width: 7.33333%;
+		text-align: right;
+	}
+	.col-content {
+		flex: 0 0 92.66667%;
+		max-width: 92.66667%;
+	}
+}
+.col-content label {
+	margin-left: 0.3rem;
+}
+
+/*removing the rounded card image tops */
+.card-img-top {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+/*creating consistent source code headings */
+.source-h3 {
+	font-size: 1.94rem !important;
+	margin-top: 0.83em;
+	margin-bottom: 0.7em;
+}
+.source-h4 {
+	font-size: 1.54rem !important;
+	margin-top: 1em;
+	margin-bottom: 0.7em;
+}
+
+/* create a way to flip an image/icon 180 degrees */
+.rotate-180 {
+	display: inline-block;
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+
+/* setting the fieldset legends and label font sizes and weights */
+
+legend {
+	font-size: 1rem !important;
+	font-weight: 700;
+}
+
+fieldset label {
+	font-weight: 100 !important;
+}
+
+/*adding color for the border error */
+
+.error-border {
+	border: solid #d24532;
+	border-width: medium;
+}
+
+/******Making the tab headers consistent****/
+ul#tabs li a h2,
+ul#tabs li a h3,
+ul#tabs li a h4 {
+	font-size: 1rem !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	line-height: 1.2 !important;
+}
+
+.alert-level {
+	padding: 0 0 0 5px !important;
+	margin: 0 0 0 5px !important;
+}
+
+/****Updating HR color scheme******/
+hr {
+	border-top: 1px solid #676668 !important;
+}
