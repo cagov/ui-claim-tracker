@@ -2,7 +2,7 @@
  * Preview.js is loaded in the Canvas tab, the “preview” iframe that renders your components in isolation. Use preview.js
  * for global code (such as CSS imports or JavaScript mocks) that applies to all stories.
  */
-import '../styles/globals.scss'
+import '../public/styles/globals.scss'
 import i18n from 'i18next'
 import { I18nextProvider, initReactI18next } from 'react-i18next'
 import { withI18next } from 'storybook-addon-i18next'
