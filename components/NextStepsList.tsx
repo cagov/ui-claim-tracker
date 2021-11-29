@@ -2,16 +2,11 @@ import { TransLine } from './TransLine'
 import { TransLineContent } from '../types/common'
 
 export interface NextStepsListProps {
-  loading: boolean
   userArrivedFromUioMobile: boolean
   nextSteps: Array<TransLineContent | TransLineContent[]>
 }
 
-export const NextStepsList: React.FC<NextStepsListProps> = ({
-  loading = false,
-  userArrivedFromUioMobile = false,
-  nextSteps,
-}) => {
+export const NextStepsList: React.FC<NextStepsListProps> = ({ userArrivedFromUioMobile = false, nextSteps }) => {
   const list = (
     <ul>
       {nextSteps.map((nextStep, index) => {
@@ -22,7 +17,6 @@ export const NextStepsList: React.FC<NextStepsListProps> = ({
         return (
           <li key={index} className="next-step">
             <TransLine
-              loading={loading}
               userArrivedFromUioMobile={userArrivedFromUioMobile}
               i18nKey={thisStep.i18nKey}
               links={thisStep.links}
@@ -31,11 +25,7 @@ export const NextStepsList: React.FC<NextStepsListProps> = ({
               {
                 // Include sub-bullets; ignore first element since it was already included as a main bullet above
                 Array.isArray(nextStep) ? (
-                  <NextStepsList
-                    loading={loading}
-                    userArrivedFromUioMobile={userArrivedFromUioMobile}
-                    nextSteps={nextStep.slice(1)}
-                  />
+                  <NextStepsList userArrivedFromUioMobile={userArrivedFromUioMobile} nextSteps={nextStep.slice(1)} />
                 ) : null
               }
             </div>

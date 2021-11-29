@@ -26,27 +26,8 @@ describe('Full page snapshot', () => {
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    const tree = renderer.create(<Index loading={false} scenarioContent={scenarioContent} />).toJSON()
+    const tree = renderer.create(<Index scenarioContent={scenarioContent} />).toJSON()
     expect(tree).toMatchSnapshot()
-  })
-})
-
-describe('Main component shows loading', () => {
-  it('has our titles but content is shimmer', () => {
-    const mockRouter = {
-      locale: 'en',
-    }
-    ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
-
-    render(<Index loading scenarioContent={scenarioContent} />)
-    expect(screen.queryByText('Claim Status Tracker')).toBeInTheDocument()
-    expect(screen.queryByText('Claim Status')).toBeInTheDocument()
-    expect(screen.queryByText('There are no pending issues at this time.')).not.toBeInTheDocument()
-    expect(screen.queryByText('Your Next Steps')).toBeInTheDocument()
-    expect(screen.queryByText('EDD Next Steps')).toBeInTheDocument()
-    expect(screen.queryByText('Benefit Year')).not.toBeInTheDocument()
-    expect(screen.queryByText('Claim Status')).toBeInTheDocument()
-    expect(screen.queryByText('Your payments')).not.toBeInTheDocument()
   })
 })
 
@@ -57,7 +38,7 @@ describe('Main component shows the timeout', () => {
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    render(<Index timedOut loading={false} scenarioContent={scenarioContent} />)
+    render(<Index timedOut scenarioContent={scenarioContent} />)
     expect(screen.queryByText('Your Session Will End Soon')).toBeInTheDocument()
   })
 })

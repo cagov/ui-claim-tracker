@@ -73,9 +73,6 @@ Default.args = {
 export const Errorred = Template.bind({})
 Errorred.args = { errorCode: 500 }
 
-export const Loading = Template.bind({})
-Loading.args = { loading: true, ...Default.args }
-
 export const Maintenance = Template.bind({})
 Maintenance.args = { enableMaintenancePage: 'enabled', ...Default.args }
 

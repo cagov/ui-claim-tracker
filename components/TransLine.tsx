@@ -1,11 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next'
 import React from 'react'
-import { Shimmer } from './Shimmer'
 import { I18nString, TransLineContent } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
 
 export interface TransLineProps extends TransLineContent {
-  loading: boolean
   userArrivedFromUioMobile: boolean
 }
 
@@ -47,16 +45,7 @@ function internalLink(link: I18nString): boolean {
   return uioRegex.test(link) || bpoRegex.test(link)
 }
 
-export const TransLine: React.FC<TransLineProps> = ({
-  loading = false,
-  userArrivedFromUioMobile = false,
-  i18nKey,
-  links = [],
-}) => {
-  if (loading) {
-    return <Shimmer width={120} height={15} baseColor="#B6B2B2" shimColor="#656565" borderRadius={3} />
-  }
-
+export const TransLine: React.FC<TransLineProps> = ({ userArrivedFromUioMobile = false, i18nKey, links = [] }) => {
   const linkComponents: JSX.Element[] = []
   if (links && links.length > 0) {
     for (const link of links) {

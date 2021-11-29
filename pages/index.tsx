@@ -25,7 +25,6 @@ import queryApiGateway, { getUniqueNumber } from '../utils/queryApiGateway'
 export interface HomeProps {
   scenarioContent: ScenarioContent
   timedOut?: boolean
-  loading: boolean
   errorCode?: number | null
   userArrivedFromUioMobile?: boolean
   assetPrefix: string
@@ -37,7 +36,6 @@ export interface HomeProps {
 export default function Home({
   scenarioContent,
   timedOut = false,
-  loading,
   errorCode = null,
   userArrivedFromUioMobile = false,
   assetPrefix,
@@ -98,7 +96,6 @@ export default function Home({
       <>
         <Title />
         <ClaimSection
-          loading={loading}
           userArrivedFromUioMobile={userArrivedFromUioMobile}
           statusContent={scenarioContent.statusContent}
           detailsContent={scenarioContent.detailsContent}
@@ -225,7 +222,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
   return {
     props: {
       scenarioContent: scenarioContent,
-      loading: false,
       errorCode: errorCode,
       userArrivedFromUioMobile: userArrivedFromUioMobile,
       assetPrefix: assetPrefix,
