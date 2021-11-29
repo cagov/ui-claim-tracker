@@ -56,7 +56,6 @@ export interface NullClaimDetailsResult {
 }
 
 export interface Claim {
-  ClaimType?: null | undefined | string
   uniqueNumber: null | string
   claimDetails: null | ClaimDetailsResult
   hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
@@ -67,7 +66,6 @@ export interface Claim {
 }
 
 export interface NullClaim {
-  ClaimType?: null
   uniqueNumber: null | string
   claimDetails: null | NullClaimDetailsResult
   hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks

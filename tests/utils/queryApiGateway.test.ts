@@ -31,7 +31,7 @@ const goodRequest = {
 
 // Test queryApiGateway()
 describe('Querying the API Gateway', () => {
-  const goodResponse: Claim = {
+  const mockedResponse: Claim = {
     hasValidPendingWeeks: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasCertificationWeeksAvailable: false,
@@ -45,7 +45,7 @@ describe('Querying the API Gateway', () => {
   beforeEach(() => {
     // Mock the fetch response
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
-    fetch.mockResolvedValue(new Response(JSON.stringify(goodResponse)))
+    fetch.mockResolvedValue(new Response(JSON.stringify(mockedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
@@ -82,7 +82,7 @@ describe('Querying the API Gateway', () => {
 
     const data = await queryApiGateway(goodRequest, goodUniqueNumber)
 
-    expect(data).toStrictEqual(goodResponse)
+    expect(data).toStrictEqual(mockedResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
 
     // Restore env vars
@@ -180,6 +180,26 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
+  it('handles null fully null api response', async () => {
+    // Mock process.env
+    const restore = mockEnv({
+      API_URL: goodUrl,
+    })
+
+    /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    fetch.mockResolvedValue(new Response(JSON.stringify(null)))
+    /* eslint-enable  @typescript-eslint/no-unsafe-call */
+    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+      'API responded with a null response (queried with 12345, returned null)',
+    )
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Unexpected API gateway response')
+
+    // Restore env vars
+    restore()
+  })
+
   it('handles mismatched unique number responses', async () => {
     // Mock process.env
     const restore = mockEnv({
@@ -227,7 +247,7 @@ describe('Querying the API Gateway', () => {
     fetch.mockResolvedValue(new Response(JSON.stringify(longNullishResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
-      'API responded with a null response (queried with 12345, responded with 12345)',
+      'API responded with a null object (queried with 12345, returned unique number 12345)',
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
@@ -257,7 +277,7 @@ describe('Querying the API Gateway', () => {
     fetch.mockResolvedValue(new Response(JSON.stringify(shortNullResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
-      'API responded with a null response (queried with 12345, responded with null)',
+      'API responded with a null object (queried with 12345, returned unique number null)',
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)

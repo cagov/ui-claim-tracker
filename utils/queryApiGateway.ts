@@ -206,7 +206,6 @@ export function reponseIsNullish(apiBody: Claim): boolean {
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
   let apiData: Claim | NullClaim = {
-    ClaimType: undefined,
     uniqueNumber: null,
     claimDetails: null,
     hasCertificationWeeksAvailable: false,
@@ -277,8 +276,14 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     throw error
   }
 
+  // Yell real loud if the API returns nothing
+  if (!apiData) {
+    const nullError = new Error(`API responded with a null response (queried with ${uniqueNumber}, returned null`)
+    logger.log(childLogger, 'error', nullError, 'Unexpected API gateway response')
+    throw nullError
+  }
   // Yell real loud if the API returns a different, non-null uniqueNumber
-  if (apiData.uniqueNumber && apiData.uniqueNumber !== uniqueNumber) {
+  else if (apiData.uniqueNumber && apiData.uniqueNumber !== uniqueNumber) {
     const mismatchError = new Error(
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
@@ -288,7 +293,7 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
   // Yell if the API returns a null or null-ish response
   else if (reponseIsNullish(apiData)) {
     const nullResponseError = new Error(
-      `API responded with a null response (queried with ${uniqueNumber}, responded with ${
+      `API responded with a null object (queried with ${uniqueNumber}, returned unique number ${
         apiData.uniqueNumber || 'null'
       })`,
     )
