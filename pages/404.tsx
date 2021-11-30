@@ -25,7 +25,7 @@ export default function Custom404({ userArrivedFromUioMobile = false }: Custom40
   const favicon = assetPrefix + '/favicon.ico'
 
   function redirectToUIHome() {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home') : getUrl('uio-desktop-home')
     window.location.href = uioHomeLink || ''
   }
 
