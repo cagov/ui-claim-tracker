@@ -27,7 +27,7 @@ This repo contains the Claim Status Tracker app, which helps Californians better
 - (Optional) PFX_PASSPHRASE: The import passphrase for the client certificate if there is one
 - (Optional) Environment-specific path prefixes for UIO and BPO links
   - URL_PREFIX_BPO
-  - URL_PREFIX_STATUS
+  - URL_PREFIX_UIO_CLAIMSTATUS
   - URL_PREFIX_UIO_DESKTOP
   - URL_PREFIX_UIO_MOBILE
 - ASSET_PREFIX: The static asset path (default is `/claimstatus`; this env var is required for local development)

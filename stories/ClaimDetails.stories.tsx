@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import { ClaimDetails as ClaimDetailsComponent, ClaimDetailsProps } from '../components/ClaimDetails'
 
 export default {
-  title: 'Component/Page Section/Claim Details',
+  title: 'Component/Page Section/Main/Claim Section/Claim Details',
   component: ClaimDetailsComponent,
   argTypes: {
     programType: {
