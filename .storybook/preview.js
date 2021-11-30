@@ -24,6 +24,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'centered',
   nextRouter: {
     Provider: RouterContext.Provider,
   },
@@ -34,7 +35,7 @@ export const parameters = {
         'Claim Status Tracker',
         ['Page', '404'],
         'Component',
-        ['Page Section', ['Header', 'Main', 'Claim Section', 'Claim Status', 'Next Steps', 'Claim Details', 'Footer']],
+        ['Page Section', ['Header', 'Main', [ 'Claim Section', [ 'Claim Status', 'Claim Details']], 'Footer']],
         'Atoms',
       ],
     },
