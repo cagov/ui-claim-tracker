@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import { Maintenance as MaintenanceComponent } from '../components/Maintenance'
 
 export default {
-  title: 'Component/Atoms/Maintenance',
+  title: 'Component/Page Section/Main/Maintenance',
   component: MaintenanceComponent,
 } as Meta
 

@@ -6,7 +6,7 @@ import * as ClaimStatusStories from './ClaimStatus.stories'
 import { ClaimDetailsContent, ClaimStatusContent } from '../types/common'
 
 export default {
-  title: 'Component/Page Section/Claim Section',
+  title: 'Component/Page Section/Main',
   component: ClaimSectionComponent,
 } as Meta
 
