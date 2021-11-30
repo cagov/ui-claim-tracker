@@ -180,7 +180,7 @@ describe('Querying the API Gateway', () => {
     restore()
   })
 
-  it('handles null fully null api response', async () => {
+  it('handles fully null api response', async () => {
     // Mock process.env
     const restore = mockEnv({
       API_URL: goodUrl,
