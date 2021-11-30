@@ -15,6 +15,7 @@
     "chromatic": "npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "ansi-html-community": "0.0.8",
     "applicationinsights": "^2.1.8",
     "bootstrap": "^4.6.0",
     "luxon": "^2.0.2",
@@ -121,6 +122,7 @@
     "**/highlight.js": "^10.4.1",
     "**/set-value": "^4.0.1",
     "**/ansi-regex": "^5.0.1",
-    "**/applicationinsights": "^2.1.8"
+    "**/applicationinsights": "^2.1.8",
+    "ansi-html": "https://registry.yarnpkg.com/ansi-html-community/-/ansi-html-community-0.0.8.tgz#69fbc4d6ccbe383f9736934ae34c3f8290f1bf41"
   }
 }
