@@ -15,7 +15,6 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArriv
   return renderer
     .create(
       <ClaimStatus
-        loading={false}
         userArrivedFromUioMobile={userArrivedFromUioMobile}
         heading={statusContent.heading}
         summary={statusContent.summary}

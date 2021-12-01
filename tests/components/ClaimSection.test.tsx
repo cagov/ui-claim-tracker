@@ -21,7 +21,6 @@ describe('Claim Status & Claim Details are provided', () => {
 
     render(
       <ClaimSection
-        loading={false}
         userArrivedFromUioMobile={false}
         statusContent={scenarioContent.statusContent}
         detailsContent={scenarioContent.detailsContent}
@@ -41,7 +40,6 @@ describe('No Claim Details are provided', () => {
 
     render(
       <ClaimSection
-        loading={false}
         userArrivedFromUioMobile={false}
         statusContent={scenarioContent.statusContent}
         detailsContent={null}

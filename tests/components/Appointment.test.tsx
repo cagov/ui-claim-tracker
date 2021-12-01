@@ -11,7 +11,7 @@ import { TimeSlot } from '../../types/common'
 function renderAppointmentComponent(timeSlot: TimeSlot | undefined): string {
   // Set a random date in PT time.
   const date = '2021-05-05T00:00:00.000-0800'
-  return renderer.create(<Appointment loading={false} date={date} timeSlot={timeSlot} />).toJSON()
+  return renderer.create(<Appointment date={date} timeSlot={timeSlot} />).toJSON()
 }
 
 /**

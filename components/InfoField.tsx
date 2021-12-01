@@ -1,16 +1,9 @@
-import { ShimmerField } from './ShimmerField'
-
 export interface InfoFieldProps {
-  loading?: boolean
   label: string
   text: string
 }
 
-export const InfoField: React.FC<InfoFieldProps> = ({ loading = false, label, text }) => {
-  if (loading) {
-    return <ShimmerField />
-  }
-
+export const InfoField: React.FC<InfoFieldProps> = ({ label, text }) => {
   return (
     <div className="info">
       <div className="info-label">{label}</div>

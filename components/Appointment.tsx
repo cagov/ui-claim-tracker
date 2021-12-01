@@ -5,11 +5,7 @@ import { AppointmentContent } from '../types/common'
 import { formatAppointmentDate, identifyI18nPeriod, samePeriod } from '../utils/browser/appointment'
 import { capitalizeFirstLetter } from '../utils/browser/strings'
 
-export interface AppointmentProps extends AppointmentContent {
-  loading: boolean
-}
-
-export const Appointment: React.FC<AppointmentProps> = ({ loading = false, date, timeSlot }) => {
+export const Appointment: React.FC<AppointmentContent> = ({ date, timeSlot }) => {
   const { t, i18n } = useTranslation('common')
 
   let formattedAppointment = ''
@@ -43,7 +39,7 @@ export const Appointment: React.FC<AppointmentProps> = ({ loading = false, date,
   return (
     <div key="appointment" className="appointment">
       <strong>
-        <TextLine loading={loading} text={formattedAppointment} />
+        <TextLine text={formattedAppointment} />
       </strong>
     </div>
   )

@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import { ClaimDetails as ClaimDetailsComponent, ClaimDetailsProps } from '../components/ClaimDetails'
+import { ClaimDetails as ClaimDetailsComponent } from '../components/ClaimDetails'
+import { ClaimDetailsContent } from '../types/common'
 
 export default {
   title: 'Component/Page Section/Main/Claim Section/Claim Details',
@@ -39,7 +40,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<ClaimDetailsProps> = (args) => <ClaimDetailsComponent {...args} />
+const Template: Story<ClaimDetailsContent> = (args) => <ClaimDetailsComponent {...args} />
 
 export const ClaimDetails = Template.bind({})
 ClaimDetails.args = {

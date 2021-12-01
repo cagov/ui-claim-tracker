@@ -18,7 +18,6 @@ describe('ClaimDetails with all nonnull fields', () => {
 
     render(
       <ClaimDetails
-        loading={false}
         programType="Test Program Type"
         benefitYear="Test Benefit Year"
         claimBalance="Test Claim Balance"
@@ -46,7 +45,6 @@ describe('ClaimDetails with nullable fields', () => {
 
     render(
       <ClaimDetails
-        loading={false}
         programType="Test Program Type"
         benefitYear="Test Benefit Year"
         claimBalance={null}
@@ -66,7 +64,6 @@ describe('ClaimDetails with nullable fields', () => {
 
     render(
       <ClaimDetails
-        loading={false}
         programType="Test Program Type"
         benefitYear="Test Benefit Year"
         claimBalance="Test Claim Balance"
@@ -86,7 +83,6 @@ describe('ClaimDetails with nullable fields', () => {
 
     render(
       <ClaimDetails
-        loading={false}
         programType="Test Program Type"
         benefitYear="Test Benefit Year"
         claimBalance="Test Claim Balance"
