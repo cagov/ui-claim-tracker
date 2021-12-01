@@ -18,7 +18,7 @@ import { IncomingMessage } from 'http'
 import path from 'path'
 import { Logger as pinoLogger } from 'pino'
 
-import { Claim } from '../types/common'
+import { Claim, NullClaim } from '../types/common'
 import { asyncContext } from './asyncContext'
 import { Logger } from './logger'
 
@@ -126,7 +126,7 @@ export function reponseIsNullish(apiBody: Claim): boolean {
   // This is a trick to make a deep-copy of a JSON object
   const response: Claim = JSON.parse(JSON.stringify(apiBody)) as Claim
   const responseUniqueNumber = response.uniqueNumber
-  delete response.uniqueNumber
+  response.uniqueNumber = null
 
   // This is an unexpected null response we are seeing in production
   // where the API responses with a matching UniqueNumber we asked for,
@@ -144,9 +144,11 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       lastPaymentAmount: null,
       monetaryStatus: '',
     },
+    uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
+    isBYE: false,
     pendingDetermination: [],
   }
 
@@ -161,8 +163,10 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       lastPaymentAmount: null,
       monetaryStatus: '',
     },
+    uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+    isBYE: false,
     pendingDetermination: [],
   }
 
@@ -177,8 +181,10 @@ export function reponseIsNullish(apiBody: Claim): boolean {
       lastPaymentAmount: null,
       monetaryStatus: '',
     },
+    uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
     hasValidPendingWeeks: false,
+    isBYE: false,
     pendingDetermination: [],
   }
 
@@ -199,7 +205,15 @@ export function reponseIsNullish(apiBody: Claim): boolean {
  */
 export default async function queryApiGateway(req: IncomingMessage, uniqueNumber: string): Promise<Claim> {
   const apiEnvVars: ApiEnvVars = getApiVars()
-  let apiData: Claim = { ClaimType: undefined }
+  let apiData: Claim | NullClaim = {
+    uniqueNumber: null,
+    claimDetails: null,
+    hasCertificationWeeksAvailable: false,
+    hasPendingWeeks: false,
+    hasValidPendingWeeks: false,
+    isBYE: false,
+    pendingDetermination: null,
+  }
   let options: AgentOptions | null = null
   const logger: Logger = Logger.getInstance()
   const childLogger = asyncContext.getStore() as pinoLogger
@@ -262,25 +276,30 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     throw error
   }
 
+  // Yell real loud if the API returns nothing
+  if (!apiData) {
+    const nullError = new Error(`API responded with a null response (queried with ${uniqueNumber}, returned null)`)
+    logger.log(childLogger, 'error', nullError, 'Unexpected API gateway response')
+    throw nullError
+  }
   // Yell real loud if the API returns a different, non-null uniqueNumber
-  if (apiData?.uniqueNumber && apiData?.uniqueNumber !== uniqueNumber) {
+  else if (apiData.uniqueNumber && apiData.uniqueNumber !== uniqueNumber) {
     const mismatchError = new Error(
       `Mismatched API response and Header unique number (${apiData.uniqueNumber || 'null'} and ${uniqueNumber})`,
     )
     logger.log(childLogger, 'error', mismatchError, 'Unexpected API gateway response')
     throw mismatchError
   }
-
   // Yell if the API returns a null or null-ish response
-  if (reponseIsNullish(apiData)) {
+  else if (reponseIsNullish(apiData)) {
     const nullResponseError = new Error(
-      `API responded with a null response (queried with ${uniqueNumber}, responded with ${
+      `API responded with a null object (queried with ${uniqueNumber}, returned unique number ${
         apiData.uniqueNumber || 'null'
       })`,
     )
     logger.log(childLogger, 'error', nullResponseError, 'Unexpected API gateway response')
     throw nullResponseError
+  } else {
+    return apiData
   }
-
-  return apiData
 }

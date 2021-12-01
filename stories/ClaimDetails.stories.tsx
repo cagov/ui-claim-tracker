@@ -4,7 +4,7 @@ import { ClaimDetails as ClaimDetailsComponent } from '../components/ClaimDetail
 import { ClaimDetailsContent } from '../types/common'
 
 export default {
-  title: 'Component/Page Section/Claim Details',
+  title: 'Component/Page Section/Main/Claim Section/Claim Details',
   component: ClaimDetailsComponent,
   argTypes: {
     programType: {
