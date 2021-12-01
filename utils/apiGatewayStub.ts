@@ -23,6 +23,7 @@ export default function apiGatewayStub(
     uniqueNumber: null,
     claimDetails: null,
     hasCertificationWeeksAvailable: false,
+    isBYE: false,
     hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
     pendingDetermination: null,
