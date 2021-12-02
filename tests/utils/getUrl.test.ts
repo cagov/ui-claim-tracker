@@ -50,8 +50,8 @@ describe.each(cases)(
       })
 
       const url = getUrl(linkKey)
-      expect(url).toEqual(expect.stringMatching(mockedPrefix))
-      expect(url).toEqual(expect.not.stringMatching(toReplace))
+      expect(url).toEqual(expect.stringContaining(mockedPrefix))
+      expect(url).toEqual(expect.not.stringContaining(toReplace))
 
       // Restore env vars.
       restore()
@@ -59,9 +59,9 @@ describe.each(cases)(
 
     it(`returns the url with argument prefix when a prefix is passed as an argument for ${envVar}`, () => {
       const url = getUrl(linkKey, { [key]: argPrefix })
-      expect(url).toEqual(expect.stringMatching(argPrefix))
-      expect(url).toEqual(expect.not.stringMatching(mockedPrefix))
-      expect(url).toEqual(expect.not.stringMatching(toReplace))
+      expect(url).toEqual(expect.stringContaining(argPrefix))
+      expect(url).toEqual(expect.not.stringContaining(mockedPrefix))
+      expect(url).toEqual(expect.not.stringContaining(toReplace))
     })
 
     it(`returns the url with argument prefix when a prefix is passed as an argument and an env var is provided for ${envVar}`, () => {
@@ -70,9 +70,9 @@ describe.each(cases)(
       })
 
       const url = getUrl(linkKey, { [key]: argPrefix })
-      expect(url).toEqual(expect.stringMatching(argPrefix))
-      expect(url).toEqual(expect.not.stringMatching(mockedPrefix))
-      expect(url).toEqual(expect.not.stringMatching(toReplace))
+      expect(url).toEqual(expect.stringContaining(argPrefix))
+      expect(url).toEqual(expect.not.stringContaining(mockedPrefix))
+      expect(url).toEqual(expect.not.stringContaining(toReplace))
 
       // Restore env vars.
       restore()
