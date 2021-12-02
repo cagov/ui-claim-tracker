@@ -1,11 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next'
 import React from 'react'
-import { Shimmer } from './Shimmer'
 import { I18nString, TransLineContent } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
 
 export interface TransLineProps extends TransLineContent {
-  loading: boolean
   userArrivedFromUioMobile: boolean
 }
 
@@ -14,12 +12,21 @@ export interface TransLineProps extends TransLineContent {
  */
 function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   // Special case for UIO homepage links.
+  // If the link is for UIO homepage or UIO landing page, do a direct getUrl() lookup.
+  // Do not pass the looked up url through t() because t() will mangle the url.
   if (link === 'uio-home') {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url') : getUrl('uio-desktop-home-url')
+    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home') : getUrl('uio-desktop-home')
     if (uioHomeLink) {
-      // If the link is for UIO homepage, do a direct getUrl() lookup.
-      // Do not pass the looked up url through t() because t() will mangle the url.
       return uioHomeLink
+    }
+  }
+  // Special case for UIO landing page links.
+  else if (link === 'uio-landing-page') {
+    const uioLandingPageLink = userArrivedFromUioMobile
+      ? getUrl('uio-mobile-landing-page')
+      : getUrl('uio-desktop-landing-page')
+    if (uioLandingPageLink) {
+      return uioLandingPageLink
     }
   }
 
@@ -38,16 +45,7 @@ function internalLink(link: I18nString): boolean {
   return uioRegex.test(link) || bpoRegex.test(link)
 }
 
-export const TransLine: React.FC<TransLineProps> = ({
-  loading = false,
-  userArrivedFromUioMobile = false,
-  i18nKey,
-  links = [],
-}) => {
-  if (loading) {
-    return <Shimmer width={120} height={15} baseColor="#B6B2B2" shimColor="#656565" borderRadius={3} />
-  }
-
+export const TransLine: React.FC<TransLineProps> = ({ userArrivedFromUioMobile = false, i18nKey, links = [] }) => {
   const linkComponents: JSX.Element[] = []
   if (links && links.length > 0) {
     for (const link of links) {

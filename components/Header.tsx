@@ -15,20 +15,17 @@ export interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false, urlPrefixes, assetPrefix = '' }) => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
 
   // Return a link back to:
   //   UIO Mobile landing page if user arrived from UIO Mobile
   //   main UIO landing page if user arrived from main UIO
-  const uioHomeDesktopLink = getUrl('uio-desktop-home-url', urlPrefixes)
-  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home-url', urlPrefixes) : uioHomeDesktopLink
+  const uioHomeDesktopLink = getUrl('uio-desktop-home', urlPrefixes)
+  const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home', urlPrefixes) : uioHomeDesktopLink
 
   let globalHeader: JSX.Element
 
-  /* eslint-disable no-constant-condition */
-  if (true) {
-    // (userArrivedFromUioMobile) {
-    /* eslint-enable no-constant-condition */
+  if (userArrivedFromUioMobile) {
     globalHeader = (
       <Nav className="uiom">
         <Nav.Link className="uiom" rel="noopener noreferrer" href={uioHomeLink}>
@@ -37,37 +34,42 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       </Nav>
     )
   } else {
+    let cstUrl: string | undefined = getUrl('uio-claimstatus', urlPrefixes)
+    if (cstUrl !== undefined && i18n.language !== 'en') {
+      cstUrl += `/${i18n.language}`
+    }
+
     globalHeader = (
       <>
         <HeaderIcon link={uioHomeDesktopLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
         <HeaderIcon
-          link={getUrl('uio-desktop-certify-url', urlPrefixes)}
+          link={getUrl('uio-desktop-certify', urlPrefixes)}
           label={t('header.uio-certify')}
           icon="ca-gov-icon-file-check"
         />
         <HeaderIcon
-          link={getUrl('uio-desktop-payments-url', urlPrefixes)}
+          link={getUrl('uio-desktop-payments', urlPrefixes)}
           label={t('header.uio-payments')}
           icon="ca-gov-icon-currency"
         />
         <HeaderIcon
-          link={getUrl('uio-desktop-history-url', urlPrefixes)}
+          link={getUrl('uio-desktop-history', urlPrefixes)}
           label={t('header.uio-history')}
           icon="ca-gov-icon-clock"
         />
-        <HeaderIcon link="/" label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
+        <HeaderIcon link={cstUrl} label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
         <HeaderIcon
-          link={getUrl('uio-desktop-profile-url', urlPrefixes)}
+          link={getUrl('uio-desktop-profile', urlPrefixes)}
           label={t('header.uio-profile')}
           icon="ca-gov-icon-person"
         />
         <HeaderIcon
-          link={getUrl('uio-desktop-inbox-url', urlPrefixes)}
+          link={getUrl('uio-desktop-inbox', urlPrefixes)}
           label={t('header.uio-inbox')}
           icon="ca-gov-icon-email"
         />
         <HeaderIcon
-          link={getUrl('uio-desktop-contact-url', urlPrefixes)}
+          link={getUrl('uio-desktop-contact', urlPrefixes)}
           label={t('header.uio-contact')}
           icon="ca-gov-icon-users-dialog"
         />
@@ -96,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
             <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-desktop-help-new-claim')}>
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
-            <Nav.Link href={getUrl('bpo-log-out')}>
+            <Nav.Link href={getUrl('bpo-logout')}>
               <span className="text">{t('header.logout')}</span>
             </Nav.Link>
           </Nav>

@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import './colorscheme-oceanside.min.css';
-@import './cagov.font-only.css';
+@import './cagov.core.css';
+@import './colorscheme-oceanside.css';
+@import './custom.css';
 
 // Component class names must not be nested for Storybook to work
 // When this file gets too long we'll split it up into component files
@@ -69,11 +70,11 @@ body {
 
     .navbar-light .navbar-nav {
       margin: 0 4px -12px 4px;
-      border-bottom: 4px solid #FDB81E;
+      border-bottom: 4px solid #fdb81e;
 
       &:hover {
         margin: 0 4px -12px 4px;
-        border-bottom: 4px solid #046B99;
+        border-bottom: 4px solid #046b99;
       }
     }
 
@@ -101,8 +102,9 @@ body {
     margin: 0 2rem;
     text-align: center;
 
-    &:hover .text, &:hover [class^='ca-gov-icon-'] {
-      color: #B55E00;
+    &:hover .text,
+    &:hover [class^='ca-gov-icon-'] {
+      color: #b55e00;
     }
 
     [class^='ca-gov-icon-'] {
@@ -131,12 +133,12 @@ body {
 
       .navbar-light .navbar-nav {
         text-align: left;
-        border-bottom: 1px solid #E1F2F7;
+        border-bottom: 1px solid #e1f2f7;
         margin: 0 4px 0 4px;
 
         &:hover {
           margin: 0 4px 0 4px;
-          border-bottom: 1px solid #E1F2F7;
+          border-bottom: 1px solid #e1f2f7;
         }
       }
 
@@ -259,80 +261,6 @@ body {
         margin-top: 2rem;
       }
     }
-  }
-
-  .shimmer {
-    display: inline-block;
-    position: relative;
-    margin-top: 10px !important;
-
-    -webkit-animation-duration: 1.3s;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-name: placeholderShimmer;
-    -webkit-animation-timing-function: linear;
-
-    -moz-webkit-animation-duration: 1.3s;
-    -moz-webkit-animation-fill-mode: forwards;
-    -moz-webkit-animation-iteration-count: infinite;
-    -moz-webkit-animation-name: placeholderShimmer;
-    -moz-webkit-animation-timing-function: linear;
-
-    -ms-webkit-animation-duration: 1.3s;
-    -ms-webkit-animation-fill-mode: forwards;
-    -ms-webkit-animation-iteration-count: infinite;
-    -ms-webkit-animation-name: placeholderShimmer;
-    -ms-webkit-animation-timing-function: linear;
-
-    -o-webkit-animation-duration: 1.3s;
-    -o-webkit-animation-fill-mode: forwards;
-    -o-webkit-animation-iteration-count: infinite;
-    -o-webkit-animation-name: placeholderShimmer;
-    -o-webkit-animation-timing-function: linear;
-
-    animation-duration: 1.3s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeholderShimmer;
-    animation-timing-function: linear;
-  }
-
-  //shimmer related
-  @-webkit-keyframes placeholderShimmer {
-    0% {
-      background-position: -400px 0;
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
-
-    100% {
-      background-position: 400px 0;
-      opacity: 1;
-    }
-  }
-
-  //shimmer related
-  @keyframes placeholderShimmer {
-    0% {
-      background-position: -400px 0;
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
-
-    100% {
-      background-position: 400px 0;
-      opacity: 1;
-    }
-  }
-
-  .shimmer-field {
-    margin-bottom: 10px;
   }
 
   .footer {

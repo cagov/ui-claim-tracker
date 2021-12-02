@@ -156,6 +156,114 @@
           "text": "Cuando procesemos su certificación, actualizaremos el estado del pago. Vaya a la <0>página principal de UI Online</0> y seleccione <strong>Historial</strong> en el menú principal."
         }
       ]
+    },
+    "scenario7": {
+      "heading": "El año reglamentario ha terminado",
+      "summary": [
+        {
+          "text": "Su año reglamentario ha terminado en su solicitud del desempleo regular. No se le pueden pagar semanas de desempleo después de que termine su año reglamentario, esto a pesar de que tiene un saldo restante en su solicitud."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Usted puede <0>volver a solicitar los beneficios por desempleo</0> si ganó <1>salarios suficientes</1> de un empleador en los últimos 18 meses y sigue desempleado o trabajando de tiempo parcial."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Ninguno en este momento."
+        }
+      ]
+    },
+    "scenario8": {
+      "heading": "La Asistencia de Desempleo por la Pandemia ha terminado",
+      "summary": [
+        {
+          "text": "Los beneficios de la Asistencia de Desempleo por la Pandemia (PUA, por sus siglas en inglés) han terminado. La ley federal no permite que se paguen beneficios de PUA por semanas de desempleo después del 4 de septiembre de 2021, esto a pesar de que tiene un saldo restante en su solicitud."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Usted puede <0>volver a solicitar los beneficios por desempleo</0> si ganó <1>salarios suficientes</1> de un empleador en los últimos 18 meses y sigue desempleado o trabajando de tiempo parcial."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Ninguno en este momento."
+        }
+      ]
+    },
+    "scenario9": {
+      "heading": "La Asistencia de Desempleo por Desastre ha terminado",
+      "summary": [
+        {
+          "text": "Sus beneficios de la Asistencia de Desempleo por Desastre (DUA, por sus siglas en inglés) han terminado. La ley federal no permite que se paguen beneficios por semanas de desempleo después de que terminan estos programas, esto a pesar de que tiene un saldo restante en su solicitud."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Usted puede <0>volver a solicitar los beneficios por desempleo</0> si ganó <1>salarios suficientes</1> de un empleador en los últimos 18 meses y sigue desempleado o trabajando de tiempo parcial."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Ninguno en este momento."
+        }
+      ]
+    },
+    "scenario10": {
+      "heading": "Los beneficios federales por desempleo han terminado",
+      "summary": [
+        {
+          "text": "Los beneficios federales por desempleo han terminado. La ley federal no permite que se paguen beneficios por semanas de desempleo después de que terminan estos programas, esto a pesar de que tiene un saldo restante en su solicitud."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Usted puede <0>volver a solicitar los beneficios por desempleo</0> si ganó <1>salarios suficientes</1> de un empleador en los últimos 18 meses y sigue desempleado o trabajando de tiempo parcial."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Ninguno en este momento."
+        }
+      ]
+    },
+    "scenario11": {
+      "heading": "La Compensación de Desempleo de Emergencia por la Pandemia ha terminado",
+      "summary": [
+        {
+          "text": "Los beneficios de la Compensación de Desempleo de Emergencia por la Pandemia (PEUC, por sus siglas en inglés) han terminado. La ley federal no permite que se paguen beneficios de PEUC por semanas de desempleo después del 4 de septiembre de 2021, esto a pesar de que tiene un saldo restante en su solicitud."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Usted puede <0>volver a solicitar los beneficios por desempleo</0> si ganó <1>salarios suficientes</1> de un empleador en los últimos 18 meses y sigue desempleado o trabajando de tiempo parcial."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Ninguno en este momento."
+        }
+      ]
+    },
+    "scenario12": {
+      "heading": "Los beneficios de la Duración de la Extensión Federal-Estatal han terminado",
+      "summary": [
+        {
+          "text": "Los beneficios de la Duración de la Extensión Federal-Estatal (FED-ED, por sus siglas en inglés) han terminado. La ley federal no permite que se paguen beneficios de FED-ED por semanas de desempleo después del 11 de septiembre de 2021, esto a pesar de que tiene un saldo restante en su solicitud."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Usted puede <0>volver a solicitar los beneficios por desempleo</0> si ganó <1>salarios suficientes</1> de un empleador en los últimos 18 meses y sigue desempleado o trabajando de tiempo parcial."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Ninguno en este momento."
+        }
+      ]
     }
   },
   "conditional-next-steps": {

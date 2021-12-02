@@ -57,13 +57,111 @@ describe('The Generic Pending scenario (scenario 4)', () => {
 
 // Scenarios 5 & 6
 describe('The Base State scenarios (scenarios 5 & 6)', () => {
-  it('are returned as expected', () => {
-    const baseScenarios = [ScenarioType.Scenario5, ScenarioType.Scenario6]
-    for (const scenarioType of baseScenarios) {
-      const scenarioObject = getScenario(apiGatewayStub(scenarioType))
-      expect(scenarioObject.scenarioType).toBe(scenarioType)
-    }
+  const baseScenarios = [
+    ['No Weeks to Certify', ScenarioType.Scenario5],
+    ['Weeks to Certify', ScenarioType.Scenario6],
+  ]
+  it.each(baseScenarios)('Base State with %s returns as expected', (description, scenarioType) => {
+    const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+    expect(scenarioObject.scenarioType).toBe(scenarioType)
   })
+})
+
+describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
+  const byeScenarios = [
+    ['UI', ScenarioType.Scenario7],
+    ['PUA', ScenarioType.Scenario8],
+    ['DUA', ScenarioType.Scenario9],
+    ['Old Extension', ScenarioType.Scenario10],
+    ['Pandemic Extension', ScenarioType.Scenario11],
+    ['FED-ED Extension', ScenarioType.Scenario12],
+  ]
+  it.each(byeScenarios)('BYE for %s returns as expected', (description, scenarioType) => {
+    const scenarioObject = getScenario(apiGatewayStub(scenarioType))
+    expect(scenarioObject.scenarioType).toBe(scenarioType)
+  })
+
+  // Negative cases
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 1', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario1)
+    pendingDeterminationBYE.isBYE = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario1)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 2', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario2)
+    pendingDeterminationBYE.isBYE = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario2)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 3', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario3)
+    pendingDeterminationBYE.isBYE = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario3)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 4', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario4)
+    pendingDeterminationBYE.isBYE = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario4)
+  })
+
+  it.each(byeScenarios)('BYE for %s is overriden by scenario 6', (description, scenarioType) => {
+    const pendingDeterminationBYE = apiGatewayStub(ScenarioType.Scenario6)
+    pendingDeterminationBYE.isBYE = true
+    const scenarioObject = getScenario(pendingDeterminationBYE)
+    expect(scenarioObject.scenarioType).not.toBe(scenarioType)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario6)
+  })
+
+  const nonByeProgramTypes = [
+    ['state extension', 'CAL-ED Extension'],
+    ['training extension', 'Training Extension (TE)'],
+  ]
+
+  it.each(nonByeProgramTypes)('BYE is not triggered for a %s', (description, programType) => {
+    // we're overrding the program type, which is the difference between the API response
+    // for scenarios 7 thru 12 - so testing each would be redundant
+    const byeInvalidProgram = apiGatewayStub(ScenarioType.Scenario7)
+    byeInvalidProgram.claimDetails.programType = programType
+    const scenarioObject = getScenario(byeInvalidProgram)
+    expect(scenarioObject.scenarioType).not.toBe(ScenarioType.Scenario7)
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario5)
+  })
+
+  it('FED-ED prior to cutoff date should return Scenario 10', () => {
+    const scenarioObject = getScenario(
+      apiGatewayStub(ScenarioType.Scenario12, false, true, 'FED-ED', '2016-10-05T00:00:00'),
+    )
+    expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario10)
+  })
+
+  const falseyBenefitYearEndDates = [
+    ['null', null],
+    ['undefined', undefined],
+    ['empty string', ''],
+  ]
+  it.each(falseyBenefitYearEndDates)(
+    'FED-ED with %s benefit year end date throws an error',
+    (description, benefitYearEndDate) => {
+      const invalidByeProgram = apiGatewayStub(ScenarioType.Scenario12, false, false, 'FED-ED', benefitYearEndDate)
+      // Create an invalid claim object by removing benefitYearEndDate.
+      if (benefitYearEndDate === undefined) {
+        delete invalidByeProgram.claimDetails.benefitYearEndDate
+      }
+      expect(() => {
+        getScenario(invalidByeProgram)
+      }).toThrowError('Claim is marked as isBYE, but is missing benefit year end date value')
+    },
+  )
 })
 
 /**

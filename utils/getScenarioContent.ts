@@ -10,7 +10,7 @@
 import { Claim, ClaimDetailsContent, PendingDetermination, ScenarioContent } from '../types/common'
 import getClaimDetails from './getClaimDetails'
 import getClaimStatus from './getClaimStatus'
-import { isDatePast, isDateStringFalsy, isValidDate, parseApiGatewayDate } from './formatDate'
+import { isDatePast, isDateStringFalsy, isFirstDateBefore, isValidDate, parseApiGatewayDate } from './formatDate'
 import { isFirstTimeSlotEarlier } from './timeSlot'
 
 export enum ScenarioType {
@@ -20,15 +20,27 @@ export enum ScenarioType {
   Scenario4,
   Scenario5,
   Scenario6,
+  Scenario7,
+  Scenario8,
+  Scenario9,
+  Scenario10,
+  Scenario11,
+  Scenario12,
 }
 
 export const ScenarioTypeNames = {
-  [ScenarioType.Scenario1]: 'Determination interview: not yet scheduled',
-  [ScenarioType.Scenario2]: 'Determination interview: scheduled',
-  [ScenarioType.Scenario3]: 'Determination interview: awaiting decision',
-  [ScenarioType.Scenario4]: 'Generic pending state: pending weeks',
-  [ScenarioType.Scenario5]: 'Base state: no pending weeks, no weeks to certify',
-  [ScenarioType.Scenario6]: 'Base state: no pending weeks, weeks to certify',
+  [ScenarioType.Scenario1]: 'Pending Eligibility: Phone Interview Will Be Scheduled',
+  [ScenarioType.Scenario2]: 'Pending Eligibility: Phone Interview Scheduled',
+  [ScenarioType.Scenario3]: 'Pending Eligibility: Under Review',
+  [ScenarioType.Scenario4]: 'Review Required',
+  [ScenarioType.Scenario5]: 'No Weeks Available to Certify',
+  [ScenarioType.Scenario6]: 'Weeks Available to Certify',
+  [ScenarioType.Scenario7]: 'Benefit Year Has Ended',
+  [ScenarioType.Scenario8]: 'Pandemic Unemployment Assistance Has Ended',
+  [ScenarioType.Scenario9]: 'Disaster Unemployment Assistance Has Ended',
+  [ScenarioType.Scenario10]: 'Federal Unemployment Benefits Have Ended',
+  [ScenarioType.Scenario11]: 'Pandemic Emergency Unemployment Compensation Has Ended',
+  [ScenarioType.Scenario12]: 'Federal-State Extended Duration Benefits Have Ended',
 }
 
 interface PendingDeterminationScenario {
@@ -151,6 +163,107 @@ export function identifyPendingDeterminationScenario(
 }
 
 /**
+ * Identifies the Program Types that count as a Pandemic extension
+ **/
+export function isPandemicExtension(programType: string): boolean {
+  const byeValidPandemicExtensions = {
+    PEUC: 'PEUC - Tier 1 Extension',
+    PEUX: 'PEUX - Tier 2 Extension',
+    PEUY: 'PEUY - Tier 2 Augmentation',
+  }
+
+  if (Object.values(byeValidPandemicExtensions).includes(programType)) {
+    return true
+  }
+
+  return false
+}
+
+/**
+ * Identifies the Program Types that count as another extension
+ **/
+export function isOldExtension(programType: string): boolean {
+  const byeValidExtensions = {
+    EUC: 'EUC - Tier 1 Extension',
+    EUX: 'EUX - Tier 2 Extension',
+    EUY: 'EUY - Tier 2 Augmentation',
+    EUW: 'EUW - Tier 3 Extension',
+    EUZ: 'EUZ - Tier 4 Extension',
+  }
+
+  if (Object.values(byeValidExtensions).includes(programType)) {
+    return true
+  }
+
+  return false
+}
+
+/**
+ * Identify if the benefit claim year has ended for appropriate
+ * claim types
+ **/
+export function isBenefitYearExpired(claimData: Claim): boolean {
+  const byeValidPrograms = {
+    UI: 'UI',
+    DUA: 'DUA',
+    PUA: 'PUA',
+    'FED-ED Extension': 'FED-ED Extension',
+  }
+  const programType = claimData.claimDetails?.programType || ''
+
+  if (
+    claimData.isBYE &&
+    (programType in byeValidPrograms || isPandemicExtension(programType) || isOldExtension(programType))
+  ) {
+    return true
+  }
+
+  return false
+}
+
+/**
+ * Determine which BYE scenario applies
+ **/
+export function byeScenario(claimData: Claim): ScenarioType | null {
+  const programType = claimData.claimDetails?.programType
+  const benefitYearEndDate = claimData.claimDetails?.benefitYearEndDate
+
+  if (programType) {
+    if (isOldExtension(programType)) {
+      return ScenarioType.Scenario10
+    }
+
+    if (isPandemicExtension(programType)) {
+      return ScenarioType.Scenario11
+    }
+
+    switch (programType) {
+      case 'UI':
+        return ScenarioType.Scenario7
+      case 'PUA':
+        return ScenarioType.Scenario8
+      case 'DUA':
+        return ScenarioType.Scenario9
+
+      // BYE scenarios with the Program Type 'FED-ED' are treated differently depending
+      // on whether the benefitYearEndDate is before or on/after 2020-05-10.
+      case 'FED-ED Extension':
+        if (benefitYearEndDate) {
+          if (isFirstDateBefore(benefitYearEndDate, '2020-05-10T00:00:00')) {
+            return ScenarioType.Scenario10
+          } else {
+            return ScenarioType.Scenario12
+          }
+        } else {
+          throw new Error('Claim is marked as isBYE, but is missing benefit year end date value')
+        }
+    }
+  }
+
+  return null
+}
+
+/**
  * Identify the correct scenario to display.
  *
  * @TODO: Validating the API gateway response #150
@@ -171,19 +284,27 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   // If the scenario is not one of the Pending Determination scenarios,
   // check to see if it one of the remaining scenarios.
 
-  // @TODO: Validate that hasPendingWeeks is a boolean
-  if (claimData.hasPendingWeeks === true) {
+  // deprecated for hasValidPendingWeeks
+  // @TODO: Validate that hasValidPendingWeeks is a boolean
+  if (claimData.hasPendingWeeks === true || claimData.hasValidPendingWeeks === true) {
     // @TODO: Validate that hasCertificationWeeks is a boolean
     return { scenarioType: ScenarioType.Scenario4 }
   }
-  // hasPendingWeeks === false
-  else {
-    if (claimData.hasCertificationWeeksAvailable === false) {
-      return { scenarioType: ScenarioType.Scenario5 }
-    } else {
-      return { scenarioType: ScenarioType.Scenario6 }
+  // hasValidPendingWeeks === false
+  // hasCertificationWeeksAvailable === true
+  else if (claimData.hasCertificationWeeksAvailable === true) {
+    return { scenarioType: ScenarioType.Scenario6 }
+  }
+  // isBYE === true
+  else if (isBenefitYearExpired(claimData)) {
+    const byeScenarioType = byeScenario(claimData)
+    if (byeScenarioType) {
+      return { scenarioType: byeScenarioType }
     }
   }
+
+  // None of the above.
+  return { scenarioType: ScenarioType.Scenario5 }
 }
 
 /**
@@ -225,6 +346,7 @@ export default function getScenarioContent(claimData: Claim): ScenarioContent {
   }
 
   const content: ScenarioContent = {
+    scenarioName: ScenarioTypeNames[scenarioType],
     statusContent: statusContent,
     detailsContent: detailsContent,
   }

@@ -15,7 +15,6 @@ function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArriv
   return renderer
     .create(
       <ClaimStatus
-        loading={false}
         userArrivedFromUioMobile={userArrivedFromUioMobile}
         heading={statusContent.heading}
         summary={statusContent.summary}
@@ -125,5 +124,62 @@ describe('Scenario 6', () => {
   })
   it('matches, on mobile', () => {
     expect(testClaimStatus(ScenarioType.Scenario6, true, true)).toMatchSnapshot()
+  })
+})
+
+// Test the BYE Scenarios
+// Note that BYE Scenarios are lower precendent than hasCertificationWeeksAvailable, so they
+// do not have a display to test with that
+describe('Scenario 7', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario7)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario7, true, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 8', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario8)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario8, true, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 9', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario9)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario9, true, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 10', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario10)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario10, true, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 11', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario11)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario11, true, true)).toMatchSnapshot()
+  })
+})
+
+describe('Scenario 12', () => {
+  it('matches, on desktop', () => {
+    expect(testClaimStatus(ScenarioType.Scenario12)).toMatchSnapshot()
+  })
+  it('matches, on mobile', () => {
+    expect(testClaimStatus(ScenarioType.Scenario12, true, true)).toMatchSnapshot()
   })
 })

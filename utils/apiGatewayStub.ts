@@ -16,13 +16,16 @@ export default function apiGatewayStub(
   hasCertificationWeeksAvailable = false,
   hasClaimDetails = true,
   programType = 'UI',
+  benefitYearEndDate = '2021-03-20T00:00:00',
 ): Claim {
   // Default empty response from the API gateway
   const claim: Claim = {
     uniqueNumber: null,
     claimDetails: null,
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false,
+    isBYE: false,
+    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
+    hasValidPendingWeeks: false,
     pendingDetermination: null,
   }
 
@@ -67,20 +70,60 @@ export default function apiGatewayStub(
       break
 
     case ScenarioType.Scenario4:
-      claim.hasPendingWeeks = true
+      claim.hasPendingWeeks = true // deprecated for hasValidPendingWeeks
+      claim.hasValidPendingWeeks = true
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break
 
     // Note that Scenarios 5 & 6 explicitly differ based on whether hasCertificationWeeksAvailable
     // is true or false, so we ignore the argument.
     case ScenarioType.Scenario5:
-      claim.hasPendingWeeks = false
+      claim.hasPendingWeeks = false // deprecated for hasValidPendingWeeks
+      claim.hasValidPendingWeeks = false
       claim.hasCertificationWeeksAvailable = false
       break
 
     case ScenarioType.Scenario6:
-      claim.hasPendingWeeks = false
+      claim.hasPendingWeeks = false // deprecated for hasValidPendingWeeks
+      claim.hasValidPendingWeeks = false
       claim.hasCertificationWeeksAvailable = true
+      break
+
+    case ScenarioType.Scenario7:
+      claim.isBYE = true
+      claim.pendingDetermination = [] // test this alternative null pendingDetermination
+      hasClaimDetails = true
+      programType = 'UI'
+      break
+
+    case ScenarioType.Scenario8:
+      claim.isBYE = true
+      hasClaimDetails = true
+      programType = 'PUA'
+      break
+
+    case ScenarioType.Scenario9:
+      claim.isBYE = true
+      hasClaimDetails = true
+      programType = 'DUA'
+      break
+
+    case ScenarioType.Scenario10:
+      claim.isBYE = true
+      hasClaimDetails = true
+      programType = 'EUW - Tier 3 Extension'
+      break
+
+    case ScenarioType.Scenario11:
+      claim.isBYE = true
+      hasClaimDetails = true
+      programType = 'PEUC - Tier 1 Extension'
+      break
+
+    case ScenarioType.Scenario12:
+      claim.isBYE = true
+      hasClaimDetails = true
+      programType = 'FED-ED Extension'
       break
 
     // No match should throw an error
@@ -92,7 +135,7 @@ export default function apiGatewayStub(
     claim.claimDetails = {
       programType: programType,
       benefitYearStartDate: '2020-03-21T00:00:00',
-      benefitYearEndDate: '2021-03-20T00:00:00',
+      benefitYearEndDate: benefitYearEndDate,
       claimBalance: 1100.45,
       weeklyBenefitAmount: 111,
       lastPaymentIssued: '2021-04-29T00:00:00',

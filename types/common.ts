@@ -7,6 +7,7 @@ export interface UrlPrefixes {
   urlPrefixUioDesktop: string
   urlPrefixUioMobile: string
   urlPrefixBpo: string
+  urlPrefixUioClaimstatus: string
 }
 
 // Types for TransLine component
@@ -45,13 +46,33 @@ export interface ClaimDetailsResult {
   monetaryStatus: string
 }
 
+export interface NullClaimDetailsResult {
+  benefitYearStartDate: null
+  benefitYearEndDate: null
+  claimBalance: null
+  weeklyBenefitAmount: null
+  lastPaymentIssued: null
+  lastPaymentAmount: null
+}
+
 export interface Claim {
-  ClaimType?: null | undefined | string
-  uniqueNumber?: null | string
-  claimDetails?: null | ClaimDetailsResult
-  hasPendingWeeks?: null | undefined | boolean
-  hasCertificationWeeksAvailable?: null | undefined | boolean
-  pendingDetermination?: null | PendingDetermination[]
+  uniqueNumber: null | string
+  claimDetails: null | ClaimDetailsResult
+  hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
+  hasValidPendingWeeks: boolean
+  hasCertificationWeeksAvailable: boolean
+  isBYE: boolean
+  pendingDetermination: null | PendingDetermination[]
+}
+
+export interface NullClaim {
+  uniqueNumber: null | string
+  claimDetails: null | NullClaimDetailsResult
+  hasPendingWeeks: boolean // deprecated for hasValidPendingWeeks
+  hasValidPendingWeeks: boolean
+  hasCertificationWeeksAvailable: boolean
+  isBYE: boolean
+  pendingDetermination: null | []
 }
 
 // Types for Claim Status and Claim Details
@@ -87,6 +108,7 @@ export interface ClaimDetailsContent {
 }
 
 export interface ScenarioContent {
+  scenarioName?: string
   statusContent: ClaimStatusContent
   detailsContent: null | ClaimDetailsContent
 }

@@ -2,7 +2,8 @@ import { Story, Meta } from '@storybook/react'
 
 import { DateTime } from 'luxon'
 
-import { Appointment as AppointmentComponent, AppointmentProps } from '../components/Appointment'
+import { Appointment as AppointmentComponent } from '../components/Appointment'
+import { AppointmentContent } from '../types/common'
 
 export default {
   title: 'Component/Atoms/Appointment',
@@ -48,7 +49,7 @@ export default {
   },
 } as Meta
 
-interface StoryAppointmentProps extends AppointmentProps {
+interface StoryAppointmentProps extends AppointmentContent {
   start?: number
   end?: number
 }

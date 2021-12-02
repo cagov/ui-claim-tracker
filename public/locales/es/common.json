@@ -33,9 +33,9 @@
     "entry2": "Thank you for your patience as we continue to improve our services."
   },
   "claim-status": {
-    "title": "Estatus de solicitud",
-    "your-next-steps": "Sus próximos pasos",
-    "edd-next-steps": "Próximos pasos del EDD"
+    "title": "Estatus de la solicitud",
+    "your-next-steps": "Sus siguientes pasos",
+    "edd-next-steps": "Siguientes pasos del EDD"
   },
   "claim-details": {
     "title": "Detalles de la solicitud",
@@ -71,7 +71,8 @@
     "edd": {
       "ui-certify": "https://edd.ca.gov/Unemployment/certify-espanol.htm",
       "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status-espanol.htm",
-      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm"
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/ui-calculator-espanol.htm"
     }
   }
 }

@@ -2,7 +2,7 @@
  * Preview.js is loaded in the Canvas tab, the “preview” iframe that renders your components in isolation. Use preview.js
  * for global code (such as CSS imports or JavaScript mocks) that applies to all stories.
  */
-import '../styles/globals.scss'
+import '../public/styles/globals.scss'
 import i18n from 'i18next'
 import { I18nextProvider, initReactI18next } from 'react-i18next'
 import { withI18next } from 'storybook-addon-i18next'
@@ -24,6 +24,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'centered',
   nextRouter: {
     Provider: RouterContext.Provider,
   },
@@ -34,7 +35,7 @@ export const parameters = {
         'Claim Status Tracker',
         ['Page', '404'],
         'Component',
-        ['Page Section', ['Header', 'Main', 'Claim Section', 'Claim Status', 'Next Steps', 'Claim Details', 'Footer']],
+        ['Page Section', ['Header', 'Main', [ 'Claim Section', [ 'Claim Status', 'Claim Details']], 'Footer']],
         'Atoms',
       ],
     },
