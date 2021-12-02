@@ -4,3 +4,4 @@ __mocks__
 tests/__snapshots__
 coverage
 server-preload.js
+public/js

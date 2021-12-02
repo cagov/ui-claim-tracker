@@ -1,6 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+// Uses v5.0.15 version of cagov.core.css and colorscheme-oceanside.css to match version included in EDD Brand Template v1.0.0
 @import './cagov.core.css';
 @import './colorscheme-oceanside.css';
+// Uses custom.css included in EDD Brand Template v1.0.0
 @import './custom.css';
 
 // Component class names must not be nested for Storybook to work
@@ -8,218 +10,43 @@
 
 html,
 body {
-  font-family: 'Source Sans Pro';
-  color: #333333;
-  line-height: 22.4px;
+  .claim-section {
+    .sub-bullets {
+      padding-top: 0.25rem;
+    }
 
-  b,
-  strong {
-    font-weight: 700;
-  }
+    .summary-section {
+      margin: 1rem 0;
+    }
 
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
+    // @TODO
+    .appointment {
+      margin: 1rem 0 1rem 1.5rem;
+    }
 
-  .header {
-    width: 100%;
-
-    //flagged important to override important flag in bootstrap
-    border-bottom-width: 4px !important;
-    border-bottom-color: #fdb81e !important;
-
-    .navbar-brand {
+    .claim-details {
       padding: 0;
-    }
 
-    // Keeps the secondary nav bar links right justified
-    .navbar-collapse {
-      flex-grow: 0;
-    }
-
-    // override bootstrap so the hamburger menu stays next to EDD logo instead of overflowing to next line
-    @media (max-width: 340px) {
-      .edd-logo {
-        margin-right: 0 !important;
-      }
-    }
-
-    .navbar-nav {
-      font-size: 16px;
-      margin: 0 4px 0 4px;
-
-      .nav-link {
-        font-size: 16px;
-        margin: 0 4px 0 4px;
-      }
-    }
-
-    .navbar-dark {
-      background-color: #116c97;
-      padding: 0 1rem;
-
-      .navbar-nav {
-        flex-direction: row;
+      .claim-details-box {
+        padding: 0 1.5rem 1rem 1.5rem;
+        border: 4px solid #f0f0f0;
+        margin-bottom: 5rem;
       }
 
-      .text {
-        color: white;
-      }
-    }
+      .info {
+        padding-top: 1rem;
 
-    .navbar-light .navbar-nav {
-      margin: 0 4px -12px 4px;
-      border-bottom: 4px solid #fdb81e;
-
-      &:hover {
-        margin: 0 4px -12px 4px;
-        border-bottom: 4px solid #046b99;
-      }
-    }
-
-    .navbar-toggler {
-      border: 0;
-      font-size: 2rem;
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='50' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(17,108,151, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    .icon,
-    .text {
-      vertical-align: middle;
-      display: inline-block;
-    }
-
-    .uiom {
-      border-bottom: 0 !important;
-    }
-  }
-
-  .header-icon {
-    margin: 0 2rem;
-    text-align: center;
-
-    &:hover .text,
-    &:hover [class^='ca-gov-icon-'] {
-      color: #b55e00;
-    }
-
-    [class^='ca-gov-icon-'] {
-      color: #116c97;
-      display: block;
-      font-size: 2rem;
-      margin: 0.5rem;
-    }
-
-    @media (min-width: 1200px) {
-      [class^='ca-gov-icon-'] {
-        margin: 0.5rem 1.25rem;
-      }
-    }
-
-    .text {
-      color: #555555;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .header {
-      .navbar-collapse {
-        margin-top: 5px;
-      }
-
-      .navbar-light .navbar-nav {
-        text-align: left;
-        border-bottom: 1px solid #e1f2f7;
-        margin: 0 4px 0 4px;
-
-        &:hover {
-          margin: 0 4px 0 4px;
-          border-bottom: 1px solid #e1f2f7;
+        .info-label {
+          color: #757575;
         }
       }
-
-      .nav-link {
-        display: flex;
-      }
-
-      .text {
-        margin: 0.5rem 0;
-      }
     }
-  }
-
-  //Stretch the header/footer edge-to-edge
-  .index {
-    padding: 0px;
-  }
-
-  .claim-section {
-    margin-top: 3rem;
-  }
-
-  .claim-subsection {
-    margin-top: 1.5rem;
-  }
-
-  .claim-details {
-    padding: 0;
-
-    .claim-details-title {
-      margin-bottom: 1rem;
-    }
-
-    .claim-details-box {
-      padding: 0 1.5rem 1rem 1.5rem;
-      border: 4px solid #f0f0f0;
-    }
-
-    .info {
-      padding-top: 1rem;
-      .info-label {
-        color: #757575;
-      }
-    }
-  }
-
-  .summary-section {
-    margin: 1rem 0;
-  }
-
-  .appointment {
-    margin: 1rem 0 1rem 1.5rem;
-  }
-
-  //override bootstrap for our NextSteps component layout
-  ul {
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    list-style: none;
-  }
-
-  //this styles our bullets into fancy small dots with a consistent color
-  //pulled from https://www.w3.org/Style/Examples/007/color-bullets.en.html
-  li::before {
-    content: '•';
-    color: black;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-  }
-
-  .sub-bullets {
-    margin-left: 0.5rem;
   }
 
   .error-content {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
     .error-label {
       font-size: 3.5rem;
       font-weight: 700;
@@ -233,53 +60,18 @@ body {
     }
   }
 
-  .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    //Keep reasonable padding regardless of screen size
+  @media (min-width: 768px) {
     .main-content {
-      padding: 5rem 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .main-content {
-        max-width: 650px;
-      }
-    }
-
-    //Shrink some vertical spacing between sections on small screens
-    @media (max-width: 768px) {
-      .main-content {
-        padding: 3rem 1rem;
-      }
-
-      .claim-section {
-        margin-top: 2rem;
-      }
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
-  .footer {
-    background-color: #222;
-
-    .copyright {
-      padding: 5px 8px 23px;
-    }
-
-    .navbar {
-      padding: 0;
-      .nav-link {
-        padding: 0.25rem 0.5rem;
-        color: whitesmoke;
-      }
-    }
-
-    .secondary-footer {
-      background: #efefef;
+  //Shrink some vertical spacing between sections on small screens
+  @media (max-width: 768px) {
+    .claim-section {
+      margin-top: 2rem;
     }
   }
 }

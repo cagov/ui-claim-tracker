@@ -1,6 +1,5 @@
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
 import { HeaderIcon } from './HeaderIcon'
@@ -40,85 +39,110 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
     }
 
     globalHeader = (
-      <>
-        <HeaderIcon link={uioHomeDesktopLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
-        <HeaderIcon
-          link={getUrl('uio-desktop-certify', urlPrefixes)}
-          label={t('header.uio-certify')}
-          icon="ca-gov-icon-file-check"
-        />
-        <HeaderIcon
-          link={getUrl('uio-desktop-payments', urlPrefixes)}
-          label={t('header.uio-payments')}
-          icon="ca-gov-icon-currency"
-        />
-        <HeaderIcon
-          link={getUrl('uio-desktop-history', urlPrefixes)}
-          label={t('header.uio-history')}
-          icon="ca-gov-icon-clock"
-        />
-        <HeaderIcon link={cstUrl} label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
-        <HeaderIcon
-          link={getUrl('uio-desktop-profile', urlPrefixes)}
-          label={t('header.uio-profile')}
-          icon="ca-gov-icon-person"
-        />
-        <HeaderIcon
-          link={getUrl('uio-desktop-inbox', urlPrefixes)}
-          label={t('header.uio-inbox')}
-          icon="ca-gov-icon-email"
-        />
-        <HeaderIcon
-          link={getUrl('uio-desktop-contact', urlPrefixes)}
-          label={t('header.uio-contact')}
-          icon="ca-gov-icon-users-dialog"
-        />
-      </>
+      <nav id="navigation" className="main-navigation megadropdown auto-highlight noindex mobile-closed">
+        <ul className="top-level-nav nav-menu">
+          <HeaderIcon link={uioHomeDesktopLink} label={t('header.uio-home')} icon="ca-gov-icon-home" />
+          <HeaderIcon
+            link={getUrl('uio-desktop-certify', urlPrefixes)}
+            label={t('header.uio-certify')}
+            icon="ca-gov-icon-file-check"
+          />
+          <HeaderIcon
+            link={getUrl('uio-desktop-payments', urlPrefixes)}
+            label={t('header.uio-payments')}
+            icon="ca-gov-icon-currency"
+          />
+          <HeaderIcon
+            link={getUrl('uio-desktop-history', urlPrefixes)}
+            label={t('header.uio-history')}
+            icon="ca-gov-icon-clock"
+          />
+          <HeaderIcon link={cstUrl} label={t('header.uio-status')} icon="ca-gov-icon-file-medical-alt" />
+          <HeaderIcon
+            link={getUrl('uio-desktop-profile', urlPrefixes)}
+            label={t('header.uio-profile')}
+            icon="ca-gov-icon-person"
+          />
+          <HeaderIcon
+            link={getUrl('uio-desktop-inbox', urlPrefixes)}
+            label={t('header.uio-inbox')}
+            icon="ca-gov-icon-email"
+          />
+          <HeaderIcon
+            link={getUrl('uio-desktop-contact', urlPrefixes)}
+            label={t('header.uio-contact')}
+            icon="ca-gov-icon-users-dialog"
+          />
+        </ul>
+      </nav>
     )
   }
 
   return (
-    <header className="header border-bottom border-secondary">
-      <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
+    <header className="header global-header fixed">
+      <nav className="justify-content-between utility-header">
         <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('ca-gov')}>
-            <img
-              src={assetPrefix + '/images/Ca-Gov-Logo-Gold.svg'}
-              alt={t('header.alt-image-cagov')}
-              width="46"
-              height="34"
-            />
-          </Navbar.Brand>
-          <Nav>
-            <Navbar.Collapse>
+          <div className="group flex-row">
+            <div className="social-media-links">
+              <div className="header-cagov-logo">
+                <a target="_blank" rel="noopener noreferrer" href={getUrl('ca-gov')}>
+                  <span className="sr-only">CA.gov</span>
+                  <img
+                    src={assetPrefix + '/images/Ca-Gov-Logo-Gold.svg'}
+                    alt={t('header.alt-image-cagov')}
+                    className="pos-rel"
+                  />
+                </a>
+              </div>
+            </div>
+            <div className="settings-links">
               <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
                 <span className="text">{t('header.edd-home')}</span>
               </Nav.Link>
-            </Navbar.Collapse>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-desktop-help-new-claim')}>
-              <span className="text">{t('header.help')}</span>
-            </Nav.Link>
-            <Nav.Link href={getUrl('bpo-logout')}>
-              <span className="text">{t('header.logout')}</span>
-            </Nav.Link>
-          </Nav>
+              <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-desktop-help-new-claim')}>
+                <span className="text">{t('header.help')}</span>
+              </Nav.Link>
+              <Nav.Link href={getUrl('bpo-logout')}>
+                <span className="text">{t('header.logout')}</span>
+              </Nav.Link>
+            </div>
+          </div>
         </Container>
-      </Navbar>
-      <Navbar className="justify-content-between" expand="lg" variant="light">
-        <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
-            <img
-              src={assetPrefix + '/images/edd-logo-2-Color.svg'}
-              alt={t('header.alt-image-edd')}
-              height="60"
-              width="171"
-              className="edd-logo d-inline-block align-top mr-5"
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse>{globalHeader}</Navbar.Collapse>
-        </Container>
-      </Navbar>
+      </nav>
+      <div className="branding">
+        <div className="header-organization-banner">
+          <a target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
+            <img src={assetPrefix + '/images/edd-logo-2-Color.svg'} alt={t('header.alt-image-edd')} />
+          </a>
+        </div>
+      </div>
+      <div className="mobile-controls">
+        <span className="mobile-control-group mobile-header-icons" />
+        <div className="mobile-control-group main-nav-icons float-right">
+          <button className="mobile-control toggle-search float-left m-l">
+            <span className="ca-gov-icon-search hidden-print" aria-hidden="true" />
+            <span className="sr-only">Search</span>
+          </button>
+          <button
+            id="nav-icon3"
+            className="mobile-control toggle-menu"
+            aria-expanded="false"
+            aria-controls="navigation"
+          >
+            <span />
+            <span />
+            <span />
+            <span />
+            <span className="sr-only">Menu</span>
+          </button>
+        </div>
+      </div>
+      <div className="navigation-search">
+        {globalHeader}
+        <div id="head-search" className="search-container in" aria-hidden="true">
+          <div className="container" />
+        </div>
+      </div>
     </header>
   )
 }

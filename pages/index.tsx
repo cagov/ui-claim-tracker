@@ -106,7 +106,7 @@ export default function Home({
 
   // Otherwise, render normally.
   return (
-    <Container fluid className="index">
+    <div className="primary">
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href={favicon} />
@@ -117,14 +117,23 @@ export default function Home({
           rel="stylesheet"
         />
         {enableGoogleAnalytics === 'enabled' && googleAnalytics}
+        {/* Load javascript from EDD template, which relies on jquery */}
+        <script type="text/javascript" src="/js/libs/jquery.js" />
+        <script type="text/javascript" src="/js/cagov.core.js" />
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} urlPrefixes={urlPrefixes} assetPrefix={assetPrefix} />
-      <main className="main">
-        <Container className="main-content">{mainContent}</Container>
-      </main>
+      <div id="main-content" className="main-content">
+        <main className="main-primary">
+          <div className="group p-b-md p-t-md">
+            <Container>
+              <div className="full-width">{mainContent}</div>
+            </Container>
+          </div>
+        </main>
+      </div>
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
-    </Container>
+    </div>
   )
 }
 

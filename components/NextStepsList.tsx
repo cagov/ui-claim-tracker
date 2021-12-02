@@ -21,14 +21,14 @@ export const NextStepsList: React.FC<NextStepsListProps> = ({ userArrivedFromUio
               i18nKey={thisStep.i18nKey}
               links={thisStep.links}
             />
-            <div className="sub-bullets">
-              {
-                // Include sub-bullets; ignore first element since it was already included as a main bullet above
-                Array.isArray(nextStep) ? (
+            {
+              // Include sub-bullets; ignore first element since it was already included as a main bullet above
+              Array.isArray(nextStep) ? (
+                <div className="sub-bullets">
                   <NextStepsList userArrivedFromUioMobile={userArrivedFromUioMobile} nextSteps={nextStep.slice(1)} />
-                ) : null
-              }
-            </div>
+                </div>
+              ) : null
+            }
           </li>
         )
       })}
