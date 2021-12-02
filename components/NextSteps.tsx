@@ -3,7 +3,7 @@ import { TransLineContent } from '../types/common'
 
 export interface NextStepsProps {
   userArrivedFromUioMobile: boolean
-  header: string[]
+  header: string
   nextSteps: Array<TransLineContent | TransLineContent[]>
 }
 
