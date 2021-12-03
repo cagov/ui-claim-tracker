@@ -4,47 +4,87 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-
+  - main
 
 # no PR triggers
 pr: none
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: 'ubuntu-latest'
+
+# Disable next.js telemetry
+# Docs: https://nextjs.org/telemetry
+variables:
+  - name: 'NEXT_TELEMETRY_DISABLED'
+    value: '1'
 
 steps:
-  - task: NodeAndNpmTool@1
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/node-js
+  - task: NodeTool@0
     inputs:
       versionSpec: '14.x'
       checkLatest: true
+    displayName: 'Install node'
 
   - script: sudo npm install -g yarn
+    displayName: 'Install yarn'
 
-  - script: yarn install
+  # Zipping files with symlinks introduces a potential security vulnerability, so we use
+  #   --no-bin-links to prevent symlinks from being created in node_modules.
+  # Docs: https://classic.yarnpkg.com/en/docs/cli/install/#toc-yarn-install-no-bin-links
+  - script: yarn install --no-bin-links
     displayName: 'Install dependencies'
 
   - script: yarn build
-    displayName: 'build'
+    displayName: 'Run yarn build'
 
+  # CST needs the default next.js files plus a few additional config/startup files to run
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/copy-files
+  # Default files needed to run yarn start: https://github.com/vercel/next.js/blob/0af3b526408bae26d6b3f8cab75c4229998bf7cb/examples/with-docker/Dockerfile
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: '$(Build.SourcesDirectory)'
+      contents: |
+        package.json
+        .next/**
+        node_modules/**
+        public/**
+        next.config.js
+        next-i18next.config.js
+        server-preload.js
+      targetFolder: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)'
+    displayName: 'Copy files needed for yarn start'
+
+  # Zip up only the necessary files
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/archive-files
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: "$(build.sourcesDirectory)"
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)'
       includeRootFolder: false
+    displayName: 'Zip files needed for yarn start'
 
-  - script: zip -r --symlinks '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' .
-    displayName: 'ZIP com SymLinks'
+  # Publish the zip to deploy to App Service using a package, which mounts the zip as a read-only dir
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts
 
-  - task: PublishBuildArtifacts@1
-    displayName: "Publish artifacts: drop"
+  # The release pipeline uses the AzureRmWebAppDeployment Task (not part of this file)
+  # Docs: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment
+
+  # The App Service deploys the zip package (not part of this file)
+  # Docs: https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      artifactName: '$(Build.BuildId)'
+    displayName: 'Publish artifact: $(Build.BuildId)'
 
   - task: Veracode@3
-    displayName: 'Upload and scan: $(build.artifactstagingdirectory)'
     inputs:
       ConnectionDetailsSelection: 'Endpoint'
       AnalysisService: 'veracode'
       veracodeAppProfile: 'uiclaim.tracker'
-      version: '$(build.buildNumber)'
+      version: '$(Build.BuildNumber)'
       filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       createProfile: true
     continueOnError: true
+    displayName: 'Upload and scan: $(Build.ArtifactStagingDirectory)'
