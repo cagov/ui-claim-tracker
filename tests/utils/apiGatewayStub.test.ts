@@ -5,37 +5,59 @@ import { isDeterminationStatusPending, ScenarioType } from '../../utils/getScena
 describe('The API gateway stub response for the Determination Interview scenarios', () => {
   it('is correct for Scenario 1', () => {
     const response = apiGatewayStub(ScenarioType.Scenario1)
-    expect(response.pendingDetermination.length).toBe(1)
-    const pendingDetermination = response.pendingDetermination
-    expect([null, false, undefined, '']).toContainEqual(pendingDetermination.determinationStatus)
-    expect([null, false, undefined, '']).toContainEqual(pendingDetermination.scheduleDate)
-    expect(pendingDetermination.requestDate).not.toBe('')
+    expect(response.pendingDetermination?.length).toBe(1)
+
+    const pendingDetermination = response?.pendingDetermination?.[0]
+    expect([null, false, undefined, '']).toContainEqual(pendingDetermination?.determinationStatus)
+    expect([null, false, undefined, '']).toContainEqual(pendingDetermination?.scheduleDate)
+    expect(pendingDetermination?.requestDate).not.toBe('')
   })
 
   it('is correct for Scenario 2', () => {
     const response = apiGatewayStub(ScenarioType.Scenario2)
-    expect(response.pendingDetermination.length).toBe(1)
+    expect(response?.pendingDetermination?.length).toBe(1)
 
-    const pendingDetermination = response.pendingDetermination[0]
-    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+    const pendingDetermination = response?.pendingDetermination?.[0]
 
-    expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
+    /* eslint-disable jest/no-conditional-expect */
+    // Conditional expects allows us to use typescripts natural type narrowing.
+    // Lesser evil compared to using an as line & possibly hiding type issues
+    if (pendingDetermination === undefined) {
+      // type narrowed fail fast if we got undefined back
+      expect(pendingDetermination).not.toBe(undefined)
+    } else {
+      expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
 
-    const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
-    expect(isDatePast(convertedDate)).toBe(false)
+      expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
+
+      const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
+      expect(isDatePast(convertedDate)).toBe(false)
+    }
+    /* eslint-enable jest/no-conditional-expect */
   })
 
   it('is correct for Scenario 3', () => {
     const response = apiGatewayStub(ScenarioType.Scenario3)
-    expect(response.pendingDetermination.length).toBe(1)
 
-    const pendingDetermination = response.pendingDetermination[0]
-    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+    expect(response?.pendingDetermination?.length).toBe(1)
 
-    expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
+    const pendingDetermination = response?.pendingDetermination?.[0]
 
-    const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
-    expect(isDatePast(convertedDate)).toBe(true)
+    /* eslint-disable jest/no-conditional-expect */
+    // Conditional expects allows us to use typescripts natural type narrowing.
+    // Lesser evil compared to using an as line & possibly hiding type issues
+    if (pendingDetermination === undefined) {
+      // type narrowed fail fast if we got undefined back
+      expect(pendingDetermination).not.toBe(undefined)
+    } else {
+      expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+
+      expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
+
+      const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
+      expect(isDatePast(convertedDate)).toBe(true)
+    }
+    /* eslint-enable jest/no-conditional-expect */
   })
 })
 
