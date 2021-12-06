@@ -2352,7 +2352,7 @@ exports[`Scenario 6 matches, on desktop 1`] = `
           <strong>
             Certify for Benefits
           </strong>
-           in the Notification section on your 
+           in the Claim Status section on your 
           <a
             href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
           >
@@ -2454,7 +2454,7 @@ exports[`Scenario 6 matches, on mobile 1`] = `
           <strong>
             Certify for Benefits
           </strong>
-           in the Notification section on your 
+           in the Claim Status section on your 
           <a
             href="https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx"
           >
