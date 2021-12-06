@@ -4,10 +4,10 @@ export type ApiGatewayDateString = string
 
 // Types for URL prefixes loaded from env vars
 export interface UrlPrefixes {
-  urlPrefixUioDesktop: string
-  urlPrefixUioMobile: string
-  urlPrefixBpo: string
-  urlPrefixUioClaimstatus: string
+  urlPrefixUioDesktop?: string
+  urlPrefixUioMobile?: string
+  urlPrefixBpo?: string
+  urlPrefixUioClaimstatus?: string
 }
 
 // Types for TransLine component
