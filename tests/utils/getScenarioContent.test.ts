@@ -30,7 +30,15 @@ beforeAll(() => {
 // Scenarios 1, 2, 3 negative identification tests
 describe('Scenarios 1, 2, 3', () => {
   it('are not returned if pendingDetermination is null', () => {
-    const pendingDeterminationScenarioNull = { pendingDetermination: null }
+    const pendingDeterminationScenarioNull = {
+      uniqueNumber: null,
+      claimDetails: null,
+      hasPendingWeeks: false,
+      hasValidPendingWeeks: false,
+      hasCertificationWeeksAvailable: false,
+      isBYE: false,
+      pendingDetermination: null,
+    }
     const scenarioTypeNull = getScenario(pendingDeterminationScenarioNull)
     expect(scenarioTypeNull).not.toBe(ScenarioType.Scenario1)
     expect(scenarioTypeNull).not.toBe(ScenarioType.Scenario2)
@@ -38,7 +46,15 @@ describe('Scenarios 1, 2, 3', () => {
   })
 
   it('are not returned if pendingDetermination is an empty array', () => {
-    const pendingDeterminationScenarioEmpty = { pendingDetermination: [] }
+    const pendingDeterminationScenarioEmpty = {
+      uniqueNumber: null,
+      claimDetails: null,
+      hasPendingWeeks: false,
+      hasValidPendingWeeks: false,
+      hasCertificationWeeksAvailable: false,
+      isBYE: false,
+      pendingDetermination: [],
+    }
     const scenarioTypeEmpty = getScenario(pendingDeterminationScenarioEmpty)
     expect(scenarioTypeEmpty).not.toBe(ScenarioType.Scenario1)
     expect(scenarioTypeEmpty).not.toBe(ScenarioType.Scenario2)
@@ -57,7 +73,7 @@ describe('The Generic Pending scenario (scenario 4)', () => {
 
 // Scenarios 5 & 6
 describe('The Base State scenarios (scenarios 5 & 6)', () => {
-  const baseScenarios = [
+  const baseScenarios: [string, ScenarioType][] = [
     ['No Weeks to Certify', ScenarioType.Scenario5],
     ['Weeks to Certify', ScenarioType.Scenario6],
   ]
@@ -68,7 +84,7 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
 })
 
 describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
-  const byeScenarios = [
+  const byeScenarios: [string, ScenarioType][] = [
     ['UI', ScenarioType.Scenario7],
     ['PUA', ScenarioType.Scenario8],
     ['DUA', ScenarioType.Scenario9],
@@ -144,7 +160,7 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
     expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario10)
   })
 
-  const falseyBenefitYearEndDates = [
+  const falseyBenefitYearEndDates: [string, null | undefined | ''][] = [
     ['null', null],
     ['undefined', undefined],
     ['empty string', ''],
@@ -152,7 +168,13 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
   it.each(falseyBenefitYearEndDates)(
     'FED-ED with %s benefit year end date throws an error',
     (description, benefitYearEndDate) => {
-      const invalidByeProgram = apiGatewayStub(ScenarioType.Scenario12, false, false, 'FED-ED', benefitYearEndDate)
+      const invalidByeProgram = apiGatewayStub(
+        ScenarioType.Scenario12,
+        false,
+        false,
+        'FED-ED',
+        benefitYearEndDate as undefined,
+      )
       // Create an invalid claim object by removing benefitYearEndDate.
       if (benefitYearEndDate === undefined) {
         delete invalidByeProgram.claimDetails.benefitYearEndDate
