@@ -2,42 +2,49 @@
 
 exports[`Full page snapshot renders homepage unchanged 1`] = `
 <div
-  className="index container-fluid"
+  className="primary"
 >
   <header
-    className="header border-bottom border-secondary"
+    className="header global-header fixed"
   >
     <nav
-      className="justify-content-between navbar navbar-expand-lg navbar-dark"
-      fixed-top="true"
+      className="justify-content-between utility-header"
     >
       <div
         className="container"
       >
-        <a
-          className="navbar-brand"
-          href="https://www.ca.gov/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            alt="CA.gov"
-            height="34"
-            src="/images/Ca-Gov-Logo-Gold.svg"
-            width="46"
-          />
-        </a>
         <div
-          className="navbar-nav"
-          onKeyDown={[Function]}
+          className="group flex-row"
         >
           <div
-            aria-expanded={null}
-            className="navbar-collapse collapse"
+            className="social-media-links"
+          >
+            <div
+              className="header-cagov-logo"
+            >
+              <a
+                href="https://www.ca.gov/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span
+                  className="sr-only"
+                >
+                  CA.gov
+                </span>
+                <img
+                  alt="CA.gov"
+                  className="pos-rel"
+                  src="/images/Ca-Gov-Logo-Gold.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            className="settings-links"
           >
             <a
               className="nav-link"
-              data-rb-event-key="https://edd.ca.gov"
               href="https://edd.ca.gov"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -50,80 +57,109 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 EDD Home
               </span>
             </a>
+            <a
+              className="nav-link"
+              href="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                className="text"
+              >
+                Help
+              </span>
+            </a>
+            <a
+              className="nav-link"
+              href="https://portal.edd.ca.gov/WebApp/Logout"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+            >
+              <span
+                className="text"
+              >
+                Log Out
+              </span>
+            </a>
           </div>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
-            href="https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              className="text"
-            >
-              Help
-            </span>
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://portal.edd.ca.gov/WebApp/Logout"
-            href="https://portal.edd.ca.gov/WebApp/Logout"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-          >
-            <span
-              className="text"
-            >
-              Log Out
-            </span>
-          </a>
         </div>
       </div>
     </nav>
-    <nav
-      className="justify-content-between navbar navbar-expand-lg navbar-light"
+    <div
+      className="branding"
     >
       <div
-        className="container"
+        className="header-organization-banner"
       >
         <a
-          className="navbar-brand"
           href="https://edd.ca.gov"
           rel="noopener noreferrer"
           target="_blank"
         >
           <img
             alt="EDD Employment Development Department State of California Home"
-            className="edd-logo d-inline-block align-top mr-5"
-            height="60"
             src="/images/edd-logo-2-Color.svg"
-            width="171"
           />
         </a>
+      </div>
+    </div>
+    <div
+      className="mobile-controls"
+    >
+      <span
+        className="mobile-control-group mobile-header-icons"
+      />
+      <div
+        className="mobile-control-group main-nav-icons float-right"
+      >
         <button
-          aria-controls="basic-navbar-nav"
-          aria-label="Toggle navigation"
-          className="navbar-toggler collapsed"
-          onClick={[Function]}
-          type="button"
+          className="mobile-control toggle-search float-left m-l"
         >
           <span
-            className="navbar-toggler-icon"
+            aria-hidden="true"
+            className="ca-gov-icon-search hidden-print"
           />
+          <span
+            className="sr-only"
+          >
+            Search
+          </span>
         </button>
-        <div
-          aria-expanded={null}
-          className="navbar-collapse collapse"
+        <button
+          aria-controls="navigation"
+          aria-expanded="false"
+          className="mobile-control toggle-menu"
+          id="nav-icon3"
         >
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          <span />
+          <span />
+          <span />
+          <span />
+          <span
+            className="sr-only"
+          >
+            Menu
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      className="navigation-search"
+    >
+      <nav
+        className="main-navigation megadropdown auto-highlight noindex mobile-closed"
+        id="navigation"
+      >
+        <ul
+          className="top-level-nav nav-menu"
+        >
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -138,14 +174,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 UI Home
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/Certification/AvailableWeeksNotification.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/Certification/AvailableWeeksNotification.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -160,14 +194,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 Certify
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PaymentActivity.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PaymentActivity.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -182,14 +214,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 Payments
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/ClaimHistory.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/ClaimHistory.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -204,14 +234,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 History
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/claimstatus"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/claimstatus"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -226,14 +254,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 Status
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PersonalProfile.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/PersonalProfile.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -248,14 +274,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 Profile
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/Inbox.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/Inbox.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -270,14 +294,12 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 Inbox
               </span>
             </a>
-          </div>
-          <div
-            className="header-icon navbar-nav"
-            onKeyDown={[Function]}
+          </li>
+          <li
+            className="nav-item"
           >
             <a
-              className="nav-link"
-              data-rb-event-key="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/WebCorrespondence/ContactUs.aspx"
+              className="first-level-link nav-link"
               href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/WebCorrespondence/ContactUs.aspx"
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -292,205 +314,216 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                 Contact
               </span>
             </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main
-    className="main"
-  >
-    <div
-      className="main-content container"
-    >
-      <h1
-        className="title"
-      >
-        Claim Status Tracker
-      </h1>
+          </li>
+        </ul>
+      </nav>
       <div
-        className="claim-section"
+        aria-hidden="true"
+        className="search-container in"
+        id="head-search"
       >
         <div
-          className="claim-status claim-section"
-        >
-          <h2>
-            Claim Status
-          </h2>
-          <div
-            className="pending-status claim-subsection"
-          >
-            <h3
-              className="header-line"
-            >
-              Pending Eligibility — Phone Interview Will Be Scheduled
-            </h3>
-          </div>
-          <div
-            className="summary"
-          >
-            <div
-              className="summary-section"
-            >
-              We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
-            </div>
-          </div>
-          <div
-            className="next-steps claim-subsection"
-          >
-            <h3
-              className="next-steps-header"
-            >
-              Your Next Steps
-            </h3>
-            <div
-              className="next-step-explanation"
-            >
-              <ul>
-                <li
-                  className="next-step"
-                >
-                  Confirm we have your current phone number and mailing address. Go to the 
-                  <a
-                    href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
-                  >
-                    UI Online homepage
-                  </a>
-                  , select 
-                  <strong>
-                    Profile
-                  </strong>
-                   from the main menu, then select 
-                  <strong>
-                    Contact Information
-                  </strong>
-                  .
-                  <div
-                    className="sub-bullets"
-                  />
-                </li>
-                <li
-                  className="next-step"
-                >
-                  Check your mail for the 
-                  &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
-                   (DE 4800). It will explain the issue and help you prepare for the interview.
-                  <div
-                    className="sub-bullets"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            className="next-steps claim-subsection"
-          >
-            <h3
-              className="next-steps-header"
-            >
-              EDD Next Steps
-            </h3>
-            <div
-              className="next-step-explanation"
-            >
-              <ul>
-                <li
-                  className="next-step"
-                >
-                  We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
-                  <div
-                    className="sub-bullets"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          className="container"
+        />
+      </div>
+    </div>
+  </header>
+  <div
+    className="main-content"
+    id="main-content"
+  >
+    <main
+      className="main-primary"
+    >
+      <div
+        className="group p-b-md p-t-md"
+      >
         <div
-          className="claim-details claim-section container"
+          className="container"
         >
-          <h2
-            className="claim-details-title"
-          >
-            Claim Details
-          </h2>
           <div
-            className="claim-details-box"
+            className="full-width"
           >
+            <h1>
+              Claim Status Tracker
+            </h1>
             <div
-              className="row"
+              className="claim-section"
             >
               <div
-                className="col-6"
+                className="claim-status claim-section"
               >
+                <h2>
+                  Claim Status
+                </h2>
                 <div
-                  className="info"
+                  className="pending-status claim-subsection"
+                >
+                  <h3
+                    className="header-line"
+                  >
+                    Pending Eligibility — Phone Interview Will Be Scheduled
+                  </h3>
+                </div>
+                <div
+                  className="summary"
                 >
                   <div
-                    className="info-label"
+                    className="summary-section"
                   >
-                    Claim Type
-                  </div>
-                  <div
-                    className="info-entry"
-                  >
-                    Unemployment Insurance (UI)
+                    We identified an issue that could make you ineligible for benefits. We need to confirm your eligibility in a phone interview.
                   </div>
                 </div>
                 <div
-                  className="info"
+                  className="next-steps claim-subsection"
                 >
-                  <div
-                    className="info-label"
+                  <h3
+                    className="next-steps-header"
                   >
-                    Benefit Year
-                  </div>
+                    Your Next Steps
+                  </h3>
                   <div
-                    className="info-entry"
+                    className="next-step-explanation"
                   >
-                    3/21/2020–3/20/2021
+                    <ul>
+                      <li
+                        className="next-step"
+                      >
+                        Confirm we have your current phone number and mailing address. Go to the 
+                        <a
+                          href="https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx"
+                        >
+                          UI Online homepage
+                        </a>
+                        , select 
+                        <strong>
+                          Profile
+                        </strong>
+                         from the main menu, then select 
+                        <strong>
+                          Contact Information
+                        </strong>
+                        .
+                      </li>
+                      <li
+                        className="next-step"
+                      >
+                        Check your mail for the 
+                        &lt;em&gt;Notification of Unemployment Insurance Benefits Eligibility Interview&lt;/em&gt;
+                         (DE 4800). It will explain the issue and help you prepare for the interview.
+                      </li>
+                    </ul>
                   </div>
                 </div>
                 <div
-                  className="info"
+                  className="next-steps claim-subsection"
                 >
-                  <div
-                    className="info-label"
+                  <h3
+                    className="next-steps-header"
                   >
-                    Claim Balance
-                  </div>
+                    EDD Next Steps
+                  </h3>
                   <div
-                    className="info-entry"
+                    className="next-step-explanation"
                   >
-                    $1,100.45
+                    <ul>
+                      <li
+                        className="next-step"
+                      >
+                        We will schedule a phone interview to determine your eligibility for benefits. This page will be updated with appointment details once your interview is scheduled.
+                      </li>
+                    </ul>
                   </div>
                 </div>
+              </div>
+              <div
+                className="claim-details claim-section container"
+              >
+                <h2
+                  className="claim-details-title"
+                >
+                  Claim Details
+                </h2>
                 <div
-                  className="info"
+                  className="claim-details-box"
                 >
                   <div
-                    className="info-label"
+                    className="row"
                   >
-                    Weekly Benefit Amount
-                  </div>
-                  <div
-                    className="info-entry"
-                  >
-                    $111.00
-                  </div>
-                </div>
-                <div
-                  className="info"
-                >
-                  <div
-                    className="info-label"
-                  >
-                    Last Payment Issued
-                  </div>
-                  <div
-                    className="info-entry"
-                  >
-                    $100.00 on 4/29/2021
+                    <div
+                      className="col-6"
+                    >
+                      <div
+                        className="info"
+                      >
+                        <div
+                          className="info-label"
+                        >
+                          Claim Type
+                        </div>
+                        <div
+                          className="info-entry"
+                        >
+                          Unemployment Insurance (UI)
+                        </div>
+                      </div>
+                      <div
+                        className="info"
+                      >
+                        <div
+                          className="info-label"
+                        >
+                          Benefit Year
+                        </div>
+                        <div
+                          className="info-entry"
+                        >
+                          3/21/2020–3/20/2021
+                        </div>
+                      </div>
+                      <div
+                        className="info"
+                      >
+                        <div
+                          className="info-label"
+                        >
+                          Claim Balance
+                        </div>
+                        <div
+                          className="info-entry"
+                        >
+                          $1,100.45
+                        </div>
+                      </div>
+                      <div
+                        className="info"
+                      >
+                        <div
+                          className="info-label"
+                        >
+                          Weekly Benefit Amount
+                        </div>
+                        <div
+                          className="info-entry"
+                        >
+                          $111.00
+                        </div>
+                      </div>
+                      <div
+                        className="info"
+                      >
+                        <div
+                          className="info-label"
+                        >
+                          Last Payment Issued
+                        </div>
+                        <div
+                          className="info-entry"
+                        >
+                          $100.00 on 4/29/2021
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -498,88 +531,78 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
   <footer
-    className="footer"
+    className="global-footer"
+    id="footer"
   >
     <div
       className="container"
     >
-      <nav
-        className="justify-content-between navbar navbar-expand navbar-dark"
+      <div
+        className="row"
       >
         <div
-          className="flex-column flex-sm-row navbar-nav"
-          onKeyDown={[Function]}
+          className="full-width"
         >
-          <a
-            className="nav-link"
-            data-rb-event-key="#top"
-            href="#top"
-            onClick={[Function]}
-            onKeyDown={[Function]}
+          <ul
+            className="footer-links"
           >
-            Back to Top
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
-            href="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Contact EDD
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
-            href="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Conditions of Use
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
-            href="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
-            href="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Accessibility
-          </a>
+            <li>
+              <a
+                href="#top"
+              >
+                Back to Top
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Contact EDD
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Conditions of Use
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Accessibility
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
     </div>
     <div
-      className="secondary-footer"
+      className="copyright"
     >
       <div
         className="container"
       >
-        <div
-          className="copyright"
-        >
-          Copyright © 2021 State of California
-        </div>
+        Copyright © 2021 State of California
       </div>
     </div>
   </footer>

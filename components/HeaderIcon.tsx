@@ -8,11 +8,11 @@ export interface HeaderIconProps {
 
 export const HeaderIcon: React.FC<HeaderIconProps> = ({ link, label, icon }) => {
   return (
-    <Nav className="header-icon">
-      <Nav.Link rel="noopener noreferrer" href={link}>
+    <li className="nav-item">
+      <Nav.Link rel="noopener noreferrer" href={link} className="first-level-link">
         <span className={icon} />
         <span className="text">{label}</span>
       </Nav.Link>
-    </Nav>
+    </li>
   )
 }
