@@ -68,6 +68,9 @@
     "pm": "p.m."
   },
   "urls": {
+    "header": {
+      "uio-desktop-help-new-claim": "https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=es-MX/Public/NewClaim/UIOnlineNewClaimLandingPage.htm"
+    },
     "edd": {
       "ui-certify": "https://edd.ca.gov/Unemployment/certify-espanol.htm",
       "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status-espanol.htm",

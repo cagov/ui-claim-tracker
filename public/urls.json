@@ -7,7 +7,6 @@
   "edd-ca-gov": "https://edd.ca.gov",
   "bpo-login": "https://portal.edd.ca.gov/WebApp/Login",
   "bpo-logout": "https://portal.edd.ca.gov/WebApp/Logout",
-  "uio-desktop-help-new-claim": "https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm",
   "uio-desktop-home": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx",
   "uio-mobile-home": "https://uiom.edd.ca.gov/UIOM/Pages/Public/ExternalUser/UIOMobileLandingPage.aspx",
   "uio-desktop-landing-page": "https://uio.edd.ca.gov/UIO/Pages/Public/ExternalUser/UIOnlineLandingPage.aspx",
