@@ -95,7 +95,11 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
                 <span className="text">{t('header.edd-home')}</span>
               </Nav.Link>
             </Navbar.Collapse>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-desktop-help-new-claim')}>
+            <Nav.Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={getUrl('uio-desktop-help-new-claim', urlPrefixes, i18n.language)}
+            >
               <span className="text">{t('header.help')}</span>
             </Nav.Link>
             <Nav.Link href={getUrl('bpo-logout')}>
