@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
 import { HeaderIcon } from './HeaderIcon'
+import { ExternalLink } from './ExternalLink'
 
 import { UrlPrefixes } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
@@ -91,9 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           </Navbar.Brand>
           <Nav>
             <Navbar.Collapse>
-              <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
-                <span className="text">{t('header.edd-home')}</span>
-              </Nav.Link>
+              <ExternalLink url="edd-ca-gov" text={t('header.edd-home')} />
             </Navbar.Collapse>
             <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('uio-desktop-help-new-claim')}>
               <span className="text">{t('header.help')}</span>
