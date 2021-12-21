@@ -23,10 +23,15 @@ export function stripTrailingSlashes(url: string | undefined): string | undefine
  * Get url from urls.json
  * urlPrefixes: environment-specific links to UIO, UIO Mobile, and BPO, used by EDD testing
  */
-export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes): string | undefined {
+export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes, language?: string): string | undefined {
   // Explicitly cast to one of the allowed keys in urls.json.
   // If the key does not exist in urls.json, this function will return undefined.
-  const key = linkKey as UrlType
+  let key
+  if (language === 'es') {
+    key = (linkKey + '-es') as UrlType
+  } else {
+    key = linkKey as UrlType
+  }
 
   // urlPrefixes must be passed in if getUrl is called client-side (e.g. from TimeoutModal.tsx),
   // since env vars aren't accessible client-side; otherwise, prefixes can be loaded from env vars below
