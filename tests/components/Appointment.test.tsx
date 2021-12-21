@@ -2,16 +2,16 @@ import renderer, { act } from 'react-test-renderer'
 
 import i18n from '../jest-i18n'
 import { Appointment } from '../../components/Appointment'
-import { TimeSlot } from '../../types/common'
+import { TimeSlot, TestRendererCreateReturn } from '../../types/common'
 
 /**
  * Helper functions.
  */
 
-function renderAppointmentComponent(timeSlot: TimeSlot | undefined): string {
+function renderAppointmentComponent(timeSlot: TimeSlot | undefined): TestRendererCreateReturn {
   // Set a random date in PT time.
   const date = '2021-05-05T00:00:00.000-0800'
-  return JSON.stringify(renderer.create(<Appointment date={date} timeSlot={timeSlot} />).toJSON())
+  return renderer.create(<Appointment date={date} timeSlot={timeSlot} />).toJSON()
 }
 
 /**

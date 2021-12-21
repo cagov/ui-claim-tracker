@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import { DateTime, Settings } from 'luxon'
 
 import { ClaimStatus } from '../../components/ClaimStatus'
-import { ClaimStatusContent } from '../../types/common'
+import { ClaimStatusContent, TestRendererCreateReturn } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 
@@ -11,27 +11,28 @@ import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent
  * Helper functions.
  */
 
-function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArrivedFromUioMobile: boolean): string {
-  return JSON.stringify(
-    renderer
-      .create(
-        <ClaimStatus
-          userArrivedFromUioMobile={userArrivedFromUioMobile}
-          heading={statusContent.heading}
-          summary={statusContent.summary}
-          yourNextSteps={statusContent.yourNextSteps}
-          eddNextSteps={statusContent.eddNextSteps}
-        />,
-      )
-      .toJSON(),
-  )
+function renderClaimStatusComponent(
+  statusContent: ClaimStatusContent,
+  userArrivedFromUioMobile: boolean,
+): TestRendererCreateReturn {
+  return renderer
+    .create(
+      <ClaimStatus
+        userArrivedFromUioMobile={userArrivedFromUioMobile}
+        heading={statusContent.heading}
+        summary={statusContent.summary}
+        yourNextSteps={statusContent.yourNextSteps}
+        eddNextSteps={statusContent.eddNextSteps}
+      />,
+    )
+    .toJSON()
 }
 
 function testClaimStatus(
   scenarioType: ScenarioType,
   hasCertificationWeeksAvailable = false,
   userArrivedFromUioMobile = false,
-): string {
+): TestRendererCreateReturn {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType, hasCertificationWeeksAvailable))
   return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)
 }

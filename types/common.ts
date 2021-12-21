@@ -1,3 +1,5 @@
+import { ReactTestRendererJSON } from 'react-test-renderer'
+
 // Type aliases
 export type I18nString = string
 export type ApiGatewayDateString = string
@@ -112,3 +114,6 @@ export interface ScenarioContent {
   statusContent: ClaimStatusContent
   detailsContent: null | ClaimDetailsContent
 }
+
+// Test types
+export type TestRendererCreateReturn = ReactTestRendererJSON | ReactTestRendererJSON[] | null

@@ -224,15 +224,16 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
+    const nullTestOverride = null as unknown
     const longNullishResponse: Claim = {
       claimDetails: {
         programType: '',
-        benefitYearStartDate: null,
-        benefitYearEndDate: null,
-        claimBalance: null,
-        weeklyBenefitAmount: null,
-        lastPaymentIssued: null,
-        lastPaymentAmount: null,
+        benefitYearStartDate: nullTestOverride as string,
+        benefitYearEndDate: nullTestOverride as string,
+        claimBalance: nullTestOverride as number,
+        weeklyBenefitAmount: nullTestOverride as number,
+        lastPaymentIssued: nullTestOverride as string,
+        lastPaymentAmount: nullTestOverride as number,
         monetaryStatus: '',
       },
       uniqueNumber: '12345',
