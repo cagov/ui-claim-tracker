@@ -31,6 +31,7 @@ const goodRequest = {
  */
 
 // Test queryApiGateway()
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 describe('Querying the API Gateway', () => {
   const mockedResponse: Claim = {
     hasValidPendingWeeks: false,
@@ -46,10 +47,12 @@ describe('Querying the API Gateway', () => {
   beforeEach(() => {
     // Mock the fetch response
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(mockedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fs.readFileSync.mockImplementation(() => {
       return 'mock file data'
     })
@@ -67,6 +70,7 @@ describe('Querying the API Gateway', () => {
   // Test mocked fetch is working correctly to eliminate testing issues that might be
   // originating from the way fetch is mocked.
   it('has a correctly mocked fetch', async () => {
+    // @ts-ignore
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
@@ -93,6 +97,7 @@ describe('Querying the API Gateway', () => {
   it('handles errors thrown by fetch', async () => {
     const networkErrorMessage = 'network error'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockRejectedValue(new Error(networkErrorMessage))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -117,6 +122,7 @@ describe('Querying the API Gateway', () => {
       status: 403,
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
+    // @ts-ignore
     fetch.mockResolvedValue(errorResponse403)
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -141,6 +147,7 @@ describe('Querying the API Gateway', () => {
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response('not json'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -164,6 +171,7 @@ describe('Querying the API Gateway', () => {
     // Override the beforeEach mock to throw an error.
     const fsErrorMessage = 'file read issue'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fs.readFileSync.mockImplementation(() => {
       throw new Error(fsErrorMessage)
     })
@@ -190,6 +198,7 @@ describe('Querying the API Gateway', () => {
     })
 
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(null)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
@@ -248,6 +257,7 @@ describe('Querying the API Gateway', () => {
     }
 
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(longNullishResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
@@ -278,6 +288,7 @@ describe('Querying the API Gateway', () => {
     }
 
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(shortNullResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
@@ -465,3 +476,4 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
     restore()
   })
 })
+/* eslint-enable @typescript-eslint/ban-ts-comment */

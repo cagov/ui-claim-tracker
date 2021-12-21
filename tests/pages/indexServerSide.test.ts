@@ -26,8 +26,12 @@ describe('Main component server side logic', () => {
     const loggerSpy = jest.spyOn(Logger.prototype, 'log').mockImplementation(jest.fn())
     loggerSpy.mockClear()
 
+    /* eslint-disable @typescript-eslint/ban-ts-comment */
+    // @ts-ignore
     const result: GetServerSideProps = await getServerSideProps(context as GetServerSidePropsContext)
+    // @ts-ignore
     const props: HomeProps = result.props as HomeProps
+    /* eslint-enable @typescript-eslint/ban-ts-comment */
     expect(props.errorCode).toBe(500)
     expect(context.res.statusCode).toBe(500)
     expect(loggerSpy).toHaveBeenCalledWith(expect.anything(), 'error', {}, 'Missing unique number')
