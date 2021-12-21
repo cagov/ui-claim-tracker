@@ -12,17 +12,19 @@ import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent
  */
 
 function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArrivedFromUioMobile: boolean): string {
-  return renderer
-    .create(
-      <ClaimStatus
-        userArrivedFromUioMobile={userArrivedFromUioMobile}
-        heading={statusContent.heading}
-        summary={statusContent.summary}
-        yourNextSteps={statusContent.yourNextSteps}
-        eddNextSteps={statusContent.eddNextSteps}
-      />,
-    )
-    .toJSON()
+  return JSON.stringify(
+    renderer
+      .create(
+        <ClaimStatus
+          userArrivedFromUioMobile={userArrivedFromUioMobile}
+          heading={statusContent.heading}
+          summary={statusContent.summary}
+          yourNextSteps={statusContent.yourNextSteps}
+          eddNextSteps={statusContent.eddNextSteps}
+        />,
+      )
+      .toJSON(),
+  )
 }
 
 function testClaimStatus(
