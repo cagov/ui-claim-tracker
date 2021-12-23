@@ -15,7 +15,6 @@
     "chromatic": "npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "ansi-html-community": "0.0.8",
     "applicationinsights": "^2.1.8",
     "bootstrap": "^4.6.0",
     "luxon": "^2.0.2",
