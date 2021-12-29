@@ -2,6 +2,9 @@ import { isDatePast, isValidDate, parseApiGatewayDate } from '../../utils/format
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import { isDeterminationStatusPending, ScenarioType } from '../../utils/getScenarioContent'
 
+/* eslint-disable  @typescript-eslint/no-non-null-assertion */
+// We only use non-null assertions in tests after we've verified that the value is not null.
+
 describe('The API gateway stub response for the Determination Interview scenarios', () => {
   it('is correct for Scenario 1', () => {
     const response = apiGatewayStub(ScenarioType.Scenario1)
