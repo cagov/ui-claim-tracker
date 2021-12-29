@@ -18,46 +18,25 @@ describe('The API gateway stub response for the Determination Interview scenario
     expect(response?.pendingDetermination?.length).toBe(1)
 
     const pendingDetermination = response?.pendingDetermination?.[0]
+    expect(pendingDetermination).not.toBe(undefined)
+    expect(isDeterminationStatusPending(pendingDetermination!)).toBe(true)
+    expect(isValidDate(pendingDetermination!.scheduleDate)).toBe(true)
 
-    /* eslint-disable jest/no-conditional-expect */
-    // Conditional expects allows us to use typescripts natural type narrowing.
-    // Lesser evil compared to using an as line & possibly hiding type issues
-    if (pendingDetermination === undefined) {
-      // type narrowed fail fast if we got undefined back
-      expect(pendingDetermination).not.toBe(undefined)
-    } else {
-      expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
-
-      expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
-
-      const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
-      expect(isDatePast(convertedDate)).toBe(false)
-    }
-    /* eslint-enable jest/no-conditional-expect */
+    const convertedDate = parseApiGatewayDate(pendingDetermination!.scheduleDate)
+    expect(isDatePast(convertedDate)).toBe(false)
   })
 
   it('is correct for Scenario 3', () => {
     const response = apiGatewayStub(ScenarioType.Scenario3)
-
     expect(response?.pendingDetermination?.length).toBe(1)
 
     const pendingDetermination = response?.pendingDetermination?.[0]
+    expect(pendingDetermination).not.toBe(undefined)
+    expect(isDeterminationStatusPending(pendingDetermination!)).toBe(true)
+    expect(isValidDate(pendingDetermination!.scheduleDate)).toBe(true)
 
-    /* eslint-disable jest/no-conditional-expect */
-    // Conditional expects allows us to use typescripts natural type narrowing.
-    // Lesser evil compared to using an as line & possibly hiding type issues
-    if (pendingDetermination === undefined) {
-      // type narrowed fail fast if we got undefined back
-      expect(pendingDetermination).not.toBe(undefined)
-    } else {
-      expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
-
-      expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
-
-      const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
-      expect(isDatePast(convertedDate)).toBe(true)
-    }
-    /* eslint-enable jest/no-conditional-expect */
+    const convertedDate = parseApiGatewayDate(pendingDetermination!.scheduleDate)
+    expect(isDatePast(convertedDate)).toBe(true)
   })
 })
 
