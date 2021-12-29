@@ -1,6 +1,6 @@
 import mockEnv from 'mocked-env'
 
-import getUrl, { stripTrailingSlashes } from '../../utils/browser/getUrl'
+import getUrl, { stripTrailingSlashes } from '../../../utils/browser/getUrl'
 
 // Test stripTrailingSlashes()
 describe('A string', () => {

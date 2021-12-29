@@ -26,7 +26,18 @@ describe('Full page snapshot', () => {
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    const tree = renderer.create(<Index scenarioContent={scenarioContent} />).toJSON()
+    const urlPrefixes = {}
+    const tree = renderer
+      .create(
+        <Index
+          scenarioContent={scenarioContent}
+          assetPrefix=""
+          enableGoogleAnalytics=""
+          enableMaintenancePage=""
+          urlPrefixes={urlPrefixes}
+        />,
+      )
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
@@ -38,7 +49,17 @@ describe('Main component shows the timeout', () => {
     }
     ;(useRouter as jest.Mock).mockReturnValue(mockRouter)
 
-    render(<Index timedOut scenarioContent={scenarioContent} />)
+    const urlPrefixes = {}
+    render(
+      <Index
+        timedOut
+        scenarioContent={scenarioContent}
+        assetPrefix=""
+        enableGoogleAnalytics=""
+        enableMaintenancePage=""
+        urlPrefixes={urlPrefixes}
+      />,
+    )
     expect(screen.queryByText('Your Session Will End Soon')).toBeInTheDocument()
   })
 })

@@ -35,16 +35,16 @@ describe('An appointment is', () => {
     }
 
     const appointment = buildAppointment(ScenarioType.Scenario2, pendingDetermination)
-    expect(appointment.date).toStrictEqual(expectedDate)
-    expect(appointment.timeSlot).toStrictEqual(expectedTimeSlot)
+    expect(appointment?.date).toStrictEqual(expectedDate)
+    expect(appointment?.timeSlot).toStrictEqual(expectedTimeSlot)
   })
 
   it('returned with no time slot if there is no time slot value', () => {
     const pendingDetermination = getPendingDeterminationWithScheduleDate(0)
     const expectedDate = parseApiGatewayDate(formatFromApiGateway(0)).toJSON()
     const appointment = buildAppointment(ScenarioType.Scenario2, pendingDetermination)
-    expect(appointment.date).toStrictEqual(expectedDate)
-    expect(appointment.timeSlot).toBe(undefined)
+    expect(appointment?.date).toStrictEqual(expectedDate)
+    expect(appointment?.timeSlot).toBe(undefined)
   })
 
   it('not returned (null) if it is not scenario 2', () => {

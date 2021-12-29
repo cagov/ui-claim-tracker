@@ -23,6 +23,7 @@ jobs:
     - run: npm install -g yarn
     - run: yarn install --frozen-lockfile
     - run: yarn build
+    - run: yarn typecheck
     - run: yarn test
     - run: yarn lint
 

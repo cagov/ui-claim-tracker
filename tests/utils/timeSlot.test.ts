@@ -21,12 +21,12 @@ describe('Testing a time for validity', () => {
 describe('A time slot string is', () => {
   it('correctly parsed if it is properly formatted', () => {
     const multipleDigits = parseTimeSlot('10-12')
-    expect(multipleDigits.rangeStart).toBe(10)
-    expect(multipleDigits.rangeEnd).toBe(12)
+    expect(multipleDigits?.rangeStart).toBe(10)
+    expect(multipleDigits?.rangeEnd).toBe(12)
 
     const singleDigits = parseTimeSlot('1-3')
-    expect(singleDigits.rangeStart).toBe(1)
-    expect(singleDigits.rangeEnd).toBe(3)
+    expect(singleDigits?.rangeStart).toBe(1)
+    expect(singleDigits?.rangeEnd).toBe(3)
   })
 
   it('handled if it is improperly formatted', () => {
@@ -46,14 +46,14 @@ describe('A time slot string is', () => {
 
   it('handled if the separator is an ndash', () => {
     const multipleDigits = parseTimeSlot('10–12')
-    expect(multipleDigits.rangeStart).toBe(10)
-    expect(multipleDigits.rangeEnd).toBe(12)
+    expect(multipleDigits?.rangeStart).toBe(10)
+    expect(multipleDigits?.rangeEnd).toBe(12)
   })
 
   it('handled if the separator is an mdash', () => {
     const multipleDigits = parseTimeSlot('10—12')
-    expect(multipleDigits.rangeStart).toBe(10)
-    expect(multipleDigits.rangeEnd).toBe(12)
+    expect(multipleDigits?.rangeStart).toBe(10)
+    expect(multipleDigits?.rangeEnd).toBe(12)
   })
 })
 

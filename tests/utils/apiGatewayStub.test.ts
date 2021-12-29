@@ -2,39 +2,43 @@ import { isDatePast, isValidDate, parseApiGatewayDate } from '../../utils/format
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import { isDeterminationStatusPending, ScenarioType } from '../../utils/getScenarioContent'
 
+/* eslint-disable  @typescript-eslint/no-non-null-assertion */
+// We only use non-null assertions in tests after we've verified that the value is not null.
+
 describe('The API gateway stub response for the Determination Interview scenarios', () => {
   it('is correct for Scenario 1', () => {
     const response = apiGatewayStub(ScenarioType.Scenario1)
-    expect(response.pendingDetermination.length).toBe(1)
-    const pendingDetermination = response.pendingDetermination
-    expect([null, false, undefined, '']).toContainEqual(pendingDetermination.determinationStatus)
-    expect([null, false, undefined, '']).toContainEqual(pendingDetermination.scheduleDate)
-    expect(pendingDetermination.requestDate).not.toBe('')
+    expect(response.pendingDetermination?.length).toBe(1)
+
+    const pendingDetermination = response?.pendingDetermination?.[0]
+    expect([null, false, undefined, '']).toContainEqual(pendingDetermination?.determinationStatus)
+    expect([null, false, undefined, '']).toContainEqual(pendingDetermination?.scheduleDate)
+    expect(pendingDetermination?.requestDate).not.toBe('')
   })
 
   it('is correct for Scenario 2', () => {
     const response = apiGatewayStub(ScenarioType.Scenario2)
-    expect(response.pendingDetermination.length).toBe(1)
+    expect(response?.pendingDetermination?.length).toBe(1)
 
-    const pendingDetermination = response.pendingDetermination[0]
-    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+    const pendingDetermination = response?.pendingDetermination?.[0]
+    expect(pendingDetermination).not.toBe(undefined)
+    expect(isDeterminationStatusPending(pendingDetermination!)).toBe(true)
+    expect(isValidDate(pendingDetermination!.scheduleDate)).toBe(true)
 
-    expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
-
-    const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
+    const convertedDate = parseApiGatewayDate(pendingDetermination!.scheduleDate)
     expect(isDatePast(convertedDate)).toBe(false)
   })
 
   it('is correct for Scenario 3', () => {
     const response = apiGatewayStub(ScenarioType.Scenario3)
-    expect(response.pendingDetermination.length).toBe(1)
+    expect(response?.pendingDetermination?.length).toBe(1)
 
-    const pendingDetermination = response.pendingDetermination[0]
-    expect(isDeterminationStatusPending(pendingDetermination)).toBe(true)
+    const pendingDetermination = response?.pendingDetermination?.[0]
+    expect(pendingDetermination).not.toBe(undefined)
+    expect(isDeterminationStatusPending(pendingDetermination!)).toBe(true)
+    expect(isValidDate(pendingDetermination!.scheduleDate)).toBe(true)
 
-    expect(isValidDate(pendingDetermination.scheduleDate)).toBe(true)
-
-    const convertedDate = parseApiGatewayDate(pendingDetermination.scheduleDate)
+    const convertedDate = parseApiGatewayDate(pendingDetermination!.scheduleDate)
     expect(isDatePast(convertedDate)).toBe(true)
   })
 })
