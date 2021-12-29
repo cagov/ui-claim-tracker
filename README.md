@@ -36,11 +36,11 @@ For local development:
 
 1. Create a `.env.local` file in the root of this repo
 2. Define each of the environment variables above
-   - Nava Engineers - see Vault for preconfigured `.env.local`
+   - Obtain a preconfigured `.env.local` from an existing developer
    - Set `ASSET_PREFIX` to `""`
 3. Configure a test header
    - Configure ModHeader ([firefox](https://addons.mozilla.org/en-US/firefox/addon/modheader-firefox/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)/[chrome](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=en)) to send the ID_HEADER_NAME defined header value to the local dev environment - see Vault for value. Also, we recommend limiting ModHeader to only modify `localhost:3000`
-   - Please add nava_test=YOUR_NAME as an additional header to make it easier to distinguish ModHeader queries
+   - Please add developer_test=YOUR_NAME as an additional header to make it easier to distinguish ModHeader queries
 
 ## Run the test suite
 
@@ -79,5 +79,3 @@ To develop or preview our front end components start up the Storybook server:
 ```bash
 yarn storybook
 ```
-
-The storybook live on `main` can be viewed [on chromatic](https://www.chromatic.com/library?appId=60705d04dcad7600211e34d2).
