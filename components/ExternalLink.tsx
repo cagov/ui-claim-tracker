@@ -1,6 +1,6 @@
 import Nav from 'react-bootstrap/Nav'
-
-import getUrl from '../utils/browser/getUrl'
+import { useState } from 'react'
+import { NavigationModal } from './NavigationModal'
 
 export interface ExternalLinkProps {
   url: string
@@ -8,11 +8,18 @@ export interface ExternalLinkProps {
 }
 
 export const ExternalLink: React.FC<ExternalLinkProps> = ({ url, text }) => {
-  // Javascript logic to display the modal!
+  const [showWarningModal, setShowWarningModal] = useState<boolean>(false)
+
+  function handleModalState() {
+    setShowWarningModal(!showWarningModal)
+  }
 
   return (
-    <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl(url)}>
-      <span className="text">{text}</span>
-    </Nav.Link>
+    <div>
+      <Nav.Link target="_blank" rel="noopener noreferrer" onClick={handleModalState}>
+        <span className="text opener">{text}</span>
+      </Nav.Link>
+      <NavigationModal url={url} modalState={() => handleModalState()} showWarningModal={showWarningModal} />
+    </div>
   )
 }

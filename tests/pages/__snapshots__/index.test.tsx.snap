@@ -14,19 +14,22 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       <div
         className="container"
       >
-        <a
-          className="navbar-brand"
-          href="https://www.ca.gov/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            alt="CA.gov"
-            height="34"
-            src="/images/Ca-Gov-Logo-Gold.svg"
-            width="46"
-          />
-        </a>
+        <div>
+          <span
+            className="navbar-brand"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="CA.gov"
+              className="opener"
+              height="34"
+              src="/images/Ca-Gov-Logo-Gold.svg"
+              width="46"
+            />
+          </span>
+        </div>
         <div
           className="navbar-nav"
           onKeyDown={[Function]}
@@ -35,21 +38,24 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
             aria-expanded={null}
             className="navbar-collapse collapse"
           >
-            <a
-              className="nav-link"
-              data-rb-event-key="https://edd.ca.gov"
-              href="https://edd.ca.gov"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span
-                className="text"
+            <div>
+              <a
+                className="nav-link"
+                data-rb-event-key={null}
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                rel="noopener noreferrer"
+                role="button"
+                target="_blank"
               >
-                EDD Home
-              </span>
-            </a>
+                <span
+                  className="text opener"
+                >
+                  EDD Home
+                </span>
+              </a>
+            </div>
           </div>
           <a
             className="nav-link"
@@ -88,20 +94,22 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       <div
         className="container"
       >
-        <a
-          className="navbar-brand"
-          href="https://edd.ca.gov"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            alt="EDD Employment Development Department State of California Home"
-            className="edd-logo d-inline-block align-top mr-5"
-            height="60"
-            src="/images/edd-logo-2-Color.svg"
-            width="171"
-          />
-        </a>
+        <div>
+          <span
+            className="navbar-brand"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="EDD Employment Development Department State of California Home"
+              className="edd-logo d-inline-block align-top mr-5 opener"
+              height="60"
+              src="/images/edd-logo-2-Color.svg"
+              width="171"
+            />
+          </span>
+        </div>
         <button
           aria-controls="basic-navbar-nav"
           aria-label="Toggle navigation"

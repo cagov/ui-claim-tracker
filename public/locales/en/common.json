@@ -74,5 +74,11 @@
       "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
       "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
     }
+  },
+  "external-navigation-modal": {
+    "header": "Confirm Navigation",
+    "warning": "You are opening a new tab outside of the application. Select Continue to open a new tab or select Cancel to return to the application.",
+    "cancel-button": "Cancel",
+    "continue-button": "Continue"
   }
 }
