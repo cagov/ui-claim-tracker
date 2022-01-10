@@ -74,5 +74,11 @@
       "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm",
       "ui-calculator": "https://edd.ca.gov/Unemployment/ui-calculator-espanol.htm"
     }
+  },
+  "external-navigation-modal": {
+    "header": "Confirmar Navegación",
+    "warning": "Usted está abriendo una nueva pestaña en el navegador fuera de la aplicación. Seleccione el botón Continuar para abrir una nueva pestaña en el navegador o seleccione el botón Cancelar para regresar a la aplicación.",
+    "cancel-button": "Cancelar",
+    "continue-button": "Continuar"
   }
 }

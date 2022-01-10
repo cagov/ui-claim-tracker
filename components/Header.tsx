@@ -4,6 +4,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
 
 import { HeaderIcon } from './HeaderIcon'
+import { ExternalLink } from './ExternalLink'
+import { ExternalBrand } from './ExternalBrand'
 
 import { UrlPrefixes } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
@@ -81,19 +83,17 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
     <header className="header border-bottom border-secondary">
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('ca-gov')}>
-            <img
-              src={assetPrefix + '/images/Ca-Gov-Logo-Gold.svg'}
-              alt={t('header.alt-image-cagov')}
-              width="46"
-              height="34"
-            />
-          </Navbar.Brand>
+          <ExternalBrand
+            url="ca-gov"
+            src={assetPrefix + '/images/Ca-Gov-Logo-Gold.svg'}
+            alt={t('header.alt-image-cagov')}
+            width="46"
+            height="34"
+            classes={null}
+          />
           <Nav>
             <Navbar.Collapse>
-              <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
-                <span className="text">{t('header.edd-home')}</span>
-              </Nav.Link>
+              <ExternalLink url="edd-ca-gov" text={t('header.edd-home')} />
             </Navbar.Collapse>
             <Nav.Link
               target="_blank"
@@ -110,15 +110,14 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       </Navbar>
       <Navbar className="justify-content-between" expand="lg" variant="light">
         <Container>
-          <Navbar.Brand target="_blank" rel="noopener noreferrer" href={getUrl('edd-ca-gov')}>
-            <img
-              src={assetPrefix + '/images/edd-logo-2-Color.svg'}
-              alt={t('header.alt-image-edd')}
-              height="60"
-              width="171"
-              className="edd-logo d-inline-block align-top mr-5"
-            />
-          </Navbar.Brand>
+          <ExternalBrand
+            url="edd-ca-gov"
+            src={assetPrefix + '/images/edd-logo-2-Color.svg'}
+            alt={t('header.alt-image-edd')}
+            width="171"
+            height="60"
+            classes="edd-logo d-inline-block align-top mr-5"
+          />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse>{globalHeader}</Navbar.Collapse>
         </Container>
