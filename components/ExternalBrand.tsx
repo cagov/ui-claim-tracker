@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import { NavigationModal } from './NavigationModal'
 
 export interface ExternalBrandProps {
-  url: string
+  url: string | undefined
   src: string
   alt: string
   width: string
@@ -19,7 +19,7 @@ export const ExternalBrand: React.FC<ExternalBrandProps> = ({ url, src, alt, wid
   }
 
   return (
-    <div>
+    <span>
       <Navbar.Brand target="_blank" rel="noopener noreferrer" onClick={handleModalState}>
         <img
           src={src}
@@ -30,6 +30,6 @@ export const ExternalBrand: React.FC<ExternalBrandProps> = ({ url, src, alt, wid
         />
       </Navbar.Brand>
       <NavigationModal url={url} modalState={() => handleModalState()} showWarningModal={showWarningModal} />
-    </div>
+    </span>
   )
 }

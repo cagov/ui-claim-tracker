@@ -14,7 +14,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       <div
         className="container"
       >
-        <div>
+        <span>
           <span
             className="navbar-brand"
             onClick={[Function]}
@@ -29,7 +29,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
               width="46"
             />
           </span>
-        </div>
+        </span>
         <div
           className="navbar-nav"
           onKeyDown={[Function]}
@@ -38,7 +38,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
             aria-expanded={null}
             className="navbar-collapse collapse"
           >
-            <div>
+            <span>
               <a
                 className="nav-link"
                 data-rb-event-key={null}
@@ -55,7 +55,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
                   EDD Home
                 </span>
               </a>
-            </div>
+            </span>
           </div>
           <a
             className="nav-link"
@@ -94,7 +94,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
       <div
         className="container"
       >
-        <div>
+        <span>
           <span
             className="navbar-brand"
             onClick={[Function]}
@@ -109,7 +109,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
               width="171"
             />
           </span>
-        </div>
+        </span>
         <button
           aria-controls="basic-navbar-nav"
           aria-label="Toggle navigation"
@@ -530,50 +530,78 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           >
             Back to Top
           </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
-            href="https://www.edd.ca.gov/About_EDD/Contact_EDD.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Contact EDD
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
-            href="https://www.edd.ca.gov/About_EDD/Conditions_Of_Use.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Conditions of Use
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
-            href="https://www.edd.ca.gov/About_EDD/Privacy_Policy.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>
-          <a
-            className="nav-link"
-            data-rb-event-key="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
-            href="https://www.edd.ca.gov/About_EDD/Accessibility.htm"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Accessibility
-          </a>
+          <span>
+            <a
+              className="nav-link"
+              data-rb-event-key={null}
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              role="button"
+              target="_blank"
+            >
+              <span
+                className="text opener"
+              >
+                Contact EDD
+              </span>
+            </a>
+          </span>
+          <span>
+            <a
+              className="nav-link"
+              data-rb-event-key={null}
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              role="button"
+              target="_blank"
+            >
+              <span
+                className="text opener"
+              >
+                Conditions of Use
+              </span>
+            </a>
+          </span>
+          <span>
+            <a
+              className="nav-link"
+              data-rb-event-key={null}
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              role="button"
+              target="_blank"
+            >
+              <span
+                className="text opener"
+              >
+                Privacy Policy
+              </span>
+            </a>
+          </span>
+          <span>
+            <a
+              className="nav-link"
+              data-rb-event-key={null}
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              rel="noopener noreferrer"
+              role="button"
+              target="_blank"
+            >
+              <span
+                className="text opener"
+              >
+                Accessibility
+              </span>
+            </a>
+          </span>
         </div>
       </nav>
     </div>

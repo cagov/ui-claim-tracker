@@ -57,6 +57,10 @@ export function buildTransLineContent(json: TextOptionalLink, i18nKey: I18nStrin
     props.links = json.links
   }
 
+  if (json.hypertext) {
+    props.hypertext = json.hypertext
+  }
+
   return props
 }
 

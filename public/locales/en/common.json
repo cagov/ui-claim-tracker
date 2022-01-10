@@ -73,6 +73,14 @@
       "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
       "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
       "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "UI Online homepage",
+      "pending-payment": "Claim Status: Pending Payment",
+      "certify": "certify for benefits",
+      "reopen": "reopen your claim",
+      "reapply": "reapply for unemployment benefits",
+      "enough-wages": "enough wages"
     }
   },
   "external-navigation-modal": {

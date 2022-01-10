@@ -41,13 +41,15 @@ exports[`Scenario 1 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -155,13 +157,15 @@ exports[`Scenario 1 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -484,13 +488,15 @@ exports[`Scenario 2 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -654,13 +660,15 @@ exports[`Scenario 2 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -1121,13 +1129,15 @@ exports[`Scenario 3 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -1252,13 +1262,15 @@ exports[`Scenario 3 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -1605,13 +1617,15 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -1643,13 +1657,15 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           For more information, visit 
-          <a
-            href="https://www.edd.ca.gov/unemployment/claim-status.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Claim Status: Pending Payment
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              Claim Status: Pending Payment
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -1682,13 +1698,15 @@ exports[`Scenario 4 matches when there are weeks to certify, on desktop 1`] = `
           className="next-step"
         >
           We will email you when you have weeks available to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -1741,13 +1759,15 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           Continue to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
            while we determine your eligibility.
           <div
             className="sub-bullets"
@@ -1779,13 +1799,15 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           For more information, visit 
-          <a
-            href="https://www.edd.ca.gov/unemployment/claim-status.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Claim Status: Pending Payment
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              Claim Status: Pending Payment
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -1818,13 +1840,15 @@ exports[`Scenario 4 matches when there are weeks to certify, on mobile 1`] = `
           className="next-step"
         >
           We will email you when you have weeks available to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -1899,13 +1923,15 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           For more information, visit 
-          <a
-            href="https://www.edd.ca.gov/unemployment/claim-status.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Claim Status: Pending Payment
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              Claim Status: Pending Payment
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -1938,13 +1964,15 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on desktop 1`] =
           className="next-step"
         >
           We will email you when you have weeks available to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -2019,13 +2047,15 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           For more information, visit 
-          <a
-            href="https://www.edd.ca.gov/unemployment/claim-status.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Claim Status: Pending Payment
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              Claim Status: Pending Payment
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -2058,13 +2088,15 @@ exports[`Scenario 4 matches when there aren't weeks to certify, on mobile 1`] = 
           className="next-step"
         >
           We will email you when you have weeks available to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -2139,13 +2171,15 @@ exports[`Scenario 5 matches, on desktop 1`] = `
           className="next-step"
         >
           If it’s been more than 30 days since you last certified for benefits, you must 
-          <a
-            href="https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            reopen your claim
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              reopen your claim
+            </a>
+          </span>
            before you can certify.
           <div
             className="sub-bullets"
@@ -2170,13 +2204,15 @@ exports[`Scenario 5 matches, on desktop 1`] = `
           className="next-step"
         >
           We will email you when you have weeks available to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -2251,13 +2287,15 @@ exports[`Scenario 5 matches, on mobile 1`] = `
           className="next-step"
         >
           If it’s been more than 30 days since you last certified for benefits, you must 
-          <a
-            href="https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            reopen your claim
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              reopen your claim
+            </a>
+          </span>
            before you can certify.
           <div
             className="sub-bullets"
@@ -2282,13 +2320,15 @@ exports[`Scenario 5 matches, on mobile 1`] = `
           className="next-step"
         >
           We will email you when you have weeks available to 
-          <a
-            href="https://edd.ca.gov/Unemployment/certify.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            certify for benefits
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              certify for benefits
+            </a>
+          </span>
           .
           <div
             className="sub-bullets"
@@ -2323,13 +2363,15 @@ exports[`Scenario 6 matches, on desktop 1`] = `
       className="summary-section"
     >
       You have weeks available to 
-      <a
-        href="https://edd.ca.gov/Unemployment/certify.htm"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        certify for benefits
-      </a>
+      <span>
+        <a
+          href="\\\\\\\\"
+          onClick={[Function]}
+          rel="noopener noreferrer"
+        >
+          certify for benefits
+        </a>
+      </span>
       .
     </div>
   </div>
@@ -2425,13 +2467,15 @@ exports[`Scenario 6 matches, on mobile 1`] = `
       className="summary-section"
     >
       You have weeks available to 
-      <a
-        href="https://edd.ca.gov/Unemployment/certify.htm"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        certify for benefits
-      </a>
+      <span>
+        <a
+          href="\\\\\\\\"
+          onClick={[Function]}
+          rel="noopener noreferrer"
+        >
+          certify for benefits
+        </a>
+      </span>
       .
     </div>
   </div>
@@ -2551,13 +2595,15 @@ exports[`Scenario 7 matches, on desktop 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -2639,13 +2685,15 @@ exports[`Scenario 7 matches, on mobile 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -2727,13 +2775,15 @@ exports[`Scenario 8 matches, on desktop 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -2815,13 +2865,15 @@ exports[`Scenario 8 matches, on mobile 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -2903,13 +2955,15 @@ exports[`Scenario 9 matches, on desktop 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -2991,13 +3045,15 @@ exports[`Scenario 9 matches, on mobile 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -3079,13 +3135,15 @@ exports[`Scenario 10 matches, on desktop 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -3167,13 +3225,15 @@ exports[`Scenario 10 matches, on mobile 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -3255,13 +3315,15 @@ exports[`Scenario 11 matches, on desktop 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -3343,13 +3405,15 @@ exports[`Scenario 11 matches, on mobile 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -3431,13 +3495,15 @@ exports[`Scenario 12 matches, on desktop 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"
@@ -3519,13 +3585,15 @@ exports[`Scenario 12 matches, on mobile 1`] = `
             reapply for unemployment benefits
           </a>
            if you earned 
-          <a
-            href="https://edd.ca.gov/Unemployment/UI-Calculator.htm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            enough wages
-          </a>
+          <span>
+            <a
+              href="\\\\\\\\"
+              onClick={[Function]}
+              rel="noopener noreferrer"
+            >
+              enough wages
+            </a>
+          </span>
            from an employer in the last 18 months and are still unemployed or working part time.
           <div
             className="sub-bullets"

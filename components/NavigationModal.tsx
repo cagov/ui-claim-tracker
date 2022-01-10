@@ -1,10 +1,9 @@
-import getUrl from '../utils/browser/getUrl'
 import Modal from 'react-bootstrap/Modal'
 import { useTranslation } from 'next-i18next'
 import { Button } from './Button'
 
 export interface NavigationModalProps {
-  url: string
+  url: string | undefined
   modalState(): void
   showWarningModal: boolean
 }
@@ -14,8 +13,7 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({ url, modalStat
   const { t } = useTranslation()
 
   function redirectToURL() {
-    const externalLink = getUrl(url)
-    window.open(externalLink || '', '_blank')
+    window.open(url || '', '_blank')
     modalState()
   }
 

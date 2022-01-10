@@ -2,6 +2,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import React from 'react'
 import { I18nString, TransLineContent } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
+import { ExternalLink } from './ExternalLink'
 
 export interface TransLineProps extends TransLineContent {
   userArrivedFromUioMobile: boolean
@@ -45,8 +46,15 @@ function internalLink(link: I18nString): boolean {
   return uioRegex.test(link) || bpoRegex.test(link)
 }
 
-export const TransLine: React.FC<TransLineProps> = ({ userArrivedFromUioMobile = false, i18nKey, links = [] }) => {
+export const TransLine: React.FC<TransLineProps> = ({
+  userArrivedFromUioMobile = false,
+  i18nKey,
+  links = [],
+  hypertext = [],
+}) => {
   const linkComponents: JSX.Element[] = []
+  const { t } = useTranslation()
+  let index = 0
   if (links && links.length > 0) {
     for (const link of links) {
       const href = resolveUrl(link, userArrivedFromUioMobile)
@@ -57,8 +65,14 @@ export const TransLine: React.FC<TransLineProps> = ({ userArrivedFromUioMobile =
       if (internalLink(link)) {
         linkComponents.push(<a href={href} key={link}></a>)
       } else {
-        linkComponents.push(<a target="_blank" rel="noopener noreferrer" href={href} key={link}></a>)
+        // linkComponents.push(<a target="_blank" rel="noopener noreferrer" href={href} key={link}></a>)
+        linkComponents.push(<ExternalLink url={href} text={t(hypertext[index])} inlineLink key={link} />)
+        // linkComponents.push(<ExternalLink url={href} text={t(link)} inlineLink={true} key={link} />)
+        // linkComponents.push(<ExternalLink url={href} text={link} inlineLink={true} key={link} />)
+        // linkComponents.push(<ExternalLink url={href} text={hypertext[index]} inlineLink={true} key={link} />)
+        // linkComponents.push(<ExternalLink url={href} text={'Test'} embeddedText={true} key={link} />)
       }
+      index++
       /* eslint-enable jsx-a11y/anchor-has-content */
       /* eslint-enable react/self-closing-comp */
     }
