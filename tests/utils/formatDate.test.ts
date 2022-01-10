@@ -35,7 +35,8 @@ describe('Falsy date strings: A date string is', () => {
   })
 
   it('falsy if it is null', () => {
-    expect(isDateStringFalsy(null)).toBe(true)
+    const borkedValue = null as unknown
+    expect(isDateStringFalsy(borkedValue as string)).toBe(true)
   })
 
   it('falsy if it is an empty string', () => {
@@ -43,7 +44,8 @@ describe('Falsy date strings: A date string is', () => {
   })
 
   it('falsy if it is undefined', () => {
-    expect(isDateStringFalsy(undefined)).toBe(true)
+    const borkedValue = undefined as unknown
+    expect(isDateStringFalsy(borkedValue as string)).toBe(true)
   })
 
   it('not falsy if it is any valid date', () => {

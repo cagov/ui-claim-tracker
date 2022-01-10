@@ -3,7 +3,7 @@ import { Header } from '../../components/Header'
 
 describe('Header component loads', () => {
   it('has the desktop UIO Link by default', () => {
-    render(<Header userArrivedFromUioMobile={false} />)
+    render(<Header userArrivedFromUioMobile={false} assetPrefix="/claimstatus" />)
     expect(screen.queryByText('UI Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Home' })).toHaveAttribute(
       'href',
@@ -12,7 +12,7 @@ describe('Header component loads', () => {
   })
 
   it('has the UIO Mobile Link when the user arrived from UIO Mobile', () => {
-    render(<Header userArrivedFromUioMobile />)
+    render(<Header userArrivedFromUioMobile assetPrefix="/claimstatus" />)
     expect(screen.queryByText('UI Home')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'UI Home' })).toHaveAttribute(
       'href',

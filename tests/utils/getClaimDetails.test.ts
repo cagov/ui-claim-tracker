@@ -1,3 +1,4 @@
+import { ClaimDetailsResult } from '../../types/common'
 import getClaimDetails, {
   buildBenefitYear,
   formatCurrency,
@@ -80,7 +81,7 @@ describe('Constructing the Claim Details object', () => {
   })
 
   it('null values pass through properly', () => {
-    // Mock ClaimDetailsResults
+    // Mock ClaimDetailsResults, intentionally invalid type
     const rawDetails = {
       programType: 'UI',
       benefitYearStartDate: '2021-05-21T00:00:00',
@@ -90,7 +91,7 @@ describe('Constructing the Claim Details object', () => {
       lastPaymentIssued: null,
       lastPaymentAmount: null,
       monetaryStatus: 'active',
-    }
+    } as unknown
 
     // Expected results
     const expected = {
@@ -101,7 +102,7 @@ describe('Constructing the Claim Details object', () => {
       lastPaymentIssued: null,
       extensionType: '',
     }
-    const claimDetails = getClaimDetails(rawDetails)
+    const claimDetails = getClaimDetails(rawDetails as ClaimDetailsResult)
     expect(claimDetails).toStrictEqual(expected)
   })
 
@@ -158,7 +159,7 @@ describe('Constructing the Claim Details object', () => {
   })
 
   it('null lastPaymentIssued date makes the final lastPaymentIssued null', () => {
-    // Mock ClaimDetailsResults
+    // Mock ClaimDetailsResults, intentionally invalid type
     const rawDetails = {
       programType: 'UI',
       benefitYearStartDate: '2021-05-21T00:00:00',
@@ -168,7 +169,7 @@ describe('Constructing the Claim Details object', () => {
       lastPaymentIssued: null,
       lastPaymentAmount: 10,
       monetaryStatus: 'active',
-    }
+    } as unknown
 
     // Expected results
     const expected = {
@@ -179,12 +180,12 @@ describe('Constructing the Claim Details object', () => {
       lastPaymentIssued: null,
       extensionType: '',
     }
-    const claimDetails = getClaimDetails(rawDetails)
+    const claimDetails = getClaimDetails(rawDetails as ClaimDetailsResult)
     expect(claimDetails).toStrictEqual(expected)
   })
 
   it('null lastPaymentAmount makes the final lastPaymentIssued null', () => {
-    // Mock ClaimDetailsResults
+    // Mock ClaimDetailsResults, intentionally invalid type
     const rawDetails = {
       programType: 'UI',
       benefitYearStartDate: '2021-05-21T00:00:00',
@@ -194,7 +195,7 @@ describe('Constructing the Claim Details object', () => {
       lastPaymentIssued: '2021-03-12T00:00:00',
       lastPaymentAmount: null,
       monetaryStatus: 'active',
-    }
+    } as unknown
 
     // Expected results
     const expected = {
@@ -205,7 +206,7 @@ describe('Constructing the Claim Details object', () => {
       lastPaymentIssued: null,
       extensionType: '',
     }
-    const claimDetails = getClaimDetails(rawDetails)
+    const claimDetails = getClaimDetails(rawDetails as ClaimDetailsResult)
     expect(claimDetails).toStrictEqual(expected)
   })
 

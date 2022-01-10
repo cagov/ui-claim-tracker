@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import { DateTime, Settings } from 'luxon'
 
 import { ClaimStatus } from '../../components/ClaimStatus'
-import { ClaimStatusContent } from '../../types/common'
+import { ClaimStatusContent, TestRendererCreateReturn } from '../../types/common'
 import apiGatewayStub from '../../utils/apiGatewayStub'
 import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent'
 
@@ -11,7 +11,10 @@ import getScenarioContent, { ScenarioType } from '../../utils/getScenarioContent
  * Helper functions.
  */
 
-function renderClaimStatusComponent(statusContent: ClaimStatusContent, userArrivedFromUioMobile: boolean): string {
+function renderClaimStatusComponent(
+  statusContent: ClaimStatusContent,
+  userArrivedFromUioMobile: boolean,
+): TestRendererCreateReturn {
   return renderer
     .create(
       <ClaimStatus
@@ -29,7 +32,7 @@ function testClaimStatus(
   scenarioType: ScenarioType,
   hasCertificationWeeksAvailable = false,
   userArrivedFromUioMobile = false,
-): string {
+): TestRendererCreateReturn {
   const scenarioContent = getScenarioContent(apiGatewayStub(scenarioType, hasCertificationWeeksAvailable))
   return renderClaimStatusComponent(scenarioContent.statusContent, userArrivedFromUioMobile)
 }
