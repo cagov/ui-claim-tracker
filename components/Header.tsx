@@ -89,7 +89,6 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
             alt={t('header.alt-image-cagov')}
             width="46"
             height="34"
-            classes={null}
           />
           <Nav>
             <Navbar.Collapse>

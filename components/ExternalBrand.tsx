@@ -8,7 +8,7 @@ export interface ExternalBrandProps {
   alt: string
   width: string
   height: string
-  classes: string | null
+  classes?: string
 }
 
 export const ExternalBrand: React.FC<ExternalBrandProps> = ({ url, src, alt, width, height, classes }) => {
@@ -26,7 +26,7 @@ export const ExternalBrand: React.FC<ExternalBrandProps> = ({ url, src, alt, wid
           alt={alt}
           width={width}
           height={height}
-          className={classes !== null ? classes + ' opener' : 'opener'}
+          className={classes !== undefined ? classes + ' opener' : 'opener'}
         />
       </Navbar.Brand>
       <NavigationModal url={url} modalState={() => handleModalState()} showWarningModal={showWarningModal} />

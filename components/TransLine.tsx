@@ -65,12 +65,7 @@ export const TransLine: React.FC<TransLineProps> = ({
       if (internalLink(link)) {
         linkComponents.push(<a href={href} key={link}></a>)
       } else {
-        // linkComponents.push(<a target="_blank" rel="noopener noreferrer" href={href} key={link}></a>)
         linkComponents.push(<ExternalLink url={href} text={t(hypertext[index])} inlineLink key={link} />)
-        // linkComponents.push(<ExternalLink url={href} text={t(link)} inlineLink={true} key={link} />)
-        // linkComponents.push(<ExternalLink url={href} text={link} inlineLink={true} key={link} />)
-        // linkComponents.push(<ExternalLink url={href} text={hypertext[index]} inlineLink={true} key={link} />)
-        // linkComponents.push(<ExternalLink url={href} text={'Test'} embeddedText={true} key={link} />)
       }
       index++
       /* eslint-enable jsx-a11y/anchor-has-content */
