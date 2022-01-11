@@ -30,7 +30,15 @@ beforeAll(() => {
 // Scenarios 1, 2, 3 negative identification tests
 describe('Scenarios 1, 2, 3', () => {
   it('are not returned if pendingDetermination is null', () => {
-    const pendingDeterminationScenarioNull = { pendingDetermination: null }
+    const pendingDeterminationScenarioNull = {
+      uniqueNumber: null,
+      claimDetails: null,
+      hasPendingWeeks: false,
+      hasValidPendingWeeks: false,
+      hasCertificationWeeksAvailable: false,
+      isBYE: false,
+      pendingDetermination: null,
+    }
     const scenarioTypeNull = getScenario(pendingDeterminationScenarioNull)
     expect(scenarioTypeNull).not.toBe(ScenarioType.Scenario1)
     expect(scenarioTypeNull).not.toBe(ScenarioType.Scenario2)
@@ -38,7 +46,15 @@ describe('Scenarios 1, 2, 3', () => {
   })
 
   it('are not returned if pendingDetermination is an empty array', () => {
-    const pendingDeterminationScenarioEmpty = { pendingDetermination: [] }
+    const pendingDeterminationScenarioEmpty = {
+      uniqueNumber: null,
+      claimDetails: null,
+      hasPendingWeeks: false,
+      hasValidPendingWeeks: false,
+      hasCertificationWeeksAvailable: false,
+      isBYE: false,
+      pendingDetermination: [],
+    }
     const scenarioTypeEmpty = getScenario(pendingDeterminationScenarioEmpty)
     expect(scenarioTypeEmpty).not.toBe(ScenarioType.Scenario1)
     expect(scenarioTypeEmpty).not.toBe(ScenarioType.Scenario2)
@@ -57,7 +73,7 @@ describe('The Generic Pending scenario (scenario 4)', () => {
 
 // Scenarios 5 & 6
 describe('The Base State scenarios (scenarios 5 & 6)', () => {
-  const baseScenarios = [
+  const baseScenarios: [string, ScenarioType][] = [
     ['No Weeks to Certify', ScenarioType.Scenario5],
     ['Weeks to Certify', ScenarioType.Scenario6],
   ]
@@ -68,7 +84,7 @@ describe('The Base State scenarios (scenarios 5 & 6)', () => {
 })
 
 describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
-  const byeScenarios = [
+  const byeScenarios: [string, ScenarioType][] = [
     ['UI', ScenarioType.Scenario7],
     ['PUA', ScenarioType.Scenario8],
     ['DUA', ScenarioType.Scenario9],
@@ -131,7 +147,9 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
     // we're overrding the program type, which is the difference between the API response
     // for scenarios 7 thru 12 - so testing each would be redundant
     const byeInvalidProgram = apiGatewayStub(ScenarioType.Scenario7)
-    byeInvalidProgram.claimDetails.programType = programType
+    if (byeInvalidProgram?.claimDetails?.programType) {
+      byeInvalidProgram.claimDetails.programType = programType
+    }
     const scenarioObject = getScenario(byeInvalidProgram)
     expect(scenarioObject.scenarioType).not.toBe(ScenarioType.Scenario7)
     expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario5)
@@ -144,19 +162,20 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
     expect(scenarioObject.scenarioType).toBe(ScenarioType.Scenario10)
   })
 
-  const falseyBenefitYearEndDates = [
+  const falseyBenefitYearEndDates: [string, null | undefined | ''][] = [
     ['null', null],
-    ['undefined', undefined],
     ['empty string', ''],
   ]
   it.each(falseyBenefitYearEndDates)(
     'FED-ED with %s benefit year end date throws an error',
     (description, benefitYearEndDate) => {
-      const invalidByeProgram = apiGatewayStub(ScenarioType.Scenario12, false, false, 'FED-ED', benefitYearEndDate)
-      // Create an invalid claim object by removing benefitYearEndDate.
-      if (benefitYearEndDate === undefined) {
-        delete invalidByeProgram.claimDetails.benefitYearEndDate
-      }
+      const invalidByeProgram = apiGatewayStub(
+        ScenarioType.Scenario12,
+        false,
+        false,
+        'FED-ED',
+        benefitYearEndDate as undefined,
+      )
       expect(() => {
         getScenario(invalidByeProgram)
       }).toThrowError('Claim is marked as isBYE, but is missing benefit year end date value')
@@ -171,42 +190,47 @@ describe('The BYE scenarios (scenarios 7, 8, 9, 10, 11, 12)', () => {
 // Scenario 1: Test various values of pendingDetermination.determinationStatus
 describe('The determination interview is not yet scheduled (scenario 1) when all other criteria are met and the determination status evaluates to', () => {
   it('false (null)', () => {
+    const nullTestOverride = null as unknown
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = null
-    pendingDetermination.scheduleDate = null
+    pendingDetermination.scheduleDate = nullTestOverride as string
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   it('false (empty string)', () => {
+    const nullTestOverride = null as unknown
     const pendingDetermination = getMockPendingDetermination()
     pendingDetermination.determinationStatus = ''
-    pendingDetermination.scheduleDate = null
+    pendingDetermination.scheduleDate = nullTestOverride as string
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   it('false (undefined)', () => {
+    const nullTestOverride = null as unknown
+    const undefTestOverride = undefined as unknown
     const pendingDetermination = getMockPendingDetermination()
-    pendingDetermination.determinationStatus = undefined
-    pendingDetermination.scheduleDate = null
+    pendingDetermination.determinationStatus = undefTestOverride as string
+    pendingDetermination.scheduleDate = nullTestOverride as string
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 })
 
 // Scenario 1: Test various values of pendingDetermination.scheduleDate
 describe('The determination interview is not yet scheduled (scenario 1) when all other criteria are met and the schedule date', () => {
   it('evaluates to false (null)', () => {
+    const nullTestOverride = null as unknown
     const pendingDetermination = getMockPendingDetermination()
-    pendingDetermination.determinationStatus = null
-    pendingDetermination.scheduleDate = null
+    pendingDetermination.determinationStatus = nullTestOverride as string
+    pendingDetermination.scheduleDate = nullTestOverride as string
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   it('evaluates to false (empty string)', () => {
@@ -215,16 +239,18 @@ describe('The determination interview is not yet scheduled (scenario 1) when all
     pendingDetermination.scheduleDate = ''
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   it('evaluates to false (undefined)', () => {
+    const nullTestOverride = null as unknown
+    const undefTestOverride = undefined as unknown
     const pendingDetermination = getMockPendingDetermination()
-    pendingDetermination.determinationStatus = null
-    pendingDetermination.scheduleDate = undefined
+    pendingDetermination.determinationStatus = nullTestOverride as string
+    pendingDetermination.scheduleDate = undefTestOverride as string
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   it('is 0001-01-01T00:00:00', () => {
@@ -233,7 +259,7 @@ describe('The determination interview is not yet scheduled (scenario 1) when all
     pendingDetermination.scheduleDate = '0001-01-01T00:00:00'
     pendingDetermination.requestDate = formatFromApiGateway(-30)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 })
 
@@ -292,14 +318,14 @@ describe('The determination interview is scheduled (scenario 2)', () => {
     // Mock a pending determination object with a schedule date that is tomorrow
     const pendingDetermination = getPendingDeterminationWithScheduleDate(1)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario2)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario2)
   })
 
   it('scheduled (scenario 2) when the determination status is pending and there is one pending determination object with a schedule date of today', () => {
     // Mock a pending determination object with a schedule date that is now
     const pendingDetermination = getPendingDeterminationWithScheduleDate(0)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario2)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario2)
   })
 })
 
@@ -309,7 +335,7 @@ describe('The determination interview is awating decision (scenario 3)', () => {
     // Mock a pending determination object with a schedule date that is yesterday
     const pendingDetermination = getPendingDeterminationWithScheduleDate(-1)
     const result = identifyPendingDeterminationScenario([pendingDetermination])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario3)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario3)
   })
 })
 
@@ -319,17 +345,15 @@ describe('When there are multiple pendingDetermination objects, the determinatio
   // to Scenario 1, return Scenario 1.
   it('not yet scheduled (scenario 1) if all are not yet scheduled', () => {
     const appt1 = getMockPendingDetermination()
-    appt1.pendingDetermination = ''
     appt1.scheduleDate = ''
     appt1.requestDate = formatFromApiGateway(-30)
 
     const appt2 = getMockPendingDetermination()
-    appt2.pendingDetermination = ''
     appt2.scheduleDate = ''
     appt2.requestDate = formatFromApiGateway(-30)
 
     const result = identifyPendingDeterminationScenario([appt1, appt2])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario1)
   })
 
   // Multiple "scheduled" pendingDetermination objects that evaluate
@@ -342,8 +366,8 @@ describe('When there are multiple pendingDetermination objects, the determinatio
     const appt2 = getPendingDeterminationWithScheduleDate(7)
 
     const result = identifyPendingDeterminationScenario([appt1, appt2])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario2)
-    expect(result.pendingDetermination).toBe(appt1)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario2)
+    expect(result?.pendingDetermination).toBe(appt1)
   })
 
   // Multiple "awaiting decision" pendingDetermination objects that evaluate
@@ -356,7 +380,7 @@ describe('When there are multiple pendingDetermination objects, the determinatio
     const appt2 = getPendingDeterminationWithScheduleDate(-7)
 
     const result = identifyPendingDeterminationScenario([appt1, appt2])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario3)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario3)
   })
 
   // If all three types of scenarios are present, then scenario 2 takes priority.
@@ -373,8 +397,8 @@ describe('When there are multiple pendingDetermination objects, the determinatio
     notYetScheduled.requestDate = 'not empty'
 
     const result = identifyPendingDeterminationScenario([notYetScheduled, awaitingDecision, scheduled])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario2)
-    expect(result.pendingDetermination).toBe(scheduled)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario2)
+    expect(result?.pendingDetermination).toBe(scheduled)
   })
 
   // If scenarios 1 & 3 are present, then scenario 3 takes priority.
@@ -388,7 +412,7 @@ describe('When there are multiple pendingDetermination objects, the determinatio
     notYetScheduled.requestDate = 'not empty'
 
     const result = identifyPendingDeterminationScenario([notYetScheduled, awaitingDecision])
-    expect(result.scenarioType).toBe(ScenarioType.Scenario3)
+    expect(result?.scenarioType).toBe(ScenarioType.Scenario3)
   })
 })
 

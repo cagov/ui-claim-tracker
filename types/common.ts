@@ -1,13 +1,15 @@
+import { ReactTestRendererJSON } from 'react-test-renderer'
+
 // Type aliases
 export type I18nString = string
 export type ApiGatewayDateString = string
 
 // Types for URL prefixes loaded from env vars
 export interface UrlPrefixes {
-  urlPrefixUioDesktop: string
-  urlPrefixUioMobile: string
-  urlPrefixBpo: string
-  urlPrefixUioClaimstatus: string
+  urlPrefixUioDesktop?: string
+  urlPrefixUioMobile?: string
+  urlPrefixBpo?: string
+  urlPrefixUioClaimstatus?: string
 }
 
 // Types for TransLine component
@@ -114,3 +116,6 @@ export interface ScenarioContent {
   statusContent: ClaimStatusContent
   detailsContent: null | ClaimDetailsContent
 }
+
+// Test types
+export type TestRendererCreateReturn = ReactTestRendererJSON | ReactTestRendererJSON[] | null

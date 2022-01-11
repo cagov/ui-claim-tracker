@@ -11,6 +11,7 @@ import queryApiGateway, {
 import mockEnv from 'mocked-env'
 import fs from 'fs'
 import jestFetchMock from 'jest-fetch-mock'
+import { IncomingMessage } from 'http'
 
 // Mock some modules
 jest.mock('fs')
@@ -23,13 +24,14 @@ const goodRequest = {
   headers: {
     id: goodUniqueNumber,
   },
-}
+} as unknown
 
 /**
  * Begin tests
  */
 
 // Test queryApiGateway()
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 describe('Querying the API Gateway', () => {
   const mockedResponse: Claim = {
     hasValidPendingWeeks: false,
@@ -45,10 +47,12 @@ describe('Querying the API Gateway', () => {
   beforeEach(() => {
     // Mock the fetch response
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(mockedResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
     // Mock fs.readFileSync()
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fs.readFileSync.mockImplementation(() => {
       return 'mock file data'
     })
@@ -66,6 +70,7 @@ describe('Querying the API Gateway', () => {
   // Test mocked fetch is working correctly to eliminate testing issues that might be
   // originating from the way fetch is mocked.
   it('has a correctly mocked fetch', async () => {
+    // @ts-ignore
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
@@ -80,7 +85,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    const data = await queryApiGateway(goodRequest, goodUniqueNumber)
+    const data = await queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)
 
     expect(data).toStrictEqual(mockedResponse)
     expect(fetch).toHaveBeenCalledTimes(1)
@@ -92,6 +97,7 @@ describe('Querying the API Gateway', () => {
   it('handles errors thrown by fetch', async () => {
     const networkErrorMessage = 'network error'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockRejectedValue(new Error(networkErrorMessage))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -100,7 +106,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(networkErrorMessage)
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(networkErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
@@ -116,6 +122,7 @@ describe('Querying the API Gateway', () => {
       status: 403,
     })
     /* eslint-enable  @typescript-eslint/no-unsafe-assignment */
+    // @ts-ignore
     fetch.mockResolvedValue(errorResponse403)
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -124,7 +131,9 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow('API Gateway response is not 200')
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
+      'API Gateway response is not 200',
+    )
 
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'API gateway error')
@@ -138,6 +147,7 @@ describe('Querying the API Gateway', () => {
     // This happens when an incorrect query is sent to API gateway,
     // such as missing the unqiueNumber query string.
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response('not json'))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
 
@@ -146,7 +156,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
       'Unexpected token o in JSON at position 1',
     )
 
@@ -161,6 +171,7 @@ describe('Querying the API Gateway', () => {
     // Override the beforeEach mock to throw an error.
     const fsErrorMessage = 'file read issue'
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fs.readFileSync.mockImplementation(() => {
       throw new Error(fsErrorMessage)
     })
@@ -171,7 +182,7 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(fsErrorMessage)
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(fsErrorMessage)
 
     expect(fetch).toHaveBeenCalledTimes(0)
     expect(loggerSpy).toHaveBeenCalledWith(undefined, 'error', expect.anything(), 'Read certificate error')
@@ -187,9 +198,10 @@ describe('Querying the API Gateway', () => {
     })
 
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(null)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
       'API responded with a null response (queried with 12345, returned null)',
     )
 
@@ -207,7 +219,7 @@ describe('Querying the API Gateway', () => {
     })
 
     const mismatchedUniqueNumber = 'abcde'
-    await expect(queryApiGateway(goodRequest, mismatchedUniqueNumber)).rejects.toThrow(
+    await expect(queryApiGateway(goodRequest as IncomingMessage, mismatchedUniqueNumber)).rejects.toThrow(
       'Mismatched API response and Header unique number (12345 and abcde)',
     )
 
@@ -224,15 +236,16 @@ describe('Querying the API Gateway', () => {
       API_URL: goodUrl,
     })
 
+    const nullTestOverride = null as unknown
     const longNullishResponse: Claim = {
       claimDetails: {
         programType: '',
-        benefitYearStartDate: null,
-        benefitYearEndDate: null,
-        claimBalance: null,
-        weeklyBenefitAmount: null,
-        lastPaymentIssued: null,
-        lastPaymentAmount: null,
+        benefitYearStartDate: nullTestOverride as string,
+        benefitYearEndDate: nullTestOverride as string,
+        claimBalance: nullTestOverride as number,
+        weeklyBenefitAmount: nullTestOverride as number,
+        lastPaymentIssued: nullTestOverride as string,
+        lastPaymentAmount: nullTestOverride as number,
         monetaryStatus: '',
       },
       uniqueNumber: '12345',
@@ -244,9 +257,10 @@ describe('Querying the API Gateway', () => {
     }
 
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(longNullishResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
       'API responded with a null object (queried with 12345, returned unique number 12345)',
     )
 
@@ -274,9 +288,10 @@ describe('Querying the API Gateway', () => {
     }
 
     /* eslint-disable  @typescript-eslint/no-unsafe-call */
+    // @ts-ignore
     fetch.mockResolvedValue(new Response(JSON.stringify(shortNullResponse)))
     /* eslint-enable  @typescript-eslint/no-unsafe-call */
-    await expect(queryApiGateway(goodRequest, goodUniqueNumber)).rejects.toThrow(
+    await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
       'API responded with a null object (queried with 12345, returned unique number null)',
     )
 
@@ -295,7 +310,7 @@ describe('Querying the API Gateway', () => {
       PFX_PASSPHRASE: testPassphrase,
     })
 
-    await queryApiGateway(goodRequest, goodUniqueNumber)
+    await queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     expect(fetch).toHaveBeenCalledWith(
       expect.any(String),
@@ -317,7 +332,7 @@ describe('Querying the API Gateway', () => {
       PFX_PASSPHRASE: testPassphrase,
     })
 
-    await queryApiGateway(goodRequest, goodUniqueNumber)
+    await queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)
     /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
     expect(fetch).toHaveBeenCalledWith(
       expect.any(String),
@@ -362,8 +377,8 @@ describe('The unique number', () => {
       ID_HEADER_NAME: 'id',
     })
 
-    const id = getUniqueNumber(goodRequest)
-    expect(id).toStrictEqual(goodRequest.headers.id)
+    const id = getUniqueNumber(goodRequest as IncomingMessage)
+    expect(id).toStrictEqual(goodUniqueNumber)
 
     // Restore env vars
     restore()
@@ -388,9 +403,9 @@ describe('The unique number', () => {
         UNIQUENUMBER: 'UPPER',
         uniqueNumber: 'mixedCase',
       },
-    }
+    } as unknown
 
-    const id = getUniqueNumber(request)
+    const id = getUniqueNumber(request as IncomingMessage)
     expect(id).toStrictEqual('lower')
 
     // Restore env vars
@@ -404,7 +419,7 @@ describe('The unique number', () => {
       ID_HEADER_NAME: 'nonsense',
     })
 
-    const id = getUniqueNumber(goodRequest)
+    const id = getUniqueNumber(goodRequest as IncomingMessage)
     expect(id).toStrictEqual(undefined)
 
     // Restore env vars
@@ -415,7 +430,7 @@ describe('The unique number', () => {
 // Test getApiVars()
 // Each test case should be:
 // [env var that should not be set, boolean whether an error should be logged]
-const envVarCases = [
+const envVarCases: [string, boolean][] = [
   ['ID_HEADER_NAME', true],
   ['API_URL', true],
   ['API_USER_KEY', true],
@@ -432,7 +447,7 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
 
   it(`${testEnv}`, () => {
     // Mock process.env
-    const mockEnvs = {}
+    const mockEnvs: { [key: string]: string } = {}
     const allEnvs = ['ID_HEADER_NAME', 'API_URL', 'API_USER_KEY', 'CERTIFICATE_DIR', 'PFX_FILE', 'PFX_PASSPHRASE']
     for (const env of allEnvs) {
       if (env !== testEnv) {
@@ -461,3 +476,4 @@ describe.each(envVarCases)('Missing environment variables log errors', (testEnv:
     restore()
   })
 })
+/* eslint-enable @typescript-eslint/ban-ts-comment */
