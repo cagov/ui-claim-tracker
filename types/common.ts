@@ -23,7 +23,7 @@ export interface TransLineContent {
 export interface TextOptionalLink {
   text: string
   links?: string[]
-  hypertext?: []
+  hypertext?: string[]
   subBullets?: TextOptionalLink[]
 }
 
