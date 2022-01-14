@@ -16,12 +16,14 @@ export interface UrlPrefixes {
 export interface TransLineContent {
   i18nKey: I18nString
   links?: I18nString[]
+  hypertext?: I18nString[]
 }
 
 // Types for translation file JSON
 export interface TextOptionalLink {
   text: string
   links?: string[]
+  hypertext?: string[]
   subBullets?: TextOptionalLink[]
 }
 

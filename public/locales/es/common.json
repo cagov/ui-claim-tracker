@@ -73,6 +73,14 @@
       "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status-espanol.htm",
       "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim-Espanol.htm",
       "ui-calculator": "https://edd.ca.gov/Unemployment/ui-calculator-espanol.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "página principal de UI Online",
+      "pending-payment": "Estatus de la solicitud: pendiente de pago",
+      "certify": "certificar para beneficios",
+      "reopen": "reactivar su solicitud",
+      "reapply": "volver a solicitar los beneficios por desempleo",
+      "enough-wages": "salarios suficientes"
     }
   },
   "external-navigation-modal": {

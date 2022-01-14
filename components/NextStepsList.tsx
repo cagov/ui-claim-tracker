@@ -20,6 +20,7 @@ export const NextStepsList: React.FC<NextStepsListProps> = ({ userArrivedFromUio
               userArrivedFromUioMobile={userArrivedFromUioMobile}
               i18nKey={thisStep.i18nKey}
               links={thisStep.links}
+              hypertext={thisStep.hypertext}
             />
             <div className="sub-bullets">
               {

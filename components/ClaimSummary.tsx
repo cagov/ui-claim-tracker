@@ -20,6 +20,7 @@ export const ClaimSummary: React.FC<ClaimSummaryProps> = ({
         userArrivedFromUioMobile={userArrivedFromUioMobile}
         i18nKey={paragraph.i18nKey}
         links={paragraph.links}
+        hypertext={paragraph.hypertext}
       />
     </div>
   ))

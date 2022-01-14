@@ -84,16 +84,15 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       <Navbar collapseOnSelect className="justify-content-between" expand="lg" fixed-top="true" variant="dark">
         <Container>
           <ExternalBrand
-            url="ca-gov"
+            url={getUrl('ca-gov')}
             src={assetPrefix + '/images/Ca-Gov-Logo-Gold.svg'}
             alt={t('header.alt-image-cagov')}
             width="46"
             height="34"
-            classes={null}
           />
           <Nav>
             <Navbar.Collapse>
-              <ExternalLink url="edd-ca-gov" text={t('header.edd-home')} />
+              <ExternalLink url={getUrl('edd-ca-gov')} text={t('header.edd-home')} />
             </Navbar.Collapse>
             <Nav.Link
               target="_blank"
@@ -111,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
       <Navbar className="justify-content-between" expand="lg" variant="light">
         <Container>
           <ExternalBrand
-            url="edd-ca-gov"
+            url={getUrl('edd-ca-gov')}
             src={assetPrefix + '/images/edd-logo-2-Color.svg'}
             alt={t('header.alt-image-edd')}
             width="171"

@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useTranslation } from 'next-i18next'
+import { ExternalLink } from './ExternalLink'
 import getUrl from '../utils/browser/getUrl'
 
 export const Footer: React.FC = () => {
@@ -13,18 +14,10 @@ export const Footer: React.FC = () => {
         <Navbar className="justify-content-between" variant="dark">
           <Nav className="flex-column flex-sm-row">
             <Nav.Link href="#top">{t('footer.toTop')}</Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-about-contact')}>
-              {t('footer.contact')}
-            </Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-about-conditions-of-use')}>
-              {t('footer.conditionsOfUse')}
-            </Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-about-privacy-policy')}>
-              {t('footer.privacyPolicy')}
-            </Nav.Link>
-            <Nav.Link target="_blank" rel="noopener noreferrer" href={getUrl('edd-about-accessibility')}>
-              {t('footer.accessibility')}
-            </Nav.Link>
+            <ExternalLink url={getUrl('edd-about-contact')} text={t('footer.contact')} />
+            <ExternalLink url={getUrl('edd-about-conditions-of-use')} text={t('footer.conditionsOfUse')} />
+            <ExternalLink url={getUrl('edd-about-privacy-policy')} text={t('footer.privacyPolicy')} />
+            <ExternalLink url={getUrl('edd-about-accessibility')} text={t('footer.accessibility')} />
           </Nav>
         </Navbar>
       </Container>

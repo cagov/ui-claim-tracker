@@ -16,5 +16,4 @@ ExternalBrand.args = {
   alt: 'External Brand Alt Text!',
   width: '36',
   height: '34',
-  classes: null,
 }
