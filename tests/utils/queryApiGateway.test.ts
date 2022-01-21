@@ -35,7 +35,6 @@ const goodRequest = {
 describe('Querying the API Gateway', () => {
   const mockedResponse: Claim = {
     hasValidPendingWeeks: false,
-    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasCertificationWeeksAvailable: false,
     isBYE: false,
     claimDetails: null,
@@ -74,7 +73,6 @@ describe('Querying the API Gateway', () => {
     const resp: Response = await fetch()
     const body: string = await resp.text()
     const jsonData: Claim = extractJSON(body)
-    expect(jsonData.hasPendingWeeks).toBe(false) // deprecated for hasValidPendingWeeks
     expect(jsonData.hasValidPendingWeeks).toBe(false)
     expect(fetch).toHaveBeenCalledTimes(1)
   })
@@ -250,7 +248,6 @@ describe('Querying the API Gateway', () => {
       },
       uniqueNumber: '12345',
       hasCertificationWeeksAvailable: false,
-      hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
       hasValidPendingWeeks: false,
       isBYE: false,
       pendingDetermination: [],
@@ -278,7 +275,6 @@ describe('Querying the API Gateway', () => {
     })
 
     const shortNullResponse: Claim = {
-      hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
       uniqueNumber: null,
       claimDetails: null,
       hasCertificationWeeksAvailable: false,

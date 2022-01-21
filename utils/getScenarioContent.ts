@@ -284,9 +284,8 @@ export function getScenario(claimData: Claim): PendingDeterminationScenario {
   // If the scenario is not one of the Pending Determination scenarios,
   // check to see if it one of the remaining scenarios.
 
-  // deprecated for hasValidPendingWeeks
   // @TODO: Validate that hasValidPendingWeeks is a boolean
-  if (claimData.hasPendingWeeks === true || claimData.hasValidPendingWeeks === true) {
+  if (claimData.hasValidPendingWeeks === true) {
     // @TODO: Validate that hasCertificationWeeks is a boolean
     return { scenarioType: ScenarioType.Scenario4 }
   }

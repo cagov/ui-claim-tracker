@@ -33,7 +33,6 @@ describe('Scenarios 1, 2, 3', () => {
     const pendingDeterminationScenarioNull = {
       uniqueNumber: null,
       claimDetails: null,
-      hasPendingWeeks: false,
       hasValidPendingWeeks: false,
       hasCertificationWeeksAvailable: false,
       isBYE: false,
@@ -49,7 +48,6 @@ describe('Scenarios 1, 2, 3', () => {
     const pendingDeterminationScenarioEmpty = {
       uniqueNumber: null,
       claimDetails: null,
-      hasPendingWeeks: false,
       hasValidPendingWeeks: false,
       hasCertificationWeeksAvailable: false,
       isBYE: false,

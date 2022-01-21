@@ -146,7 +146,6 @@ export function reponseIsNullish(apiBody: Claim): boolean {
     },
     uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
     isBYE: false,
     pendingDetermination: [],
@@ -165,7 +164,6 @@ export function reponseIsNullish(apiBody: Claim): boolean {
     },
     uniqueNumber: null,
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     isBYE: false,
     pendingDetermination: [],
   }
@@ -209,7 +207,6 @@ export default async function queryApiGateway(req: IncomingMessage, uniqueNumber
     uniqueNumber: null,
     claimDetails: null,
     hasCertificationWeeksAvailable: false,
-    hasPendingWeeks: false,
     hasValidPendingWeeks: false,
     isBYE: false,
     pendingDetermination: null,
