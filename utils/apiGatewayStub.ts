@@ -24,7 +24,6 @@ export default function apiGatewayStub(
     claimDetails: null,
     hasCertificationWeeksAvailable: false,
     isBYE: false,
-    hasPendingWeeks: false, // deprecated for hasValidPendingWeeks
     hasValidPendingWeeks: false,
     pendingDetermination: null,
   }
@@ -70,7 +69,6 @@ export default function apiGatewayStub(
       break
 
     case ScenarioType.Scenario4:
-      claim.hasPendingWeeks = true // deprecated for hasValidPendingWeeks
       claim.hasValidPendingWeeks = true
       claim.hasCertificationWeeksAvailable = hasCertificationWeeksAvailable
       break
@@ -78,13 +76,11 @@ export default function apiGatewayStub(
     // Note that Scenarios 5 & 6 explicitly differ based on whether hasCertificationWeeksAvailable
     // is true or false, so we ignore the argument.
     case ScenarioType.Scenario5:
-      claim.hasPendingWeeks = false // deprecated for hasValidPendingWeeks
       claim.hasValidPendingWeeks = false
       claim.hasCertificationWeeksAvailable = false
       break
 
     case ScenarioType.Scenario6:
-      claim.hasPendingWeeks = false // deprecated for hasValidPendingWeeks
       claim.hasValidPendingWeeks = false
       claim.hasCertificationWeeksAvailable = true
       break
