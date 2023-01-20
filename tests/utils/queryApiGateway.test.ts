@@ -130,7 +130,7 @@ describe('Querying the API Gateway', () => {
     })
 
     await expect(queryApiGateway(goodRequest as IncomingMessage, goodUniqueNumber)).rejects.toThrow(
-      'API Gateway response is not 200',
+      '403 Forbidden',
     )
 
     expect(fetch).toHaveBeenCalledTimes(1)
