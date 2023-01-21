@@ -523,10 +523,11 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
         >
           <a
             className="nav-link"
-            data-rb-event-key="#top"
-            href="#top"
+            data-rb-event-key={null}
+            href="#"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
           >
             Back to Top
           </a>

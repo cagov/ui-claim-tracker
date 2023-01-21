@@ -8,12 +8,16 @@ import getUrl from '../utils/browser/getUrl'
 export const Footer: React.FC = () => {
   const { t, i18n } = useTranslation('common')
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <footer className="footer">
       <Container>
         <Navbar className="justify-content-between" variant="dark">
           <Nav className="flex-column flex-sm-row">
-            <Nav.Link href="#top">{t('footer.toTop')}</Nav.Link>
+            <Nav.Link onClick={scrollToTop}>{t('footer.toTop')}</Nav.Link>
             <ExternalLink url={getUrl('edd-about-contact', undefined, i18n.language)} text={t('footer.contact')} />
             <ExternalLink
               url={getUrl('edd-about-conditions-of-use', undefined, i18n.language)}
