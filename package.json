@@ -18,7 +18,7 @@
   "dependencies": {
     "applicationinsights": "^2.1.8",
     "bootstrap": "^4.6.0",
-    "luxon": "^2.0.2",
+    "luxon": "^2.5.2",
     "next": "^12.1.0",
     "pino": "^6.11.3",
     "pino-applicationinsights": "^2.1.0",
