@@ -78,13 +78,3 @@ steps:
       artifactName: '$(Build.BuildId)'
     displayName: 'Publish artifact: $(Build.BuildId)'
 
-  - task: Veracode@3
-    inputs:
-      ConnectionDetailsSelection: 'Endpoint'
-      AnalysisService: 'veracode'
-      veracodeAppProfile: 'uiclaim.tracker'
-      version: '$(Build.BuildNumber)'
-      filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      createProfile: true
-    continueOnError: true
-    displayName: 'Upload and scan: $(Build.ArtifactStagingDirectory)'
