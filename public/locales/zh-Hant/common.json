@@ -1,0 +1,92 @@
+{
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "EDD 就業發展部 加州 主頁",
+    "edd-home": "EDD主頁",
+    "help": "說明",
+    "logout": "登出",
+    "uio-home": "UI主頁",
+    "uio-certify": "認證",
+    "uio-payments": "付款",
+    "uio-history": "歷史記錄",
+    "uio-status": "狀態",
+    "uio-profile": "個人資料",
+    "uio-inbox": "收件匣",
+    "uio-contact": "聯絡人"
+  },
+  "title": "索賠狀態跟蹤器",
+  "welcome": "索賠狀態跟蹤器",
+  "errors": {
+    "not-found": {
+      "label": "我們無法找到該頁面。",
+      "entry": "您點按的連結可能已損壞，或頁面可能已被刪除。"
+    },
+    "button": "返回UI主頁",
+    "server-error": {
+      "label": "系統出現問題。",
+      "entry": "我們無法執行您的請求。"
+    }
+  },
+  "maintenance": {
+    "label": "頁面很快即可恢復",
+    "entry": "系統正在維護，當前無法造訪此頁面。",
+    "entry2": "我們會持續改善服務，感謝您給予耐心。"
+  },
+  "claim-status": {
+    "title": "索賠狀態",
+    "your-next-steps": "您需要採取的後續步驟",
+    "edd-next-steps": "EDD後續步驟"
+  },
+  "claim-details": {
+    "title": "索賠詳情",
+    "benefit-year": "福利年",
+    "program-type": "索賠類型",
+    "claim-balance": "索賠餘額",
+    "weekly-benefit-amount": "每週福利金數額",
+    "last-payment-issued": "最近一次核發的款項",
+    "none": "無",
+    "extension-type": "延長救濟類型"
+  },
+  "footer": {
+    "toTop": "返回頁首",
+    "contact": "聯絡EDD",
+    "conditionsOfUse": "使用條件",
+    "privacyPolicy": "隱私權政策",
+    "accessibility": "協助工具",
+    "copyright": "Copyright © 2021 State of California"
+  },
+  "timeout-modal": {
+    "header": "會話即將過期",
+    "warning": "為保護您的資訊，如果您不再繼續操作，您的帳戶將在{{count}}分鐘後登出。",
+    "warning_plural": "為保護您的資訊，如果您不再繼續操作，您的帳戶將在{{count}}分鐘後登出。",
+    "button": "返回UI主頁"
+  },
+  "time": {
+    "between-range": "，在太平洋時間{{range}} {{ampm}}之間",
+    "between-start-end": "，在太平洋時間{{start.time}} {{start.ampm}}和{{end.time}} {{end.ampm}}之間",
+    "am": "上午",
+    "pm": "下午"
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "查看您的<0>UI Online主頁</0>和收件匣以獲取最新資訊。",
+      "pending-payment": "索賠狀態：待處理款項",
+      "certify": "認證福利",
+      "reopen": "重新開啟索賠",
+      "reapply": "重新申請失業福利",
+      "enough-wages": "足夠的薪資"
+    }
+  },
+  "external-navigation-modal": {
+    "header": "確認導覽",
+    "warning": "您正在應用程式外部打開一個新的索引標籤。選取「繼續」以打開新索引標籤，或選取「取消」以返回應用程式。",
+    "cancel-button": "取消",
+    "continue-button": "繼續"
+  }
+}

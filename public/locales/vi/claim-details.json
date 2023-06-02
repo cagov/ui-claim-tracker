@@ -1,0 +1,22 @@
+{
+  "program-type": {
+    "ui": "Bảo Hiểm Thất Nghiệp (Unemployment Insurance, UI)",
+    "dua": "Hỗ Trợ Do Thảm Họa — Trợ Cấp Thất Nghiệp Do Thảm Họa (Disaster Unemployment Assistance, DUA)",
+    "pua": "Hỗ Trợ Do Thảm Họa — Trợ Cấp Thất Nghiệp Do Đại Dịch (Pandemic Unemployment Assistance, PUA)"
+  },
+  "extension-type": {
+    "euc": "Gia Hạn Bậc 1 Trợ Cấp Thất Nghiệp Khẩn Cấp (Emergency Unemployment Compensation, EUC)",
+    "eux": "Gia Hạn Bậc 2 Trợ Cấp Thất Nghiệp Khẩn Cấp (EUC)",
+    "euy": "Bồi Thường Bậc 2 Trợ Cấp Thất Nghiệp Khẩn Cấp (EUC)",
+    "euw": "Gia Hạn Bậc 3 Trợ Cấp Thất Nghiệp Khẩn Cấp (EUC)",
+    "euz": "Gia Hạn Bậc 4 Trợ Cấp Thất Nghiệp Khẩn Cấp (EUC)",
+    "peuc": "Gia Hạn Bậc 1 Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch (PEUC)",
+    "peux": "Gia Hạn Bậc 2 Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch (PEUC)",
+    "peuy": "Bồi Thường Bậc 2 Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch (PEUC)",
+    "fed-ed": "Thời Gian Gia Hạn của Liên Bang-Tiểu Bang (FED-ED)",
+    "cal-ed": "Thời Gian Gia Hạn Của California (California Extended Duration, CAL-ED)",
+    "tra": "Gia Hạn Cơ Bản Trợ Cấp Tái Điều Chỉnh Thương Mại (Trade Readjustment Allowance, TRA)",
+    "tra-additional": "Gia Hạn Bổ Sung Trợ Cấp Tái Điều Chỉnh Thương Mại (TRA)",
+    "te": "Gia Hạn Đào Tạo (Training Extension, TE)"
+  }
+}

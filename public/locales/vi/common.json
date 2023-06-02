@@ -1,0 +1,92 @@
+{
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "Sở Phát Triển Việc Làm (EDD) Tiểu Bang California",
+    "edd-home": "Trang Chủ EDD",
+    "help": "Trợ giúp",
+    "logout": "Đăng Xuất",
+    "uio-home": "Trang Chủ UI",
+    "uio-certify": "Chứng Nhận",
+    "uio-payments": "Các Khoản Thanh Toán",
+    "uio-history": "Lịch sử",
+    "uio-status": "Trạng thái",
+    "uio-profile": "Hồ Sơ",
+    "uio-inbox": "Hộp Thư Đến",
+    "uio-contact": "Liên Hệ"
+  },
+  "title": "Công Cụ Theo Dõi Trạng Thái Yêu Cầu Thanh Toán",
+  "welcome": "Công Cụ Theo Dõi Trạng Thái Yêu Cầu Thanh Toán",
+  "errors": {
+    "not-found": {
+      "label": "Chúng tôi không thể tìm thấy trang đó.",
+      "entry": "Liên kết quý vị nhấp vào có thể bị hỏng hoặc trang có thể đã bị xóa."
+    },
+    "button": "Trở Lại Trang Chủ UI",
+    "server-error": {
+      "label": "Đã xảy ra lỗi từ phía chúng tôi.",
+      "entry": "Chúng tôi không thể thực hiện yêu cầu của quý vị."
+    }
+  },
+  "maintenance": {
+    "label": "Chúng Tôi Sẽ Quay Lại Ngay",
+    "entry": "Trang này hiện không khả dụng trong quá trình bảo trì hệ thống.",
+    "entry2": "Cảm ơn quý vị đã kiên nhẫn khi chúng tôi tiếp tục cải thiện dịch vụ của mình."
+  },
+  "claim-status": {
+    "title": "Trạng Thái Yêu Cầu Thanh Toán",
+    "your-next-steps": "Bước Tiếp Theo Của Quý Vị",
+    "edd-next-steps": "Bước Tiếp Theo EDD"
+  },
+  "claim-details": {
+    "title": "Chi Tiết Yêu Cầu Thanh Toán",
+    "benefit-year": "Năm Nhận Trợ Cấp",
+    "program-type": "Loại Yêu Cầu Thanh Toán",
+    "claim-balance": "Số Dư Trong Yêu Cầu Thanh Toán",
+    "weekly-benefit-amount": "Số Tiền Trợ Cấp Hàng Tuần",
+    "last-payment-issued": "Khoản Thanh Toán Cuối Được Cấp",
+    "none": "Không Có",
+    "extension-type": "Loại Gia Hạn"
+  },
+  "footer": {
+    "toTop": "Trở Lại Đầu Trang",
+    "contact": "Liên Hệ Với EDD",
+    "conditionsOfUse": "Điều Kiện Sử Dụng",
+    "privacyPolicy": "Chính Sách Bảo Mật",
+    "accessibility": "Khả Năng Truy Cập",
+    "copyright": "Copyright © 2021 State of California"
+  },
+  "timeout-modal": {
+    "header": "Phiên Của Quý Vị Sẽ Kết Thúc Sớm",
+    "warning": "Để bảo vệ thông tin của quý vị, quý vị sẽ bị đăng xuất sau {{count}} phút nếu quý vị không tiếp tục.",
+    "warning_plural": "Để bảo vệ thông tin của quý vị, quý vị sẽ bị đăng xuất sau {{count}} phút nếu quý vị không tiếp tục.",
+    "button": "Trở Lại Trang Chủ UI"
+  },
+  "time": {
+    "between-range": ", trong khoảng {{range}} {{ampm}} Giờ Thái Bình Dương",
+    "between-start-end": ", trong khoảng {{start.time}} {{start.ampm}} đến {{end.time}} {{end.ampm}} Giờ Thái Bình Dương",
+    "am": "sáng",
+    "pm": "chiều"
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "Trang chủ UI Online",
+      "pending-payment": "Trạng Thái Yêu Cầu Thanh Toán: Đang Chờ Thanh Toán",
+      "certify": "chứng nhận đủ điều kiện nhận trợ cấp",
+      "reopen": "mở lại yêu cầu thanh toán của quý vị",
+      "reapply": "nộp lại đơn xin trợ cấp thất nghiệp",
+      "enough-wages": "đủ lương"
+    }
+  },
+  "external-navigation-modal": {
+    "header": "Xác Nhận ĐIều Hướng",
+    "warning": "Quý vị đang mở một tab mới bên ngoài ứng dụng. Chọn Tiếp Tục để mở tab mới hoặc chọn Hủy để quay lại ứng dụng.",
+    "cancel-button": "Hủy",
+    "continue-button": "Tiếp Tục"
+  }
+}
