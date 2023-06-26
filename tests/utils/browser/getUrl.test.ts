@@ -36,7 +36,8 @@ const cases = [
   ['URL_PREFIX_UIO_DESKTOP', 'urlPrefixUioDesktop', 'uio.edd.ca.gov/UIO', 'uio-desktop-home'],
   ['URL_PREFIX_UIO_MOBILE', 'urlPrefixUioMobile', 'uiom.edd.ca.gov/UIOM', 'uio-mobile-home'],
   ['URL_PREFIX_UIO_CLAIMSTATUS', 'urlPrefixUioClaimstatus', 'uio', 'uio-claimstatus'],
-  ['URL_PREFIX_BPO', 'urlPrefixBpo', 'portal.edd.ca.gov/WebApp', 'bpo-login'],
+  ['URL_PREFIX_UIO_CLAIMSTATUS', 'urlPrefixUioClaimstatus', 'uio', 'bpo-logout'],
+  ['URL_PREFIX_BPO', 'urlPrefixBpo', 'myedd.edd.ca.gov', 'bpo-login'],
 ]
 describe.each(cases)(
   'Retrieving urls that differ between EDD environments',
