@@ -74,8 +74,8 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           </a>
           <a
             className="nav-link"
-            data-rb-event-key="https://uio.edd.ca.gov/claimstatus/icamLogout"
-            href="https://uio.edd.ca.gov/claimstatus/icamLogout"
+            data-rb-event-key="/icamLogout"
+            href="/icamLogout"
             onClick={[Function]}
             onKeyDown={[Function]}
           >
