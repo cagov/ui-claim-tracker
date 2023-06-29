@@ -10,7 +10,7 @@
   "edd-about-privacy-policy-es": "https://www.edd.ca.gov/About_EDD/Privacy_Policy_Espanol.htm",
   "edd-ca-gov": "https://edd.ca.gov",
   "bpo-login": "https://myedd.edd.ca.gov",
-  "bpo-logout": "https://uio.edd.ca.gov/claimstatus/icamLogout",
+  "bpo-logout": "/icamLogout",
   "uio-desktop-help-new-claim": "https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=en-US/Public/NewClaim/UIOnlineNewClaimLandingPage.htm",
   "uio-desktop-help-new-claim-es": "https://uio.edd.ca.gov/UIO/Pages/Public/help/index.htm#t=es-MX/Public/NewClaim/UIOnlineNewClaimLandingPage.htm",
   "uio-desktop-home": "https://uio.edd.ca.gov/UIO/Pages/ExternalUser/ClaimantAccountManagement/UIOnlineHome.aspx",
