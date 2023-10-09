@@ -1,0 +1,92 @@
+{
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "EDD 캘리포니아주 고용개발부 홈",
+    "edd-home": "EDD 홈",
+    "help": "도움말",
+    "logout": "로그아웃",
+    "uio-home": "실업 보험 홈",
+    "uio-certify": "인증",
+    "uio-payments": "지급",
+    "uio-history": "기록",
+    "uio-status": "상태",
+    "uio-profile": "프로필",
+    "uio-inbox": "메시지함",
+    "uio-contact": "문의"
+  },
+  "title": "청구 상태 추적기",
+  "welcome": "청구 상태 추적기",
+  "errors": {
+    "not-found": {
+      "label": "해당 페이지를 찾을 수 없습니다.",
+      "entry": "귀하가 클릭한 링크가 손상되었거나 페이지가 제거되었을 수 있습니다."
+    },
+    "button": "실업 보험 홈으로 돌아가기",
+    "server-error": {
+      "label": "EDD에서 오류가 발생했습니다.",
+      "entry": "귀하의 요청을 처리할 수 없습니다."
+    }
+  },
+  "maintenance": {
+    "label": "곧 서비스를 재개하겠습니다",
+    "entry": "현재 시스템 점검 중이어서 이 페이지를 사용할 수 없습니다.",
+    "entry2": "서비스를 개선하는 동안 양해해 주셔서 감사합니다."
+  },
+  "claim-status": {
+    "title": "청구 상태",
+    "your-next-steps": "다음 단계",
+    "edd-next-steps": "EDD 다음 단계"
+  },
+  "claim-details": {
+    "title": "청구 상세 정보",
+    "benefit-year": "급여 연도",
+    "program-type": "청구 유형",
+    "claim-balance": "청구 잔액",
+    "weekly-benefit-amount": "주간 급여 액수",
+    "last-payment-issued": "지급된 마지막 급여",
+    "none": "없음",
+    "extension-type": "연장 유형"
+  },
+  "footer": {
+    "toTop": "위로 올라가기",
+    "contact": "EDD에 문의하기",
+    "conditionsOfUse": "사용 조건",
+    "privacyPolicy": "개인정보 보호정책",
+    "accessibility": "접근성",
+    "copyright": "Copyright © 2021 State of California"
+  },
+  "timeout-modal": {
+    "header": "세션이 곧 종료됩니다",
+    "warning": "활동이 없으면 정보를 보호하기 위해 {{count}}분 후에 로그아웃됩니다.",
+    "warning_plural": "활동이 없으면 정보를 보호하기 위해 {{count}}분 후에 로그아웃됩니다.",
+    "button": "실업 보험 홈으로 돌아가기"
+  },
+  "time": {
+    "between-range": ", {{ampm}} {{range}}시(태평양 시간)",
+    "between-start-end": ", {{start.ampm}} {{start.time}}시 ~ {{end.ampm}} {{end.time}}시(태평양 시간)",
+    "am": "오전",
+    "pm": "오후"
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "실업 보험 온라인 홈페이지",
+      "pending-payment": "청구 상태: 보류 중인 지급",
+      "certify": "급여에 대한 인증",
+      "reopen": "청구 재개",
+      "reapply": "실업 급여 재신청",
+      "enough-wages": "충분한 임금"
+    }
+  },
+  "external-navigation-modal": {
+    "header": "탐색 확인",
+    "warning": "애플리케이션 밖에서 새 탭을 열고 있습니다. 계속을 클릭하여 새 탭을 열거나 취소를 선택하여 애플리케이션으로 돌아가세요.",
+    "cancel-button": "취소",
+    "continue-button": "계속"
+  }
+}

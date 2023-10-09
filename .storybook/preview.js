@@ -28,6 +28,18 @@ import zhTCommon from '../public/locales/zh-Hant/common.json'
 import zhTClaimDetails from '../public/locales/zh-Hant/claim-details.json'
 import zhTClaimStatus from '../public/locales/zh-Hant/claim-status.json'
 
+import hyCommon from '../public/locales/hy/common.json'
+import hyClaimDetails from '../public/locales/hy/claim-details.json'
+import hyClaimStatus from '../public/locales/hy/claim-status.json'
+
+import koCommon from '../public/locales/ko/common.json'
+import koClaimDetails from '../public/locales/ko/claim-details.json'
+import koClaimStatus from '../public/locales/ko/claim-status.json'
+
+import tlCommon from '../public/locales/tl/common.json'
+import tlClaimDetails from '../public/locales/tl/claim-details.json'
+import tlClaimStatus from '../public/locales/tl/claim-status.json'
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -67,6 +79,9 @@ export const decorators = [
         vi: { common: viCommon, 'claim-details': viClaimDetails, 'claim-status': viClaimStatus },
         zhS: { common: zhSCommon, 'claim-details': zhSClaimDetails, 'claim-status': zhSClaimStatus },
         zhT: { common: zhTCommon, 'claim-details': zhTClaimDetails, 'claim-status': zhTClaimStatus },
+        hy: { common: hyCommon, 'claim-details': hyClaimDetails, 'claim-status': hyClaimStatus },
+        ko: { common: koCommon, 'claim-details': koClaimDetails, 'claim-status': koClaimStatus },
+        tl: { common: tlCommon, 'claim-details': tlClaimDetails, 'claim-status': tlClaimStatus },
       },
       react: {
         // Add support for <em>.
@@ -78,5 +93,5 @@ export const decorators = [
     return <Story />
   },
   // Enable language support in Storybook using storybook-addon-i18n.
-  withI18next({ i18n, languages: { en: 'English', es: 'Español', vi: 'Vietnamese', zhS: 'Chinese (Simplified)', zhT: 'Chinese (Traditional)' } }),
+  withI18next({ i18n, languages: { en: 'English', es: 'Español', vi: 'Vietnamese', zhS: 'Chinese (Simplified)', zhT: 'Chinese (Traditional)', hy: 'Armenian', ko: 'Korean', tl: 'Tagalog' } }),
 ]

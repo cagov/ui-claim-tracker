@@ -1,0 +1,92 @@
+{
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "EDD՝ Կալիֆոռնիա նահանգի Զբաղվածության զարգացման դեպարտամենտի Գլխավոր էջ",
+    "edd-home": "EDD գլխավոր էջ",
+    "help": "Օգնություն",
+    "logout": "Դուրս գալ",
+    "uio-home": "UI Գլխավոր էջ",
+    "uio-certify": "Հավաստագրել",
+    "uio-payments": "Վճարումներ",
+    "uio-history": "Պատմաշարք",
+    "uio-status": "Կարգավիճակ",
+    "uio-profile": "Պրոֆիլ",
+    "uio-inbox": "Փոստարկղ",
+    "uio-contact": "Կապ"
+  },
+  "title": "Հայտադիմումի կարգավիճակի ստուգում",
+  "welcome": "Հայտադիմումի կարգավիճակի ստուգում",
+  "errors": {
+    "not-found": {
+      "label": "Հնարավոր չէ գտնել այդ էջը:",
+      "entry": "Ձեր ընտրած հղման էջը չի աշխատում կամ հեռացված է:"
+    },
+    "button": "Վերադառնալ UI Գլխավոր էջ",
+    "server-error": {
+      "label": "Մեր կողմից սխալ կա։",
+      "entry": "Ձեր հարցումը հնարավոր չէ կատարել:"
+    }
+  },
+  "maintenance": {
+    "label": "Մենք շուտով կվերադառնանք",
+    "entry": "Այս էջը ներկայումս անհասանելի է համակարգի սպասարկման ընթացքում:",
+    "entry2": "Շնորհակալություն ձեր համբերության համար։ Մենք շարունակում ենք բարելավել մեր ծառայությունները:"
+  },
+  "claim-status": {
+    "title": "Հայտադիմումի կարգավիճակ",
+    "your-next-steps": "Ձեր հաջորդ քայլերը",
+    "edd-next-steps": "EDD-ի հաջորդ քայլերը"
+  },
+  "claim-details": {
+    "title": "Հայտադիմումի մանրամասներ",
+    "benefit-year": "Նպաստների ծածկույթի տարի",
+    "program-type": "Հայտադիմումի տեսակ",
+    "claim-balance": "Հայտադիմումի հաշվեկշիռ",
+    "weekly-benefit-amount": "Շաբաթական նպաստի գումար",
+    "last-payment-issued": "Վերջին վճարումը կատարվել է",
+    "none": "Ոչինչ",
+    "extension-type": "Ընդլայնման տեսակ"
+  },
+  "footer": {
+    "toTop": "Վերադառնալ սկիզբ",
+    "contact": "Կապ EDD-ի հետ ",
+    "conditionsOfUse": "Օգտագործման պայմաններ",
+    "privacyPolicy": "Գաղտնիության քաղաքականություն",
+    "accessibility": "Մատչելիություն",
+    "copyright": "Copyright © 2021 State of California"
+  },
+  "timeout-modal": {
+    "header": "Ձեր սեսիան շուտով կավարտվի",
+    "warning": "TՁեր տվյալները պաշտպանելու համար՝ դուք դուրս կգրվեք {{count}} րոպեից, եթե չեք ցանկանում շարունակել:",
+    "warning_plural": "Ձեր տվյալները պաշտպանելու համար՝ դուք դուրս կգրվեք {{count}} րոպեից, եթե չեք ցանկանում շարունակել:",
+    "button": "Վերադառնալ UI Գլխավոր էջ"
+  },
+  "time": {
+    "between-range": ", Խաղաղօվկիանոսյան ժամանակով {{range}} {{ampm}} միջև",
+    "between-start-end": ", Խաղաղօվկիանոսյան ժամանակով {{start.time}} {{start.ampm}} և {{end.time}} {{end.ampm}} միջև",
+    "am": "գիշերը",
+    "pm": "ցերեկը"
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "UI Online-ի Գլխավոր էջ",
+      "pending-payment": "Հայտադիումի կարգավիճակը՝ Վճարման սպասում",
+      "certify": "Հավաստագրել նպաստների համար",
+      "reopen": "Վերաբացեք ձեր հայտադիմումը",
+      "reapply": "Կրկին դիմել գործազրկության նպաստի համար",
+      "enough-wages": "բավարար աշխատավարձ"
+    }
+  },
+  "external-navigation-modal": {
+    "header": "Հաստատեք հղումը",
+    "warning": "Դուք հավելվածից դուրս նոր պատուհան եք բացում: Ընտրեք Շարունակել՝ նոր պատուհան բացելու համար կամ ընտրեք Չեղարկել՝ հավելված վերադառնալու համար:",
+    "cancel-button": "Չեղարկել",
+    "continue-button": "Շարունակել"
+  }
+}

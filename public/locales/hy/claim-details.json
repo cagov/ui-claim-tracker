@@ -1,0 +1,22 @@
+{
+  "program-type": {
+    "ui": "Գործազրկության ապահովագրություն (Unemployment Insurance, UI)",
+    "dua": "Օգնություն աղետների դեպքում. Աղետների հետևանքով գործազրկության օգնություն (Disaster Unemployment Assistance, DUA)",
+    "pua": "Օգնություն աղետների դեպքում. Համաճարակի հետևանքով գործազրկության օգնություն (Pandemic Unemployment Assistance, PUA)"
+  },
+  "extension-type": {
+    "euc": "Արտակարգ իրավիճակներում գործազրկության փոխհատուցման (Emergency Unemployment Compensation, EUC) 1-ին մակարդակի ընդլայնում",
+    "eux": "Արտակարգ իրավիճակներում գործազրկության փոխհատուցման (EUC) 2-րդ մակարդակի ընդլայնում",
+    "euy": "Արտակարգ իրավիճակներում գործազրկության փոխհատուցման (EUC) 2-րդ մակարդակի բարձրացում",
+    "euw": "Արտակարգ իրավիճակներում գործազրկության փոխհատուցման (Emergency Unemployment Compensation, EUC) 3-րդ մակարդակի ընդլայնում",
+    "euz": "Արտակարգ իրավիճակներում գործազրկության փոխհատուցման (Emergency Unemployment Compensation, EUC) 4-րդ մակարդակի ընդլայնում",
+    "peuc": "Համաճարակի արտակարգ իրավիճակում գործազրկության փոխհատուցման (Pandemic Emergency Unemployment Compensation, PEUC) 1-ին մակարդակի ընդլայնում",
+    "peux": "Համաճարակի արտակարգ իրավիճակում գործազրկության փոխհատուցման (Pandemic Emergency Unemployment Compensation, PEUC) 2-ին մակարդակի ընդլայնում",
+    "peuy": "Համաճարակի արտակարգ իրավիճակում գործազրկության փոխհատուցման (Pandemic Emergency Unemployment Compensation, PEUC) 2-ին մակարդակի ավելացում",
+    "fed-ed": "Դաշնային-պետական երկարաձգված տևողություն (FED-ED)",
+    "cal-ed": "Կալիֆորնիայի ընդլայնան տևողությունը (California Extended Duration, CAL-ED)",
+    "tra": "Մասնագիտական վերաորակավորման նպաստի (Trade Readjustment Allowance, TRA) հիմնական ընդլայնում",
+    "tra-additional": "Մասնագիտական վերաորակավորման նպաստի (Trade Readjustment Allowance, TRA) լրացուցիչ ընդլայնում",
+    "te": "Ուսուցման ընդլայնում (Training Extension, TE)"
+  }
+}

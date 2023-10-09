@@ -1,0 +1,22 @@
+{
+  "program-type": {
+    "ui": "Insurance para sa Pagkawala ng Trabaho (Unemployment Insurance, UI)",
+    "dua": "Tulong sa Panahon ng Sakuna — Tulong para sa Pagkawala ng Trabaho Dahil sa Sakuna (Disaster Unemployment Assistance, DUA)",
+    "pua": "Tulong sa Panahon ng Sakuna — Tulong para sa Pagkawala ng Trabaho sa Panahon ng Pandemya (Pandemic Unemployment Assistance, PUA)"
+  },
+  "extension-type": {
+    "euc": "Pagpapalawig ng Tier 1 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho (Emergency Unemployment Compensation, EUC)",
+    "eux": "Pagpapalawig ng Tier 2 ng Kabayaran para sa Pagkawala ng Trabaho (Emergency Unemployment Compensation, EUC)",
+    "euy": "Pagpapalaki ng Tier 2 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho (Emergency Unemployment Compensation, EUC)",
+    "euw": "Pagpapalawig ng Tier 3 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho (Emergency Unemployment Compensation, EUC)",
+    "euz": "Pagpapalawig ng Tier 4 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho (Emergency Unemployment Compensation, EUC)",
+    "peuc": "Pagpapalawig ng Tier 1 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho Dahil sa Pandemya (Pandemic Emergency Unemployment Compensation, PEUC)",
+    "peux": "Pagpapalawig ng Tier 2 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho Dahil sa Pandemya (Pandemic Emergency Unemployment Compensation, PEUC)",
+    "peuy": "Augmentation ng Tier 2 ng Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho Dahil sa Pandemya (Pandemic Emergency Unemployment Compensation, PEUC)",
+    "fed-ed": "Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED)",
+    "cal-ed": "Pinalawig na Tagal ng California (California Extended Duration, CAL-ED)",
+    "tra": "Karaniwang Pagpapalawig ng Allowance para sa Muling Pagsasaayos Kaugnay ng Kalakalan (Trade Readjustment Allowance, TRA)",
+    "tra-additional": "Karagdagang Pagpapalawig ng Allowance para sa Muling Pagsasaayos Kaugnay ng Kalakalan (Trade Readjustment Allowance, TRA)",
+    "te": "Pagpapalawig ng Pagsasanay (Training Extension, TE)"
+  }
+}
