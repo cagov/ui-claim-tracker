@@ -1,0 +1,22 @@
+{
+  "program-type": {
+    "ui": "失业保险 (Unemployment Insurance, UI)",
+    "dua": "灾难援助 — 灾难失业援助 (Disaster Unemployment Assistance, DUA)",
+    "pua": "灾难援助 — 大流行病失业援助 (Pandemic Unemployment Assistance, PUA)"
+  },
+  "extension-type": {
+    "euc": "紧急失业救济 (Emergency Unemployment Compensation, EUC) 第1级延长救济",
+    "eux": "紧急失业救济 (EUC) 第2级延长救济",
+    "euy": "紧急失业救济 (EUC) 第2级增加",
+    "euw": "紧急失业救济 (EUC) 第3级延长救济",
+    "euz": "紧急失业救济 (EUC) 第4级延长救济",
+    "peuc": "大流行病紧急失业救济 (PEUC) 第1级延长救济",
+    "peux": "大流行病紧急失业救济 (PEUC) 第2级延长救济",
+    "peuy": "大流行病紧急失业救济 (PEUC) 第2级增加",
+    "fed-ed": "联邦 - 州延长救济 (FED-ED)",
+    "cal-ed": "加州延长救济 (California Extended Duration, CAL-ED)",
+    "tra": "贸易再调整津贴 (Trade Readjustment Allowances, TRA) 基本延长救济",
+    "tra-additional": "贸易再调整津贴 (TRA) 额外延长救济",
+    "te": "培训延期 (Training Extension, TE)"
+  }
+}
