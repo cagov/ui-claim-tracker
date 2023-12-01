@@ -100,10 +100,10 @@
           "text": "Kiểm tra <0>trang chủ UI Online</0> và hộp thư đến của quý vị để biết các thông tin mới nhất."
         },
         {
-          "text": "Kiểm tra thư của quý vị. Chúng tôi có thể gửi yêu cầu để biết thêm thông tin. Hãy nhớ phản hồi khi được yêu cầu để tránh trì hoãn trong việc xử lý yêu cầu thanh toán của quý vị."
+          "text": "Kiểm tra thư của quý vị.  Chúng tôi có thể gửi yêu cầu cung cấp thêm thông tin.  Đảm bảo trả lời theo yêu cầu để tránh sự chậm trễ trong việc xử lý Hồ Sơ Yêu Cầu Thanh Toán của quý vị."
         },
         {
-          "text": "Để biết thêm thông tin, truy cập <0>Trạng Thái Yêu Cầu Thanh Toán: Đang Chờ Thanh Toán</0>."
+          "text": "Để biết thêm thông tin, hãy truy cập<0>Trạng thái Hồ Sơ Yêu Cầu Thanh Toán: Đang chờ thanh toán</0>."
         }
       ],
       "edd-next-steps": [
@@ -127,10 +127,10 @@
           "text": "Kiểm tra <0>trang chủ UI Online</0> và hộp thư đến của quý vị để biết các thông tin mới nhất."
         },
         {
-          "text": "Kiểm tra thư của quý vị. Chúng tôi có thể gửi yêu cầu để biết thêm thông tin. Hãy nhớ phản hồi khi được yêu cầu để tránh trì hoãn trong việc xử lý yêu cầu thanh toán của quý vị."
+          "text": "Kiểm tra thư của quý vị.  Chúng tôi có thể gửi yêu cầu cung cấp thêm thông tin.  Đảm bảo trả lời theo yêu cầu để tránh sự chậm trễ trong việc xử lý Hồ Sơ Yêu Cầu Thanh Toán của quý vị."
         },
         {
-          "text": "Nếu đã hơn 30 ngày kể từ lần cuối cùng quý vị được chứng nhận đủ điều kiện nhận trợ cấp, thì quý vị phải <0>mở lại yêu cầu thanh toán</0> trước khi quý vị có thể chứng nhận."
+          "text": "Nếu đã hơn 30 ngày kể từ lần cuối quý vị được chứng nhận trợ cấp, quý vị phải <0>Mở Lại Hồ Sơ Yêu Cầu Thanh Toán</0>trước khi quý vị có thể chứng nhận"
         }
       ],
       "edd-next-steps": [
@@ -148,7 +148,7 @@
       ],
       "your-next-steps": [
         {
-          "text": "Chọn <strong>Chứng Nhận Đủ Điều Kiện Nhận Trợ Cấp</strong> trong phần Trạng Thái Yêu Cầu Thanh Toán trên <0>trang chủ UI Online</0> của quý vị."
+          "text": "Chọn <strong>Chứng Nhận Đủ Điều Kiện Nhận Trợ Cấp</strong> trong phần Trạng thái Hồ Sơ Yêu Cầu Thanh Toán trên <0>trang chủ UI Online</0>."
         }
       ],
       "edd-next-steps": [
@@ -161,7 +161,7 @@
       "heading": "Năm Nhận Trợ Cấp Đã Kết Thúc",
       "summary": [
         {
-          "text": "Năm nhận trợ cấp của quý vị đã kết thúc trên yêu cầu thanh toán thất nghiệp thông thường của quý vị. Quý vị không được chi trả cho những tuần thất nghiệp sau khi năm nhận trợ cấp của quý vị kết thúc, mặc dù quý vị có số dư trong yêu cầu thanh toán của mình."
+          "text": "Năm trợ cấp đã kết thúc cho Hồ Sơ Yêu Cầu Thanh Toán Trợ Cấp Thất Nghiệp thông thường của quý vị.  Quý vị không thể được trả tiền trợ cấp cho những tuần thất nghiệp sau khi năm trợ cấp của quý vị kết thúc, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
         }
       ],
       "your-next-steps": [
@@ -179,7 +179,7 @@
       "heading": "Trợ Cấp Thất Nghiệp Do Đại Dịch Đã Kết Thúc",
       "summary": [
         {
-          "text": "Các khoản Trợ Cấp Thất Nghiệp Do Đại Dịch (PUA) đã kết thúc. Luật liên bang không cho phép trả trợ cấp PUA cho các tuần thất nghiệp sau ngày 4 tháng 9 năm 2021, mặc dù quý vị có số dư trong yêu cầu thanh toán."
+          "text": "Trợ Cấp Thất Nghiệp Do Đại Dịch (PUA) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp PUA cho những tuần thất nghiệp sau ngày 4 tháng 9 năm 2021, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
         }
       ],
       "your-next-steps": [
@@ -197,7 +197,7 @@
       "heading": "Trợ Cấp Thất Nghiệp Do Thảm Họa Đã Kết Thúc",
       "summary": [
         {
-          "text": "Các khoản Trợ Cấp Thất Nghiệp Do Thảm Họa (DUA) của quý vị đã kết thúc. Luật liên bang không cho phép trả trợ cấp DUA cho các tuần thất nghiệp sau khi các chương trình này kết thúc, mặc dù quý vị có số dư trong yêu cầu thanh toán."
+          "text": "Trợ Cấp Thất Nghiệp Do Thảm Họa (DUA) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp DUA cho những tuần thất nghiệp sau khi các chương trình này kết thúc, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
         }
       ],
       "your-next-steps": [
@@ -215,7 +215,7 @@
       "heading": "Trợ Cấp Thất Nghiệp Liên Bang Đã Kết Thúc",
       "summary": [
         {
-          "text": "Trợ cấp thất nghiệp liên bang đã kết thúc. Luật liên bang không cho phép chi trả trợ cấp cho các tuần thất nghiệp sau khi các chương trình này kết thúc, mặc dù quý vị có số dư trong yêu cầu thanh toán."
+          "text": "Trợ cấp thất nghiệp liên bang đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp cho những tuần thất nghiệp sau khi các chương trình này kết thúc, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
         }
       ],
       "your-next-steps": [
@@ -233,7 +233,7 @@
       "heading": "Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch Đã Kết Thúc",
       "summary": [
         {
-          "text": "Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch (Pandemic Emergency Unemployment Compensation, PEUC) đã kết thúc. Luật liên bang không cho phép trả trợ cấp PEUC cho các tuần thất nghiệp sau ngày 4 tháng 9 năm 2021, mặc dù quý vị có số dư trong yêu cầu thanh toán."
+          "text": "Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch (PEUC) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp PEUC cho những tuần thất nghiệp sau ngày 4 tháng 9 năm 2021, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
         }
       ],
       "your-next-steps": [
@@ -251,7 +251,7 @@
       "heading": "Trợ Cấp Trong Thời Gian Gia Hạn của Liên Bang-Tiểu Bang Đã Kết thúc",
       "summary": [
         {
-          "text": "Trợ cấp trong Thời Gian Gia Hạn của Liên Bang-Tiểu Bang (Federal-State Extended Duration, FED-ED) đã kết thúc. Luật liên bang không cho phép trả trợ cấp FED-ED cho các tuần thất nghiệp sau ngày 11 tháng 9 năm 2021, mặc dù quý vị có số dư trong yêu cầu thanh toán."
+          "text": "Trợ Cấp Thời Gian Gia Hạn của Liên Bang-Tiểu Bang (FED-ED) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp FED-ED cho những tuần thất nghiệp sau ngày 11 tháng 9 năm 2021, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
         }
       ],
       "your-next-steps": [

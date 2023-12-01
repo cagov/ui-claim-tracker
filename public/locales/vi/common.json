@@ -14,8 +14,8 @@
     "uio-inbox": "Hộp Thư Đến",
     "uio-contact": "Liên Hệ"
   },
-  "title": "Công Cụ Theo Dõi Trạng Thái Yêu Cầu Thanh Toán",
-  "welcome": "Công Cụ Theo Dõi Trạng Thái Yêu Cầu Thanh Toán",
+  "title": "Công Cụ Theo Dõi Trạng Thái Hồ Sơ Yêu Cầu Thanh Toán",
+  "welcome": "Công Cụ Theo Dõi Trạng Thái Hồ Sơ Yêu Cầu Thanh Toán",
   "errors": {
     "not-found": {
       "label": "Chúng tôi không thể tìm thấy trang đó.",
@@ -33,15 +33,15 @@
     "entry2": "Cảm ơn quý vị đã kiên nhẫn khi chúng tôi tiếp tục cải thiện dịch vụ của mình."
   },
   "claim-status": {
-    "title": "Trạng Thái Yêu Cầu Thanh Toán",
+    "title": "Trạng thái Hồ Sơ Yêu Cầu Thanh Toán",
     "your-next-steps": "Bước Tiếp Theo Của Quý Vị",
     "edd-next-steps": "Bước Tiếp Theo EDD"
   },
   "claim-details": {
-    "title": "Chi Tiết Yêu Cầu Thanh Toán",
+    "title": "Chi tiết Hồ Sơ Yêu Cầu Thanh Toán ",
     "benefit-year": "Năm Nhận Trợ Cấp",
-    "program-type": "Loại Yêu Cầu Thanh Toán",
-    "claim-balance": "Số Dư Trong Yêu Cầu Thanh Toán",
+    "program-type": "Loại Hồ Sơ Yêu Cầu Thanh Toán",
+    "claim-balance": "Số Dư Trong Hồ Sơ Yêu Cầu Thanh Toán",
     "weekly-benefit-amount": "Số Tiền Trợ Cấp Hàng Tuần",
     "last-payment-issued": "Khoản Thanh Toán Cuối Được Cấp",
     "none": "Không Có",
@@ -76,9 +76,9 @@
     },
     "hypertext": {
       "uio-homepage": "Trang chủ UI Online",
-      "pending-payment": "Trạng Thái Yêu Cầu Thanh Toán: Đang Chờ Thanh Toán",
+      "pending-payment": "Trạng thái Hồ Sơ Yêu Cầu Thanh Toán: Đang chờ thanh toán",
       "certify": "chứng nhận đủ điều kiện nhận trợ cấp",
-      "reopen": "mở lại yêu cầu thanh toán của quý vị",
+      "reopen": "Mở Lại Hồ Sơ Yêu Cầu Thanh Toán",
       "reapply": "nộp lại đơn xin trợ cấp thất nghiệp",
       "enough-wages": "đủ lương"
     }
