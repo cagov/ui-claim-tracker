@@ -141,6 +141,7 @@ export default function Home({
   // Otherwise, render normally.
   return (
     <Container fluid className="index">
+      {enableGoogleAnalytics === 'enabled' && googleAnalyticsBody}
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href={favicon} />
@@ -153,12 +154,9 @@ export default function Home({
         {enableGoogleAnalytics === 'enabled' && googleAnalyticsHeader}
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} urlPrefixes={urlPrefixes} assetPrefix={assetPrefix} />
-      <body>
-        {enableGoogleAnalytics === 'enabled' && googleAnalyticsBody}
-        <main className="main">
-          <Container className="main-content">{mainContent}</Container>
-        </main>
-      </body>
+      <main className="main">
+        <Container className="main-content">{mainContent}</Container>
+      </main>
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
     </Container>
