@@ -1,0 +1,274 @@
+{
+  "scenarios": {
+    "scenario1": {
+      "heading": "Đang Chờ Đủ Điều Kiện — Cuộc Phỏng Vấn Qua Điện Thoại Sẽ Được Lên Lịch",
+      "summary": [
+        {
+          "text": "Chúng tôi đã xác định được một vấn đề có thể khiến quý vị không đủ điều kiện nhận trợ cấp. Chúng tôi cần xác nhận tính đủ điều kiện của quý vị trong cuộc phỏng vấn qua điện thoại."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Xác nhận rằng chúng tôi có số điện thoại và địa chỉ nhận thư hiện tại của quý vị. Truy cập <0>trang chủ UI Online</0>, chọn <strong>Hồ Sơ</strong> từ menu chính, sau đó chọn <strong>Thông Tin Liên Hệ</strong>."
+        },
+        {
+          "text": "Kiểm tra thư của quý vị để biết <em>Thông Báo về Phỏng Vấn Tính Đủ Điều Kiện để Hưởng Trợ Cấp Bảo Hiểm Thất Nghiệp</em> (DE 4800). Thông báo này sẽ giải thích vấn đề và giúp quý vị chuẩn bị cho cuộc phỏng vấn."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Chúng tôi sẽ sắp xếp một cuộc phỏng vấn qua điện thoại để xác định tính đủ điều kiện nhận trợ cấp của quý vị. Trang này sẽ được cập nhật với thông tin chi tiết cuộc hẹn sau khi cuộc phỏng vấn của quý vị được lên lịch."
+        }
+      ]
+    },
+    "scenario2": {
+      "heading": "Đang Chờ Đủ Điều Kiện — Đã Lên Lịch Cuộc Phỏng Vấn Qua Điện Thoại",
+      "summary": [
+        {
+          "text": "Chúng tôi đã xác định được một vấn đề tiềm ẩn có thể khiến quý vị không đủ điều kiện nhận trợ cấp. Quý vị có một cuộc phỏng vấn qua điện thoại được lên lịch cho:"
+        },
+        {
+          "text": "<strong>Quan trọng</strong>: Nếu quý vị bỏ lỡ cuộc phỏng vấn qua điện thoại, quyết định sẽ được đưa ra dựa trên các dữ kiện có sẵn, điều này có thể dẫn đến việc trợ cấp thất nghiệp của quý vị bị trì hoãn hoặc từ chối."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Xác nhận rằng chúng tôi có số điện thoại hiện tại của quý vị. Truy cập <0>trang chủ UI Online</0>, chọn <strong>Hồ Sơ</strong> từ menu chính, sau đó chọn <strong>Thông Tin Liên Hệ</strong>."
+        },
+        {
+          "text": "Chuẩn bị cho cuộc phỏng vấn. <em>Thông Báo về Phỏng Vấn Tính Đủ Điều Kiện để Hưởng Trợ Cấp Bảo Hiểm Thất Nghiệp</em> (DE 4800) bao gồm các câu hỏi mà người phỏng vấn có nhiều khả năng hỏi nhất."
+        },
+        {
+          "text": "Nếu quý vị cần lên lịch lại cuộc phỏng vấn, chọn <strong>Lên Lịch Lại</strong> trong phần Cuộc Hẹn trên <0>trang chủ UI Online</0> của quý vị. Quý vị phải lên lịch lại ít nhất một ngày trước cuộc phỏng vấn."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Chúng tôi sẽ gọi cho quý vị trong thời gian phỏng vấn đã lên lịch của quý vị. ID người gọi của quý vị có thể hiển thị “St of CA EDD” hoặc số điện thoại của Ban Dịch Vụ Khách Hàng UI 1-800-300-5616.",
+          "subBullets": [
+            {
+              "text": "Nếu quý vị không nhận được cuộc gọi từ EDD vào thời gian hẹn đã lên lịch, chúng tôi có thể đã hủy cuộc hẹn của quý vị vì chúng tôi đã xác nhận quý vị đủ điều kiện hoặc đã giải quyết vấn đề trước cuộc phỏng vấn với quý vị."
+            },
+            {
+              "text": "Nếu cuộc hẹn của quý vị đã bị hủy thì sẽ không còn hiển thị trên trang chủ UI Online của quý vị nữa."
+            }
+          ]
+        }
+      ]
+    },
+    "scenario3": {
+      "heading": "Đang Chờ Đủ Điều Kiện — Đang Xem Xét",
+      "summary": [
+        {
+          "text": "Thời gian phỏng vấn qua điện thoại của quý vị đã kết thúc và chúng tôi đang xem xét tính đủ điều kiện nhận trợ cấp của quý vị."
+        },
+        {
+          "text": "<strong>Quan trọng</strong>: Nếu quý vị bỏ lỡ cuộc phỏng vấn qua điện thoại, quyết định sẽ được đưa ra dựa trên các dữ kiện có sẵn, điều này có thể dẫn đến việc trợ cấp thất nghiệp của quý vị bị trì hoãn hoặc từ chối."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Vui lòng chờ tối đa 10 ngày để EDD đưa ra quyết định."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Chúng tôi sẽ xác định tính đủ điều kiện của quý vị.",
+          "subBullets": [
+            {
+              "text": "Nếu quý vị đủ điều kiện và chúng tôi xác định không có vấn đề nào khác, chúng tôi sẽ thanh toán cho quý vị tất cả các tuần chờ xử lý."
+            },
+            {
+              "text": "Nếu quý vị không đủ điều kiện, chúng tôi sẽ gửi cho quý vị <em>Thông Báo Quyết Định</em> (DE 1080CZ) với lý do quý vị bị từ chối trợ cấp và <em>Biểu Mẫu Kháng Nghị</em> (DE 1000M). Nếu quý vị không đồng ý với quyết định, quý vị có quyền kháng nghị."
+            },
+            {
+              "text": "Nếu quý vị được nhận trợ cấp và sau đó được phát hiện là không đủ điều kiện, chúng tôi cũng sẽ gửi cho quý vị <em>Thông Báo về Thanh Toán Vượt Mức</em> (DE 1444) giải thích lý do tại sao quý vị được thanh toán vượt mức."
+            }
+          ]
+        }
+      ]
+    },
+    "scenario4": {
+      "heading": "Đã Yêu Cầu Xem Xét",
+      "summary": [
+        {
+          "text": "Chúng tôi đã xác định một vấn đề và có thể cần xác định tính đủ điều kiện hoặc xác minh thông tin của quý vị."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Kiểm tra <0>trang chủ UI Online</0> và hộp thư đến của quý vị để biết các thông tin mới nhất."
+        },
+        {
+          "text": "Kiểm tra thư của quý vị.  Chúng tôi có thể gửi yêu cầu cung cấp thêm thông tin.  Đảm bảo trả lời theo yêu cầu để tránh sự chậm trễ trong việc xử lý Hồ Sơ Yêu Cầu Thanh Toán của quý vị."
+        },
+        {
+          "text": "Để biết thêm thông tin, hãy truy cập<0>Trạng thái Hồ Sơ Yêu Cầu Thanh Toán: Đang chờ thanh toán</0>."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Chúng tôi sẽ liên hệ với quý vị nếu chúng tôi cần thêm thông tin để giải quyết vấn đề."
+        },
+        {
+          "text": "Chúng tôi sẽ gửi email cho quý vị khi quý vị có nhiều tuần để <0>chứng nhận đủ điều nhận trợ cấp</0>."
+        }
+      ]
+    },
+    "scenario5": {
+      "heading": "Quý vị hiện không có tuần nào khả dụng để chứng nhận đủ điều kiện nhận trợ cấp",
+      "summary": [
+        {
+          "text": "Quý vị hiện không có tuần nào khả dụng để chứng nhận đủ điều kiện nhận trợ cấp."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Kiểm tra <0>trang chủ UI Online</0> và hộp thư đến của quý vị để biết các thông tin mới nhất."
+        },
+        {
+          "text": "Kiểm tra thư của quý vị.  Chúng tôi có thể gửi yêu cầu cung cấp thêm thông tin.  Đảm bảo trả lời theo yêu cầu để tránh sự chậm trễ trong việc xử lý Hồ Sơ Yêu Cầu Thanh Toán của quý vị."
+        },
+        {
+          "text": "Nếu đã hơn 30 ngày kể từ lần cuối quý vị được chứng nhận trợ cấp, quý vị phải <0>Mở Lại Hồ Sơ Yêu Cầu Thanh Toán</0>trước khi quý vị có thể chứng nhận"
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Chúng tôi sẽ gửi email cho quý vị khi quý vị có nhiều tuần để <0>chứng nhận đủ điều nhận trợ cấp</0>."
+        }
+      ]
+    },
+    "scenario6": {
+      "heading": "Số Tuần Khả Dụng Để Chứng Nhận",
+      "summary": [
+        {
+          "text": "Quý vị có nhiều tuần khả dụng để <0>chứng nhận đủ điều nhận trợ cấp</0>."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Chọn <strong>Chứng Nhận Đủ Điều Kiện Nhận Trợ Cấp</strong> trong phần Trạng thái Hồ Sơ Yêu Cầu Thanh Toán trên <0>trang chủ UI Online</0>."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Khi chúng tôi xử lý chứng nhận của quý vị, chúng tôi sẽ cập nhật trạng thái thanh toán. Truy cập <0>trang chủ UI Online</0> và chọn <strong>Lịch Sử</strong> từ menu chính."
+        }
+      ]
+    },
+    "scenario7": {
+      "heading": "Năm Nhận Trợ Cấp Đã Kết Thúc",
+      "summary": [
+        {
+          "text": "Năm trợ cấp đã kết thúc cho Hồ Sơ Yêu Cầu Thanh Toán Trợ Cấp Thất Nghiệp thông thường của quý vị.  Quý vị không thể được trả tiền trợ cấp cho những tuần thất nghiệp sau khi năm trợ cấp của quý vị kết thúc, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Quý vị có thể <0>nộp lại đơn xin trợ cấp thất nghiệp</0> nếu quý vị đã nhận <1>đủ tiền lương</1> từ hãng sở trong 18 tháng qua và vẫn đang thất nghiệp hoặc làm việc bán thời gian."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Không có tại thời điểm này."
+        }
+      ]
+    },
+    "scenario8": {
+      "heading": "Trợ Cấp Thất Nghiệp Do Đại Dịch Đã Kết Thúc",
+      "summary": [
+        {
+          "text": "Trợ Cấp Thất Nghiệp Do Đại Dịch (PUA) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp PUA cho những tuần thất nghiệp sau ngày 4 tháng 9 năm 2021, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Quý vị có thể <0>nộp lại đơn xin trợ cấp thất nghiệp</0> nếu quý vị đã nhận <1>đủ tiền lương</1> từ hãng sở trong 18 tháng qua và vẫn đang thất nghiệp hoặc làm việc bán thời gian."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Không có tại thời điểm này."
+        }
+      ]
+    },
+    "scenario9": {
+      "heading": "Trợ Cấp Thất Nghiệp Do Thảm Họa Đã Kết Thúc",
+      "summary": [
+        {
+          "text": "Trợ Cấp Thất Nghiệp Do Thảm Họa (DUA) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp DUA cho những tuần thất nghiệp sau khi các chương trình này kết thúc, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Quý vị có thể <0>nộp lại đơn xin trợ cấp thất nghiệp</0> nếu quý vị đã nhận <1>đủ tiền lương</1> từ hãng sở trong 18 tháng qua và vẫn đang thất nghiệp hoặc làm việc bán thời gian."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Không có tại thời điểm này."
+        }
+      ]
+    },
+    "scenario10": {
+      "heading": "Trợ Cấp Thất Nghiệp Liên Bang Đã Kết Thúc",
+      "summary": [
+        {
+          "text": "Trợ cấp thất nghiệp liên bang đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp cho những tuần thất nghiệp sau khi các chương trình này kết thúc, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Quý vị có thể <0>nộp lại đơn xin trợ cấp thất nghiệp</0> nếu quý vị đã nhận <1>đủ tiền lương</1> từ hãng sở trong 18 tháng qua và vẫn đang thất nghiệp hoặc làm việc bán thời gian."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Không có tại thời điểm này."
+        }
+      ]
+    },
+    "scenario11": {
+      "heading": "Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch Đã Kết Thúc",
+      "summary": [
+        {
+          "text": "Trợ Cấp Thất Nghiệp Khẩn Cấp Do Đại Dịch (PEUC) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp PEUC cho những tuần thất nghiệp sau ngày 4 tháng 9 năm 2021, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Quý vị có thể <0>nộp lại đơn xin trợ cấp thất nghiệp</0> nếu quý vị đã nhận <1>đủ tiền lương</1> từ hãng sở trong 18 tháng qua và vẫn đang thất nghiệp hoặc làm việc bán thời gian."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Không có tại thời điểm này."
+        }
+      ]
+    },
+    "scenario12": {
+      "heading": "Trợ Cấp Trong Thời Gian Gia Hạn của Liên Bang-Tiểu Bang Đã Kết thúc",
+      "summary": [
+        {
+          "text": "Trợ Cấp Thời Gian Gia Hạn của Liên Bang-Tiểu Bang (FED-ED) đã kết thúc.  Luật liên bang không cho phép thanh toán trợ cấp FED-ED cho những tuần thất nghiệp sau ngày 11 tháng 9 năm 2021, ngay cả khi quý vị có số dư trong Hồ Sơ Yêu Cầu Thanh Toán của mình."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Quý vị có thể <0>nộp lại đơn xin trợ cấp thất nghiệp</0> nếu quý vị đã nhận <1>đủ tiền lương</1> từ hãng sở trong 18 tháng qua và vẫn đang thất nghiệp hoặc làm việc bán thời gian."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Không có tại thời điểm này."
+        }
+      ]
+    }
+  },
+  "conditional-next-steps": {
+    "continue-certifying": {
+      "text": "Tiếp tục <0>chứng nhận đủ điều kiện nhận trợ cấp</0> trong khi chúng tôi xác định tính đủ điều kiện của quý vị."
+    }
+  }
+}
