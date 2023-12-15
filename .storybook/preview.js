@@ -16,6 +16,18 @@ import esCommon from '../public/locales/es/common.json'
 import esClaimDetails from '../public/locales/es/claim-details.json'
 import esClaimStatus from '../public/locales/es/claim-status.json'
 
+import viCommon from '../public/locales/vi/common.json'
+import viClaimDetails from '../public/locales/vi/claim-details.json'
+import viClaimStatus from '../public/locales/vi/claim-status.json'
+
+import zhSCommon from '../public/locales/zh-Hans/common.json'
+import zhSClaimDetails from '../public/locales/zh-Hans/claim-details.json'
+import zhSClaimStatus from '../public/locales/zh-Hans/claim-status.json'
+
+import zhTCommon from '../public/locales/zh-Hant/common.json'
+import zhTClaimDetails from '../public/locales/zh-Hant/claim-details.json'
+import zhTClaimStatus from '../public/locales/zh-Hant/claim-status.json'
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -52,6 +64,9 @@ export const decorators = [
       resources: {
         en: { common: enCommon, 'claim-details': enClaimDetails, 'claim-status': enClaimStatus },
         es: { common: esCommon, 'claim-details': esClaimDetails, 'claim-status': esClaimStatus },
+        vi: { common: viCommon, 'claim-details': viClaimDetails, 'claim-status': viClaimStatus },
+        zhS: { common: zhSCommon, 'claim-details': zhSClaimDetails, 'claim-status': zhSClaimStatus },
+        zhT: { common: zhTCommon, 'claim-details': zhTClaimDetails, 'claim-status': zhTClaimStatus },
       },
       react: {
         // Add support for <em>.
@@ -63,5 +78,5 @@ export const decorators = [
     return <Story />
   },
   // Enable language support in Storybook using storybook-addon-i18n.
-  withI18next({ i18n, languages: { en: 'English', es: 'Español' } }),
+  withI18next({ i18n, languages: { en: 'English', es: 'Español', vi: 'Vietnamese', zhS: 'Chinese (Simplified)', zhT: 'Chinese (Traditional)' } }),
 ]

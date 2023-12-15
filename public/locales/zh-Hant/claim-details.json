@@ -1,0 +1,22 @@
+{
+  "program-type": {
+    "ui": "失業保險 (Unemployment Insurance, UI)",
+    "dua": "災難援助 — 災難失業援助 (Disaster Unemployment Assistance, DUA) ",
+    "pua": "災難援助 — 大流行病失業援助 (Pandemic Unemployment Assistance, PUA)"
+  },
+  "extension-type": {
+    "euc": "緊急失業救濟 (Emergency Unemployment Compensation, EUC) 第1級延長救濟",
+    "eux": "緊急失業救濟 (Emergency Unemployment Compensation, EUC) 第2級延長救濟",
+    "euy": "緊急失業救濟 (Emergency Unemployment Compensation, EUC) 第2級增加",
+    "euw": "緊急失業救濟 (Emergency Unemployment Compensation, EUC) 第3級延長救濟",
+    "euz": "緊急失業救濟 (Emergency Unemployment Compensation, EUC) 第4級延長救濟",
+    "peuc": "大流行病緊急失業救濟 (Pandemic Emergency Unemployment Compensation, PEUC) 第1級延長救濟",
+    "peux": "大流行病緊急失業救濟 (Pandemic Emergency Unemployment Compensation, PEUC) 第2級延長救濟",
+    "peuy": "大流行病緊急失業救濟 (Pandemic Emergency Unemployment Compensation, PEUC) 第2級增加",
+    "fed-ed": "聯邦 - 州延長救濟 (Federal-State Extended Duration, FED-ED) ",
+    "cal-ed": "加州延長救濟 (California Extended Duration, CAL-ED)",
+    "tra": "貿易再調整津貼 (Trade Readjustment Allowances, TRA) 基本延長救濟",
+    "tra-additional": "貿易再調整津貼 (Trade Readjustment Allowances, TRA) 額外延長救濟",
+    "te": "培訓延期 (Training Extension, TE)"
+  }
+}
