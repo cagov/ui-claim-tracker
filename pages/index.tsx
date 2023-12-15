@@ -31,6 +31,9 @@ export interface HomeProps {
   urlPrefixes: UrlPrefixes
   enableGoogleAnalytics: string
   enableMaintenancePage: string
+  googleIDKey: string
+  googleTagManagerKey: string
+  stateGoogleIDKey: string
 }
 
 export default function Home({
@@ -42,6 +45,9 @@ export default function Home({
   urlPrefixes,
   enableGoogleAnalytics,
   enableMaintenancePage,
+  googleIDKey,
+  googleTagManagerKey,
+  stateGoogleIDKey,
 }: HomeProps): ReactElement {
   const { t } = useTranslation('common')
 
@@ -58,14 +64,14 @@ export default function Home({
   // - Send custom dimensions to EDD google analytics instance to capture data about scenarios.
   //   Dimension 2 has been configured in the GA UI for CST Scenarios.
   //   https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets#send-custom-dimensions
-  const gaScript = `
+  const gaHeaderScript = `
         window.dataLayer = window.dataLayer || []
         function gtag(){dataLayer.push(arguments)}
         gtag('js', new Date())
         // For details see: https://support.google.com/analytics/answer/9310895?hl=en
         // https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
-        gtag('config', 'UA-3419582-2', { 'anonymize_ip': true }) // www.ca.gov
-        gtag('config', 'UA-3419582-31', { 'anonymize_ip': true, 'custom_map': {'dimension2': 'scenario'} }) // edd.ca.gov
+        gtag('config', '${googleIDKey}', { 'anonymize_ip': true, 'custom_map': {'dimension2': 'scenario'} }) //EDD GA4 UIO ID
+        gtag('config', '${stateGoogleIDKey}', { 'anonymize_ip': true }) // statewide GA4 ID
         gtag('event', 'CST Scenario', {
           "scenario": "${scenarioDimension}",
           "event_category": "Claim Status Tracker",
@@ -73,13 +79,41 @@ export default function Home({
           "non_interaction": true
         })`
 
-  const googleAnalytics = (
+  const googleTagManagerScript = `
+        (function (w, d, s, l, i) {
+              w[l] = w[l] || []; w[l].push({
+                  'gtm.start':
+                      new Date().getTime(), event: 'gtm.js'
+              }); var f = d.getElementsByTagName(s)[0],
+                  j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                      'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', '${googleTagManagerKey}');
+        `
+
+  const googleAnalyticsBody = (
+    <noscript>
+      <iframe
+        title="NoScriptGTM"
+        src={'https://www.googletagmanager.com/ns.html?id=' + googleTagManagerKey}
+        height="0"
+        width="0"
+        style={{ ['display' as any]: 'none', ['visibility' as any]: 'hidden' }}
+      />
+    </noscript>
+  )
+
+  const googleAnalyticsHeader = (
     <>
       {/* Global site tag (gtag.js) - Google Analytics */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3419582-2" />
+      <script async src={'https://www.googletagmanager.com/gtag/js?id=' + googleIDKey} />
       <script
         dangerouslySetInnerHTML={{
-          __html: gaScript,
+          __html: gaHeaderScript,
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: googleTagManagerScript,
         }}
       />
     </>
@@ -116,12 +150,15 @@ export default function Home({
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />
-        {enableGoogleAnalytics === 'enabled' && googleAnalytics}
+        {enableGoogleAnalytics === 'enabled' && googleAnalyticsHeader}
       </Head>
       <Header userArrivedFromUioMobile={userArrivedFromUioMobile} urlPrefixes={urlPrefixes} assetPrefix={assetPrefix} />
-      <main className="main">
-        <Container className="main-content">{mainContent}</Container>
-      </main>
+      <body>
+        {enableGoogleAnalytics === 'enabled' && googleAnalyticsBody}
+        <main className="main">
+          <Container className="main-content">{mainContent}</Container>
+        </main>
+      </body>
       <TimeoutModal userArrivedFromUioMobile={userArrivedFromUioMobile} timedOut={timedOut} urlPrefixes={urlPrefixes} />
       <Footer />
     </Container>
@@ -148,6 +185,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
 
   // Set to 'enabled' to include Google Analytics code
   const ENABLE_GOOGLE_ANALYTICS = process.env.ENABLE_GOOGLE_ANALYTICS ?? ''
+
+  // Get the body googleIDKey from the enviornment
+  const GOOGLE_ID_KEY = process.env.GOOGLE_ID_KEY ?? ''
+
+  // Get the stateGoogleIDKey from the enviornment
+  const STATE_GOOGLE_ID_KEY = process.env.STATE_GOOGLE_ID_KEY ?? ''
+
+  // Get the body googleTagManagerKey from the enviornment
+  const GOOGLE_TAG_MANAGER_KEY = process.env.GOOGLE_TAG_MANAGER_KEY ?? ''
 
   // Set to 'enabled' to display down-for-maintenance page
   const ENABLE_MAINTENANCE_PAGE = process.env.ENABLE_MAINTENANCE_PAGE ?? ''
@@ -228,6 +274,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, locale,
       urlPrefixes: URL_PREFIXES,
       enableGoogleAnalytics: ENABLE_GOOGLE_ANALYTICS,
       enableMaintenancePage: ENABLE_MAINTENANCE_PAGE,
+      googleIDKey: GOOGLE_ID_KEY,
+      googleTagManagerKey: GOOGLE_TAG_MANAGER_KEY,
+      stateGoogleIDKey: STATE_GOOGLE_ID_KEY,
       ...(await serverSideTranslations(locale || 'en', ['common', 'claim-details', 'claim-status'])),
     },
   }
