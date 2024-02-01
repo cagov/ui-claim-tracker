@@ -34,6 +34,9 @@ describe('Full page snapshot', () => {
           assetPrefix=""
           enableGoogleAnalytics=""
           enableMaintenancePage=""
+          googleIDKey=""
+          googleTagManagerKey=""
+          stateGoogleIDKey=""
           urlPrefixes={urlPrefixes}
         />,
       )
@@ -57,6 +60,9 @@ describe('Main component shows the timeout', () => {
         assetPrefix=""
         enableGoogleAnalytics=""
         enableMaintenancePage=""
+        googleIDKey=""
+        googleTagManagerKey=""
+        stateGoogleIDKey=""
         urlPrefixes={urlPrefixes}
       />,
     )

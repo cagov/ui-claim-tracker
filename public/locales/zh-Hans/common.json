@@ -14,8 +14,8 @@
     "uio-inbox": "收件箱",
     "uio-contact": "联系人"
   },
-  "title": "索赔状态跟踪器",
-  "welcome": "索赔状态跟踪器",
+  "title": "申请状态跟踪",
+  "welcome": "申请状态跟踪",
   "errors": {
     "not-found": {
       "label": "我们无法找到该页面。",
@@ -33,15 +33,15 @@
     "entry2": "我们会持续改善服务，感谢您给予耐心。"
   },
   "claim-status": {
-    "title": "索赔状态",
+    "title": "申请状态",
     "your-next-steps": "您需要采取的后续步骤",
     "edd-next-steps": "EDD后续步骤"
   },
   "claim-details": {
-    "title": "索赔详情",
+    "title": "申请详情",
     "benefit-year": "福利年",
-    "program-type": "索赔类型",
-    "claim-balance": "索赔余额",
+    "program-type": "申请类型",
+    "claim-balance": "申请余额",
     "weekly-benefit-amount": "每周福利金数额",
     "last-payment-issued": "最近一次核发的款项",
     "none": "无",
@@ -76,9 +76,9 @@
     },
     "hypertext": {
       "uio-homepage": "UI Online主页",
-      "pending-payment": "索赔状态：待处理款项",
+      "pending-payment": "申请状态：待付款",
       "certify": "认证福利",
-      "reopen": "重新开启索赔",
+      "reopen": "重新开启您的申请",
       "reapply": "重新申请失业福利",
       "enough-wages": "足够的薪资"
     }

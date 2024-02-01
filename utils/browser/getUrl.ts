@@ -64,8 +64,8 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes, langu
     return urls[key].replace('uio', urlPrefixUioClaimstatus)
   }
 
-  if (urlPrefixBpo && key.startsWith('bpo')) {
-    return urls[key].replace('portal.edd.ca.gov/WebApp', urlPrefixBpo)
+  if (urlPrefixBpo && key.startsWith('bpo-login')) {
+    return urls[key].replace('myedd.edd.ca.gov', urlPrefixBpo)
   }
 
   return urls[key]

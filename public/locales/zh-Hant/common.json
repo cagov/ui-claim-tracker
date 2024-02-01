@@ -14,8 +14,8 @@
     "uio-inbox": "收件匣",
     "uio-contact": "聯絡人"
   },
-  "title": "索賠狀態跟蹤器",
-  "welcome": "索賠狀態跟蹤器",
+  "title": "申請狀態追蹤",
+  "welcome": "申請狀態追蹤",
   "errors": {
     "not-found": {
       "label": "我們無法找到該頁面。",
@@ -33,15 +33,15 @@
     "entry2": "我們會持續改善服務，感謝您給予耐心。"
   },
   "claim-status": {
-    "title": "索賠狀態",
+    "title": "申請狀態",
     "your-next-steps": "您需要採取的後續步驟",
     "edd-next-steps": "EDD後續步驟"
   },
   "claim-details": {
-    "title": "索賠詳情",
+    "title": "申請詳情",
     "benefit-year": "福利年",
-    "program-type": "索賠類型",
-    "claim-balance": "索賠餘額",
+    "program-type": "申請類型",
+    "claim-balance": "申請餘額",
     "weekly-benefit-amount": "每週福利金數額",
     "last-payment-issued": "最近一次核發的款項",
     "none": "無",
@@ -76,9 +76,9 @@
     },
     "hypertext": {
       "uio-homepage": "查看您的<0>UI Online主頁</0>和收件匣以獲取最新資訊。",
-      "pending-payment": "索賠狀態：待處理款項",
+      "pending-payment": "申請狀態: 待付款",
       "certify": "認證福利",
-      "reopen": "重新開啟索賠",
+      "reopen": "重新開啟您的申請",
       "reapply": "重新申請失業福利",
       "enough-wages": "足夠的薪資"
     }
