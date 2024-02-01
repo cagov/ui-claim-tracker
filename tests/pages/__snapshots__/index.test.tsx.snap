@@ -35,6 +35,32 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
           onKeyDown={[Function]}
         >
           <div
+            className="nav-item"
+          >
+            <div
+              className="dropdown"
+              id="languageSelector"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-primary"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="ca-gov-icon-globe"
+                >
+                   
+                </span>
+                <span
+                  className="ca-gov-icon-caret-down"
+                />
+              </button>
+            </div>
+          </div>
+          <div
             aria-expanded={null}
             className="navbar-collapse collapse"
           >

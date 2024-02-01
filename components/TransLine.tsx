@@ -3,6 +3,7 @@ import React from 'react'
 import { I18nString, TransLineContent } from '../types/common'
 import getUrl from '../utils/browser/getUrl'
 import { ExternalLink } from './ExternalLink'
+import { i18n } from 'next-i18next'
 
 export interface TransLineProps extends TransLineContent {
   userArrivedFromUioMobile: boolean
@@ -25,7 +26,7 @@ function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   else if (link === 'uio-landing-page') {
     const uioLandingPageLink = userArrivedFromUioMobile
       ? getUrl('uio-mobile-landing-page')
-      : getUrl('uio-desktop-landing-page')
+      : getUrl('uio-desktop-landing-page', undefined, i18n?.language)
     if (uioLandingPageLink) {
       return uioLandingPageLink
     }

@@ -1059,3 +1059,123 @@ ul#tabs li a h4 {
 hr {
 	border-top: 1px solid #676668 !important;
 }
+
+/****Language Selector****/
+
+#languageSelector{
+	height: 100%;
+}
+
+#languageSelector div.dropdown-menu.show {
+	height: auto;
+	width: auto;
+	background: #ffffff;
+	position: absolute;
+	z-index: 99;
+	/* display: none; */
+	border: none;
+	border-width: 0px 1px 1px 1px;
+	border-color: #DDDBDA;
+	background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #DDDBDA, #DDDBDA);
+	border-style: solid;
+	top: 100%;
+	left: -117%;
+	font-size: 1rem;
+	padding: 0;
+}
+
+#languageSelector div.dropdown-menu.show a {
+	display: block;
+	width: 100%;
+	text-transform: none;
+	text-align: left;
+	line-height: 20px;
+	padding: 20px 20px;
+	clear: both;
+	font-weight: 400;
+	white-space: nowrap;
+}
+
+#languageSelector .languageSelectorTextColor {
+	color: black !important;
+	display: block;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+#languageSelector .languageSelectorTextColor:hover {
+	display: block;
+}
+
+
+#languageSelector div a:hover {
+	background-color: #1E90FF !important;
+	display: block;
+	outline: none;
+	border: none;
+}
+
+#languageSelector div a:hover {
+	color: white !important;
+}
+
+#languageSelector .dropdown-toggle::after {
+	display: none;
+}
+
+#languageSelector .btn {
+	box-shadow: none;
+	background-color: #116c97;
+	margin: 0;
+}
+
+#languageSelector .btn:hover {
+	border-color: #116c97;
+	background-color: #116c97;
+}
+
+#languageSelector .btn:focus,
+#languageSelector .btn:active {
+	outline: solid 2px #2ea3f2;
+	background-color: #116c97;
+}
+
+.nav-item:has(#languageSelector):hover{
+	background-color: #116c97;
+}
+
+.nav-item:has(#languageSelector)::after{
+	display: none;
+}
+
+@media only screen and (max-width: 992px) {
+	#languageSelector .btn {        
+		height: 100%;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#languageSelector div.dropdown-menu.show {        
+		letter-spacing: 0.3px;
+		line-height: 20px;
+		white-space: normal;
+		width: 100vw;
+		left: -42vw;
+	}
+}
+
+@media only screen and (max-width: 538px) {
+	#languageSelector div.dropdown-menu.show {        
+		left: -20vw;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	#languageSelector div.dropdown-menu.show {        
+		left: -10vw;
+	}
+}
+	
+	

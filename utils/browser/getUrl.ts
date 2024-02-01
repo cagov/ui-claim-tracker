@@ -4,6 +4,7 @@
 
 import urls from '../../public/urls.json'
 import { UrlPrefixes } from '../../types/common'
+import { languagelist } from '../../public/languages.json'
 
 // Type alias for the keys in urls.json
 export type UrlType = keyof typeof urls
@@ -27,7 +28,7 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes, langu
   // Explicitly cast to one of the allowed keys in urls.json.
   // If the key does not exist in urls.json, this function will return undefined.
   let key
-  if (language === 'es') {
+  if (language === 'es' && (!linkKey.startsWith('uio-desktop') || linkKey === 'uio-desktop-help-new-claim')) {
     key = (linkKey + '-es') as UrlType
   } else {
     key = linkKey as UrlType
@@ -44,8 +45,15 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes, langu
   )
   const urlPrefixBpo = stripTrailingSlashes(urlPrefixes?.urlPrefixBpo || process.env.URL_PREFIX_BPO)
 
-  if (urlPrefixUioDesktop && key.startsWith('uio-desktop')) {
-    return urls[key].replace('uio.edd.ca.gov/UIO', urlPrefixUioDesktop)
+  if (urlPrefixUioDesktop && key.startsWith('uio-desktop') && key !== 'uio-desktop-help-new-claim-es') {
+    let query = '?L='
+    const curLanguage = languagelist.find(function (item) {
+      return item['language-code'] === language
+    })
+    if (typeof curLanguage !== 'undefined') {
+      query += curLanguage?.['ms-culture']
+    }
+    return urls[key].replace('uio.edd.ca.gov/UIO', urlPrefixUioDesktop) + query
   }
 
   if (urlPrefixUioMobile && key.startsWith('uio-mobile')) {

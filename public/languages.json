@@ -1,0 +1,52 @@
+{
+  "languagelist": [
+    {
+      "language": "English",
+      "language-code": "en",
+      "ms-culture":"en-US",
+      "display": "English"
+    },
+    {
+      "language": "简体中文",
+      "language-code": "zh-Hans",
+      "ms-culture":"zh-CN",
+      "display": "简体中文 (Chinese, Simplified)"
+    },
+    {
+      "language": "繁體中文",
+      "language-code": "zh-Hant",
+      "ms-culture":"zh-HK",
+      "display": "繁體中文 (Chinese, Traditional)"
+    },
+    {
+      "language": "Español",
+      "language-code": "es",
+      "ms-culture":"es-MX",
+      "display": "Español (Spanish)"
+    },
+    {
+      "language": "Tiếng Việt",
+      "language-code": "vi",
+      "ms-culture":"vi-VN",
+      "display": "Tiếng Việt (Vietnamese)"
+    },
+    {
+      "language": "հայերեն",
+      "language-code": "hy",
+      "ms-culture":"hy-AM",
+      "display": "հայերեն (Armenian)"
+    },
+    {
+      "language": "한국어",
+      "language-code": "ko",
+      "ms-culture":"ko-KR",
+      "display": "한국어(Korean)"
+    },
+    {
+      "language": "pilipino",
+      "language-code": "tl",
+      "ms-culture":"fil-PH",
+      "display": "pilipino (Tagalog)"
+    }
+  ]
+}
