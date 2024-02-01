@@ -1,0 +1,274 @@
+{
+  "scenarios": {
+    "scenario1": {
+      "heading": "Nakabinbin ang Pagiging Kwalipikado — Iiiskedyul ang Panayam sa Telepono",
+      "summary": [
+        {
+          "text": "May natukoy kaming isyu na maaaring magtanggal sa iyong pagiging kwalipikado sa mga benepisyo. Kailangan naming kumpirmahin ang iyong pagiging kwalipikado sa isang panayam sa telepono."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Kumpirmahing tama ang iyong kasalukuyang numero ng telepono at papadalhang address na nasa amin. Bumalik sa <0>homepage ng UI Online</0>, pindutin ang <strong>Profile</strong> mula sa pangunahing menu, at pagkatapos ay pindutin ang <strong>Impormasyon sa Pakikipag-ugnayan</strong>."
+        },
+        {
+          "text": "Tingnan sa iyong mail kung natanggap na ang <em>Paunawa sa Panayam para sa Pagkakwalipikado sa Benepisyo para sa Insurance sa Pagkawala ng Trabaho</em> (DE 4800). Ipapaliwanag nito ang isyu at tutulungan kang maghanda para sa panayam."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Mag-iiskedyul kami ng isang panayam sa telepono para matukoy kung kwalipikado ka sa mga benepisyo. Ia-update sa page na ito ang mga detalye ng iyong appointment kapag naiskedyul na ang iyong panayam."
+        }
+      ]
+    },
+    "scenario2": {
+      "heading": "Nakabinbin ang Pagiging Kwalipikado — Naiskedyul na ang Panayam sa Telepono",
+      "summary": [
+        {
+          "text": "May natukoy kaming isyu na maaaring magtanggal sa iyong pagiging kwalipikado sa mga benepisyo. Mayroon kang panayam sa telepono na nakaiskedyul sa:"
+        },
+        {
+          "text": "<strong>Mahalaga</strong>: Kung mapapalampas mo ang iyong panayam sa telepono, gagawa ng isang desisyon base sa available na detalye, na maaaring mauwi sa pagkaantala o pagkatanggal ng iyong mga benepisyo para sa pagkawala ng trabaho."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Kumpirmahing tama ang iyong numero ng telepono na nasa amin. Bumalik sa <0>homepage ng UI Online</0>, pindutin ang <strong>Profile</strong> mula sa pangunahing menu, at pagkatapos ay pindutin ang <strong>Impormasyon sa Pakikipag-ugnayan</strong>."
+        },
+        {
+          "text": "Maghanda para sa panayam. Kasama sa <em>Paunawa sa Panayam sa Pagiging Kwalipikado sa Mga Benepisyo para sa Pagkawala ng Trabaho</em> (DE 4800) ang mga tanong na malamang na itanong ng tagapanayam."
+        },
+        {
+          "text": "Kung kailangan mong baguhin ang iskedyul ng iyong panayam, pindutin ang <strong>Baguhin ang Iskedyul</strong> sa seksyong Mga Appointment sa iyong <0>homepage ng UI Online</0>. Dapat kang magpabago ng iskedyul nang kahit isang araw lang bago ang panayam."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Tatawagan ka namin sa oras ng iyong nakaiskedyul na panayam. Maaaring lumabas sa iyong caller ID ang “St of CA EDD” o ang numero ng Serbisyo sa Customer ng UI na 1-800-300-5616.",
+          "subBullets": [
+            {
+              "text": "Kung hindi ka nakatanggap ng tawag mula sa EDD sa iniskedyul mong oras ng appointment, maaaring kinansela namin ang iyong appointment dahil kinumpirma na namin ang iyong pagkakwalipikado o nalutas na ang isyu bago pa ang panayam."
+            },
+            {
+              "text": "Kung nakansela ang iyong appointment, hindi na ito muling lalabas sa iyong homepage ng UI Online."
+            }
+          ]
+        }
+      ]
+    },
+    "scenario3": {
+      "heading": "Nakabinbin ang Pagiging Kwalipikado — Kasalukuyang Sinusuri",
+      "summary": [
+        {
+          "text": "Lumipas na ang oras ng iyong panayam sa telepono at kasalukuyan nang sinusuri ang iyong pagiging kwalipikado para sa mga benepisyo."
+        },
+        {
+          "text": "<strong>Mahalaga</strong>: Kung napalampas mo ang iyong panayam sa telepono, gagawa ng isang desisyon base sa available na detalye, na maaaring mauwi sa pagkaantala o pagkatanggal ng iyong mga benepisyo para sa pagkawala ng trabaho."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Maglaan ng hanggang 10 araw para makapagpasya ang EDD."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Tutukuyin namin ang iyong pagiging kwalipikado.",
+          "subBullets": [
+            {
+              "text": "Kung matukoy na kwalipikado ka at walang isyung nakita, babayaran ka namin sa mga nakabinbin pang linggo."
+            },
+            {
+              "text": "Kung matukoy na hindi ka kwalipikado, papadalhan ka namin ng <em>Paunawa sa Pagpapasya</em> (DE 1080CZ) na nagsasaad ng mga dahilan kung bakit ka tinanggihan ng mga benepisyo at isang <em>Form sa Pag-apela</em> (DE 1000M). Kung hindi ka sang-ayon sa pasya, may karapatan kang umapela."
+            },
+            {
+              "text": "Kung binayaran ka ng mga benepisyo at kinalaunan ay nakitang hindi ka kwalipikado, papadalhan ka rin namin ng <em>Paunawa sa Sobrang Bayad</em> (DE 1444) na nagpapaliwanag kung bakit sobra ang naibayad sa iyo."
+            }
+          ]
+        }
+      ]
+    },
+    "scenario4": {
+      "heading": "Kailangan ng Pagsusuri",
+      "summary": [
+        {
+          "text": "May natukoy kaming isyu at maaaring kailanganin naming suriin ang iyong pagiging kwalipikado o i-verify ang iyong impormasyon."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Tingnan ang iyong <0>homepage ng UI Online</0> at inbox para sa mga bagong update."
+        },
+        {
+          "text": "Tingnan ang iyong mail. Pwede kaming magpadala ng mga request para sa karagdagang impormasyon. Siguraduhing sumagot nang naaayon sa hininging oras para maiwasan ang mga pagkaantala sa pagproseso ng iyong claim."
+        },
+        {
+          "text": "Para sa karagdagang impormasyon, bisitahin ang <0>Status ng Claim: Nakabinbing Pagbabayad</0>."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Kakaugnayin ka namin kung kailangan namin ng karagdagang impormasyon para lutasin ang isyu."
+        },
+        {
+          "text": "Magpapadala kami ng email sa iyo kapag mayroon ka nang available na linggo para <0>ma-certify para sa mga benepisyo</0>."
+        }
+      ]
+    },
+    "scenario5": {
+      "heading": "Walang Linggong Available para sa Pag-certify",
+      "summary": [
+        {
+          "text": "Kasalukuyang wala ka nang available na linggo para i-certify ang iyong mga benepisyo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Tingnan ang iyong <0>homepage ng UI Online</0> at inbox para sa mga bagong update."
+        },
+        {
+          "text": "Tingnan ang iyong mail. Pwede kaming magpadala ng mga request para sa karagdagang impormasyon. Siguraduhing sumagot nang naaayon sa hininging oras para maiwasan ang mga pagkaantala sa pagproseso ng iyong claim."
+        },
+        {
+          "text": "Kung lampas 30 araw na mula nang huli kang nag-certify para sa mga benepisyo, dapat mong <0>buksan muli ang iyong claim</0> bago ka mag-certify muli."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Magpapadala kami ng email sa iyo kapag mayroon ka nang available na linggo para <0>ma-certify para sa mga benepisyo</0>."
+        }
+      ]
+    },
+    "scenario6": {
+      "heading": "Mga Available na Linggo para Mag-certify",
+      "summary": [
+        {
+          "text": "Mayroon kang mga available na linggo para<0>ma-certify para sa mga benepisyo</0>."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pindutin ang <strong>I-certify para sa Mga Benepisyo</strong> sa seksyong Status ng Claim sa iyong <0>homepage ng UI Online</0>."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Kapag pinroseso namin ang iyong sertipikasyon, ia-update namin ang status ng iyong bayad. Pumunta sa <0>homepage ng UI Online</0> at pindutin ang <strong>History</strong> mula sa pangunahing menu."
+        }
+      ]
+    },
+    "scenario7": {
+      "heading": "Natapos na ang Taon ng Benepisyo",
+      "summary": [
+        {
+          "text": "Natapos na ang iyong taon ng benepisyo sa iyong regular na claim para sa pagkawala ng trabaho. Hindi ka pwedeng bayaran para sa mga linggo ng pagkawala ng trabaho kapag natapos na ang iyong taon ng benepisyo, kahit na may balanse ka sa claim mo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Wala sa ngayon."
+        }
+      ]
+    },
+    "scenario8": {
+      "heading": "Natapos na ang iyong Tulong para sa Pagkawala ng Trabaho Dahil sa Pandemya",
+      "summary": [
+        {
+          "text": "Natapos na ang mga benepisyo sa Tulong para sa Pagkawala ng Trabaho Dahil sa Pandemya (Pandemic Unemployment Assistance, PUA). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 4, 2021, kahit may balanse ka sa claim mo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Wala sa ngayon."
+        }
+      ]
+    },
+    "scenario9": {
+      "heading": "Natapos na ang iyong Tulong para sa Pagkawala ng Trabaho Dahil sa Sakuna",
+      "summary": [
+        {
+          "text": "Natapos na ang iyong mga benepisyo para sa Tulong para sa Pagkawala ng Trabaho Dahil sa Sakuna (Disaster Unemployment Assistance, DUA) Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng mga programang ito, kahit na may balanse ka sa claim mo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Wala sa ngayon."
+        }
+      ]
+    },
+    "scenario10": {
+      "heading": "Natapos na ang Mga Benepisyo para sa Pagkawala ng Trabaho galing sa Pederal",
+      "summary": [
+        {
+          "text": "Natapos na ang mga benepisyo ng pederal para sa pagkawala ng trabaho. Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa mga linggo ng pagkawala ng trabaho pagkatapos ng mga programang ito, kahit na may balanse ka sa claim mo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Wala sa ngayon."
+        }
+      ]
+    },
+    "scenario11": {
+      "heading": "Natapos na ang Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho sa Panahon ng Pandemya",
+      "summary": [
+        {
+          "text": "Natapos na ang mga benepisyo para sa Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho sa Panahon ng Pandemya (Pandemic Emergency Unemployment Compensation, PEUC). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 4, 2021, kahit na may balanse ka sa claim mo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Wala sa ngayon."
+        }
+      ]
+    },
+    "scenario12": {
+      "heading": "Natapos na ang mga benepisyo para sa Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED)",
+      "summary": [
+        {
+          "text": "Natapos na ang mga benepisyo para sa Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa FED-ED sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 11, 2021, kahit na may balanse ka sa claim mo."
+        }
+      ],
+      "your-next-steps": [
+        {
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+        }
+      ],
+      "edd-next-steps": [
+        {
+          "text": "Wala sa ngayon."
+        }
+      ]
+    }
+  },
+  "conditional-next-steps": {
+    "continue-certifying": {
+      "text": "Patuloy na <0>mag-certify para sa benepisyo</0>habang pinagdedesisyunan namin ang iyong pagkakwalipikado."
+    }
+  }
+}

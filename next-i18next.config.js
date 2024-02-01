@@ -1,7 +1,7 @@
 module.exports = {
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'es', 'vi', 'zh-Hans', 'zh-Hant'],
+    locales: ['en', 'es', 'vi', 'zh-Hans', 'zh-Hant', 'hy', 'ko', 'tl'],
     react: {
       // Add support for <em>.
       // See https://react.i18next.com/latest/trans-component#using-for-less-than-br-greater-than-and-other-simple-html-elements-in-translations-v-10-4-0

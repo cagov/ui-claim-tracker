@@ -1,0 +1,22 @@
+{
+  "program-type": {
+    "ui": "실업 보험(Unemployment Insurance, UI)",
+    "dua": "재해 지원 — 재해 실업 지원(Disaster Unemployment Assistance, DUA)",
+    "pua": "재해 지원 — 팬데믹 실업 지원(Pandemic Unemployment Assistance, PUA)"
+  },
+  "extension-type": {
+    "euc": "긴급 실업 보상(Emergency Unemployment Compensation, EUC) 티어 1 연장",
+    "eux": "긴급 실업 보상(Emergency Unemployment Compensation, EUC) 티어 2 연장",
+    "euy": "긴급 실업 보상(Emergency Unemployment Compensation, EUC) 티어 2 보강",
+    "euw": "긴급 실업 보상(Emergency Unemployment Compensation, EUC) 티어 3 연장",
+    "euz": "긴급 실업 보상(Emergency Unemployment Compensation, EUC) 티어 4 연장",
+    "peuc": "팬데믹 긴급 실업 보상(Pandemic Emergency Unemployment Compensation, PEUC) 티어 1 연장",
+    "peux": "팬데믹 긴급 실업 보상(Pandemic Emergency Unemployment Compensation, PEUC) 티어 2 연장",
+    "peuy": "팬데믹 긴급 실업 보상(Pandemic Emergency Unemployment Compensation, PEUC) 티어 2 보강",
+    "fed-ed": "연방-주 연장 기간(Federal-State Extended Duration, FED-ED)",
+    "cal-ed": "캘리포니아주 연장 기간(California Extended Duration, CAL-ED)",
+    "tra": "무역 재조정 급여(Trade Readjustment Allowance, TRA) 기본 연장",
+    "tra-additional": "무역 재조정 급여(Trade Readjustment Allowance, TRA) 추가 연장",
+    "te": "교육 연장(Training Extension, TE)"
+  }
+}

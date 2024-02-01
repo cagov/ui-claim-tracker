@@ -1,0 +1,92 @@
+{
+  "header": {
+    "alt-image-cagov": "CA.gov",
+    "alt-image-edd": "Home ng Departamento ng Pag-unlad sa Trabaho (EDD) ng Estado ng California",
+    "edd-home": "Home ng EDD",
+    "help": "Tulong",
+    "logout": "Mag-log Out",
+    "uio-home": "Home ng UI",
+    "uio-certify": "I-certify",
+    "uio-payments": "Mga Pagbabayad",
+    "uio-history": "History",
+    "uio-status": "Status",
+    "uio-profile": "Profile",
+    "uio-inbox": "Inbox",
+    "uio-contact": "Makipag-ugnayan"
+  },
+  "title": "Tracker ng Status ng Claim",
+  "welcome": "Tracker ng Status ng Claim",
+  "errors": {
+    "not-found": {
+      "label": "Hindi namin mahanap ang page na iyan.",
+      "entry": "Maaaring sira ang link na na-click mo o tinanggal na ang page na ito."
+    },
+    "button": "Bumalik sa Home ng UI",
+    "server-error": {
+      "label": "Nagkaroon ng error sa panig namin.",
+      "entry": "Hindi namin maproseso ang iyong request."
+    }
+  },
+  "maintenance": {
+    "label": "Babalik Kami Sa Lalong Madaling Panahon",
+    "entry": "Kasalukuyang hindi available ang page na ito habang isinasagawa ang pagmementina ng system.",
+    "entry2": "Salamat sa iyong pasensya habang patuloy naming pinaghuhusay ang aming mga serbisyo."
+  },
+  "claim-status": {
+    "title": "Status ng Claim",
+    "your-next-steps": "Ang Mga Susunod Mong Gagawin",
+    "edd-next-steps": "Mga Susunod na Hakbang ng EDD"
+  },
+  "claim-details": {
+    "title": "Mga Detalye ng Claim",
+    "benefit-year": "Taon ng Benepisyo",
+    "program-type": "Uri ng Claim",
+    "claim-balance": "Balanse ng Claim",
+    "weekly-benefit-amount": "Halaga ng Lingguhang Benepisyo",
+    "last-payment-issued": "Huling Inisyung Bayad",
+    "none": "Wala",
+    "extension-type": "Uri ng Pagpapalawig"
+  },
+  "footer": {
+    "toTop": "Bumalik sa Itaas",
+    "contact": "Makipag-ugnayan sa EDD",
+    "conditionsOfUse": "Mga Kondisyon ng Paggamit",
+    "privacyPolicy": "Patakaran sa Privacy",
+    "accessibility": "Accessibility",
+    "copyright": "Copyright © 2021 State of California"
+  },
+  "timeout-modal": {
+    "header": "Malapit nang Matapos ang Iyong Session",
+    "warning": "Para maprotektahan ang iyong impormasyon, mala-log out ka sa loob ng {{count}} minuto kung hindi ka magpapatuloy.",
+    "warning_plural": "Para maprotektahan ang iyong impormasyon, mala-log out ka sa loob ng {{count}} minuto kung hindi ka magpapatuloy.",
+    "button": "Bumalik sa Home ng UI"
+  },
+  "time": {
+    "between-range": ", sa pagitan ng {{range}} {{ampm}} Pacific time",
+    "between-start-end": ", sa pagitan ng {{start.time}} {{start.ampm}} at {{end.time}} {{end.ampm}} Pacific time",
+    "am": "a.m.",
+    "pm": "p.m."
+  },
+  "urls": {
+    "edd": {
+      "ui-certify": "https://edd.ca.gov/Unemployment/certify.htm",
+      "ui-claim-status": "https://www.edd.ca.gov/unemployment/claim-status.htm",
+      "ui-reopen": "https://edd.ca.gov/Unemployment/Reopen-A-Claim.htm",
+      "ui-calculator": "https://edd.ca.gov/Unemployment/UI-Calculator.htm"
+    },
+    "hypertext": {
+      "uio-homepage": "Homepage ng UI Online",
+      "pending-payment": "Status ng Claim: Nakabinbin ang Pagbabayad",
+      "certify": "i-certify para sa mga benepisyo",
+      "reopen": "muling buksan ang iyong claim",
+      "reapply": "Mag-apply muli para sa mga benepisyo para sa pagkawala ng trabaho",
+      "enough-wages": "mga sapat na suweldo"
+    }
+  },
+  "external-navigation-modal": {
+    "header": "Kumpirmahin ang Nabigasyon",
+    "warning": "Magbubukas ka ng panibagong tab sa labas ng application. Pindutin ang Magpatuloy para magbukas ng panibagong tab o pindutin ang Kanselahin para bumalik sa application.",
+    "cancel-button": "Kanselahin",
+    "continue-button": "Magpatuloy"
+  }
+}
