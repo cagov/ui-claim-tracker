@@ -4,7 +4,7 @@
 
 import urls from '../../public/urls.json'
 import { UrlPrefixes } from '../../types/common'
-import { languagelist } from '../../public/languages.json'
+import languages from '../../public/languages.json'
 
 // Type alias for the keys in urls.json
 export type UrlType = keyof typeof urls
@@ -46,8 +46,8 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes, langu
   const urlPrefixBpo = stripTrailingSlashes(urlPrefixes?.urlPrefixBpo || process.env.URL_PREFIX_BPO)
 
   if (urlPrefixUioDesktop && key.startsWith('uio-desktop') && key !== 'uio-desktop-help-new-claim-es') {
-    let query = '?L='
-    const curLanguage = languagelist.find(function (item) {
+    let query = '?l='
+    const curLanguage = languages.languagelist.find(function (item) {
       return item['language-code'] === language
     })
     if (typeof curLanguage !== 'undefined') {

@@ -1075,6 +1075,7 @@ hr {
 	/* display: none; */
 	border: none;
 	border-width: 0px 1px 1px 1px;
+	border-radius: 0px 0px 15px 15px;
 	border-color: #DDDBDA;
 	background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #DDDBDA, #DDDBDA);
 	border-style: solid;
@@ -1106,19 +1107,16 @@ hr {
 }
 
 #languageSelector .languageSelectorTextColor:hover {
-	display: block;
-}
-
-
-#languageSelector div a:hover {
 	background-color: #1E90FF !important;
 	display: block;
 	outline: none;
 	border: none;
+	color: white !important;
+	text-decoration: none;
 }
 
-#languageSelector div a:hover {
-	color: white !important;
+#languageSelector .languageSelectorTextColor:last-of-type {
+	border-radius: inherit;
 }
 
 #languageSelector .dropdown-toggle::after {
@@ -1148,6 +1146,10 @@ hr {
 
 .nav-item:has(#languageSelector)::after{
 	display: none;
+}
+
+.selected-language {
+	background-color: #F0F0F4;
 }
 
 @media only screen and (max-width: 992px) {

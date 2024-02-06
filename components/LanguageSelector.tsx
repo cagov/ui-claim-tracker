@@ -1,12 +1,18 @@
 import { Dropdown } from 'react-bootstrap'
-import { i18n } from 'next-i18next'
-import { languagelist } from '../public/languages.json'
-import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
+
+import languages from '../public/languages.json'
+import { UrlPrefixes } from '../types/common'
+
+export interface LanguageSelectorProps {
+  urlPrefixes?: UrlPrefixes
+  cstUrl: string | undefined
+}
 
 export const LanguageSelector: React.FC = () => {
-  const router = useRouter()
-  const curLanguage = languagelist.find(function (item) {
-    return item['language-code'] === i18n?.language
+  const { i18n } = useTranslation()
+  const curLanguage = languages.languagelist.find(function (item) {
+    return item['language-code'] === i18n.language
   })
 
   return (
@@ -17,18 +23,20 @@ export const LanguageSelector: React.FC = () => {
         <span className="ca-gov-icon-caret-down" />
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        {languagelist &&
-          languagelist.length > 0 &&
-          languagelist.map((language) => (
-            <Dropdown.Item
+        {languages.languagelist &&
+          languages.languagelist.length > 0 &&
+          languages.languagelist.map((language) => (
+            <a
+              href={`./${language['language-code']}`}
+              className={
+                language['language-code'] === curLanguage?.['language-code']
+                  ? 'selected-language languageSelectorTextColor'
+                  : 'languageSelectorTextColor'
+              }
               key={language.display}
-              className="languageSelectorTextColor"
-              onClick={async () => {
-                await router.push('', '', { locale: language['language-code'] })
-              }}
             >
               {language.display}
-            </Dropdown.Item>
+            </a>
           ))}
       </Dropdown.Menu>
     </Dropdown>
