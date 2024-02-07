@@ -2,14 +2,12 @@ import { Dropdown } from 'react-bootstrap'
 import { useTranslation } from 'next-i18next'
 
 import languages from '../public/languages.json'
-import { UrlPrefixes } from '../types/common'
 
 export interface LanguageSelectorProps {
-  urlPrefixes?: UrlPrefixes
-  cstUrl: string | undefined
+  assetPrefix: string
 }
 
-export const LanguageSelector: React.FC = () => {
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ assetPrefix = '' }) => {
   const { i18n } = useTranslation()
   const curLanguage = languages.languagelist.find(function (item) {
     return item['language-code'] === i18n.language
@@ -27,7 +25,7 @@ export const LanguageSelector: React.FC = () => {
           languages.languagelist.length > 0 &&
           languages.languagelist.map((language) => (
             <a
-              href={`./${language['language-code']}`}
+              href={`.` + assetPrefix + `/${language['language-code']}`}
               className={
                 language['language-code'] === curLanguage?.['language-code']
                   ? 'selected-language languageSelectorTextColor'

@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ userArrivedFromUioMobile = false
           />
           <Nav>
             <Nav.Item>
-              <LanguageSelector />
+              <LanguageSelector assetPrefix={assetPrefix} />
             </Nav.Item>
             <Navbar.Collapse>
               <ExternalLink url={getUrl('edd-ca-gov')} text={t('header.edd-home')} />
