@@ -25,7 +25,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ assetPrefix 
           languages.languagelist.length > 0 &&
           languages.languagelist.map((language) => (
             <a
-              href={`.` + assetPrefix + `/${language['language-code']}`}
+              href={assetPrefix + `/${language['language-code']}`}
               className={
                 language['language-code'] === curLanguage?.['language-code']
                   ? 'selected-language languageSelectorTextColor'
