@@ -45,13 +45,16 @@ export default function getUrl(linkKey: string, urlPrefixes?: UrlPrefixes, langu
   )
   const urlPrefixBpo = stripTrailingSlashes(urlPrefixes?.urlPrefixBpo || process.env.URL_PREFIX_BPO)
 
-  if (urlPrefixUioDesktop && key.startsWith('uio-desktop') && key !== 'uio-desktop-help-new-claim-es') {
-    let query = '?l='
-    const curLanguage = languages.languagelist.find(function (item) {
-      return item['language-code'] === language
-    })
-    if (typeof curLanguage !== 'undefined') {
-      query += curLanguage?.['ms-culture']
+  if (urlPrefixUioDesktop && key.startsWith('uio-desktop')) {
+    let query = ''
+    if (!key.startsWith('uio-desktop-help-new-claim')) {
+      query = '?l='
+      const curLanguage = languages.languagelist.find(function (item) {
+        return item['language-code'] === language
+      })
+      if (typeof curLanguage !== 'undefined') {
+        query += curLanguage?.['ms-culture']
+      }
     }
     return urls[key].replace('uio.edd.ca.gov/UIO', urlPrefixUioDesktop) + query
   }
