@@ -17,7 +17,9 @@ function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   // If the link is for UIO homepage or UIO landing page, do a direct getUrl() lookup.
   // Do not pass the looked up url through t() because t() will mangle the url.
   if (link === 'uio-home') {
-    const uioHomeLink = userArrivedFromUioMobile ? getUrl('uio-mobile-home') : getUrl('uio-desktop-home')
+    const uioHomeLink = userArrivedFromUioMobile
+      ? getUrl('uio-mobile-home', undefined, i18n?.language)
+      : getUrl('uio-desktop-home', undefined, i18n?.language)
     if (uioHomeLink) {
       return uioHomeLink
     }
@@ -25,7 +27,7 @@ function resolveUrl(link: I18nString, userArrivedFromUioMobile: boolean) {
   // Special case for UIO landing page links.
   else if (link === 'uio-landing-page') {
     const uioLandingPageLink = userArrivedFromUioMobile
-      ? getUrl('uio-mobile-landing-page')
+      ? getUrl('uio-mobile-landing-page', undefined, i18n?.language)
       : getUrl('uio-desktop-landing-page', undefined, i18n?.language)
     if (uioLandingPageLink) {
       return uioLandingPageLink
