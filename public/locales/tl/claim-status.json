@@ -166,7 +166,7 @@
       ],
       "your-next-steps": [
         {
-          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat na sahod</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
         }
       ],
       "edd-next-steps": [
@@ -176,7 +176,7 @@
       ]
     },
     "scenario8": {
-      "heading": "Natapos na ang iyong Tulong para sa Pagkawala ng Trabaho Dahil sa Pandemya",
+      "heading": "Natapos na ang Tulong para sa Pagkawala ng Trabaho Dahil sa Pandemya",
       "summary": [
         {
           "text": "Natapos na ang mga benepisyo sa Tulong para sa Pagkawala ng Trabaho Dahil sa Pandemya (Pandemic Unemployment Assistance, PUA). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 4, 2021, kahit may balanse ka sa claim mo."
@@ -184,7 +184,7 @@
       ],
       "your-next-steps": [
         {
-          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat na sahod</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
         }
       ],
       "edd-next-steps": [
@@ -194,15 +194,15 @@
       ]
     },
     "scenario9": {
-      "heading": "Natapos na ang iyong Tulong para sa Pagkawala ng Trabaho Dahil sa Sakuna",
+      "heading": "Natapos na ang Tulong sa Kawalan ng Trabaho Dahil sa Sakuna",
       "summary": [
         {
-          "text": "Natapos na ang iyong mga benepisyo para sa Tulong para sa Pagkawala ng Trabaho Dahil sa Sakuna (Disaster Unemployment Assistance, DUA) Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng mga programang ito, kahit na may balanse ka sa claim mo."
+          "text": "Natapos na ang iyong mga benepisyo para sa Tulong sa Kawalan ng Trabaho Dahil sa Sakuna (Disaster Unemployment Assistance, DUA) Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa DUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng mga programang ito, kahit na may balanse ka sa claim mo."
         }
       ],
       "your-next-steps": [
         {
-          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat na sahod</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
         }
       ],
       "edd-next-steps": [
@@ -215,12 +215,12 @@
       "heading": "Natapos na ang Mga Benepisyo para sa Pagkawala ng Trabaho galing sa Pederal",
       "summary": [
         {
-          "text": "Natapos na ang mga benepisyo ng pederal para sa pagkawala ng trabaho. Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa mga linggo ng pagkawala ng trabaho pagkatapos ng mga programang ito, kahit na may balanse ka sa claim mo."
+          "text": "Natapos na ang mga benepisyo para sa pagkawala ng trabaho galing sa pederal. Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa mga linggo ng pagkawala ng trabaho pagkatapos ng mga programang ito, kahit na may balanse ka sa claim mo."
         }
       ],
       "your-next-steps": [
         {
-          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat na sahod</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
         }
       ],
       "edd-next-steps": [
@@ -230,15 +230,15 @@
       ]
     },
     "scenario11": {
-      "heading": "Natapos na ang Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho sa Panahon ng Pandemya",
+      "heading": "Natapos na ang Pagbabayad sa Kawalan ng Trabaho na dulot ng Emergency dahil sa Pandemya",
       "summary": [
         {
-          "text": "Natapos na ang mga benepisyo para sa Pang-emergency na Kabayaran para sa Pagkawala ng Trabaho sa Panahon ng Pandemya (Pandemic Emergency Unemployment Compensation, PEUC). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 4, 2021, kahit na may balanse ka sa claim mo."
+          "text": "Natapos na ang mga benepisyo para sa Pagbabayad sa Kawalan ng Trabaho na dulot ng Emergency dahil sa Pandemya (Pandemic Emergency Unemployment Compensation, PEUC). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa PUA sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 4, 2021, kahit na may balanse ka sa claim mo."
         }
       ],
       "your-next-steps": [
         {
-          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat na sahod</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
         }
       ],
       "edd-next-steps": [
@@ -248,15 +248,15 @@
       ]
     },
     "scenario12": {
-      "heading": "Natapos na ang mga benepisyo para sa Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED)",
+      "heading": "Natapos na ang mga benepisyo ng Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED)",
       "summary": [
         {
-          "text": "Natapos na ang mga benepisyo para sa Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa FED-ED sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 11, 2021, kahit na may balanse ka sa claim mo."
+          "text": "Natapos na ang mga benepisyo ng Pinalawig na Tagal ng Pederal at Estado (Federal-State Extended Duration, FED-ED). Hindi pinapayagan ng batas ng pederal na bayaran ang mga benepisyo sa FED-ED sa mga linggo ng pagkawala ng trabaho pagkatapos ng Setyembre 11, 2021, kahit na may balanse ka sa claim mo."
         }
       ],
       "your-next-steps": [
         {
-          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
+          "text": "Pwede kang <0>mag-apply ulit para sa mga benepisyo para sa pagkawala ng trabaho</0> kung kumita ka nang <1>sapat na sahod</1> mula sa isang employer sa nakalipas na 18 buwan at wala ka pa ring trabaho o nagtatrabaho ka nang part-time."
         }
       ],
       "edd-next-steps": [
@@ -268,7 +268,7 @@
   },
   "conditional-next-steps": {
     "continue-certifying": {
-      "text": "Patuloy na <0>mag-certify para sa benepisyo</0>habang pinagdedesisyunan namin ang iyong pagkakwalipikado."
+      "text": "Patuloy na <0>mag-certify para sa mga benepisyo</0>habang tinutukoy namin ang iyong pagiging kwalipikado."
     }
   }
 }

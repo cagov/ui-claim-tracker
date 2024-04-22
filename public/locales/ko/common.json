@@ -5,7 +5,7 @@
     "edd-home": "EDD 홈",
     "help": "도움말",
     "logout": "로그아웃",
-    "uio-home": "실업 보험 홈",
+    "uio-home": "UI 홈",
     "uio-certify": "인증",
     "uio-payments": "지급",
     "uio-history": "기록",
@@ -51,7 +51,7 @@
     "toTop": "위로 올라가기",
     "contact": "EDD에 문의하기",
     "conditionsOfUse": "사용 조건",
-    "privacyPolicy": "개인정보 보호정책",
+    "privacyPolicy": "개인정보 보호규정",
     "accessibility": "접근성",
     "copyright": "Copyright © 2021 State of California"
   },
@@ -76,7 +76,7 @@
     },
     "hypertext": {
       "uio-homepage": "실업 보험 온라인 홈페이지",
-      "pending-payment": "청구 상태: 보류 중인 지급",
+      "pending-payment": "청구 상태: 지급 보류 중",
       "certify": "급여에 대한 인증",
       "reopen": "청구 재개",
       "reapply": "실업 급여 재신청",
@@ -84,7 +84,7 @@
     }
   },
   "external-navigation-modal": {
-    "header": "탐색 확인",
+    "header": "내이비게이션 확인",
     "warning": "애플리케이션 밖에서 새 탭을 열고 있습니다. 계속을 클릭하여 새 탭을 열거나 취소를 선택하여 애플리케이션으로 돌아가세요.",
     "cancel-button": "취소",
     "continue-button": "계속"
