@@ -1,13 +1,13 @@
 {
   "header": {
     "alt-image-cagov": "CA.gov",
-    "alt-image-edd": "Home ng Departamento ng Pag-unlad sa Trabaho (EDD) ng Estado ng California",
+    "alt-image-edd": "Home ng Employment Development Departament (EDD) ng Estado ng California",
     "edd-home": "Home ng EDD",
     "help": "Tulong",
     "logout": "Mag-log Out",
     "uio-home": "Home ng UI",
-    "uio-certify": "Mag-certify",
-    "uio-payments": "Aktibidad sa Pagbabayad",
+    "uio-certify": "I-certify",
+    "uio-payments": "Mga Pagbabayad",
     "uio-history": "History",
     "uio-status": "Status",
     "uio-profile": "Profile",
@@ -23,13 +23,13 @@
     },
     "button": "Bumalik sa Home ng UI",
     "server-error": {
-      "label": "Nagkaroon ng error sa panig namin.",
-      "entry": "Hindi namin maproseso ang iyong request."
+      "label": "Nagkaroon ng kamalian sa panig namin.",
+      "entry": "Hindi namin magawa ang iyong kahilingan."
     }
   },
   "maintenance": {
     "label": "Babalik Kami Sa Lalong Madaling Panahon",
-    "entry": "Kasalukuyang hindi available ang page na ito habang isinasagawa ang pagmementina ng system.",
+    "entry": "Kasalukuyang hindi available ang page na ito habang isinasagawa ang pagpapanatili ng sistema.",
     "entry2": "Salamat sa iyong pasensya habang patuloy naming pinaghuhusay ang aming mga serbisyo."
   },
   "claim-status": {
@@ -48,7 +48,7 @@
     "extension-type": "Uri ng Pagpapalawig"
   },
   "footer": {
-    "toTop": "Bumalik sa Itaas",
+    "toTop": "Pabalik sa Itaas",
     "contact": "Makipag-ugnayan sa EDD",
     "conditionsOfUse": "Mga Kondisyon ng Paggamit",
     "privacyPolicy": "Patakaran sa Privacy",
@@ -79,13 +79,13 @@
       "pending-payment": "Status ng Claim: Nakabinbin ang Pagbabayad",
       "certify": "i-certify para sa mga benepisyo",
       "reopen": "muling buksan ang iyong claim",
-      "reapply": "Mag-apply muli para sa mga benepisyo para sa pagkawala ng trabaho",
-      "enough-wages": "mga sapat na suweldo"
+      "reapply": "Muling mag-aplay para sa mga benepisyo para sa walang trabaho",
+      "enough-wages": "sapat na sahod"
     }
   },
   "external-navigation-modal": {
     "header": "Kumpirmahin ang Nabigasyon",
-    "warning": "Magbubukas ka ng panibagong tab sa labas ng application. Pindutin ang Magpatuloy para magbukas ng panibagong tab o pindutin ang Kanselahin para bumalik sa application.",
+    "warning": "Magbubukas ka ng panibagong tab sa labas ng Aplikasyon. Piliin ang Magpatuloy para magbukas ng panibagong tab o piliin ang Kanselahin para bumalik sa aplikasyon.",
     "cancel-button": "Kanselahin",
     "continue-button": "Magpatuloy"
   }
