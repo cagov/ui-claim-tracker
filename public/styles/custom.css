@@ -1125,19 +1125,20 @@ hr {
 
 #languageSelector .btn {
 	box-shadow: none;
-	background-color: #116c97;
+	background-color: #446a7c;
 	margin: 0;
 }
 
 #languageSelector .btn:hover {
-	border-color: #116c97;
-	background-color: #116c97;
+	border-color: #446a7c;
+	background-color: #446a7c;
+	color: #FEF1D2;
 }
 
 #languageSelector .btn:focus,
 #languageSelector .btn:active {
-	outline: solid 2px #2ea3f2;
-	background-color: #116c97;
+	outline: solid 2px #dce2ff;
+	background-color: #446a7c;
 }
 
 .nav-item:has(#languageSelector):hover{
@@ -1178,6 +1179,10 @@ hr {
 	#languageSelector div.dropdown-menu.show {        
 		left: -10vw;
 	}
+}
+	
+.nav-link:focus {
+	outline: solid 2px #dce2ff !important;
 }
 	
 	
