@@ -1,7 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import './cagov.core.css';
 @import './colorscheme-oceanside.css';
-@import './colorscheme-trinity.css';
 @import './custom.css';
 
 // Component class names must not be nested for Storybook to work
@@ -28,7 +27,7 @@ body {
 
     //flagged important to override important flag in bootstrap
     border-bottom-width: 4px !important;
-    border-bottom-color: #c19e73 !important;
+    border-bottom-color: #fdb81e !important;
 
     .navbar-brand {
       padding: 0;
@@ -57,7 +56,7 @@ body {
     }
 
     .navbar-dark {
-      background-color: #446a7c;
+      background-color: #116c97;
       padding: 0 1rem;
 
       .navbar-nav {
@@ -71,7 +70,7 @@ body {
 
     .navbar-light .navbar-nav {
       margin: 0 4px -12px 4px;
-      border-bottom: 4px solid #c19e73;
+      border-bottom: 4px solid #fdb81e;
 
       &:hover {
         margin: 0 4px -12px 4px;

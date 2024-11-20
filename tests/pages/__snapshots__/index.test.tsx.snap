@@ -25,7 +25,7 @@ exports[`Full page snapshot renders homepage unchanged 1`] = `
               alt="CA.gov"
               className="opener"
               height="34"
-              src="/images/Ca-Gov-Logo-Gold.svg"
+              src="/images/new-cagov-logo-white.png"
               width="46"
             />
           </span>
