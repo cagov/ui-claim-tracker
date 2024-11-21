@@ -1125,20 +1125,20 @@ hr {
 
 #languageSelector .btn {
 	box-shadow: none;
-	background-color: #446a7c;
+	background-color: #116c97;
 	margin: 0;
 }
 
 #languageSelector .btn:hover {
-	border-color: #446a7c;
-	background-color: #446a7c;
+	border-color: #116c97;
+	background-color: #116c97;
 	color: #FEF1D2;
 }
 
 #languageSelector .btn:focus,
 #languageSelector .btn:active {
-	outline: solid 2px #dce2ff;
-	background-color: #446a7c;
+	outline: solid 2px #2ea3f2;
+	background-color: #116c97;
 }
 
 .nav-item:has(#languageSelector):hover{

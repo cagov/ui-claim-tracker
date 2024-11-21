@@ -12,7 +12,7 @@ const Template: Story<ExternalBrandProps> = (args) => <ExternalBrandComponent {.
 export const ExternalBrand = Template.bind({})
 ExternalBrand.args = {
   url: 'edd-ca-gov',
-  src: '/images/Ca-Gov-Logo-Gold.svg',
+  src: '/images/new-cagov-logo-white.png',
   alt: 'External Brand Alt Text!',
   width: '36',
   height: '34',
